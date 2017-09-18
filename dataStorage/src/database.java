@@ -1,3 +1,4 @@
 public class database {
-	print('this is a test');
+	println('this is a test');
+	ptint('this is a second test');
 }
