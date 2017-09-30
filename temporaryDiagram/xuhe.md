@@ -9,13 +9,17 @@
 |   Account.Del   |         |  TUS2   |
 |  Account.Edit   |  TUS1   |         |
 |  Account.Query  |         |  TUS2   |
-| Account.Update  |         |         |
+| Account.Update  |  TUS1   |         |
+
+
 
 ### 2. 测试用例套件
 
 **TUS1**  正常流程-->3.1.1a-->3.1.2a
 
 **TUS2**  正常流程-->3.4.1a
+
+
 
 ### 3.测试用例
 
@@ -27,6 +31,8 @@
 | TUS1-2 | 非法的账户名称 |   有    |         系统提示输入出错，关闭新建账户任务          |
 | TUS1-3 | 合法的账户名称 |   无    |    系统将该账户的金额设为0，将该新建账户显示在账户列表中     |
 | TUS1-4 | 非法的账户明显 |   无    |         系统提示输入出错，关闭新建账户任务          |
+
+
 
 #### TUS2
 
@@ -44,16 +50,20 @@
 | Bill.Receipt.New |  TUS1   |         |
 | Bill.Payment.New |  TUS1   |         |
 |  Bill.Cash.New   |  TUS1   |  TUS2   |
-|   Bill.Cancel    |         |         |
+|   Bill.Cancel    |  TUS1   |  TUS2   |
 |   Bill.Confirm   |  TUS1   |  TUS2   |
 |     Bill.Cal     |         |  TUS2   |
-| Bill.ChangeState |         |         |
+| Bill.ChangeState |  TUS1   |  TUS2   |
+
+
 
 ### 2. 测试用例套件
 
 **TUS1**  正常流程-->1.1.2a
 
 **TUS2**  正常流程-->1.3.6a
+
+
 
 ### 3. 测试用例
 
@@ -63,6 +73,8 @@
 | :----: | :---------: | :--: | :-----------------: |
 | TUS1-1 | 客户列表中存在的客户  |  正常  |     系统提示生成账单成功      |
 | TUS1-2 | 客户列表中不存在的客户 |  正常  | 系统提示此客户不存在，关闭创建账单任务 |
+
+
 
 #### TUS2
 
@@ -82,11 +94,21 @@
 |  InitialAccount.Save   |  TUS1   |
 | InitialAccount.Inquire |  TUS1   |
 
+
+
 ### 2. 测试用例套件
 
 **TUS1**  正常流程
 
+
+
 ### 3. 测试用例
+
+|   ID   |   点击   |    预期输出    |
+| :----: | :----: | :--------: |
+| TUS1-1 | 点击期初建账 | 系统保存期初建账信息 |
+
+
 
 ## 用例12 经营历程查询
 
@@ -100,8 +122,10 @@
 |   BusinessProcess.Copy   |         |  TUS2   |  TUS3   |
 |   BusinessProcess.Red    |         |  TUS2   |         |
 |   BusinessProcess.Edit   |         |         |  TUS3   |
-| BusinessProcess.Confirm  |         |         |         |
-|  BusinessProcess.Concel  |         |         |         |
+| BusinessProcess.Confirm  |  TUS1   |         |         |
+|  BusinessProcess.Concel  |  TUS1   |         |         |
+
+
 
 ### 2. 测试用例套件
 
@@ -110,6 +134,8 @@
 **TUS2**  正常流程-->4.1.2a
 
 **TUS3**  正常流程-->4.2.2a
+
+
 
 ### 3. 测试用例
 
@@ -120,12 +146,16 @@
 | TUS1-1 | 有符合筛选条件的单据 | 系统显示符合条件的的那句 |
 | TUS1-2 | 无符合筛选条件的单据 |  系统提示无相关单据   |
 
+
+
 #### TUS2
 
 |   ID   | 用户类型 |         预期输出         |
 | :----: | :--: | :------------------: |
 | TUS2-1 | 财务人员 |   满足前置条件，系统进行下一步操作   |
 | TUS2-2 | 总经理  | 不满足前置条件，系统提示无权限进行此操作 |
+
+
 
 #### TUS3
 
@@ -141,14 +171,18 @@
 |      编号      | 测试用例套件1 |
 | :----------: | :-----: |
 |   User.New   |  TUS1   |
-| User.Delete  |         |
+| User.Delete  |  TUS1   |
 |  User.Edit   |  TUS1   |
 | User.Confirm |  TUS1   |
-| User.Cancle  |         |
+| User.Cancle  |  TUS1   |
+
+
 
 ### 2. 测试用例套件
 
 **TUS1**  正常流程-->4a
+
+
 
 ### 3. 测试用例
 
