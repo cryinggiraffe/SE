@@ -425,11 +425,229 @@
 
 **提供的服务<供接口>**
 
+##### **UserClassPromotionDataService.insert**
+
+##### **语法:**public void insert(PromotionPO po)
+
+##### **前置条件:**同一时间段内没有促销策略
+
+##### **后置条件:**在数据库中添加一个po记录
+
+##### **UserClassPromotionDataService.delete**
+
+##### **语法:**public void delete(PromotionPO po)
+
+##### **前置条件:**数据库在指定时间内存在促销策略
+
+##### **后置条件:**在数据库中删除一个po记录
+
+##### **UserClassPromotionDataService.update**
+
+##### **语法:**public void update(PromotionPO po)
+
+##### **前置条件:**数据库在指定时间内存在促销策略
+
+##### **后置条件:**在数据库中更新一个po记录
+
+##### **UserClassPromotionDataService.findAll**
+
+##### **语法:**public List<PromotionPO> findAll()
+
+##### **前置条件:**无
+
+##### **后置条件:**查找返回所有的促销策略
+
+##### **UserClassPromotionDataService.init**
+
+##### **语法:**public void init() throws RemoteException
+
+##### **前置条件:**无
+
+##### **后置条件:**初始化持久化数据库
+
+##### **UserClassPromotionDataService.finish**
+
+##### 语法:**public void finish() throws RemoteException
+
+##### **前置条件:**无
+
+##### **后置条件:**结束初始化持久化数据库的使用
+
+##### **CommodityPromotionDataService.insert**
+
+##### **语法:**public void insert(PromotionPO po)
+
+##### **前置条件:**同一时间段内没有促销策略
+
+##### **后置条件:**在数据库中添加一个po记录
+
+##### **CommodityPromotionDataService.delete**
+
+##### **语法:**public void delete(PromotionPO po)
+
+##### **前置条件:**数据库在指定时间内存在促销策略
+
+##### **后置条件:**在数据库中删除一个po记录
+
+##### **CommodityPromotionDataService.update**
+
+##### **语法:**public void update(PromotionPO po)
+
+##### **前置条件:**数据库在指定时间内存在促销策略
+
+##### **后置条件:**在数据库中更新一个po记录
+
+##### **CommodityPromotionDataService.findAll**
+
+##### **语法:**public List<PromotionPO> findAll()
+
+##### **前置条件:**无
+
+##### **后置条件:**查找返回所有的促销策略
+
+##### **CommodityPromotionDataService.init**
+
+##### **语法:**public void init() throws RemoteException
+
+##### **前置条件:**无
+
+##### **后置条件:**初始化持久化数据库
+
+##### **CommodityPromotionDataService.finish**
+
+##### **语法:**public void finish() throws RemoteException
+
+##### **前置条件:**无
+
+##### **后置条件:**结束初始化持久化数据库的使用
+
+##### **PricePromotionDataService.insert**
+
+##### **语法:**public void insert(PromotionPO po)
+
+##### **前置条件:**同一时间段内没有促销策略
+
+##### **后置条件:**在数据库中添加一个po记录
+
+##### **PricePromotionDataService.delete**
+
+##### **语法:**public void delete(PromotionPO po)
+
+##### **前置条件:**数据库在指定时间内存在促销策略
+
+##### **后置条件:**在数据库中删除一个po记录
+
+##### **PricePromotionDataService.update**
+
+##### **语法:**public void update(PromotionPO po)
+
+##### **前置条件:**数据库在指定时间内存在促销策略
+
+##### **后置条件:**在数据库中更新一个po记录
+
+##### **PricePromotionDataService.findAll**
+
+##### **语法:**public List<PromotionPO> findAll()
+
+##### **前置条件:**无
+
+##### **后置条件:**查找返回所有的促销策略
+
+##### **PricePromotionDataService.init**
+
+##### **语法:**public void init() throws RemoteException
+
+##### **前置条件:**无
+
+##### **后置条件:**初始化持久化数据库
+
+##### **PricePromotionDataService.finish**
+
+##### **语法:**public void finish() throws RemoteException
+
+##### **前置条件:**无
+
+##### **后置条件:**结束初始化持久化数据库的使用
+
 
 
 ##### 审批数据层模块的接口规范
 
 **提供的服务<供接口>**
+
+##### **ApproveDataService.findAll**
+
+##### **语法:**public List<ApplicationPO> findAll()
+
+##### **前置条件:**无
+
+##### **后置条件:**查找返回所有的待审批的单据
+
+##### **ApproveDataService.update**
+
+##### **语法:**public void update(ApplicationPO po)
+
+##### **前置条件:**数据库中存在待审批单据
+
+##### **后置条件:**在数据库中更新一个po记录
+
+##### **ApproveDataService.init**
+
+##### **语法:**public void init() throws RemoteException
+
+##### **前置条件:**无
+
+##### **后置条件:**初始化持久化数据库
+
+##### **ApproveDataServicefinish**
+
+##### **语法:**public void finish() throws RemoteException
+
+##### **前置条件:**无
+
+##### **后置条件:**结束初始化持久化数据库的使用
+
+
+
+##### **ApproveMessageDataService.insert**
+
+##### **语法:**public void insert(String message)
+
+##### **前置条件:**单据审批通过
+
+##### **后置条件:**给库存人发送一条消息
+
+##### **ApproveMessageDataService.count**
+
+##### **语法:**public int update()
+
+##### **前置条件:**无
+
+##### **后置条件:**返回数据库中消息的数量
+
+##### **PricePromotion.find**
+
+##### **语法:**public String find(int id)
+
+##### **前置条件:**无
+
+##### **后置条件:**按ID进行查找返回相应的消息结果
+
+##### **ApproveDataService.init**
+
+##### **语法:**public void init() throws RemoteException
+
+##### **前置条件:**无
+
+##### **后置条件:**初始化持久化数据库
+
+##### **ApproveDataService.finish**
+
+##### **语法:**public void finish() throws RemoteException
+
+##### **前置条件:**无
+
+##### **后置条件:**结束初始化持久化数据库的使用
 
 
 
@@ -447,17 +665,139 @@
 
 示例：
 
-> - UserPO类包含用户的用户名、密码属性
+> - UserPO类包含用户的用户名、密码属性、用户类型
 >
 > 持久化用户对象UserPO的定义如下：
 >
-> ~~~
+> ~~~java
 > public class UserPO implements Serializable {
->   ……
->   ……
->   ……
+>   	String username;
+> 	String password;
+>   	int type;
+>   
+>   	public UserPO(String username,String password, int type){
+>         this.username = username;
+>       	this.password = password;
+>       	this.type = type;
+>     }
+>   
+>   	public String getUsername(){
+>         return username;
+>     }
+>   	
+>   	public String getPassword(){
+>         return password;
+>     }
+>   
+>   	public int getType(){
+>         return type;
+>     }
 > }
 > ~~~
+>
+> 
+>
+> PromotionPO类包含促销起始日、促销结束日、礼品编号、礼品数量、价格折让、代金劵
+>
+> ```java
+> public class PromotionPO implements Serializable {
+>   	
+>   	int giftId;
+>   	int giftcount;
+>   	double discount;
+>   	double cash;
+>   	List<Integer> commodityId;
+>   	
+>   	Date begin;
+>   	Date end;
+>   
+>   
+>   	public PromotionPO(){
+>       	super();
+>     }
+>   
+>   	public void setGiftId(int giftId){
+>         this.giftId = giftId;
+>     }
+>   
+>   	public String getGiftId(){
+>         return giftId;
+>     }
+>   	
+>   	public void setGiftcount(int giftcount){
+>         this.giftcount = giftcount;
+>     }
+>   
+>   	public String getGiftcount(){
+>         return giftcount;
+>     }
+>   
+>   	public void setDiscount(int discount){
+>         this.discount = discount;
+>     }
+>   
+>   	public String getDiscount(){
+>         return discount;
+>     }
+>   
+>   	public void setCash(int Cash){
+>         this.cash = cash;
+>     }
+>   
+>   	public String getCash(){
+>         return cash;
+>     }
+>   
+>   	public void setCommodityId(int ...commodityId){
+>        	for(int i = 0; i < commodity.size(); i++){
+>             commodityId.add(commityId[i]);
+>         }
+>     }
+>   
+>   	public List<Integer> getCommodityId(){
+>         return commodityId;
+>     }
+>   
+>   	public void setBegin(Date begin){
+>         this.begin = begin;
+>     }
+>   
+>   	public Date getBegin(){
+>         return begin;
+>     }
+>   
+>     public void setEnd(Date end){
+>         this.end = end;
+>     }
+>   
+>   	public Date end(){
+>         return end;
+>     }
+> }
+> ```
+>
+> Message类包含用户的用户名、密码属性、用户类型
+>
+> ```java
+> public class Message implements Serializable {
+>   	
+>   	int messageId;
+>   	String message;
+>   	
+>   	public UserPO(int messageId,String message){
+>         this.messageId = messageId;
+>       	this.password = message;
+>     }
+>   
+>   	public int getMessageId(){
+>         return username;
+>     }
+>   	
+>   	public String getMessage(){
+>         return password;
+>     }
+> }
+> ```
 >
 > 
 
