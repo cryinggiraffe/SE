@@ -296,63 +296,50 @@
 
 #### 5.4.1 数据层模块的职责
 
-##### 库存数据层模块的职责
+##### 商品分类管理数据层模块的职责
 
-|               模块                |               职责                |
-| :-----------------------------: | :-----------------------------: |
-|      InventoryDataService       | 持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务 |
-| InventoryDataServiceTxtFileImpl |                                 |
+|                   模块                    |                    职责                    |
+| :-------------------------------------: | :--------------------------------------: |
+|           CategoryDataService           |     持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务      |
+|    CategoryDataServiceExcelFileImpl     | 基于Excel文件的持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务 |
+| CategoryDataServiceSerializableFileImpl | 基于序列化文件的持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务  |
+|      CategoryDataServiceMySqlImpl       | 基于MySql数据库的持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务 |
 
-##### 销售数据层模块的职责
+##### 商品数据层模块的职责
 
-|  模块  |  职责  |
-| :--: | :--: |
-|      |      |
-|      |      |
+|                 模块                  |                    职责                    |
+| :---------------------------------: | :--------------------------------------: |
+|           GoodDataService           |     持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务      |
+|    GoodDataServiceExcelFileImpl     | 基于Excel文件的持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务 |
+| GoodDataServiceSerializableFileImpl | 基于序列化文件的持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务  |
+|      GoodDataServiceMySqlImpl       | 基于MySql数据库的持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务 |
 
-##### 财务数据层模块的职责
+**查看库存数据层模块的职责** 
 
-|  模块  |  职责  |
-| :--: | :--: |
-|      |      |
-|      |      |
+|                 模块                  |                    职责                    |
+| :---------------------------------: | :--------------------------------------: |
+|           ViewDataService           |     持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务      |
+|    ViewDataServiceExcelFileImpl     | 基于Excel文件的持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务 |
+| ViewDataServiceSerializableFileImpl | 基于序列化文件的持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务  |
+|      ViewDataServiceMySqlImpl       | 基于MySql数据库的持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务 |
 
-##### 销售策略数据层模块的职责
+##### 赠品数据层模块的职责
 
-|                    模块                    |                    职责                    |
-| :--------------------------------------: | :--------------------------------------: |
-|        PricePromotionDataService         |     持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务     |
-|  PricePromotionDataServiceExcelFileImpl  | 基于Excel文件的持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务 |
-| PricePromotionDataServiceSerializableFileImpl | 基于序列化文件的持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务 |
-|    PricePromotionDataServiceMySqlImpl    | 基于MySql数据库的持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务 |
-|      CommodityPromotionDataService       |     持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务     |
-| CommodityPromotionDataServiceExcelFileImpl | 基于Excel文件的持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务 |
-| CommodityPromotionDataServiceSerializableFileImpl | 基于序列化文件的持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务 |
-|  CommodityPromotionDataServiceMySqlImpl  | 基于MySql数据库的久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务 |
-|      UserClassPromotionDataService       |     持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务     |
-| UserClassPromotionDataServiceExcelFileImpl | 基于Excel文件持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务 |
-| UserClassPromotionDataServiceSerializableFileImpl | 基于序列化文件的持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务 |
-|  UserClassPromotionDataServiceMySqlImpl  | 基于MySql数据库的持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务 |
+|                 模块                  |                    职责                    |
+| :---------------------------------: | :--------------------------------------: |
+|           GiftDataService           |     持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务      |
+|    GiftDataServiceExcelFileImpl     | 基于Excel文件的持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务 |
+| GiftDataServiceSerializableFileImpl | 基于序列化文件的持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务  |
+|      GiftDataServiceMySqlImpl       | 基于MySql数据库的持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务 |
 
-##### 审批数据层模块的职责
+**库存监管数据层模块的职责**
 
-|                    模块                    |                    职责                    |
-| :--------------------------------------: | :--------------------------------------: |
-|            ApproveDataService            |     持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务     |
-|     ApproveDataServiceExcelFileImpl      | 基于Excel文件的持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务 |
-|  ApproveDataServiceSerializableFileImpl  | 基于序列化文件的持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务 |
-|       ApproveDataServiceMySqlImpl        | 基于MySql数据库的持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务 |
-|        ApproveMessageDataService         |     持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务     |
-|  ApproveMessageDataServiceExcelFileImpl  | 基于Excel文件的持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务 |
-| ApproveMessageDataServiceSerializableFileImpl | 基于序列化文件的持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务 |
-|    ApproveMessageDataServiceMySqlImpl    | 基于MySql数据库的持久化数据库的接口，提供集体的载入、集体保存、增、删、改、查服务 |
-
-##### 系统管理数据层模块的职责
-
-|  模块  |  职责  |
-| :--: | :--: |
-|      |      |
-|      |      |
+|                   模块                   |                    职责                    |
+| :------------------------------------: | :--------------------------------------: |
+|           ReceiptDataService           |     持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务      |
+|    ReceiptDataServiceExcelFileImpl     | 基于Excel文件的持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务 |
+| ReceiptDataServiceSerializableFileImpl | 基于序列化文件的持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务  |
+|      ReceiptDataServiceMySqlImpl       | 基于MySql数据库的持久化数据库的接口，提供集体载入、集体保存、增、删、改、查服务 |
 
 ## 6 信息视角
 
@@ -362,6 +349,8 @@
 
 - CategoryPo类是包含商品分类的编号属性
 - GoodPO类是包含商品的编号、名称、型号、库存数量、进价、零售价、最近进价、最近零售价属性。
+- ViewPo类是保存一段时间内库存情况的数据的类，包含出库数量及金额，入库数量及金额，销售数量及金额，进货数量及金额，并且包括库存数量的合计。
+- ViewTodayPo类是保存当天内库存情况的数据的类，包含当天各种商品的名称、型号、库存数量、库存均价、批次、批号、出场日期
 - GiftPo类是保存赠品的数据的类，包含编号、名称、型号、库存数量、进价、零售价、最近进价、最近零售价属性。
 - ReceiptPo类是保存库存库存报溢、报损、报警数据的类，包含包含编号、名称、型号、库存数量、进价、零售价、最近进价、最近零售价属性。
 
@@ -426,34 +415,140 @@ public class GoodPO implements Serializable {
 }
 ```
 
+持久化用户对象ViewPO的定义如下：
+
+包含出库数量及金额，入库数量及金额，销售数量及金额，进货数量及金额，并且包括库存数量的合计
+
+```
+public class ViewPO implements Serializable {
+  int out_num;
+  int out_price;
+  int in_num;
+  int in_price;
+  int sale_num;
+  int sale_price;
+  
+ ;
+  
+//未完待续
+}
+```
+
+持久化用户对象ViewTodayPO的定义如下：
+
+```
+public class ViewTodayPO implements Serializable {
+  String name;
+  String type;
+  int num;
+  int ava_price;
+  int batch；
+  int batch_num;
+  Date dp;
+  
+  public ViewTodayPo(String name, String type, int num, int ava_price, int batch, int batch_num, Date dp){
+    this.name = name;
+    this.type = type;
+    this.num = num;
+    this.ava_price = ava_price;
+    this.batch = batch;
+    this.batch_num = batch_num;
+    this.dp = dp;
+  }
+  public String getName(){
+    return name;
+  }
+  public String getType(){
+    return type;
+  }
+  public int getNum(){
+    return num;
+  }
+   public int getAva_price(){
+    return ava_price;
+  }
+   public int get_Batch(){
+    return batch;
+  }
+   public int getBatch_num(){
+    return batch_num;
+  }
+  public Date getDate(){
+    return dp;
+  }
+}
+```
+
 持久化用户对象GiftPO的定义如下：
 
 ```
-public class GiftPO implements Serializable {
-  ……
-  ……
-  ……
+public class GiftPO implements Serializable extends GoodPo {
+  //把赠品信息发送给总经理
+  public void sendToManager(){
+    sendMessage();
+  }
+  //接受总经理的回复
+  public String receiveFromManager(){
+    return receiveMessage();
+  }
 }
 ```
 
 持久化用户对象ReceiptPO的定义如下：
 
 ```
-public class UserPO implements Serializable {
-  ……
-  ……
-  ……
+public class ReceiptPO implements Serializable {
+  int id;
+  String name;
+  int num;
+  
+  public ReceiptPO(int id, String name, int num){
+    this.id = id;
+    this.name = name;
+    this.num = num;
+  }
+  public String getName(){
+    return name;
+  }
+  public int getId(){
+    return id;
+  }
+  public int getNum(){
+    return num;
+  }
+  sendMessage();
+  receiveMessage();
 }
 ```
 
 
 
-### 6.2 Txt 持久化格式
+### 6.2 Excel 持久化格式
 
-根据自己部分的需要照书上的例子填写
+**Category.xlsx** 
 
+每行分别对应商品的编号、名称。如下所示：
 
+| 编号            | 名称   |
+| ------------- | ---- |
+| 1234567890123 | 饮品   |
+
+**Good.xlsx** 
+
+每行分别对应商品的编号、名称、型号、库存数量、进价、零售价、最近进价、最近零售价。如下所示：
+
+| 编号            | 名称   | 型号    | 库存数量 | 进价   | 零售价  | 最近进价 | 最近零售价 |
+| ------------- | ---- | ----- | ---- | ---- | ---- | ---- | ----- |
+| 1234567891234 | 牙膏   | TX183 | 3000 | 25   | 30   | 25   | 33    |
+
+**Receipt.xlsx**
+
+每行分别对应商品的编号、名称、库存数量。如下所示：
+
+| 编号            | 名称   | 库存数量 |
+| ------------- | ---- | ---- |
+| 1234567891235 | 牙刷   | 500  |
 
 ### 6.3 数据库表
 
-数据库中包括Appliction表、Message表、UserClassPromtion表、CommodityPromotion表、PricePromotion表
+数据库中包括Category表、Good表、Gift表、Receipt表
