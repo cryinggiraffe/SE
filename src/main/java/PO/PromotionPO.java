@@ -1,85 +1,116 @@
 package PO;
 
-public class PromotionPO implements Serializable {
+public class PromotionPO {
+	
+	private int userclass;
+	private String giftname;
+	private int num;
+	private double discount;
+	private double cash_coupon;
+	
+	private String specialgoodname1;
+	private String specialgoodname2;
+	private double discountprice;
+	
+	public PromotionPO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    int giftId;
-    String giftName;
-    int giftcount;
-    double discount;
-    double cash;
-    List<Integer> commodityId;
+	public PromotionPO(int userclass, String giftname, int num, double discount, double cash_coupon) {
+		super();
+		
+		this.userclass = userclass;
+		this.giftname = giftname;
+		this.discount = discount;
+		this.cash_coupon = cash_coupon;
+	}
+	
+	public PromotionPO(String specialgoodname1, String specialgoodname2, double discountprice){
+		super();
+		
+		this.specialgoodname1 = specialgoodname1;
+		this.specialgoodname2 = specialgoodname2;
+		this.discountprice = discountprice;
+	}
+	
+	public PromotionPO(String giftname, double cash_coupon) {
+		super();
+		this.giftname = giftname;
+		this.cash_coupon = cash_coupon;
+	}
 
-    Date begin;
-    Date end;
+	public String getGiftname() {
+		return giftname;
+	}
 
+	public void setGiftname(String giftname) {
+		this.giftname = giftname;
+	}
 
-    public PromotionPO(){
-        super();
-    }
+	public double getDiscount() {
+		return discount;
+	}
 
-    public void setGiftId(int giftId){
-        this.giftId = giftId;
-    }
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
 
-    public int getGiftId(){
-        return giftId;
-    }
+	public double getCash_coupon() {
+		return cash_coupon;
+	}
+	
+	public void setCash_coupon(double cash_coupon) {
+		this.cash_coupon = cash_coupon;
+	}
 
-    public void setGiftName(String giftName){
-        this.giftName = giftName;
-    }
+	
+	public int getUserclass() {
+		return userclass;
+	}
 
-    public String getGiftName(){
-        return giftName;
-    }
+	public void setUserclass(int userclass) {
+		this.userclass = userclass;
+	}
 
-    public void setGiftcount(int giftcount){
-        this.giftcount = giftcount;
-    }
+	public int getNum() {
+		return num;
+	}
 
-    public String getGiftcount(){
-        return giftcount;
-    }
+	public void setNum(int num) {
+		this.num = num;
+	}
 
-    public void setDiscount(int discount){
-        this.discount = discount;
-    }
+	public String getSpecialgoodname1() {
+		return specialgoodname1;
+	}
 
-    public String getDiscount(){
-        return discount;
-    }
+	public void setSpecialgoodname1(String specialgoodname1) {
+		this.specialgoodname1 = specialgoodname1;
+	}
 
-    public void setCash(int Cash){
-        this.cash = cash;
-    }
+	public String getSpecialgoodname2() {
+		return specialgoodname2;
+	}
 
-    public String getCash(){
-        return cash;
-    }
+	public void setSpecialgoodname2(String specialgoodname2) {
+		this.specialgoodname2 = specialgoodname2;
+	}
 
-    public void setCommodityId(int ...commodityId){
-        for(int i = 0; i < commodity.size(); i++){
-            commodityId.add(commityId[i]);
-        }
-    }
+	public double getDiscountprice() {
+		return discountprice;
+	}
 
-    public List<Integer> getCommodityId(){
-        return commodityId;
-    }
+	public void setDiscountprice(double discountprice) {
+		this.discountprice = discountprice;
+	}
 
-    public void setBegin(Date begin){
-        this.begin = begin;
-    }
-
-    public Date getBegin(){
-        return begin;
-    }
-
-    public void setEnd(Date end){
-        this.end = end;
-    }
-
-    public Date end(){
-        return end;
-    }
+	@Override
+	public String toString() {
+		return "PromotionPO [userclass=" + userclass + ", giftname=" + giftname + ", num=" + num + ", discount="
+				+ discount + ", cash_coupon=" + cash_coupon + ", specialgoodname1=" + specialgoodname1
+				+ ", specialgoodname2=" + specialgoodname2 + ", discountprice=" + discountprice + "]";
+	}
+	
+	
 }

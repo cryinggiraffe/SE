@@ -1,20 +1,40 @@
 package PO;
 
-public class Message implements Serializable {
+public class Message {
+	
+	private int id; //自动+1
+	private String message;
+	
+	public Message() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    int messageId;
-    String message;
+	public Message(String message) {
+		super();
+		this.message = message;
+	}
 
-    public UserPO(int messageId,String message){
-        this.messageId = messageId;
-        this.password = message;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public int getMessageId(){
-        return username;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public String getMessage(){
-        return password;
-    }
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	@Override
+	public String toString() {
+		return "Message [id=" + id + ", message=" + message + "]";
+	}
+	
+	
 }
