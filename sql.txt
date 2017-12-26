@@ -1,0 +1,72 @@
+CREATE TABLE Good
+(
+  id             INT AUTO_INCREMENT
+    PRIMARY KEY,
+  name           VARCHAR(20) NULL,
+  type           VARCHAR(20) NULL,
+  num            INT         NULL,
+  pur_price      INT         NULL,
+  ret_price      INT         NULL,
+  rece_price     INT         NULL,
+  rece_ret_price INT         NULL
+);
+
+
+CREATE TABLE Client
+(
+  id              VARCHAR(20) NOT NULL
+    PRIMARY KEY,
+  type            VARCHAR(20) NULL,
+  rank            INT         NULL,
+  name            VARCHAR(20) NULL,
+  phone           VARCHAR(20) NULL,
+  address         VARCHAR(20) NULL,
+  postname        VARCHAR(20) NULL,
+  email           VARCHAR(20) NULL,
+  receive_limit   DOUBLE      NULL,
+  receive         DOUBLE      NULL,
+  send            DOUBLE      NULL,
+  defaultsalesman VARCHAR(20) NULL
+);
+
+
+CREATE TABLE Gift
+(
+  id         INT         NOT NULL
+    PRIMARY KEY,
+  name       VARCHAR(20) NULL,
+  price      DOUBLE      NULL,
+  num        INT         NULL,
+  giftlistid INT         NULL
+);
+
+
+CREATE TABLE UserClassPromotion
+(
+  id          INT AUTO_INCREMENT
+    PRIMARY KEY,
+  userclass   INT         NULL,
+  giftname    VARCHAR(20) NULL,
+  num         INT         NULL,
+  discount    DOUBLE      NULL,
+  cash_coupon DOUBLE      NULL
+);
+
+CREATE TABLE CommodityPromotion
+(
+  id               INT AUTO_INCREMENT
+    PRIMARY KEY,
+  specialgoodname1 VARCHAR(20) NULL,
+  specialgoodname2 VARCHAR(20) NULL,
+  discountprice    DOUBLE      NULL
+);
+
+CREATE TABLE CommodityPromotion
+(
+  id               INT AUTO_INCREMENT
+    PRIMARY KEY,
+  specialgoodname1 VARCHAR(20) NULL,
+  specialgoodname2 VARCHAR(20) NULL,
+  discountprice    DOUBLE      NULL
+);
+
