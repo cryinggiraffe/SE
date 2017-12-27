@@ -35,7 +35,8 @@ public class PricePromotionDataServiceImpl implements PromotionDataService{
 	@Override
 	public List<PromotionPO> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from PricePromotion";
+		return dao.getALL(PromotionPO.class, sql);
 	}
 
 }
