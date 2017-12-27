@@ -43,7 +43,7 @@ CREATE TABLE Gift
 
 CREATE TABLE UserClassPromotion
 (
-  id          INT AUTO_INCREMENT
+  id          INT         NOT NULL
     PRIMARY KEY,
   userclass   INT         NULL,
   giftname    VARCHAR(20) NULL,
@@ -54,19 +54,21 @@ CREATE TABLE UserClassPromotion
 
 CREATE TABLE CommodityPromotion
 (
-  id               INT AUTO_INCREMENT
+  id            INT         NOT NULL
     PRIMARY KEY,
-  specialgoodname1 VARCHAR(20) NULL,
-  specialgoodname2 VARCHAR(20) NULL,
-  discountprice    DOUBLE      NULL
+  specialname1  VARCHAR(20) NULL,
+  specialname2  VARCHAR(20) NULL,
+  discountprice DOUBLE      NULL
 );
 
-CREATE TABLE CommodityPromotion
+
+CREATE TABLE PricePromotion
 (
-  id               INT AUTO_INCREMENT
+  id          INT 
     PRIMARY KEY,
-  specialgoodname1 VARCHAR(20) NULL,
-  specialgoodname2 VARCHAR(20) NULL,
-  discountprice    DOUBLE      NULL
+  giftname    VARCHAR(20) NULL,
+  num         INT         NULL,
+  cash_coupon DOUBLE      NULL
 );
+
 
