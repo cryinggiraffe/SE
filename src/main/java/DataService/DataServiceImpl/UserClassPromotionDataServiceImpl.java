@@ -12,20 +12,23 @@ public class UserClassPromotionDataServiceImpl implements PromotionDataService{
 	@Override
 	public boolean insert(PromotionPO promotionPO) {
 		// TODO Auto-generated method stub
-		String sql ="INSERT INTO UserClassPromotion VALUES(?,?,?,?,?)";
-		return dao.update(sql, promotionPO.getUserclass(), promotionPO.getGiftname(), promotionPO.getNum(), promotionPO.getDiscount(), promotionPO.getCash_coupon());
+		String sql ="INSERT INTO UserClassPromotion VALUES(?,?,?,?,?,?)";
+		return dao.update(sql,promotionPO.getId(), promotionPO.getUserclass(), promotionPO.getGiftname(), promotionPO.getNum(), promotionPO.getDiscount(), promotionPO.getCash_coupon());
 	}
 
 	@Override
 	public boolean delete(PromotionPO promotionPO) {
 		// TODO Auto-generated method stub
-		return false;
+		String sql = "delete from UserClassPromotion where id = ?";
+		return dao.update(sql, promotionPO.getId());
 	}
 
 	@Override
 	public boolean update(PromotionPO promotionPO) {
 		// TODO Auto-generated method stub
-		return false;
+		String sql = "update UserClassPromotion set userclass = ?, giftname = ?, num = ?, discount = ?, cash_coupon = ?"
+						+ " where id = ?";
+		return dao.update(sql, promotionPO.getUserclass(), promotionPO.getGiftname(), promotionPO.getNum(), promotionPO.getDiscount(), promotionPO.getCash_coupon(), promotionPO.getId());
 	}
 
 	@Override
