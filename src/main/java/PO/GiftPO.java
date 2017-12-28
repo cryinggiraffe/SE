@@ -1,6 +1,8 @@
 package PO;
 
-public class GiftPO implements Serializable extends GoodPo {
+import java.io.Serializable;
+
+public class GiftPO implements Serializable extends GoodPO {
     //把赠品信息发送给总经理
     public void sendToManager(){
         sendMessager();
