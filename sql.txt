@@ -72,3 +72,10 @@ CREATE TABLE PricePromotion
 );
 
 
+CREATE TABLE User
+(
+  username VARCHAR(25) NULL,
+  password VARCHAR(25) NULL
+);
+
+
