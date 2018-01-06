@@ -1,15 +1,15 @@
 package PO;
 
-public class UserPo {
+public class UserPO {
 	
 	private String username;
 	private String password;
 	
-	public UserPo() {
+	public UserPO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public UserPo(String username, String password) {
+	public UserPO(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
