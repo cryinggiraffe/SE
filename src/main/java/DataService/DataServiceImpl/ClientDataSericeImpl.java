@@ -3,7 +3,7 @@ package DataService.DataServiceImpl;
 import JDBC.DAO;
 import PO.ClientPO;
 import PO.GoodPO;
-import dataService.ClientDataSerice;
+import DataService.ClientDataSerice;
 
 public class ClientDataSericeImpl implements ClientDataSerice{
 

@@ -5,7 +5,7 @@ import java.util.List;
 import JDBC.DAO;
 import PO.CategoryPO;
 import PO.GoodPO;
-import dataService.GoodDataService;
+import DataService.GoodDataService;
 
 public class GoodDataServiceImpl implements GoodDataService{
 

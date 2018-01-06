@@ -4,7 +4,7 @@ import java.util.List;
 
 import JDBC.DAO;
 import PO.PromotionPO;
-import dataService.PromotionDataService;
+import DataService.PromotionDataService;
 
 public class PricePromotionDataServiceImpl implements PromotionDataService{
 

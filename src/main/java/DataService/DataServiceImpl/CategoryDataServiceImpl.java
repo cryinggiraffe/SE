@@ -4,7 +4,7 @@ import java.util.List;
 
 import JDBC.DAO;
 import PO.CategoryPO;
-import dataService.CategoryDataService;
+import DataService.CategoryDataService;
 
 public class CategoryDataServiceImpl implements CategoryDataService{
 
