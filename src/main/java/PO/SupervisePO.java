@@ -21,6 +21,5 @@ public class SupervisePO implements Serializable {
     public int getNum(){
         return num;
     }
-    sendMessage();
-    receiveMessage();
+
 }
