@@ -1,19 +1,5 @@
 package PO;
 
-<<<<<<< HEAD
-import java.io.Serializable;
-
-public class GiftPO implements Serializable extends GoodPO {
-    //把赠品信息发送给总经理
-    public void sendToManager(){
-        sendMessager();
-    }
-    //接受总经理的回复
-    public String receiveFromManager(){
-        return receiveMessage();
-    }
-}
-=======
 public class GiftPO {
 	
 	private int id;
@@ -85,4 +71,4 @@ public class GiftPO {
 	
 	
 }
->>>>>>> 4b22ddbb451f9bd194035198cf09af136455b6c4
+
