@@ -2,6 +2,7 @@ package PO;
 
 public class PromotionPO {
 	
+	private int id;
 	private int userclass;
 	private String giftname;
 	private int num;
@@ -17,26 +18,27 @@ public class PromotionPO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PromotionPO(int userclass, String giftname, int num, double discount, double cash_coupon) {
+	public PromotionPO(int id, int userclass, String giftname, int num, double discount, double cash_coupon) {
 		super();
-		
+		this.id = id;
 		this.userclass = userclass;
 		this.giftname = giftname;
 		this.discount = discount;
 		this.cash_coupon = cash_coupon;
 	}
 	
-	public PromotionPO(String specialgoodname1, String specialgoodname2, double discountprice){
+	public PromotionPO(int id, String specialgoodname1, String specialgoodname2, double discountprice){
 		super();
-		
+		this.id = id;
 		this.specialgoodname1 = specialgoodname1;
 		this.specialgoodname2 = specialgoodname2;
 		this.discountprice = discountprice;
 	}
 	
-	public PromotionPO(String giftname, double cash_coupon) {
+	public PromotionPO(int id, String giftname, int num, double cash_coupon) {
 		super();
 		this.giftname = giftname;
+		this.num = num;
 		this.cash_coupon = cash_coupon;
 	}
 
@@ -99,6 +101,14 @@ public class PromotionPO {
 
 	public double getDiscountprice() {
 		return discountprice;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public void setDiscountprice(double discountprice) {
