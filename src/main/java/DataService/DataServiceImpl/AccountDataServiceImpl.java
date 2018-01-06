@@ -1,10 +1,10 @@
-package Dataservice.DataServiceImpl;
+package DataService.DataServiceImpl;
 
-import Dataservice.AccountDataService;
 import JDBC.DAO;
 import PO.AccountPO;
+import DataService.AccountDataService;
 
-public class AccountDataServiceImpl implements AccountDataService{
+public class AccountDataServiceImpl implements DataService.AccountDataService{
 
 	DAO<AccountPO> dao = new DAO<>();
 	@Override
