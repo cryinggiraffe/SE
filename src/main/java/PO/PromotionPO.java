@@ -23,6 +23,7 @@ public class PromotionPO {
 		this.id = id;
 		this.userclass = userclass;
 		this.giftname = giftname;
+		this.num = num;
 		this.discount = discount;
 		this.cash_coupon = cash_coupon;
 	}
@@ -37,6 +38,7 @@ public class PromotionPO {
 	
 	public PromotionPO(int id, String giftname, int num, double cash_coupon) {
 		super();
+		this.id = id;
 		this.giftname = giftname;
 		this.num = num;
 		this.cash_coupon = cash_coupon;
