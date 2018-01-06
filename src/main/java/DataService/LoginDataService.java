@@ -1,4 +1,4 @@
-package Dataservice;
+package DataService;
 
 public interface LoginDataService {
 	

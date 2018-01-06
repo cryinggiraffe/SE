@@ -1,10 +1,10 @@
-package Dataservice.DataServiceImpl;
+package DataService.DataServiceImpl;
 
 import java.util.List;
 
-import Dataservice.CategoryDataService;
 import JDBC.DAO;
 import PO.CategoryPO;
+import dataService.CategoryDataService;
 
 public class CategoryDataServiceImpl implements CategoryDataService{
 

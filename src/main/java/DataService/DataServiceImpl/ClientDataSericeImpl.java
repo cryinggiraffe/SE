@@ -1,9 +1,9 @@
-package Dataservice.DataServiceImpl;
+package DataService.DataServiceImpl;
 
-import Dataservice.ClientDataSerice;
 import JDBC.DAO;
 import PO.ClientPO;
 import PO.GoodPO;
+import dataService.ClientDataSerice;
 
 public class ClientDataSericeImpl implements ClientDataSerice{
 
