@@ -13,7 +13,7 @@ public class ClientPO implements Serializable {
     private String name;
     private String phone;
     private String address;
-    private int postnum;
+    private String postnum;
     private String email;
     private double receive_limit;
     private double receive;
@@ -25,8 +25,10 @@ public class ClientPO implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ClientPO(String id, String type, int rank, String name, String phone, String address, int postnum,
-			String email, double receive, double send, String defaultsalesman) {
+	
+
+	public ClientPO(String id, String type, int rank, String name, String phone, String address, String postnum,
+			String email, double receive_limit, double receive, double send, String defaultsalesman) {
 		super();
 		this.id = id;
 		this.type = type;
@@ -36,10 +38,13 @@ public class ClientPO implements Serializable {
 		this.address = address;
 		this.postnum = postnum;
 		this.email = email;
+		this.receive_limit = receive_limit;
 		this.receive = receive;
 		this.send = send;
 		this.defaultsalesman = defaultsalesman;
 	}
+
+
 
 	public String getId() {
 		return id;
@@ -89,11 +94,11 @@ public class ClientPO implements Serializable {
 		this.address = address;
 	}
 
-	public int getPostnum() {
+	public String getPostnum() {
 		return postnum;
 	}
 
-	public void setPostnum(int postnum) {
+	public void setPostnum(String postnum) {
 		this.postnum = postnum;
 	}
 
