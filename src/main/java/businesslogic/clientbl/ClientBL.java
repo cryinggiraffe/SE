@@ -23,15 +23,15 @@ public class ClientBL implements ClientBLService{
 
 
     public ClientPO findClient(String id) {
-        cds.find(id);
-        return null;
+
+        return cds.find(id);
     }
     public static void main(String[] agrs){
         ClientBL cbl=new ClientBL();
         ClientPO po=new ClientPO();
         po.setId("12344555");
-        cbl.newClient(po);
+        //cbl.newClient(po);
 
-        System.out.println(cbl.findClient(po.getId())==null);
+        System.out.println(cbl.findClient(po.getId()).toString());
     }
 }
