@@ -1,11 +1,11 @@
 package businesslogic.clientbl;
-import DataService.ClientDataSerice;
+import DataService.ClientDataService;
 import PO.ClientPO;
 import blService.ClientBLService;
-import DataService.DataServiceImpl.ClientDataSericeImpl;
+import DataService.DataServiceImpl.ClientDataServiceImpl;
 
 public class ClientBL implements ClientBLService{
-    private ClientDataSericeImpl cds=new ClientDataSericeImpl();
+    private ClientDataServiceImpl cds=new ClientDataServiceImpl();
     public boolean newClient(ClientPO po){
         cds.insert(po);
         return true;
