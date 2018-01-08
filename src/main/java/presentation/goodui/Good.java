@@ -151,9 +151,26 @@ public class Good {
             public void actionPerformed(ActionEvent event) {
                 DefaultMutableTreeNode selectedNode
                         = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
-                if (selectedNode != null && selectedNode.getParent() != null) {
-                    //删除指定节点
-                    model.removeNodeFromParent(selectedNode);
+                //只剩根节点，无法进行删除操作
+                if (selectedNode.getParent() == null) {
+                    JOptionPane.showMessageDialog(null, "无法删除！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                if (selectedNode == null) {
+                    JOptionPane.showMessageDialog(null, "请选择一个节点进行删除！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                //如果节点是叶子节点
+                if (selectedNode.isLeaf()) {
+                    //再询问一遍
+                    int yes_or_no = JOptionPane.showConfirmDialog(null, "确定删除吗？", "确定删除", JOptionPane.OK_CANCEL_OPTION);
+                    if (yes_or_no == 2)
+                        return;
+                    else
+                        model.removeNodeFromParent(selectedNode);
+                } else {
+                    JOptionPane.showMessageDialog(null, "还有字节点，不能删除！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                    return;
                 }
             }
         });
