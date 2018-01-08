@@ -1,11 +1,10 @@
 package DataService.DataServiceImpl;
 
+import DataService.ClientDataService;
 import JDBC.DAO;
 import PO.ClientPO;
-import PO.GoodPO;
-import DataService.ClientDataSerice;
 
-public class ClientDataSericeImpl implements ClientDataSerice{
+public class ClientDataServiceImpl implements ClientDataService{
 
 	DAO<ClientPO> dao = new DAO<>();
 	@Override
