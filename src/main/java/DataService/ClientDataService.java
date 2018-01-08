@@ -2,7 +2,7 @@ package DataService;
 
 import PO.ClientPO;
 
-public interface ClientDataSerice {
+public interface ClientDataService {
 	
 	public boolean insert(ClientPO clientPO);
 	public boolean delete(String id);
