@@ -23,7 +23,7 @@ public class Good {
     TreePath movePath;
 
     JButton addCategoryButton = new JButton("添加目录");
-    JButton addGoodButton = new JButton("添加子节点");
+    JButton addGoodButton = new JButton("添加商品");
     JButton deleteButton = new JButton("删除节点");
     JButton editButton = new JButton("编辑当前节点");
 
@@ -76,34 +76,33 @@ public class Good {
         JPanel panel = new JPanel();
 
         addCategoryButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
+            public void actionPerformed(ActionEvent e) {
                 //获取选中节点
                 DefaultMutableTreeNode selectedNode
                         = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
                 //如果节点为空，直接返回
-                if (selectedNode == null) return;
-                //获取该选中节点的父节点
-                DefaultMutableTreeNode parent
-                        = (DefaultMutableTreeNode) selectedNode.getParent();
-                //如果父节点为空，直接返回
-                if (parent == null) return;
-                //如果当前节点是商品，不能添加商品
-                if (selectedNode.getUserObject() instanceof GoodPO) return;
-                //获得selectedNode的所有孩子节点
-                if (!selectedNode.isLeaf()) {
-                    Enumeration children = selectedNode.children();
-                    while (children.hasMoreElements()) {
-                        if (children.nextElement() instanceof GoodPO) //如果有孩子节点是商品，就不能添加目录
-                            return;
-                    }
+                if (selectedNode == null) {
+                    JOptionPane.showMessageDialog(null, "请选择一个节点！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                    return;
                 }
-                //创建一个新节点
-                DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(new CategoryPO(002,"新节点"));
+                //如果节点为商品，提示错误，返回
+                if (selectedNode.getUserObject() instanceof GoodPO) {
+                    JOptionPane.showMessageDialog(null, "商品下不能添加目录！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                //如果节点下包含商品，提示错误，返回
+                if (contain_good(selectedNode)) {
+                    JOptionPane.showMessageDialog(null, "该目录下包含商品，添加目录失败！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                //创建一个新的目录节点
+                DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(new CategoryPO());
                 //直接通过model来添加新节点，则无需通过调用JTree的updateUI方法
                 //model.insertNodeInto(newNode, selectedNode, selectedNode.getChildCount());
                 //直接通过节点添加新节点，则需要调用tree的updateUI方法
                 selectedNode.add(newNode);
                 //--------下面代码实现显示新节点（自动展开父节点）-------
+                DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
                 TreeNode[] nodes = model.getPathToRoot(newNode);
                 TreePath path = new TreePath(nodes);
                 tree.scrollPathToVisible(path);
@@ -113,19 +112,33 @@ public class Good {
         panel.add(addCategoryButton);
 
         addGoodButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
+            public void actionPerformed(ActionEvent e) {
                 //获取选中节点
                 DefaultMutableTreeNode selectedNode
                         = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
                 //如果节点为空，直接返回
-                if (selectedNode == null) return;
-                //创建一个新节点
-                DefaultMutableTreeNode newNode = new DefaultMutableTreeNode("新节点");
+                if (selectedNode == null) {
+                    JOptionPane.showMessageDialog(null, "请选择一个节点！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                //如果节点为商品，提示错误，返回
+                if (selectedNode.getUserObject() instanceof GoodPO) {
+                    JOptionPane.showMessageDialog(null, "商品下不能添加商品！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                //如果节点下包含目录，提示错误，返回
+                if (contain_category(selectedNode)) {
+                    JOptionPane.showMessageDialog(null, "该目录下包含目录，添加商品失败！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                //创建一个新的商品节点
+                DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(new GoodPO());
                 //直接通过model来添加新节点，则无需通过调用JTree的updateUI方法
                 //model.insertNodeInto(newNode, selectedNode, selectedNode.getChildCount());
                 //直接通过节点添加新节点，则需要调用tree的updateUI方法
                 selectedNode.add(newNode);
                 //--------下面代码实现显示新节点（自动展开父节点）-------
+                DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
                 TreeNode[] nodes = model.getPathToRoot(newNode);
                 TreePath path = new TreePath(nodes);
                 tree.scrollPathToVisible(path);
@@ -163,5 +176,35 @@ public class Good {
 //        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setVisible(true);
 
+    }
+
+    //treenode n的子节点中是否包含商品
+    public boolean contain_good(TreeNode n) {
+        if (n.isLeaf())
+            return false;
+        Enumeration enumeration = n.children();
+        while (enumeration.hasMoreElements()) {
+            DefaultMutableTreeNode node = (DefaultMutableTreeNode) enumeration.nextElement();
+            if (node.getUserObject() instanceof GoodPO)
+                return true;
+        }
+        return false;
+    }
+
+    //treenode n的子节点中是否包含目录
+    public boolean contain_category(TreeNode n) {
+        if (n.isLeaf())
+            return false;
+        Enumeration enumeration = n.children();
+        while (enumeration.hasMoreElements()) {
+            DefaultMutableTreeNode node = (DefaultMutableTreeNode) enumeration.nextElement();
+            if (node.getUserObject() instanceof CategoryPO)
+                return true;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        new Good().init();
     }
 }
