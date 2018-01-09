@@ -1,5 +1,7 @@
 package presentation.accountui;
 
+import presentation.billui.BillUI;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,9 +9,10 @@ import java.awt.event.ActionListener;
 
 public class FinancialUI extends JFrame{
     private static JButton bt_exit; //登出按钮
+    private static JButton bt_back; //返回按钮
     private static JLabel jl_user; //当前用户
     private static JLabel jl_username; //当前用户姓名
-    private static JLabel jl_1;//财务员的版面
+    private static JPanel jp_current;//财务员的版面
     private static JFrame jf_1;//财务员界面的框架
 
     private static JButton bt_account;//账户管理按钮
@@ -19,27 +22,33 @@ public class FinancialUI extends JFrame{
     private static JButton bt_transSituation;//经营情况按钮
     private static JButton bt_saleSituation;//销售情况按钮
 
-
     private static int Width = 900;
     private static int Height = 700;
 
-    public FinancialUI () {//初始化
+    public FinancialUI (String name) {//初始化
         Font font =new Font("微软雅黑", Font.PLAIN, 15);//设置字体1
         jf_1=new JFrame("财务人员界面");
         jf_1.setSize(Width, Height);
 
         //标题栏
         jl_user = new JLabel("当前用户：财务员 ");
-        jl_user.setBounds(450,30,140,30);
+        jl_user.setBounds(350,30,140,30);
         jl_user.setFont(font);
 
-        jl_username = new JLabel("01001");//此处字符串后期变为获取到的用户名
-        jl_username.setBounds(580,30,120,30);
+        jl_username = new JLabel(name);//此处字符串后期变为获取到的用户名
+        jl_username.setBounds(490,30,120,30);
         jl_username.setFont(font);
+
+        bt_back = new JButton("返回");
+        bt_back.setBounds(630,30,100,30);
+        bt_back.setFont(font);
+        bt_back.setVisible(false);
 
         bt_exit = new JButton("退出");
         bt_exit.setBounds(750,30,100,30);
         bt_exit.setFont(font);
+
+
 
         //设置界面的按钮
         Font font1 =new Font("微软雅黑", Font.PLAIN, 20);//设置按钮字体1
@@ -67,14 +76,16 @@ public class FinancialUI extends JFrame{
         bt_saleSituation.setBounds(510,390,120,50);
         bt_saleSituation.setFont(font1);
 
+        jf_1.add(jl_user);
+        jf_1.add(jl_username);
+        jf_1.add(bt_back);
+        jf_1.add(bt_exit);
+
         //向panel添加按钮
         JPanel contentPane = new JPanel();
-        contentPane.setBounds(0,0,Width,Height);
+        contentPane.setBounds(0,0,Width,Height-30);
         contentPane.setLayout(null);
         contentPane.setBackground(Color.CYAN);
-        contentPane.add(jl_user);
-        contentPane.add(jl_username);
-        contentPane.add(bt_exit);
 
         contentPane.add(bt_account);
         contentPane.add(bt_bill);
@@ -85,7 +96,7 @@ public class FinancialUI extends JFrame{
 
 
         //向frame添加panel
-        jf_1.setContentPane(contentPane);
+        jf_1.add(contentPane);
         jf_1.setVisible(true);
         //jf_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf_1.setLocation(500,200);
@@ -100,6 +111,20 @@ public class FinancialUI extends JFrame{
             }
         };
         bt_exit.addActionListener(btExit_ls);
+
+        //返回事件的处理
+        ActionListener btBack_ls=new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO Auto-generated method stub
+                System.out.println("back to finance");
+                jp_current.setVisible(false);
+                bt_back.setVisible(false);
+                contentPane.setVisible(true);
+
+            }
+        };
+        bt_back.addActionListener(btBack_ls);
 
         //账户管理事件处理
         ActionListener btAccount_ls=new ActionListener() {
@@ -119,8 +144,10 @@ public class FinancialUI extends JFrame{
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 System.out.println("into bill manage");
-                //mainLayout ml=new mainLayout(jf_1);//为跳转的界面
-                jf_1.setVisible(false);//隐藏当前界面
+                jp_current = new BillUI();
+                bt_back.setVisible(true);
+                jf_1.add(jp_current);
+                contentPane.setVisible(false);//隐藏当前界面
             }
         };
         bt_bill.addActionListener(btBill_ls);
@@ -176,7 +203,7 @@ public class FinancialUI extends JFrame{
 
     public static void main (String[] args) {
         //初始化
-        FinancialUI financialUI = new FinancialUI();
+        FinancialUI financialUI = new FinancialUI("01001");
     }
 
 }

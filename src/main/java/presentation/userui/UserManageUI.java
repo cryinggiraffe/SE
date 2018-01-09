@@ -1,4 +1,8 @@
 package presentation.userui;
 
-public class UserManageUI {
+import javax.swing.*;
+
+public class UserManageUI extends JFrame {
+
+
 }

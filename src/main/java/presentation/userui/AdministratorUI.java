@@ -88,6 +88,11 @@ public class AdministratorUI extends JFrame {
         });*/
 
     }
+
+    public JFrame getJFrame (){
+        return jf_1;
+    }
+
     public static void main(String[] args) {
         //初始化
         AdministratorUI administratorUI = new AdministratorUI();
