@@ -9,7 +9,7 @@ public class ManagerUI extends JFrame {
     private static JButton bt_exit; //登出按钮
     private static JLabel jl_user; //当前用户
     private static JLabel jl_username; //当前用户姓名
-    private static JLabel jl_1;//总经理的版面
+    private static JPanel contentPane;//总经理的版面
     private static JFrame jf_1;//总经理界面的框架
 
     private static JButton bt_promotion;//制定促销策略按钮
@@ -21,9 +21,9 @@ public class ManagerUI extends JFrame {
     private static int Width = 900;
     private static int Height = 700;
 
-    public ManagerUI () {//初始化
+    public ManagerUI (String name) {//初始化
         Font font =new Font("微软雅黑", Font.PLAIN, 15);//设置字体1
-        jf_1=new JFrame("财务人员界面");
+        jf_1=new JFrame("总经理界面");
         jf_1.setSize(Width, Height);
 
         //标题栏
@@ -31,7 +31,7 @@ public class ManagerUI extends JFrame {
         jl_user.setBounds(450,30,140,30);
         jl_user.setFont(font);
 
-        jl_username = new JLabel("00001");//此处字符串后期变为获取到的用户名
+        jl_username = new JLabel(name);//此处字符串后期变为获取到的用户名
         jl_username.setBounds(580,30,120,30);
         jl_username.setFont(font);
 
@@ -62,7 +62,7 @@ public class ManagerUI extends JFrame {
         bt_saleSituation.setFont(font1);
 
         //向panel添加按钮
-        JPanel contentPane = new JPanel();
+        contentPane = new JPanel();
         contentPane.setBounds(0,0,Width,Height);
         contentPane.setLayout(null);
         contentPane.setBackground(Color.CYAN);
@@ -156,9 +156,13 @@ public class ManagerUI extends JFrame {
 
     }
 
+    public JFrame getJFrame (){
+        return jf_1;
+    }
+
     public static void main (String[] args) {
         //初始化
-        ManagerUI managerUI = new ManagerUI();
+        ManagerUI managerUI = new ManagerUI("00001");
     }
 
 }

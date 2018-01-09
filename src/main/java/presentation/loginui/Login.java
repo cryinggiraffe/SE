@@ -1,5 +1,10 @@
 package presentation.loginui;
 
+import businesslogic.loginbl.LoginBL;
+import presentation.accountui.FinancialUI;
+import presentation.goodui.StockManagerUi;
+import presentation.promotionui.ManagerUI;
+
 import java.awt.Font;
 
 import java.awt.Image;
@@ -77,19 +82,31 @@ public class Login extends JFrame{
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
-                String admin=jtext1.getText();
+                String user=jtext1.getText();
                 char[] password=jtext2.getPassword();
                 String str=String.valueOf(password); //将char数组转化为string类型
+                LoginBL lg=new LoginBL();
 
-                if(admin.equals("root")&&str.equals("123456"))
-                {
-
-                    System.out.println(admin);
+                if(lg.validatePassword(user,str)) {
+                    System.out.println(user);
                     System.out.println(str);
-                    //mainLayout ml=new mainLayout();//为跳转的界面
-                    jf_1.dispose();//销毁当前界面
-                }
-                else {
+                    String type = lg.usertype(user);
+
+                    if (type.equals("总经理")) {
+                        ManagerUI managerUI = new ManagerUI(user);
+                        jf_1.dispose();//销毁当前界面
+                    }else if (type.equals("财务人员")) {
+                        FinancialUI financialUI = new FinancialUI(user);
+                        jf_1.dispose();//销毁当前界面
+                    }else if (type.equals("进货销售人员")) {
+                        jf_1.dispose();//销毁当前界面
+                    }else if (type.equals("库存管理人员")) {
+                        StockManagerUi stockManagerUi = new StockManagerUi();
+                        jf_1.dispose();//销毁当前界面
+                    }else {
+                        System.out.println("error user type");
+                    }
+                } else {
                     count++;
                     System.out.println("error");
                     if(count==3){
@@ -99,6 +116,7 @@ public class Login extends JFrame{
             }
         };
         bt1.addActionListener(bt1_ls);
+
         //退出事件的处理
         ActionListener bt2_ls=new ActionListener() {
             @Override
