@@ -69,8 +69,8 @@ public class Login extends JFrame{
 
         jf_1.add(jl_1);
         jf_1.setVisible(true);
-        jf_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jf_1.setLocation(300,400);
+        //jf_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf_1.setLocation(500,200);
 
         //登陆点击事件
         ActionListener bt1_ls=new ActionListener() {

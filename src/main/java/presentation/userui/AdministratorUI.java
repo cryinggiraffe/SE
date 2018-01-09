@@ -1,9 +1,13 @@
 package presentation.userui;
 
+import presentation.accountui.FinancialUI;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class AdministratorUI extends JFrame {
     private static JButton bt_1; //用户管理按钮
@@ -20,14 +24,13 @@ public class AdministratorUI extends JFrame {
         Font font =new Font("微软雅黑", Font.PLAIN, 15);//设置字体1
         jf_1=new JFrame("管理员界面");
         jf_1.setSize(Width, Height);
-        jf_1.setForeground(Color.BLUE);
 
-        jl_user = new JLabel("当前用户：");
-        jl_user.setBounds(450,30,80,30);
+        jl_user = new JLabel("当前用户：管理员 ");
+        jl_user.setBounds(450,30,140,30);
         jl_user.setFont(font);
 
         jl_username = new JLabel("Adnimistrator");
-        jl_username.setBounds(550,30,120,30);
+        jl_username.setBounds(580,30,120,30);
         jl_username.setFont(font);
 
         bt_exit = new JButton("退出");
@@ -50,8 +53,8 @@ public class AdministratorUI extends JFrame {
 
         jf_1.setContentPane(contentPane);
         jf_1.setVisible(true);
-        jf_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jf_1.setLocation(300,400);
+        //jf_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf_1.setLocation(500,200);
 
         //用户管理点击事件
         ActionListener bt1_ls=new ActionListener() {
@@ -74,6 +77,15 @@ public class AdministratorUI extends JFrame {
             }
         };
         bt_exit.addActionListener(btExit_ls);
+
+        /*//关闭窗口事件
+        jf_1.addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e){
+                jf_1.setVisible(false);
+                FinancialUI financialUI = new FinancialUI();
+                financialUI.setVisible(true);
+            }
+        });*/
 
     }
     public static void main(String[] args) {
