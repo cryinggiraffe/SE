@@ -1,6 +1,7 @@
 package businesslogic.loginbl;
 
 import DataService.DataServiceImpl.LoginDataServiceImpl;
+import PO.UserPO;
 import blService.LoginBLService;
 
 public class LoginBL implements LoginBLService {
@@ -22,8 +23,15 @@ public class LoginBL implements LoginBLService {
     }
     public static void main(String[] agrs){
         LoginBL lg=new LoginBL();
+        UserPO po=new UserPO();
+        po.setUsername("123456");
+        po.setPassword("dasdfas");
+        
         System.out.println(lg.usertype("00123412"));
 
 
+    }
+    public UserPO getUser(String username){
+        return lds.getUser(username);
     }
 }
