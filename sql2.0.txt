@@ -29,3 +29,19 @@ CREATE TABLE Payment
   sum      DOUBLE      NULL,
   state    VARCHAR(20) NULL
 );
+
+
+CREATE TABLE ImortCommodity
+(
+  goodid        VARCHAR(30) NOT NULL
+    PRIMARY KEY,
+  name          VARCHAR(30) NULL,
+  version       VARCHAR(20) NULL,
+  quantity      INT         NULL,
+  price         DOUBLE      NULL,
+  subtotalprice DOUBLE      NULL,
+  remark        VARCHAR(30) NULL
+);
+
+ALTER TABLE User ADD userclass INT NULL;
+ALTER TABLE User ADD type VARCHAR(20) NULL;

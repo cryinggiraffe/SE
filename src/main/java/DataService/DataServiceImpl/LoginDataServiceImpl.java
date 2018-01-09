@@ -14,5 +14,12 @@ public class LoginDataServiceImpl implements LoginDataService{
 		UserPO userPo = dao.get(UserPO.class, sql, username);
 		return userPo.getPassword();
 	}
+	
+	@Override
+	public UserPO getUser(String username) {
+		// TODO Auto-generated method stub
+		String sql = "select username, password, userclass, type from User where username = ?";
+		return dao.get(UserPO.class, sql, username);
+	}
 
 }
