@@ -4,12 +4,17 @@ import PO.ClientPO;
 import blService.ClientBLService;
 import DataService.DataServiceImpl.ClientDataServiceImpl;
 
+import java.sql.Time;
+import java.util.Date;
+
 
 public class ClientBL implements ClientBLService{
     private ClientDataServiceImpl cds=new ClientDataServiceImpl();
-    public boolean newClient(ClientPO po){
+    public String newClient(ClientPO po){
+        Date d=new Date();
+        po.setId(String.valueOf(d.getTime()));
         cds.insert(po);
-        return true;
+        return String.valueOf(d.getTime());
     }
     public boolean updateClient(ClientPO po){
         cds.update(po);
@@ -30,9 +35,10 @@ public class ClientBL implements ClientBLService{
     public static void main(String[] agrs){
         ClientBL cbl=new ClientBL();
         ClientPO po=new ClientPO();
-        po.setId("12344555");
-        //cbl.newClient(po);
+        //po.setId("12344555");
+        String ids=cbl.newClient(po);
+        System.out.println(cbl.findClient(ids));
 
-        System.out.println(cbl.findClient(po.getId()).toString());
+
     }
 }
