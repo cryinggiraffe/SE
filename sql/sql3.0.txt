@@ -10,3 +10,9 @@ CREATE TABLE ImportForm
   state     VARCHAR(20) NULL
 );
 
+CREATE TABLE Account
+(
+  name    VARCHAR(30) NOT NULL
+    PRIMARY KEY,
+  balance DOUBLE      NULL
+);
