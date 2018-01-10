@@ -237,8 +237,10 @@ public class Client {
                 else {
                     JFrame info_f = new JFrame("客户信息");
                     JPanel info_p = new JPanel();
+                    info_f.add(info_p);
+                    info_f.setBounds(100,100,400,600);
                     info_f.setVisible(true);
-                    info_p.setBackground(Color.orange);
+                    info_p.setBackground(Color.pink);
                     info_p.setLayout(new FlowLayout());
 
                     JLabel l0 = new JLabel("客户编号:");
