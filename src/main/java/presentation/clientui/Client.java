@@ -61,13 +61,15 @@ public class Client {
 
     public void addClient_init() {
         JFrame aframe = new JFrame("添加客户信息");
-        aframe.setBounds(100, 100, 620, 200);
+        aframe.setBounds(100, 100, 570, 200);
         JPanel apanel = new JPanel();
         apanel.setBackground(Color.pink);
         aframe.setContentPane(apanel);
         apanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-//        JLabel id = new JLabel("客户编号");
-//        //这里调用bl层提供的方法自动生成一个客户编号
+        JLabel id = new JLabel("客户编号:");
+        String clientId = new ClientBL().newId();
+        JTextField textField0 = new JTextField(clientId);
+        textField0.setEditable(false);
         JLabel client_class = new JLabel("客户分类:");
         JComboBox comboBox1 = new JComboBox();
         comboBox1.addItem("进货商");
@@ -100,6 +102,7 @@ public class Client {
         JLabel person = new JLabel("默认业务员");
         JTextField textField9 = new JTextField();
 
+        textField0.setColumns(10);
         textField1.setColumns(10);
         textField2.setColumns(10);
         textField3.setColumns(30);
@@ -110,6 +113,8 @@ public class Client {
         textField8.setColumns(10);
         textField9.setColumns(10);
 
+        apanel.add(id);
+        apanel.add(textField0);
         apanel.add(client_class);
         apanel.add(comboBox1);
         apanel.add(status);
@@ -140,8 +145,7 @@ public class Client {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                /*这儿有问题*/
-                String id = "1";
+
                 int yes_or_no = JOptionPane.showConfirmDialog(null, "确定提交？", "确定提交信息", JOptionPane.OK_CANCEL_OPTION);
                 if (yes_or_no == 2) {
                     return;
@@ -162,7 +166,7 @@ public class Client {
                     Double send = Double.valueOf(spay);
                     String defaultsalesman = textField9.getText();
 
-                    ClientPO client = new ClientPO(id, type, rank2, sname, stel, saddress, spostcode, semail, receive_limit, receive_0, send, defaultsalesman);
+                    ClientPO client = new ClientPO(clientId, type, rank2, sname, stel, saddress, spostcode, semail, receive_limit, receive_0, send, defaultsalesman);
                     new ClientBL().newClient(client);
 
                 }
