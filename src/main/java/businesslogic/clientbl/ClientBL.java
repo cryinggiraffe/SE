@@ -11,17 +11,20 @@ import java.util.Date;
 public class ClientBL implements ClientBLService{
     private ClientDataServiceImpl cds=new ClientDataServiceImpl();
     public String newClient(ClientPO po){
-        Date d=new Date();
-        po.setId(String.valueOf(d.getTime()));
+
+
         cds.insert(po);
-        return String.valueOf(d.getTime());
+        return po.getId();
     }
     public boolean updateClient(ClientPO po){
         cds.update(po);
         return true;
 
     }
-
+    public String newId(){
+        Date d=new Date();
+        return String.valueOf(d.getTime());
+    }
     public boolean deleteClient(String id){
         cds.delete(id);
         return true;
@@ -36,8 +39,8 @@ public class ClientBL implements ClientBLService{
         ClientBL cbl=new ClientBL();
         ClientPO po=new ClientPO();
         //po.setId("12344555");
-        String ids=cbl.newClient(po);
-        System.out.println(cbl.findClient(ids));
+        //String ids=cbl.newClient(po);
+        //System.out.println(cbl.findClient(ids));
 
 
     }
