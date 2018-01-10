@@ -1,5 +1,7 @@
 package presentation.clientui;
 
+import PO.ClientPO;
+import businesslogic.clientbl.ClientBL;
 import presentation.saleui.Sale;
 
 import javax.swing.*;
@@ -72,9 +74,11 @@ public class Client {
         comboBox1.addItem("销售商");
         JLabel status = new JLabel("级别：");
         JComboBox comboBox2 = new JComboBox();
-        comboBox2.addItem("五级");
-        comboBox2.addItem("一级普通用户");
-        comboBox2.addItem("五级VIP客户");
+        comboBox2.addItem("1");
+        comboBox2.addItem("2");
+        comboBox2.addItem("3");
+        comboBox2.addItem("4");
+        comboBox2.addItem("5");
         JLabel name = new JLabel("姓名");
         JTextField textField1 = new JTextField();
         JLabel tel = new JLabel("电话");
@@ -91,8 +95,10 @@ public class Client {
         JTextField textField7 = new JTextField();
         JLabel pay = new JLabel("应付");
         JTextField textField8 = new JTextField();
-//        //这里也要弄一个菜单，
-//        JLabel responsor = new JLabel("默认业务员");
+
+        //这里最好是下拉菜单似的。。。。
+        JLabel person = new JLabel("默认业务员");
+        JTextField textField9 = new JTextField();
 
         textField1.setColumns(10);
         textField2.setColumns(10);
@@ -102,6 +108,7 @@ public class Client {
         textField6.setColumns(10);
         textField7.setColumns(10);
         textField8.setColumns(10);
+        textField9.setColumns(10);
 
         apanel.add(client_class);
         apanel.add(comboBox1);
@@ -123,6 +130,8 @@ public class Client {
         apanel.add(textField7);
         apanel.add(pay);
         apanel.add(textField8);
+        apanel.add(person);
+        apanel.add(textField9);
 
 
         JButton submit = new JButton("提交");
@@ -131,23 +140,31 @@ public class Client {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-//                int id = ...
+                /*这儿有问题*/
+                String id = "1";
                 int yes_or_no = JOptionPane.showConfirmDialog(null, "确定提交？", "确定提交信息", JOptionPane.OK_CANCEL_OPTION);
                 if (yes_or_no == 2) {
                     return;
                 } else {
-                    String sclass = comboBox1.getSelectedItem().toString();
-                    String sstatus = comboBox2.getSelectedItem().toString();
+                    String type = comboBox1.getSelectedItem().toString();
+                    String rank = comboBox2.getSelectedItem().toString();
+                    int rank2 = Integer.valueOf(rank);
                     String sname = textField1.getText();
                     String stel = textField2.getText();
                     String saddress = textField3.getText();
                     String spostcode = textField4.getText();
                     String semail = textField5.getText();
                     String sreceive = textField6.getText();
+                    Double receive_limit = Double.valueOf(sreceive);
                     String sreceive2 = textField7.getText();
+                    Double receive_0 = Double.valueOf(sreceive2);
                     String spay = textField8.getText();
+                    Double send = Double.valueOf(spay);
+                    String defaultsalesman = textField9.getText();
 
-                    //这里要调用逻辑层接口传到数据库
+                    ClientPO client = new ClientPO(id, type, rank2, sname, stel, saddress, spostcode, semail, receive_limit, receive_0, send, defaultsalesman);
+                    new ClientBL().newClient(client);
+
                 }
             }
         });
@@ -157,12 +174,12 @@ public class Client {
 
     }
 
-    public void deleteClient_init(){
+    public void deleteClient_init() {
         JFrame dframe = new JFrame("删除客户");
         JPanel dpanel = new JPanel();
         dframe.add(dpanel);
         dpanel.setLayout(new FlowLayout());
-        JTextField textField = new JTextField("请您输入客户姓名或者客户编号");
+        JTextField textField = new JTextField("请您输入客户编号");
         textField.setColumns(20);
         textField.setEditable(true);
         JButton find = new JButton("查找");
@@ -174,35 +191,27 @@ public class Client {
             public void actionPerformed(ActionEvent e) {
                 dframe.setVisible(false);
                 String text = textField.getText();
-                boolean if_num;
-                try{
-                    double x = Double.valueOf(text);
-                    if_num = true;
-                }catch(Exception exception){
-                    if_num = false;
-                }
-                //如果是数字，调用id的查找接口，不然调用姓名的查找接口
-                if(if_num){
+                ClientBL clientBL = new ClientBL();
+                boolean find_or_not = clientBL.deleteClient(text);
+                if (find_or_not == false)
+                    JOptionPane.showMessageDialog(null, "没有匹配的客户！", "错误消息", JOptionPane.WARNING_MESSAGE);
 
-                    //这里要数据曾一个boolean的接口,找到返回true,没有就返回false，如果结果是true就要出现一个客户姓名，再次询问是否确定删除
-                }else{
-                    //这里要数据曾一个boolean的接口,找到返回true,没有就返回false，如果结果是true就要出现一个客户编号，再次询问是否确定删除
-                }
             }
         });
         dframe.setVisible(true);
-        dframe.setBounds(100,100,400,600);
+        dframe.setBounds(100, 100, 400, 600);
 
     }
 
-    public void editClient_init(){
+    public void editClient_init() {
 
     }
 
-    public void findClient_init(){
+    public void findClient_init() {
 
     }
+
     public static void main(String[] args) {
-        new Sale().init();
+        new Client().init();
     }
 }
