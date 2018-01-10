@@ -26,7 +26,7 @@ public class LoginBL implements LoginBLService {
         UserPO po=new UserPO();
         po.setUsername("123456");
         po.setPassword("dasdfas");
-        
+
         System.out.println(lg.usertype("00123412"));
 
 
