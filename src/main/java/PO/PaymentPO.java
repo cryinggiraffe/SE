@@ -25,6 +25,20 @@ public class PaymentPO {
 		this.sum = sum;
 		this.state = "no";
 	}
+	
+	
+
+	public PaymentPO(String id, String username, String account, double amount, String remark, double sum,
+			String state) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.account = account;
+		this.amount = amount;
+		this.remark = remark;
+		this.sum = sum;
+		this.state = state;
+	}
 
 	public String getId() {
 		return id;
