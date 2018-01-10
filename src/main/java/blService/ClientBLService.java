@@ -7,5 +7,5 @@ public interface ClientBLService {
     boolean deleteClient(String id);
     boolean updateClient(ClientPO po);
     ClientPO findClient(String id);
-
+    String newId();
 }
