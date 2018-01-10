@@ -61,6 +61,11 @@ public class Good {
                     }
                     //既不是向子节点移动，而且鼠标按下、松开的不是同一个节点
                     else if (movePath != tp) {
+                        DefaultMutableTreeNode moveFrom = (DefaultMutableTreeNode)movePath.getLastPathComponent();
+                        DefaultMutableTreeNode moveTo = (DefaultMutableTreeNode)tp.getLastPathComponent();
+                        System.out.println(moveFrom.getUserObject().getClass());
+                        System.out.println(moveTo.getUserObject().getClass());
+
                         System.out.println(tp.getLastPathComponent());
                         //add方法可以先将原节点从原父节点删除，再添加到新父节点中
                         ((DefaultMutableTreeNode) tp.getLastPathComponent()).add(
@@ -169,7 +174,7 @@ public class Good {
                     else
                         model.removeNodeFromParent(selectedNode);
                 } else {
-                    JOptionPane.showMessageDialog(null, "还有字节点，不能删除！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "还有子节点，不能删除！", "错误消息", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
             }
