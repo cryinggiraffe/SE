@@ -30,17 +30,18 @@ CREATE TABLE Payment
   state    VARCHAR(20) NULL
 );
 
-
-CREATE TABLE ImortCommodity
+CREATE TABLE ImportCommodity
 (
-  goodid        VARCHAR(30) NOT NULL
+  id            INT AUTO_INCREMENT
     PRIMARY KEY,
+  goodid        VARCHAR(30) NULL,
   name          VARCHAR(30) NULL,
-  version       VARCHAR(20) NULL,
+  version       VARCHAR(30) NULL,
   quantity      INT         NULL,
   price         DOUBLE      NULL,
   subtotalprice DOUBLE      NULL,
-  remark        VARCHAR(30) NULL
+  remark        VARCHAR(30) NULL,
+  importformid  VARCHAR(30) NULL
 );
 
 ALTER TABLE User ADD userclass INT NULL;

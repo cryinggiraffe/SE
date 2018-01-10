@@ -1,0 +1,12 @@
+CREATE TABLE ImportForm
+(
+  id        VARCHAR(30) NOT NULL
+    PRIMARY KEY,
+  provider  VARCHAR(20) NULL,
+  houseware VARCHAR(20) NULL,
+  operator  VARCHAR(20) NULL,
+  remark    VARCHAR(30) NULL,
+  sum       DOUBLE      NULL,
+  state     VARCHAR(20) NULL
+);
+
