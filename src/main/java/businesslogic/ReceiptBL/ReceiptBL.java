@@ -30,6 +30,14 @@ public class ReceiptBL implements ReceiptBLService{
         rds.update(po);
         return true;
     }
+
+    @Override
+    public void newReceipt(String id, String username, String account, double amount, String remark, double sum) {
+        ReceiptPO po=new ReceiptPO(id,username,account,amount,remark,sum);
+        this.newReceipt(po);
+
+    }
+
     public static void main(String[] agrs){
         ReceiptPO s=new ReceiptPO();
         s.setId("SKD-1234");
