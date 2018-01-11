@@ -10,7 +10,8 @@ public class ReceiptBL implements ReceiptBLService{
     private ReceiptDataServiceImpl rds=new ReceiptDataServiceImpl();
 
     @Override
-    public void newReceipt(ReceiptPO po) {
+    public void newReceipt(String id, String username, String account, double amount, String remark, double sum) {
+        ReceiptPO po=new ReceiptPO(id,username,account,amount,remark,sum);
         rds.insert(po);
     }
 
@@ -29,13 +30,6 @@ public class ReceiptBL implements ReceiptBLService{
     public boolean update(ReceiptPO po) {
         rds.update(po);
         return true;
-    }
-
-    @Override
-    public void newReceipt(String id, String username, String account, double amount, String remark, double sum) {
-        ReceiptPO po=new ReceiptPO(id,username,account,amount,remark,sum);
-        this.newReceipt(po);
-
     }
 
     public static void main(String[] agrs){

@@ -78,15 +78,6 @@ public class AdministratorUI extends JFrame {
         };
         bt_exit.addActionListener(btExit_ls);
 
-        /*//关闭窗口事件
-        jf_1.addWindowListener(new WindowAdapter(){
-            public void windowClosing(WindowEvent e){
-                jf_1.setVisible(false);
-                FinancialUI financialUI = new FinancialUI();
-                financialUI.setVisible(true);
-            }
-        });*/
-
     }
 
     public JFrame getJFrame (){
