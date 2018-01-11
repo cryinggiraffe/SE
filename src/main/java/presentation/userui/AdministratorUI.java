@@ -21,7 +21,7 @@ public class AdministratorUI extends JFrame {
     private static int Height = 700;
 
     public AdministratorUI () { //初始化
-        Font font =new Font("微软雅黑", Font.PLAIN, 15);//设置字体1
+        Font font =new Font("微软雅黑", Font.PLAIN, 15);//设置字体
         jf_1=new JFrame("管理员界面");
         jf_1.setSize(Width, Height);
 

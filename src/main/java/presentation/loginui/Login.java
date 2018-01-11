@@ -4,6 +4,7 @@ import businesslogic.loginbl.LoginBL;
 import presentation.accountui.FinancialUI;
 import presentation.goodui.StockManagerUi;
 import presentation.promotionui.ManagerUI;
+import presentation.userui.AdministratorUI;
 
 import java.awt.Font;
 
@@ -22,6 +23,7 @@ public class Login extends JFrame{
     private static JPasswordField jtext2;//密码
     private static JLabel jl_admin;
     private static JLabel jl_password;
+    private static JLabel jl_log; //提示登录密码是否正确
 
     private static int Width = 900;
     private static int Height = 700;
@@ -45,7 +47,7 @@ public class Login extends JFrame{
         jl_password.setBounds(500, 320, 60, 50);
         jl_password.setFont(font);
 
-        bt1=new JButton("登陆");         //更改成loginButton
+        bt1=new JButton("登录");
         bt1.setBounds(500, 380, 100, 50);
         bt1.setFont(font);
 
@@ -74,7 +76,7 @@ public class Login extends JFrame{
 
         jf_1.add(jl_1);
         jf_1.setVisible(true);
-        //jf_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf_1.setLocation(500,200);
 
         //登陆点击事件
@@ -82,12 +84,21 @@ public class Login extends JFrame{
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
-                String user=jtext1.getText();
-                char[] password=jtext2.getPassword();
-                String str=String.valueOf(password); //将char数组转化为string类型
-                LoginBL lg=new LoginBL();
+                String user = jtext1.getText();
+                char[] password = jtext2.getPassword();
+                String str = String.valueOf(password); //将char数组转化为string类型
+                LoginBL lg = new LoginBL();
 
-                if(lg.validatePassword(user,str)) {
+                if (user.equals("root")) {
+                    if ( str.equals("123456")) {
+                        AdministratorUI administratorUI = new AdministratorUI();
+                        jf_1.dispose();
+                    }else {
+                        System.out.println("wrong password of admin");
+                        JOptionPane.showMessageDialog(null, "密码有误，请重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
+                    }
+
+                } else if (lg.validatePassword(user, str)) {
                     System.out.println(user);
                     System.out.println(str);
                     String type = lg.usertype(user);
@@ -95,21 +106,22 @@ public class Login extends JFrame{
                     if (type.equals("总经理")) {
                         ManagerUI managerUI = new ManagerUI(user);
                         jf_1.dispose();//销毁当前界面
-                    }else if (type.equals("财务人员")) {
+                    } else if (type.equals("财务人员")) {
                         FinancialUI financialUI = new FinancialUI(user);
                         jf_1.dispose();//销毁当前界面
-                    }else if (type.equals("进货销售人员")) {
+                    } else if (type.equals("进货销售人员")) {
                         jf_1.dispose();//销毁当前界面
-                    }else if (type.equals("库存管理人员")) {
+                    } else if (type.equals("库存管理人员")) {
                         StockManagerUi stockManagerUi = new StockManagerUi();
                         jf_1.dispose();//销毁当前界面
-                    }else {
+                    } else {
                         System.out.println("error user type");
                     }
                 } else {
+                    JOptionPane.showMessageDialog(null, "密码有误，请重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
                     count++;
                     System.out.println("error");
-                    if(count==3){
+                    if (count == 3) {
                         jf_1.dispose();
                     }
                 }
