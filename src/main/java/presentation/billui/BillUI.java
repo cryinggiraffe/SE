@@ -40,6 +40,42 @@ public class BillUI extends JPanel {
 
         this.setVisible(true);
 
+        //创建收款单按钮事件
+        ActionListener btReceipt_ls=new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                // TODO Auto-generated method stub
+                System.out.println("into user manage");
+                //mainLayout ml=new mainLayout();//为跳转的界面
+
+            }
+        };
+        bt_receipt.addActionListener(btReceipt_ls);
+
+        //创建付款单按钮事件
+        ActionListener btPayment_ls=new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                // TODO Auto-generated method stub
+                System.out.println("into user manage");
+                //mainLayout ml=new mainLayout();//为跳转的界面
+
+            }
+        };
+        bt_payment.addActionListener(btPayment_ls);
+
+        //创建现金费用单按钮事件
+        ActionListener btCash_ls=new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                // TODO Auto-generated method stub
+                System.out.println("into user manage");
+                //mainLayout ml=new mainLayout();//为跳转的界面
+
+            }
+        };
+        bt_cash.addActionListener(btCash_ls);
+
     }
 
 }
