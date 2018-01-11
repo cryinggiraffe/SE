@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Gift {
-    public static void init(){
+    public void init(){
         JFrame gframe = new JFrame("赠送库存");
         Container container = gframe.getContentPane();
         JButton button = new JButton("赠品推荐");
@@ -20,5 +20,8 @@ public class Gift {
         gframe.setVisible(true);
 
 
+    }
+    public static void main(String []args){
+        new Gift().init();
     }
 }

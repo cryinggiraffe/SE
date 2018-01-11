@@ -23,15 +23,13 @@ public class SaleFormPO {
 	}
 
 	public SaleFormPO(String id, String client, String operator, String salesman, String houseware,
-			ArrayList<Commodity> commodityList, Double tpbfDiscounting, Double tpafDiscounting, Double discount,
-			Double voucher, String remark, int state) {
+			 Double tpbfDiscounting, Double tpafDiscounting, Double discount,Double voucher, String remark, int state) {
 		super();
 		this.id = id;
 		this.client = client;
 		this.operator = operator;
 		this.salesman = salesman;
 		this.houseware = houseware;
-		this.commodityList = commodityList;
 		this.tpbfDiscounting = tpbfDiscounting;
 		this.tpafDiscounting = tpafDiscounting;
 		this.discount = discount;
