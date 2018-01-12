@@ -20,7 +20,7 @@ public class ImportCommodityDataServiceImpl implements ImportCommodityDataServic
 	}
 
 	@Override
-	public List<Commodity> getForImportId(String importformid) {
+	public List<Commodity> getForImportformId(String importformid) {
 		// TODO Auto-generated method stub
 		String sql = "select  goodid, name, version, quantity, price, subtotalprice, remark from ImportCommodity where importformid = ?";
 		return dao.getALL(Commodity.class, sql, importformid);

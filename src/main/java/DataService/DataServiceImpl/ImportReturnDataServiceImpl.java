@@ -14,10 +14,10 @@ public class ImportReturnDataServiceImpl implements ImportReturnDataService{
 	@Override
 	public boolean insert(ImportFormPO importReturnFormPO) {
 		// TODO Auto-generated method stub
-		String sql = "insert into ImportReturnForm values(?,?,?,?,?,?,?)";
+		String sql = "insert into ImportReturnForm values(?,?,?,?,?,?,?,?)";
 		return dao.update(sql, importReturnFormPO.getId(), importReturnFormPO.getProvider(), importReturnFormPO.getHouseware(), 
 				          importReturnFormPO.getOperator(), importReturnFormPO.getRemark(), importReturnFormPO.getSum(),
-				          importReturnFormPO.getState());
+				          importReturnFormPO.getState(),importReturnFormPO.getDate());
 		
 	}
 
@@ -33,7 +33,7 @@ public class ImportReturnDataServiceImpl implements ImportReturnDataService{
 		// TODO Auto-generated method stub
 		List<Commodity> commodities = importReturnCommodityDataServiceImpl.getForImportId(importformid);
 		
-		String sql = "select id, provider, houseware, operator, remark, sum, state from ImportReturnForm where id = ?";
+		String sql = "select id, provider, houseware, operator, remark, sum, state, date from ImportReturnForm where id = ?";
 		ImportFormPO importFormPO = dao.get(ImportFormPO.class, sql, importformid);
 		importFormPO.setImportcommoditylist(commodities);
 		return importFormPO;
@@ -43,7 +43,7 @@ public class ImportReturnDataServiceImpl implements ImportReturnDataService{
 	@Override
 	public List<ImportFormPO> findForState() {
 		// TODO Auto-generated method stub
-		String sql = "select id, provider, houseware, operator, remark, sum, state from ImportReturnForm where state = ?";
+		String sql = "select id, provider, houseware, operator, remark, sum, state, date from ImportReturnForm where state = ?";
 		
 		return dao.getALL(ImportFormPO.class, sql, "no");
 	}

@@ -4,7 +4,7 @@ import java.util.List;
 
 import PO.SaleFormPO;
 
-public interface SaleDataService {
+public interface SaleReturnDataService {
 	
 	public boolean insert(SaleFormPO saleFormPO);
 	public boolean update(SaleFormPO saleFormPO);
