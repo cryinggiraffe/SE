@@ -4,7 +4,7 @@ import JDBC.DAO;
 import PO.AccountPO;
 import DataService.AccountDataService;
 
-public class AccountDataServiceImpl implements DataService.AccountDataService{
+public class AccountDataServiceImpl implements AccountDataService{
 
 	DAO<AccountPO> dao = new DAO<>();
 	@Override
