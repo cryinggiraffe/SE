@@ -2,9 +2,9 @@ package DataService.DataServiceImpl;
 
 import java.util.List;
 
+import DataService.PromotionDataService;
 import JDBC.DAO;
 import PO.PromotionPO;
-import DataService.PromotionDataService;
 
 public class UserClassPromotionDataServiceImpl implements PromotionDataService{
 
