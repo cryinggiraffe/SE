@@ -6,29 +6,6 @@ CREATE TABLE Message
 );
 
 
-CREATE TABLE Receipt
-(
-  id       VARCHAR(30) NOT NULL
-    PRIMARY KEY,
-  username VARCHAR(20) NULL,
-  account  VARCHAR(20) NULL,
-  amount   DOUBLE      NULL,
-  remark   VARCHAR(30) NULL,
-  sum      DOUBLE      NULL,
-  state    VARCHAR(20) NULL
-);
-
-CREATE TABLE Payment
-(
-  id       VARCHAR(30) NOT NULL
-    PRIMARY KEY,
-  username VARCHAR(20) NULL,
-  account  VARCHAR(20) NULL,
-  amount   DOUBLE      NULL,
-  remark   VARCHAR(30) NULL,
-  sum      DOUBLE      NULL,
-  state    VARCHAR(20) NULL
-);
 
 CREATE TABLE ImportCommodity
 (
