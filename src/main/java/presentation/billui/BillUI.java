@@ -31,7 +31,7 @@ public class BillUI extends JPanel {
         bt_cash.setFont(font1);
 
         //向panel添加按钮
-        this.setBounds(0,0,Width,Height-30);
+        this.setBounds(0,30,Width,Height-30);
         this.setLayout(null);
         this.setBackground(background);
 
@@ -58,8 +58,8 @@ public class BillUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
-                System.out.println("into user manage");
-                //mainLayout ml=new mainLayout();//为跳转的界面
+                System.out.println("into payment");
+                PaymentUI paymentUI = new PaymentUI(name);
 
             }
         };
@@ -70,8 +70,8 @@ public class BillUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
-                System.out.println("into user manage");
-                //mainLayout ml=new mainLayout();//为跳转的界面
+                System.out.println("into cash");
+                CashUI cashUI = new CashUI(name);
 
             }
         };

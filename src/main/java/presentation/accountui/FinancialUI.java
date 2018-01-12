@@ -134,8 +134,10 @@ public class FinancialUI extends JFrame{
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 System.out.println("into account manage");
-                //mainLayout ml=new mainLayout(jf_1);//为跳转的界面
-                jf_1.setVisible(false);//隐藏当前界面
+                jp_current = new AccountUI();
+                bt_back.setVisible(true);
+                jf_1.add(jp_current);
+                contentPane.setVisible(false);//隐藏当前界面
             }
         };
         bt_account.addActionListener(btAccount_ls);
