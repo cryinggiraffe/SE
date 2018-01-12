@@ -19,6 +19,7 @@ public class AdministratorUI extends JFrame {
 
     private static int Width = 900;
     private static int Height = 700;
+    private static Color background = new Color(135, 206, 250);
 
     public AdministratorUI () { //初始化
         Font font =new Font("微软雅黑", Font.PLAIN, 15);//设置字体
@@ -55,6 +56,7 @@ public class AdministratorUI extends JFrame {
         jf_1.setVisible(true);
         //jf_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf_1.setLocation(500,200);
+        jf_1.getContentPane().setBackground(background);
 
         //用户管理点击事件
         ActionListener bt1_ls=new ActionListener() {

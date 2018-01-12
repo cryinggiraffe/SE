@@ -12,8 +12,9 @@ public class BillUI extends JPanel {
 
     private static int Width = 900;
     private static int Height = 700;
+    private static Color background = new Color(135, 206, 250);
 
-    public BillUI () {
+    public BillUI (String name) {
 
         //设置界面的按钮
         Font font1 =new Font("微软雅黑", Font.PLAIN, 20);//设置按钮字体1
@@ -32,7 +33,7 @@ public class BillUI extends JPanel {
         //向panel添加按钮
         this.setBounds(0,0,Width,Height-30);
         this.setLayout(null);
-        this.setBackground(Color.CYAN);
+        this.setBackground(background);
 
         this.add(bt_receipt);
         this.add(bt_payment);
@@ -45,8 +46,8 @@ public class BillUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
-                System.out.println("into user manage");
-                //mainLayout ml=new mainLayout();//为跳转的界面
+                System.out.println("into receipt");
+                ReceiptUI receiptUI = new ReceiptUI(name);
 
             }
         };

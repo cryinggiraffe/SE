@@ -4,11 +4,11 @@ import businesslogic.loginbl.LoginBL;
 import presentation.accountui.FinancialUI;
 import presentation.goodui.StockManagerUi;
 import presentation.promotionui.ManagerUI;
+import presentation.saleui.SalerUi;
 import presentation.userui.AdministratorUI;
 
-import java.awt.Font;
+import java.awt.*;
 
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -23,10 +23,10 @@ public class Login extends JFrame{
     private static JPasswordField jtext2;//密码
     private static JLabel jl_admin;
     private static JLabel jl_password;
-    private static JLabel jl_log; //提示登录密码是否正确
 
     private static int Width = 900;
     private static int Height = 700;
+
 
     public Login (){//初始化登陆界面
         Font font =new Font("微软雅黑", Font.PLAIN, 20);//设置字体
@@ -79,6 +79,7 @@ public class Login extends JFrame{
         jf_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf_1.setLocation(500,200);
 
+
         //登陆点击事件
         ActionListener bt1_ls=new ActionListener() {
             @Override
@@ -89,39 +90,35 @@ public class Login extends JFrame{
                 String str = String.valueOf(password); //将char数组转化为string类型
                 LoginBL lg = new LoginBL();
 
-                if (user.equals("root")) {
-                    if ( str.equals("123456")) {
-                        AdministratorUI administratorUI = new AdministratorUI();
-                        jf_1.dispose();
-                    }else {
-                        System.out.println("wrong password of admin");
-                        JOptionPane.showMessageDialog(null, "密码有误，请重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
-                    }
-
-                } else if (lg.validatePassword(user, str)) {
+               if (lg.validatePassword(user, str)) {
                     System.out.println(user);
                     System.out.println(str);
                     String type = lg.usertype(user);
 
-                    if (type.equals("总经理")) {
+                    if (type.equals("manager")) {
                         ManagerUI managerUI = new ManagerUI(user);
                         jf_1.dispose();//销毁当前界面
-                    } else if (type.equals("财务人员")) {
+                    } else if (type.equals("finance")) {
                         FinancialUI financialUI = new FinancialUI(user);
                         jf_1.dispose();//销毁当前界面
-                    } else if (type.equals("进货销售人员")) {
+                    } else if (type.equals("sale")) {
+                        SalerUi salerUi = new SalerUi();
+                        salerUi.init();
                         jf_1.dispose();//销毁当前界面
-                    } else if (type.equals("库存管理人员")) {
+                    } else if (type.equals("stock")) {
                         StockManagerUi stockManagerUi = new StockManagerUi();
+                        stockManagerUi.init();
                         jf_1.dispose();//销毁当前界面
-                    } else {
-                        System.out.println("error user type");
+                    } else if (type.equals("admin")){
+                        AdministratorUI administratorUI = new AdministratorUI();
+                        jf_1.dispose();//销毁当前界面
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "密码有误，请重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
                     count++;
                     System.out.println("error");
                     if (count == 3) {
+                        JOptionPane.showMessageDialog(null, "密码输入错误3次，程序即将关闭", "错误信息",JOptionPane.ERROR_MESSAGE);
                         jf_1.dispose();
                     }
                 }

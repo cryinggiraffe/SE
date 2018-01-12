@@ -24,6 +24,7 @@ public class FinancialUI extends JFrame{
 
     private static int Width = 900;
     private static int Height = 700;
+    private static Color background = new Color(135, 206, 250);
 
     public FinancialUI (String name) {//初始化
         Font font =new Font("微软雅黑", Font.PLAIN, 15);//设置字体1
@@ -85,7 +86,7 @@ public class FinancialUI extends JFrame{
         JPanel contentPane = new JPanel();
         contentPane.setBounds(0,0,Width,Height-30);
         contentPane.setLayout(null);
-        contentPane.setBackground(Color.CYAN);
+        contentPane.setBackground(background);
 
         contentPane.add(bt_account);
         contentPane.add(bt_bill);
@@ -100,6 +101,7 @@ public class FinancialUI extends JFrame{
         jf_1.setVisible(true);
         //jf_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf_1.setLocation(500,200);
+        jf_1.getContentPane().setBackground(background);
 
 
         //退出事件的处理
@@ -144,7 +146,7 @@ public class FinancialUI extends JFrame{
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 System.out.println("into bill manage");
-                jp_current = new BillUI();
+                jp_current = new BillUI(name);
                 bt_back.setVisible(true);
                 jf_1.add(jp_current);
                 contentPane.setVisible(false);//隐藏当前界面
