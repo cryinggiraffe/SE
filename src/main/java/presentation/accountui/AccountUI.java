@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AccountUI extends JPanel {
     private static JButton bt_add;
@@ -13,7 +15,7 @@ public class AccountUI extends JPanel {
 
     private static JTextField jt_search;
 
-    private static JTable jta_accountlist;
+    private static JList jl_accountlist;
     private static JScrollPane jsp_accountlist;
 
     private static int Width = 900;
@@ -46,39 +48,25 @@ public class AccountUI extends JPanel {
 
 
         //显示所有账户列表
-        String[] columnTitle = {"选择","账户名称","余额"};
         //此处写一个获取所有账户名称和余额的方法
         int length = 4;//后面把length赋值为获取到的账户的数量
-        ButtonGroup listRadioButtonGroup = new ButtonGroup();
-        Object[][] datas = new Object[length][3];
-        for (int i=0;i<length;i++){
-            Object[] objs = new Object[3];
-            JPanel panel = new JPanel();
-            JRadioButton rbt_select = new JRadioButton();
-            panel.add(rbt_select);
-            listRadioButtonGroup.add(rbt_select);
-            objs[0] = panel;
-            objs[1] = "账户"+i;
-            objs[2] = 0;
-            datas[i]=objs;
+
+        DefaultListModel model = new DefaultListModel();
+        Object[] data = new Object[length + 1];
+        data[0] = String.format("   %s                                                 %s","账户名称","余额");
+        model.addElement(data[0]);
+        for (int i=1;i<=length;i++){
+            data[i] = String.format("账户%d                                                   %f元",i,45.5);
+            model.addElement(data[i]);
         }
 
+        jl_accountlist = new JList(model);
+        jl_accountlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jl_accountlist.setFont(font1);
 
-
-        DefaultTableModel model = new DefaultTableModel(datas, columnTitle);
-        jta_accountlist = new JTable();
-        jta_accountlist.setModel(model);
-        jta_accountlist.setRowHeight(30);
-        jta_accountlist.getColumnModel().getColumn(0).setCellRenderer(new MyButtonRender());
-
-        jta_accountlist.setBounds(40,140,810,30 * length);
-        jta_accountlist.getColumnModel().getColumn(0).setPreferredWidth(50);
-        jta_accountlist.getColumnModel().getColumn(1).setPreferredWidth(330);
-        jta_accountlist.getColumnModel().getColumn(2).setPreferredWidth(330);
-
-        JScrollPane sp = new JScrollPane(jta_accountlist);
-        sp.setBounds(40,140,810,500);
-        sp.setBackground(background_table);
+        jsp_accountlist = new JScrollPane(jl_accountlist);
+        jsp_accountlist.setBounds(40,140,810,500);
+        jsp_accountlist.setBackground(background_table);
         //向panel添加组件
         this.setBounds(0,30,Width,Height-30);
         this.setLayout(null);
@@ -89,11 +77,24 @@ public class AccountUI extends JPanel {
         this.add(bt_search);
         this.add(bt_update);
         this.add(bt_delete);
-        this.add(sp);
+        this.add(jsp_accountlist);
 
 
 
         this.setVisible(true);
+
+        //创建收款单按钮事件
+        ActionListener btUpdate_ls=new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                // TODO Auto-generated method stub
+                System.out.println("update account");
+                Object value = jl_accountlist.getSelectedValue();
+                System.out.println(value.toString());
+
+            }
+        };
+        bt_update.addActionListener(btUpdate_ls);
 
     }
 }

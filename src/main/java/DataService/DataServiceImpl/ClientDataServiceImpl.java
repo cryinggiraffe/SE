@@ -28,11 +28,12 @@ public class ClientDataServiceImpl implements ClientDataService{
 	public boolean update(ClientPO clientPO) {
 		// TODO Auto-generated method stub
 		String sql = "update Client set type = ?, rank = ?, name = ?, phone = ?, address = ?, postnum = ?, "
-				+ "email = ?, defaultsalesman"
+				+ "email = ?, receive_limit = ? , send = ? defaultsalesman = ? "
 				+ " where id = ?";
-		return dao.update(sql, clientPO.getId(), clientPO.getType(), clientPO.getRank(), 
-				               clientPO.getName(), clientPO.getPhone(), clientPO.getAddress(), 
-				               clientPO.getPostnum(), clientPO.getEmail(), clientPO.getDefaultsalesman());
+		return dao.update(sql, clientPO.getType(), clientPO.getRank(), clientPO.getName(), 
+					           clientPO.getPhone(), clientPO.getAddress(), clientPO.getPostnum(), clientPO.getEmail(), 
+					           clientPO.getReceive_limit(),clientPO.getSend(), clientPO.getDefaultsalesman(),
+	               			   clientPO.getId());
 	}
 
 	@Override

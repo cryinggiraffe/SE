@@ -1,74 +1,140 @@
 package PO;
 
+import java.sql.Date;
+
 public class GiftPO {
 	
-	private int id;
+	private String giftlistid;
+	private String giftid;
 	private String name;
 	private double price;
 	private int num;
-	private int GiftListId; //赠单类型
+	private String state;
+	private Date date;
 	
 	public GiftPO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public GiftPO(int id, String name, double price, int num, int giftListId) {
+	
+	
+	public GiftPO(String giftlistid, String giftid, String name, double price, int num, Date date) {
 		super();
-		this.id = id;
+		this.giftlistid = giftlistid;
+		this.giftid = giftid;
 		this.name = name;
 		this.price = price;
 		this.num = num;
-		GiftListId = giftListId;
+		this.state = "no";
+		this.date = date;
 	}
 
-	public int getId() {
-		return id;
+
+
+	public GiftPO(String giftlistid, String giftid, String name, double price, int num, String state, Date date) {
+		super();
+		this.giftlistid = giftlistid;
+		this.giftid = giftid;
+		this.name = name;
+		this.price = price;
+		this.num = num;
+		this.state = state;
+		this.date = date;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+
+
+	public String getGiftlistid() {
+		return giftlistid;
 	}
+
+
+
+	public void setGiftlistid(String giftlistid) {
+		this.giftlistid = giftlistid;
+	}
+
+
+
+	public String getGiftid() {
+		return giftid;
+	}
+
+
+
+	public void setGiftid(String giftid) {
+		this.giftid = giftid;
+	}
+
+
 
 	public String getName() {
 		return name;
 	}
 
+
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
+
 
 	public double getPrice() {
 		return price;
 	}
 
+
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+
 
 	public int getNum() {
 		return num;
 	}
 
+
+
 	public void setNum(int num) {
 		this.num = num;
 	}
 
-	public int getGiftListId() {
-		return GiftListId;
+
+
+	public String getState() {
+		return state;
 	}
 
-	public void setGiftListId(int giftListId) {
-		GiftListId = giftListId;
+
+
+	public void setState(String state) {
+		this.state = state;
 	}
+
+
+
+	public Date getDate() {
+		return date;
+	}
+
+
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+
 
 	@Override
 	public String toString() {
-		return "GiftPO [id=" + id + ", name=" + name + ", price=" + price + ", num=" + num + ", GiftListId="
-				+ GiftListId + "]";
+		return "GiftPO [giftlistid=" + giftlistid + ", giftid=" + giftid + ", name=" + name + ", price=" + price
+				+ ", num=" + num + ", state=" + state + ", date=" + date + "]";
 	}
 	
 	
 	
 }
-
