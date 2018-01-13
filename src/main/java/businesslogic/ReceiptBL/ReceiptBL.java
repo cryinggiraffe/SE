@@ -3,6 +3,7 @@ import PO.ReceiptPO;
 import blService.ReceiptBLService;
 import DataService.DataServiceImpl.ReceiptDataServiceImpl;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +11,9 @@ public class ReceiptBL implements ReceiptBLService{
     private ReceiptDataServiceImpl rds=new ReceiptDataServiceImpl();
 
     @Override
-    public void newReceipt(String id, String username, String account, double amount, String remark, double sum) {
-        ReceiptPO po=new ReceiptPO(id,username,account,amount,remark,sum);
+    public void newReceipt(String id, String client, String username, String account, double amount, String remark,
+                           double sum, Date date) {
+        ReceiptPO po=new ReceiptPO(id,client,username,account,amount,remark,sum,date);
         rds.insert(po);
     }
 

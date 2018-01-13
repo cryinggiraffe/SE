@@ -3,6 +3,8 @@ package presentation.accountui;
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MyButtonRender implements TableCellRenderer
 {
@@ -18,15 +20,7 @@ public class MyButtonRender implements TableCellRenderer
         /***
          * code below is useless
          */
-//        this.button.addActionListener(new ActionListener()
-//        {
-//
-//            @Override
-//            public void actionPerformed(ActionEvent e)
-//            {
-//                System.out.println("a:"+button.getText());
-//            }
-//        });
+
         return (Component)value;
     }
 }
