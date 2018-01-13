@@ -13,10 +13,10 @@ public class ReceiptDataServiceImpl implements ReceiptDataService{
 	@Override
 	public boolean insert(ReceiptPO receiptPO) {
 		// TODO Auto-generated method stub
-		String sql = "insert into Receipt values(?,?,?,?,?,?,?)";
-		return dao.update(sql, receiptPO.getId(), receiptPO.getUsername(), 
+		String sql = "insert into Receipt values(?,?,?,?,?,?,?,?,?)";
+		return dao.update(sql, receiptPO.getId(), receiptPO.getClient(),receiptPO.getUsername(),
 				               receiptPO.getAccount(), receiptPO.getAmount(), receiptPO.getRemark(),
-				               receiptPO.getSum(), receiptPO.getState());
+				               receiptPO.getSum(), receiptPO.getState(),receiptPO.getDate());
 	}
 
 

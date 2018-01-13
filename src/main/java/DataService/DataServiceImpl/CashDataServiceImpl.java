@@ -58,4 +58,11 @@ public class CashDataServiceImpl implements CashDataService{
 		return dao.getALL(CashPO.class, sql);
 	}
 
+	@Override
+	public List<CashPO> findForClient(String client) {
+		// TODO Auto-generated method stub
+		String sql = "select * from Payment where client = ?";
+		return dao.getALL(CashPO.class, sql, client);
+	}
+
 }

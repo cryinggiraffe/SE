@@ -2,25 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60bc4a32-42bf-4901-8308-1bfc657bcfb1" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/presentation/accountui/AddAccountUI.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/presentation/accountui/UpdateAccountUI.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/presentation/userui/AddUserUI.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/presentation/userui/MylistRender.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/presentation/userui/UpdateUserUI.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/blService/CashBLService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/blService/PaymentBLService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/businesslogic/cashbl/CashBL.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/businesslogic/paymentbl/PaymentBL.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/AdministratorDataService.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/AdministratorDataService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/AdministratorDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/AdministratorDataServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PO/AccountPO.java" afterPath="$PROJECT_DIR$/src/main/java/PO/AccountPO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PO/UserPO.java" afterPath="$PROJECT_DIR$/src/main/java/PO/UserPO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blService/AdministratorBLService.java" afterPath="$PROJECT_DIR$/src/main/java/blService/AdministratorBLService.java" />
+      <change beforePath="$PROJECT_DIR$/sql/sql5.0.txt" afterPath="$PROJECT_DIR$/sql/sql5.0.txt" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/CashDataService.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/CashDataService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/CashDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/CashDataServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/PaymentDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/PaymentDataServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ReceiptDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ReceiptDataServiceImpl.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/blService/ReceiptBLService.java" afterPath="$PROJECT_DIR$/src/main/java/blService/ReceiptBLService.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/businesslogic/ReceiptBL/ReceiptBL.java" afterPath="$PROJECT_DIR$/src/main/java/businesslogic/ReceiptBL/ReceiptBL.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/businesslogic/userbl/UserBL.java" afterPath="$PROJECT_DIR$/src/main/java/businesslogic/userbl/UserBL.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/presentation/accountui/AccountUI.java" afterPath="$PROJECT_DIR$/src/main/java/presentation/accountui/AccountUI.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/presentation/accountui/MyButtonRender.java" afterPath="$PROJECT_DIR$/src/main/java/presentation/accountui/MyButtonRender.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/presentation/loginui/Login.java" afterPath="$PROJECT_DIR$/src/main/java/presentation/loginui/Login.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/presentation/userui/AdministratorUI.java" afterPath="$PROJECT_DIR$/src/main/java/presentation/userui/AdministratorUI.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/presentation/userui/UserManageUI.java" afterPath="$PROJECT_DIR$/src/main/java/presentation/userui/UserManageUI.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/presentation/billui/CashUI.java" afterPath="$PROJECT_DIR$/src/main/java/presentation/billui/CashUI.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/presentation/billui/PaymentUI.java" afterPath="$PROJECT_DIR$/src/main/java/presentation/billui/PaymentUI.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/presentation/billui/ReceiptUI.java" afterPath="$PROJECT_DIR$/src/main/java/presentation/billui/ReceiptUI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,18 +32,44 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/presentation/accountui/FinancialUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
-              <caret line="99" column="30" lean-forward="true" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="30" />
+              <caret line="99" column="30" lean-forward="false" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BillUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BillUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/presentation/billui/BillUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="61" column="58" lean-forward="true" selection-start-line="61" selection-start-column="58" selection-end-line="61" selection-end-column="58" />
+            <state relative-caret-position="283">
+              <caret line="51" column="13" lean-forward="true" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PaymentUI.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/presentation/billui/PaymentUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3700">
+              <caret line="185" column="21" lean-forward="true" selection-start-line="185" selection-start-column="21" selection-end-line="185" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CashUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/presentation/billui/CashUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="623">
+              <caret line="181" column="25" lean-forward="true" selection-start-line="170" selection-start-column="24" selection-end-line="181" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#7196#7628#0" expanded="true" />
+                <element signature="e#7627#7628#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,6 +79,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -67,12 +90,24 @@
       <find>jt_account</find>
       <find>AccountBL</find>
       <find>jl_accountlist</find>
+      <find>rds</find>
+      <find>receipt</find>
+      <find>ReceiptPO</find>
+      <find>Receipt</find>
+      <find>client</find>
     </findStrings>
     <replaceStrings>
       <replace>jsp_userlist</replace>
       <replace>jt_password</replace>
       <replace>UserBL</replace>
       <replace>jl_userlist</replace>
+      <replace>PaymentPO</replace>
+      <replace>Payment</replace>
+      <replace>pds</replace>
+      <replace>payment`</replace>
+      <replace>CashPO</replace>
+      <replace>Cash</replace>
+      <replace>account</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -86,15 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/sh/UI/Supervise.java" />
-        <option value="$PROJECT_DIR$/src/main/sh/UI/Good.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/CategoryDataServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/CommodityPromotionDataServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ClientDataSericeImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/GoodDataServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ImportDataServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/PricePromotionDataServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/UserClassPromotionDataServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/presentation/viewui/View.java" />
         <option value="$PROJECT_DIR$/src/main/java/presentation/goodui/StockManagerUi.java" />
         <option value="$PROJECT_DIR$/src/main/java/presentation/goodui/Goodui.java" />
@@ -111,11 +137,8 @@
         <option value="$PROJECT_DIR$/src/main/java/presentation/clientui/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/presentation/clientui/FindClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/presentation/clientui/EditClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/presentation/billui/CashUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/presentation/billui/BillUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/presentation/accountui/FinancialUI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/presentation/billui/ReceiptUI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/presentation/billui/PaymentUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/PO/GoodPO.java" />
         <option value="$PROJECT_DIR$/src/main/java/PO/CategoryPO.java" />
         <option value="$PROJECT_DIR$/src/main/java/presentation/accountui/MyButtonRender.java" />
@@ -123,8 +146,6 @@
         <option value="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/AccountDataServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/presentation/accountui/UpdateAccountUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/presentation/accountui/AddAccountUI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/blService/ReceiptBLService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/businesslogic/ReceiptBL/ReceiptBL.java" />
         <option value="$PROJECT_DIR$/src/main/java/PO/UserPO.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataService/AdministratorDataService.java" />
         <option value="$PROJECT_DIR$/src/main/java/blService/AdministratorBLService.java" />
@@ -137,6 +158,20 @@
         <option value="$PROJECT_DIR$/src/main/java/presentation/userui/UserManageUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/AdministratorDataServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/presentation/userui/UpdateUserUI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/blService/ReceiptBLService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/businesslogic/ReceiptBL/ReceiptBL.java" />
+        <option value="$PROJECT_DIR$/sql/sql5.0.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/presentation/billui/ReceiptUI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/blService/PaymentBLService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/businesslogic/paymentbl/PaymentBL.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataService/CashDataService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/CashDataServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/blService/CashBLService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/businesslogic/cashbl/CashBL.java" />
+        <option value="$PROJECT_DIR$/src/main/java/presentation/billui/CashUI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ReceiptDataServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/PaymentDataServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/presentation/billui/PaymentUI.java" />
       </list>
     </option>
   </component>
@@ -197,6 +232,40 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sehomework666" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEhomework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="blService" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sehomework666" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEhomework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="businesslogic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sehomework666" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEhomework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="businesslogic" type="462c0819:PsiDirectoryNode" />
+              <item name="accountbl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sehomework666" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEhomework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="businesslogic" type="462c0819:PsiDirectoryNode" />
+              <item name="ReceiptBL" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sehomework666" type="b2602c69:ProjectViewProjectNode" />
@@ -268,21 +337,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Login">
+  <component name="RunManager" selected="Application.FinancialUI">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
     </configuration>
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="CashBL" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="presentation.clientui.*" />
+          <option name="PATTERN" value="businesslogic.cashbl.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="presentation.clientui.Client" />
+      <option name="MAIN_CLASS_NAME" value="businesslogic.cashbl.CashBL" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -313,14 +382,14 @@
       <module name="sehomework666" />
       <envs />
     </configuration>
-    <configuration name="FindClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="presentation.clientui.*" />
+          <option name="PATTERN" value="presentation.loginui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="presentation.clientui.FindClient" />
+      <option name="MAIN_CLASS_NAME" value="presentation.loginui.Login" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -332,14 +401,14 @@
       <module name="sehomework666" />
       <envs />
     </configuration>
-    <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="PaymentBL" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="presentation.loginui.*" />
+          <option name="PATTERN" value="businesslogic.paymentbl.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="presentation.loginui.Login" />
+      <option name="MAIN_CLASS_NAME" value="businesslogic.paymentbl.PaymentBL" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -445,19 +514,19 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.Client" />
-      <item index="1" class="java.lang.String" itemvalue="Application.FindClient" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Login" />
-      <item index="3" class="java.lang.String" itemvalue="Application.FinancialUI" />
-      <item index="4" class="java.lang.String" itemvalue="Application.ReceiptBL" />
+      <item index="0" class="java.lang.String" itemvalue="Application.Login" />
+      <item index="1" class="java.lang.String" itemvalue="Application.FinancialUI" />
+      <item index="2" class="java.lang.String" itemvalue="Application.ReceiptBL" />
+      <item index="3" class="java.lang.String" itemvalue="Application.PaymentBL" />
+      <item index="4" class="java.lang.String" itemvalue="Application.CashBL" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Login" />
-        <item index="1" class="java.lang.String" itemvalue="Application.ReceiptBL" />
-        <item index="2" class="java.lang.String" itemvalue="Application.FinancialUI" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Client" />
-        <item index="4" class="java.lang.String" itemvalue="Application.FindClient" />
+        <item index="0" class="java.lang.String" itemvalue="Application.FinancialUI" />
+        <item index="1" class="java.lang.String" itemvalue="Application.CashBL" />
+        <item index="2" class="java.lang.String" itemvalue="Application.PaymentBL" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Login" />
+        <item index="4" class="java.lang.String" itemvalue="Application.ReceiptBL" />
       </list>
     </recent_temporary>
   </component>
@@ -477,12 +546,12 @@
       <workItem from="1515760493079" duration="10871000" />
       <workItem from="1515815835802" duration="1309000" />
       <workItem from="1515828999766" duration="2791000" />
-      <workItem from="1515831870795" duration="19948000" />
+      <workItem from="1515831870795" duration="24912000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36129000" />
+    <option name="totallyTimeSpent" value="41093000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
@@ -497,7 +566,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15886833" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.115342766" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -557,106 +626,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/importui/Cargo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/saleui/SalerUi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="36" lean-forward="false" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PO/ClientPO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PO/GiftPO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="68" column="5" lean-forward="false" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/giftui/Gift.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="24" column="26" lean-forward="false" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/superviseui/Supervise.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ClientDataServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DataService/ClientDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/clientui/AddClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="102" column="18" lean-forward="false" selection-start-line="102" selection-start-column="18" selection-end-line="119" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/clientbl/ClientBL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/clientui/EditClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2275">
-          <caret line="118" column="42" lean-forward="true" selection-start-line="118" selection-start-column="42" selection-end-line="118" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/clientui/DeleteClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="66" lean-forward="false" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ImportReturnDataServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="18" column="48" lean-forward="false" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ImportCommodityDataServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/awt/Container.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Double.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/presentation/clientui/FindClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2024">
@@ -668,23 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="824">
           <caret line="64" column="22" lean-forward="true" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/billui/CashUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="132" column="64" lean-forward="false" selection-start-line="132" selection-start-column="64" selection-end-line="132" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/billui/PaymentUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="166" column="21" lean-forward="true" selection-start-line="166" selection-start-column="21" selection-end-line="166" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -741,14 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/blService/ReceiptBLService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/blService/ClientBLService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -757,22 +701,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/ReceiptBL/ReceiptBL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/presentation/accountui/MyButtonRender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
           <caret line="47" column="38" lean-forward="true" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -819,14 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/billui/ReceiptUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="104" column="30" lean-forward="true" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/presentation/accountui/UpdateAccountUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="523">
@@ -856,10 +782,10 @@
         <state relative-caret-position="327">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
-            <element signature="e#823#824#0" expanded="true" />
-            <element signature="e#863#864#0" expanded="true" />
-            <element signature="e#903#904#0" expanded="true" />
-            <element signature="e#939#940#0" expanded="true" />
+            <element signature="e#823#824#0" expanded="false" />
+            <element signature="e#863#864#0" expanded="false" />
+            <element signature="e#903#904#0" expanded="false" />
+            <element signature="e#939#940#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -885,8 +811,8 @@
         <state relative-caret-position="647">
           <caret line="58" column="4" lean-forward="true" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
           <folding>
-            <element signature="e#1065#1066#0" expanded="true" />
-            <element signature="e#1135#1136#0" expanded="true" />
+            <element signature="e#1065#1066#0" expanded="false" />
+            <element signature="e#1135#1136#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -896,9 +822,9 @@
         <state relative-caret-position="381">
           <caret line="109" column="90" lean-forward="true" selection-start-line="109" selection-start-column="53" selection-end-line="109" selection-end-column="90" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4679#5111#0" expanded="true" />
-            <element signature="e#5110#5111#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#4679#5111#0" expanded="false" />
+            <element signature="e#5110#5111#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -908,7 +834,7 @@
         <state relative-caret-position="420">
           <caret line="102" column="48" lean-forward="false" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -926,7 +852,7 @@
         <state relative-caret-position="167">
           <caret line="34" column="32" lean-forward="false" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -936,7 +862,7 @@
         <state relative-caret-position="324">
           <caret line="103" column="41" lean-forward="false" selection-start-line="103" selection-start-column="41" selection-end-line="103" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -946,7 +872,7 @@
         <state relative-caret-position="503">
           <caret line="118" column="63" lean-forward="false" selection-start-line="118" selection-start-column="63" selection-end-line="118" selection-end-column="63" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -954,16 +880,223 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/presentation/accountui/FinancialUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
-          <caret line="99" column="30" lean-forward="true" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="30" />
+          <caret line="99" column="30" lean-forward="false" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataService/ReceiptDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="16" column="56" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="16" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/sql6.0.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/sql3.0.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-273">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/sql4.0.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="40" column="33" lean-forward="true" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/sql5.0.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="26" column="2" lean-forward="true" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PO/PaymentPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/blService/PaymentBLService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/paymentbl/PaymentBL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="62" column="8" lean-forward="false" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
+            <element signature="e#776#777#0" expanded="true" />
+            <element signature="e#1430#1431#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1534#1535#0" expanded="true" />
+            <element signature="e#1574#1575#0" expanded="true" />
+            <element signature="e#1644#1645#0" expanded="true" />
+            <element signature="e#1692#1693#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/presentation/billui/BillUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="61" column="58" lean-forward="true" selection-start-line="61" selection-start-column="58" selection-end-line="61" selection-end-column="58" />
+        <state relative-caret-position="283">
+          <caret line="51" column="13" lean-forward="true" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/billui/ReceiptUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="169" column="73" lean-forward="false" selection-start-line="169" selection-start-column="24" selection-end-line="169" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/blService/ReceiptBLService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="15" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PO/CashPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" column="21" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="21" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataService/PaymentDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataService/CashDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/CashDataServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="65" column="5" lean-forward="true" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/cashbl/CashBL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#1264#1265#0" expanded="true" />
+            <element signature="e#1313#1314#0" expanded="true" />
+            <element signature="e#1365#1366#0" expanded="true" />
+            <element signature="e#1405#1406#0" expanded="true" />
+            <element signature="e#1472#1473#0" expanded="true" />
+            <element signature="e#1520#1521#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/blService/CashBLService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/PaymentDataServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="18" column="86" lean-forward="false" selection-start-line="18" selection-start-column="86" selection-end-line="18" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ReceiptDataServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/ReceiptBL/ReceiptBL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#1456#1457#0" expanded="true" />
+            <element signature="e#1505#1506#0" expanded="true" />
+            <element signature="e#1560#1561#0" expanded="true" />
+            <element signature="e#1600#1601#0" expanded="true" />
+            <element signature="e#1670#1671#0" expanded="true" />
+            <element signature="e#1718#1719#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/billui/CashUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="623">
+          <caret line="181" column="25" lean-forward="true" selection-start-line="170" selection-start-column="24" selection-end-line="181" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7196#7628#0" expanded="true" />
+            <element signature="e#7627#7628#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/billui/PaymentUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3700">
+          <caret line="185" column="21" lean-forward="true" selection-start-line="185" selection-start-column="21" selection-end-line="185" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -13,10 +13,10 @@ public class PaymentDataServiceImpl implements PaymentDataService{
 	@Override
 	public boolean insert(PaymentPO paymentPO) {
 		// TODO Auto-generated method stub
-		String sql = "insert into Payment values(?,?,?,?,?,?,?)";
-		return dao.update(sql, paymentPO.getId(), paymentPO.getUsername(),
+		String sql = "insert into Payment values(?,?,?,?,?,?,?,?,?)";
+		return dao.update(sql, paymentPO.getId(), paymentPO.getClient(),paymentPO.getUsername(),
 				          paymentPO.getAccount(), paymentPO.getAmount(), paymentPO.getRemark(), 
-				          paymentPO.getSum(), paymentPO.getState());
+				          paymentPO.getSum(), paymentPO.getState(),paymentPO.getDate());
 	}
 
 	@Override

@@ -15,5 +15,6 @@ public interface CashDataService {
 	
 	public List<CashPO> findForTime(Date begin, Date end);
 	public List<CashPO> findForType();
+	public List<CashPO> findForClient(String client);
 	
 }

@@ -1,7 +1,10 @@
 package presentation.billui;
 
-import businesslogic.ReceiptBL.ReceiptBL;
-import businesslogic.clientbl.ClientBL;
+
+import PO.AccountPO;
+import businesslogic.accountbl.AccountBL;
+import businesslogic.cashbl.CashBL;
+
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -11,18 +14,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.Date;
 
 public class CashUI extends JFrame {
     private static JLabel jl_id;
     private static JLabel jl_username;
-    private static JLabel jl_client;
     private static JLabel jl_account;
+    private static JLabel jl_list;
     private static JLabel jl_amount;
     private static JLabel jl_remark;
     private static JLabel jl_sum;
 
-    private static JTextField jt_client;
     private static JTextField jt_account;
+    private static JTextField jt_list;
     private static JTextField jt_amount;
     private static JTextField jt_remark;
 
@@ -36,7 +40,8 @@ public class CashUI extends JFrame {
     public CashUI (String name) {
         //设置界面
         Font font =new Font("微软雅黑", Font.PLAIN, 20);//设置按钮字体
-        String cashId = "XJFYD-20180111-00001";
+        CashBL cashBL = new CashBL();
+        String cashId = cashBL.newId();
         jl_id = new JLabel("单据编号：" + cashId);
         jl_id.setBounds(150,100,500,50);
         jl_id.setFont(font);
@@ -45,19 +50,19 @@ public class CashUI extends JFrame {
         jl_username.setBounds(650,100,300,50);
         jl_username.setFont(font);
 
-        jl_client = new JLabel("银行账户：");
-        jl_client.setBounds(150,190,120,50);
-        jl_client.setFont(font);
-        jt_client = new JTextField();
-        jt_client.setBounds(280,190,550,50);
-        jt_client.setFont(font);
-
-        jl_account = new JLabel("条目名：");
-        jl_account.setBounds(150,280,120,50);
+        jl_account = new JLabel("银行账户：");
+        jl_account.setBounds(150,190,120,50);
         jl_account.setFont(font);
         jt_account = new JTextField();
-        jt_account.setBounds(280,280,550,50);
+        jt_account.setBounds(280,190,550,50);
         jt_account.setFont(font);
+
+        jl_list = new JLabel("条目名：");
+        jl_list.setBounds(150,280,120,50);
+        jl_list.setFont(font);
+        jt_list = new JTextField();
+        jt_list.setBounds(280,280,550,50);
+        jt_list.setFont(font);
 
         jl_amount = new JLabel("金额：");
         jl_amount.setBounds(150,370,120,50);
@@ -91,13 +96,13 @@ public class CashUI extends JFrame {
 
         jf_1.add(jl_id);
         jf_1.add(jl_username);
-        jf_1.add(jl_client);
         jf_1.add(jl_account);
+        jf_1.add(jl_list);
         jf_1.add(jl_amount);
         jf_1.add(jl_remark);
         jf_1.add(jl_sum);
-        jf_1.add(jt_client);
         jf_1.add(jt_account);
+        jf_1.add(jt_list);
         jf_1.add(jt_amount);
         jf_1.add(jt_remark);
         jf_1.add(bt_submit);
@@ -134,23 +139,48 @@ public class CashUI extends JFrame {
                         JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
                 if(response==0) {
                     System.out.println(" 您按下了确定按钮  ");
-                    String client = jt_client.getText();
                     String account = jt_account.getText();
-                    double amount=Double.parseDouble(jt_amount.getText());
+                    String list = jt_list.getText();
+                    String amount=jt_amount.getText();
                     String remark = jt_remark.getText();
-                    if (amount > 0) { //未来还要加对银行账户的判断
-                        //这里写更改银行账户余额的代码
-                        System.out.println("new cash finish");
-                        jf_1.dispose();
-                    }else if (amount < 0){
-                        JOptionPane.showMessageDialog(jf_1, "转账金额不得小于0", "错误信息",JOptionPane.ERROR_MESSAGE);
-                        jt_amount.setText("");
+
+                    AccountBL accountBL = new AccountBL();
+                    double amountNum = 0;
+                    if (list.equals("")) {
+                        System.out.println("error no client");
+                        JOptionPane.showMessageDialog(jf_1, "必须填写条目名", "错误信息",JOptionPane.ERROR_MESSAGE);
+                    }else if (account.equals("")) {
+                        System.out.println("error no account");
+                        JOptionPane.showMessageDialog(jf_1, "必须填写银行账户", "错误信息",JOptionPane.ERROR_MESSAGE);
+                    }else if (amount.equals("")) {
+                        System.out.println("error no amount");
+                        JOptionPane.showMessageDialog(jf_1, "必须填写转账金额", "错误信息",JOptionPane.ERROR_MESSAGE);
                     }else {
-                        JOptionPane.showMessageDialog(jf_1, "无次客户信息，请重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
-                        jt_client.setText("");
+                        amountNum = Double.parseDouble(amount);
                     }
 
+                    if (amountNum < 0) {  //未来还要加银行账户的判断
+                        JOptionPane.showMessageDialog(jf_1, "金额不得小于0", "错误信息",JOptionPane.ERROR_MESSAGE);
+                        jt_amount.setText("");
+                    }else if(accountBL.findAccount(account) == null){
+                        JOptionPane.showMessageDialog(jf_1, "无此银行账户信息，请重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
+                    }else {
+                        CashBL cashBL = new CashBL();
+                        Date date = new Date(System.currentTimeMillis());
 
+                        AccountPO accountpo = accountBL.findAccount(account);
+                        double balance = accountpo.getBalance();
+                        balance = balance - amountNum;
+                        if (balance > 0) {
+                            System.out.println("new payment");
+                            cashBL.newCash(cashId,name,account,list,amountNum,remark,amountNum,date);
+                            accountBL.updateAccount(account,balance);
+                            jf_1.dispose();
+                        }else {
+                            JOptionPane.showMessageDialog(jf_1, "消费金额超出账户余额，请确认后重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
+                            jt_amount.setText("");
+                        }
+                    }
                 } else if(response==1) {
                     System.out.println(" 您按下了取消按钮  ");
                 }

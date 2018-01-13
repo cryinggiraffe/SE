@@ -1,7 +1,10 @@
 package presentation.billui;
 
-import businesslogic.ReceiptBL.ReceiptBL;
+import PO.AccountPO;
+import businesslogic.accountbl.AccountBL;
+import businesslogic.paymentbl.PaymentBL;
 import businesslogic.clientbl.ClientBL;
+
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -11,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.Date;
 
 public class PaymentUI extends JFrame {
     private static JLabel jl_id;
@@ -36,8 +40,9 @@ public class PaymentUI extends JFrame {
     public PaymentUI (String name) {
         //设置界面
         Font font =new Font("微软雅黑", Font.PLAIN, 20);//设置按钮字体
-        String receiptId = "FKD-20180111-00001";
-        jl_id = new JLabel("单据编号：" + receiptId);
+        PaymentBL paymentBL = new PaymentBL();
+        String paymentId = paymentBL.newId();
+        jl_id = new JLabel("单据编号：" + paymentId);
         jl_id.setBounds(150,100,500,50);
         jl_id.setFont(font);
 
@@ -139,6 +144,7 @@ public class PaymentUI extends JFrame {
                     String amount = jt_amount.getText();
                     String remark = jt_remark.getText();
                     ClientBL clientBL = new ClientBL();
+                    AccountBL accountBL = new AccountBL();
                     double amountNum = 0;
                     if (client.equals("")) {
                         System.out.println("error no client");
@@ -159,11 +165,24 @@ public class PaymentUI extends JFrame {
                     }else if (clientBL.findClient(client) == null) {
                         JOptionPane.showMessageDialog(jf_1, "无此客户信息，请重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
 
+                    }else if(accountBL.findAccount(account) == null){
+                        JOptionPane.showMessageDialog(jf_1, "无此银行账户信息，请重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
                     }else {
-                        ReceiptBL receiptBL = new ReceiptBL();
-                        //receiptBL.newReceipt(receiptId,name,account,amount,remark,amount);
-                        System.out.println("new payment");
-                        jf_1.dispose();
+                        PaymentBL paymentBL = new PaymentBL();
+                        Date date = new Date(System.currentTimeMillis());
+
+                        AccountPO accountpo = accountBL.findAccount(account);
+                        double balance = accountpo.getBalance();
+                        balance = balance - amountNum;
+                        if (balance > 0) {
+                            paymentBL.newPayment(paymentId,client,name,account,amountNum,remark,amountNum,date);
+                            System.out.println("new payment");
+                            jf_1.dispose();
+                        }else {
+                            JOptionPane.showMessageDialog(jf_1, "转账金额超出账户余额，请确认后重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
+                            jt_amount.setText("");
+                        }
+
                     }
 
 

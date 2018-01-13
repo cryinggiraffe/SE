@@ -40,9 +40,23 @@ public class ReceiptBL implements ReceiptBLService{
     public String newId () {
         Calendar now = Calendar.getInstance();
         String Id = "SKD-";
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        Id = Id +  sdf.format(now.getTime());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-");
+        int length = rds.findForType().size() + 1;
+        Id = Id +  sdf.format(now.getTime()) + String.format("%05d",length);
         return Id;
+    }
+
+    @Override
+    public List<ReceiptPO> findByTime(Date begin, Date end){
+        return rds.findForTime(begin,end);
+    }
+    @Override
+    public List<ReceiptPO> findByType(){
+        return rds.findForType();
+    }
+    @Override
+    public List<ReceiptPO> findByClient(String client){
+        return rds.findForClient(client);
     }
 
     public static void main(String[] agrs){
