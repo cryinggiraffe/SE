@@ -3,7 +3,9 @@ import PO.ReceiptPO;
 import blService.ReceiptBLService;
 import DataService.DataServiceImpl.ReceiptDataServiceImpl;
 
+import java.util.Calendar;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,11 +36,21 @@ public class ReceiptBL implements ReceiptBLService{
         return true;
     }
 
+    @Override
+    public String newId () {
+        Calendar now = Calendar.getInstance();
+        String Id = "SKD-";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        Id = Id +  sdf.format(now.getTime());
+        return Id;
+    }
+
     public static void main(String[] agrs){
         ReceiptPO s=new ReceiptPO();
         s.setId("SKD-1234");
         ReceiptBL rs=new ReceiptBL();
         //rs.newReceipt(s);
-        System.out.println(rs.findById(s.getId()));
+        //System.out.println(rs.findById(s.getId()));
+        System.out.println(rs.newId());
     }
 }

@@ -9,6 +9,7 @@ public interface ReceiptBLService {
                     double sum, Date date);
     boolean update(ReceiptPO po);
     ReceiptPO findById(String id);
+    String newId();
     List<ReceiptPO> findByState();
 
 }
