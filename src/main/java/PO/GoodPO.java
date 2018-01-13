@@ -7,6 +7,7 @@ public class GoodPO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private int id;
+	private int pid;
     private String name;
     private String type;
     private int num;
@@ -34,8 +35,30 @@ public class GoodPO implements Serializable {
 		this.rece_ret_price = rece_ret_price;
 	}
 
+	public GoodPO(int id, int pid, String name, String type, int num, int pur_price, int ret_price, int rece_price,
+				  int rece_ret_price) {
+		super();
+		this.id = id;
+		this.pid = pid;
+		this.name = name;
+		this.type = type;
+		this.num = num;
+		this.pur_price = pur_price;
+		this.ret_price = ret_price;
+		this.rece_price = rece_price;
+		this.rece_ret_price = rece_ret_price;
+	}
+
 
 	
+
+	public int getPid() {
+		return pid;
+	}
+
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
 
 	public int getId() {
 		return id;
@@ -45,7 +68,6 @@ public class GoodPO implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public String getName() {
 		return name;
