@@ -1,5 +1,6 @@
 package DataService.DataServiceImpl;
 
+import java.sql.Date;
 import java.util.List;
 
 import DataService.ImportDataService;
@@ -57,6 +58,41 @@ public class ImportDataServiceImpl implements ImportDataService{
 			importFormPO.setImportcommoditylist(importCommodityDataServiceImpl.getForImportformId(importFormPO.getId()));
 		}
 		return importFormPOs;
+	}
+
+	@Override
+	public List<ImportFormPO> findForTime(Date begin, Date end) {
+		// TODO Auto-generated method stub
+		String sql = "select id, provider, houseware, operator, remark, sum, state,date from ImportForm where date >= ? and date <= ?";
+		return dao.getALL(ImportFormPO.class, sql, begin, end);
+	}
+
+	@Override
+	public List<ImportFormPO> findForType() {
+		// TODO Auto-generated method stub
+		String sql = "select id, provider, houseware, operator, remark, sum, state,date from ImportForm";
+		return dao.getALL(ImportFormPO.class, sql);
+	}
+
+	@Override
+	public List<ImportFormPO> findForClient(String client) {
+		// TODO Auto-generated method stub
+		String sql = "select id, provider, houseware, operator, remark, sum, state,date from ImportForm where provider = ?";
+		return dao.getALL(ImportFormPO.class, sql, client);
+	}
+
+//	@Override
+//	public List<ImportFormPO> findForSalesman(String salesman) {
+//		// TODO Auto-generated method stub
+//		String sql = "select id, provider, houseware, operator, remark, sum, state,date from ImportForm "
+//		return null;
+//	}
+
+	@Override
+	public List<ImportFormPO> findForHouseWare(String houseware) {
+		// TODO Auto-generated method stub
+		String sql = "select id, provider, houseware, operator, remark, sum, state, date from ImportForm where houseware = ?";
+		return dao.getALL(ImportFormPO.class, sql, houseware);
 	}
 	
 	

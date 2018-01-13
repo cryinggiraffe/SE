@@ -3,13 +3,13 @@ package DataService;
 import java.util.List;
 
 import PO.GiftPO;
-import PO.GoodPO;
+
 
 public interface GiftDataService {
 	
-	public boolean insert(GoodPO goodPO);
-	public boolean delete();
+	public boolean insert(GiftPO giftPO);
+	public boolean delete(String giftlistid);
 	public boolean update(GiftPO giftPO);
 	
-	public List<GiftPO> list();
+	public List<GiftPO> list(String giftlistid);
 }
