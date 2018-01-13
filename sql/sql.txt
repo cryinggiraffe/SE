@@ -30,17 +30,6 @@ CREATE TABLE Client
 );
 
 
-CREATE TABLE Gift
-(
-  id         INT         NOT NULL
-    PRIMARY KEY,
-  name       VARCHAR(20) NULL,
-  price      DOUBLE      NULL,
-  num        INT         NULL,
-  giftlistid INT         NULL
-);
-
-
 CREATE TABLE UserClassPromotion
 (
   id          INT         NOT NULL
