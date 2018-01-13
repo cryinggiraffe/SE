@@ -20,6 +20,7 @@ public class ManagerUI extends JFrame {
 
     private static int Width = 900;
     private static int Height = 700;
+    private static Color background = new Color(135, 206, 250);
 
     public ManagerUI (String name) {//初始化
         Font font =new Font("微软雅黑", Font.PLAIN, 15);//设置字体1
@@ -65,7 +66,7 @@ public class ManagerUI extends JFrame {
         contentPane = new JPanel();
         contentPane.setBounds(0,0,Width,Height);
         contentPane.setLayout(null);
-        contentPane.setBackground(Color.CYAN);
+        contentPane.setBackground(background);
         contentPane.add(jl_user);
         contentPane.add(jl_username);
         contentPane.add(bt_exit);

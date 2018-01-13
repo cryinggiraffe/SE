@@ -1,5 +1,7 @@
 package DataService;
 
+import java.util.List;
+
 import PO.AccountPO;
 
 public interface AccountDataService {
@@ -8,4 +10,5 @@ public interface AccountDataService {
 	public boolean delete(AccountPO accountPO);
 	public boolean update(AccountPO accountPO);
 	public AccountPO find(String name);
+	public List<AccountPO> findAll();
 }

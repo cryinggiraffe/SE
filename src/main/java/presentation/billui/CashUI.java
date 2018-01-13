@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class ReceiptUI extends JFrame {
+public class CashUI extends JFrame {
     private static JLabel jl_id;
     private static JLabel jl_username;
     private static JLabel jl_client;
@@ -33,11 +33,11 @@ public class ReceiptUI extends JFrame {
     private static int Height = 700;
     private static Color background = new Color(135, 206, 250);
 
-    public ReceiptUI (String name) {
+    public CashUI (String name) {
         //设置界面
         Font font =new Font("微软雅黑", Font.PLAIN, 20);//设置按钮字体
-        String receiptId = "SKD-20180111-00001";
-        jl_id = new JLabel("单据编号：" + receiptId);
+        String cashId = "XJFYD-20180111-00001";
+        jl_id = new JLabel("单据编号：" + cashId);
         jl_id.setBounds(150,100,500,50);
         jl_id.setFont(font);
 
@@ -45,24 +45,24 @@ public class ReceiptUI extends JFrame {
         jl_username.setBounds(650,100,300,50);
         jl_username.setFont(font);
 
-        jl_client = new JLabel("客户：");
+        jl_client = new JLabel("银行账户：");
         jl_client.setBounds(150,190,120,50);
         jl_client.setFont(font);
-        jt_client = new JTextField("");
+        jt_client = new JTextField();
         jt_client.setBounds(280,190,550,50);
         jt_client.setFont(font);
 
-        jl_account = new JLabel("银行账户：");
+        jl_account = new JLabel("条目名：");
         jl_account.setBounds(150,280,120,50);
         jl_account.setFont(font);
-        jt_account = new JTextField("");
+        jt_account = new JTextField();
         jt_account.setBounds(280,280,550,50);
         jt_account.setFont(font);
 
-        jl_amount = new JLabel("转账金额：");
+        jl_amount = new JLabel("金额：");
         jl_amount.setBounds(150,370,120,50);
         jl_amount.setFont(font);
-        jt_amount = new JTextField("");
+        jt_amount = new JTextField();
         jt_amount.setBounds(280,370,550,50);
         jt_amount.setFont(font);
 
@@ -83,7 +83,7 @@ public class ReceiptUI extends JFrame {
         bt_submit.setFont(font);
 
         //向frame添加组件
-        jf_1 = new JFrame("创建收款单");
+        jf_1 = new JFrame("创建现金费用单");
         jf_1.setSize(Width,Height);
         jf_1.setLocation(500,200);
         jf_1.setLayout(null);
@@ -136,35 +136,20 @@ public class ReceiptUI extends JFrame {
                     System.out.println(" 您按下了确定按钮  ");
                     String client = jt_client.getText();
                     String account = jt_account.getText();
-                    String amount = jt_amount.getText();
+                    double amount=Double.parseDouble(jt_amount.getText());
                     String remark = jt_remark.getText();
-                    ClientBL clientBL = new ClientBL();
-                    double amountNum = 0;
-                    if (client.equals("")) {
-                        System.out.println("error no client");
-                        JOptionPane.showMessageDialog(jf_1, "必须填写客户", "错误信息",JOptionPane.ERROR_MESSAGE);
-                    }else if (account.equals("")) {
-                        System.out.println("error no account");
-                        JOptionPane.showMessageDialog(jf_1, "必须填写银行账户", "错误信息",JOptionPane.ERROR_MESSAGE);
-                    }else if (amount.equals("")) {
-                        System.out.println("error no amount");
-                        JOptionPane.showMessageDialog(jf_1, "必须填写转账金额", "错误信息",JOptionPane.ERROR_MESSAGE);
-                    }else {
-                        amountNum = Double.parseDouble(amount);
-                    }
-
-                    if (amountNum < 0) {  //未来还要加银行账户的判断
+                    if (amount > 0) { //未来还要加对银行账户的判断
+                        //这里写更改银行账户余额的代码
+                        System.out.println("new cash finish");
+                        jf_1.dispose();
+                    }else if (amount < 0){
                         JOptionPane.showMessageDialog(jf_1, "转账金额不得小于0", "错误信息",JOptionPane.ERROR_MESSAGE);
                         jt_amount.setText("");
-                    }else if (clientBL.findClient(client) == null) {
-                        JOptionPane.showMessageDialog(jf_1, "无此客户信息，请重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
-
                     }else {
-                        ReceiptBL receiptBL = new ReceiptBL();
-                        //receiptBL.newReceipt(receiptId,name,account,amount,remark,amount);
-                        System.out.println("new receipt");
-                        jf_1.dispose();
+                        JOptionPane.showMessageDialog(jf_1, "无次客户信息，请重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
+                        jt_client.setText("");
                     }
+
 
                 } else if(response==1) {
                     System.out.println(" 您按下了取消按钮  ");
@@ -187,6 +172,4 @@ public class ReceiptUI extends JFrame {
             }
         });
     }
-
-
 }

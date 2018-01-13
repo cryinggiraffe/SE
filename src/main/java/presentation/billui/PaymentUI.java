@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class ReceiptUI extends JFrame {
+public class PaymentUI extends JFrame {
     private static JLabel jl_id;
     private static JLabel jl_username;
     private static JLabel jl_client;
@@ -33,10 +33,10 @@ public class ReceiptUI extends JFrame {
     private static int Height = 700;
     private static Color background = new Color(135, 206, 250);
 
-    public ReceiptUI (String name) {
+    public PaymentUI (String name) {
         //设置界面
         Font font =new Font("微软雅黑", Font.PLAIN, 20);//设置按钮字体
-        String receiptId = "SKD-20180111-00001";
+        String receiptId = "FKD-20180111-00001";
         jl_id = new JLabel("单据编号：" + receiptId);
         jl_id.setBounds(150,100,500,50);
         jl_id.setFont(font);
@@ -48,21 +48,21 @@ public class ReceiptUI extends JFrame {
         jl_client = new JLabel("客户：");
         jl_client.setBounds(150,190,120,50);
         jl_client.setFont(font);
-        jt_client = new JTextField("");
+        jt_client = new JTextField();
         jt_client.setBounds(280,190,550,50);
         jt_client.setFont(font);
 
         jl_account = new JLabel("银行账户：");
         jl_account.setBounds(150,280,120,50);
         jl_account.setFont(font);
-        jt_account = new JTextField("");
+        jt_account = new JTextField();
         jt_account.setBounds(280,280,550,50);
         jt_account.setFont(font);
 
         jl_amount = new JLabel("转账金额：");
         jl_amount.setBounds(150,370,120,50);
         jl_amount.setFont(font);
-        jt_amount = new JTextField("");
+        jt_amount = new JTextField();
         jt_amount.setBounds(280,370,550,50);
         jt_amount.setFont(font);
 
@@ -83,7 +83,7 @@ public class ReceiptUI extends JFrame {
         bt_submit.setFont(font);
 
         //向frame添加组件
-        jf_1 = new JFrame("创建收款单");
+        jf_1 = new JFrame("创建付款单");
         jf_1.setSize(Width,Height);
         jf_1.setLocation(500,200);
         jf_1.setLayout(null);
@@ -162,9 +162,10 @@ public class ReceiptUI extends JFrame {
                     }else {
                         ReceiptBL receiptBL = new ReceiptBL();
                         //receiptBL.newReceipt(receiptId,name,account,amount,remark,amount);
-                        System.out.println("new receipt");
+                        System.out.println("new payment");
                         jf_1.dispose();
                     }
+
 
                 } else if(response==1) {
                     System.out.println(" 您按下了取消按钮  ");
@@ -187,6 +188,5 @@ public class ReceiptUI extends JFrame {
             }
         });
     }
-
 
 }

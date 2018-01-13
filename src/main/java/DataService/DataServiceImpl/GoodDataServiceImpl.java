@@ -2,10 +2,9 @@ package DataService.DataServiceImpl;
 
 import java.util.List;
 
-import JDBC.DAO;
-import PO.CategoryPO;
-import PO.GoodPO;
 import DataService.GoodDataService;
+import JDBC.DAO;
+import PO.GoodPO;
 
 public class GoodDataServiceImpl implements GoodDataService{
 

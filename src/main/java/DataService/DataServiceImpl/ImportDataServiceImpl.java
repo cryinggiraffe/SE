@@ -15,10 +15,10 @@ public class ImportDataServiceImpl implements ImportDataService{
 	@Override
 	public boolean insert(ImportFormPO importFormPO) {
 		// TODO Auto-generated method stub
-		String sql = "insert into ImportForm values(?,?,?,?,?,?,?)";
+		String sql = "insert into ImportForm values(?,?,?,?,?,?,?,?)";
 		return dao.update(sql, importFormPO.getId(), importFormPO.getProvider(), importFormPO.getHouseware(), 
 				          importFormPO.getOperator(), importFormPO.getRemark(), importFormPO.getSum(),
-				          importFormPO.getState());
+				          importFormPO.getState(),importFormPO.getDate());
 	}
 
 	@Override
@@ -31,9 +31,9 @@ public class ImportDataServiceImpl implements ImportDataService{
 	@Override
 	public ImportFormPO find(String importformid) {
 		// TODO Auto-generated method stub
-		List<Commodity> commodities = importCommodityDataServiceImpl.getForImportId(importformid);
+		List<Commodity> commodities = importCommodityDataServiceImpl.getForImportformId(importformid);
 		
-		String sql = "select id, provider, houseware, operator, remark, sum, state from ImportForm where id = ?";
+		String sql = "select id, provider, houseware, operator, remark, sum, state, date from ImportForm where id = ?";
 		ImportFormPO importFormPO = dao.get(ImportFormPO.class, sql, importformid);
 		importFormPO.setImportcommoditylist(commodities);
 		return importFormPO;
@@ -42,7 +42,7 @@ public class ImportDataServiceImpl implements ImportDataService{
 	@Override
 	public List<ImportFormPO> findForState() {
 		// TODO Auto-generated method stub
-		String sql = "select id, provider, houseware, operator, remark, sum, state from ImportForm where state = ?";
+		String sql = "select id, provider, houseware, operator, remark, sum, state,date from ImportForm where state = ?";
 		
 		return dao.getALL(ImportFormPO.class, sql, "no");
 	}
@@ -54,7 +54,7 @@ public class ImportDataServiceImpl implements ImportDataService{
 		List<ImportFormPO> importFormPOs =  importDataService.findForState();
 		
 		for(ImportFormPO importFormPO : importFormPOs){
-			importFormPO.setImportcommoditylist(importCommodityDataServiceImpl.getForImportId(importFormPO.getId()));
+			importFormPO.setImportcommoditylist(importCommodityDataServiceImpl.getForImportformId(importFormPO.getId()));
 		}
 		return importFormPOs;
 	}

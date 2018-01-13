@@ -16,3 +16,30 @@ CREATE TABLE Account
     PRIMARY KEY,
   balance DOUBLE      NULL
 );
+
+CREATE TABLE ImportReturnCommodity
+(
+  id            INT AUTO_INCREMENT
+    PRIMARY KEY,
+  goodid        VARCHAR(30) NULL,
+  name          VARCHAR(30) NULL,
+  version       VARCHAR(30) NULL,
+  quantity      INT         NULL,
+  price         DOUBLE      NULL,
+  subtotalprice DOUBLE      NULL,
+  remark        VARCHAR(30) NULL,
+  importformid  VARCHAR(30) NULL
+);
+
+CREATE TABLE ImportReturnForm
+(
+  id        VARCHAR(30) NOT NULL
+    PRIMARY KEY,
+  provider  VARCHAR(20) NULL,
+  houseware VARCHAR(20) NULL,
+  operator  VARCHAR(20) NULL,
+  remark    VARCHAR(30) NULL,
+  sum       DOUBLE      NULL,
+  state     VARCHAR(20) NULL
+);
+

@@ -1,7 +1,7 @@
 package PO;
 
 import java.io.Serializable;
-
+import java.sql.Date;
 import java.util.List;
 
 public class ImportFormPO implements Serializable {
@@ -16,13 +16,17 @@ public class ImportFormPO implements Serializable {
     private String remark;
     private double sum;
     private String state;
+    private Date date;
 	
     public ImportFormPO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public ImportFormPO(String id, String provider, String houseware, String operator, String remark, double sum) {
+	
+	
+    public ImportFormPO(String id, String provider, String houseware, String operator,
+			 String remark, double sum, String state, Date date) {
 		super();
 		this.id = id;
 		this.provider = provider;
@@ -31,12 +35,12 @@ public class ImportFormPO implements Serializable {
 		this.remark = remark;
 		this.sum = sum;
 		this.state = "no";
+		this.date = date;
 	}
-	
-	
 
+	
 	public ImportFormPO(String id, String provider, String houseware, String operator,
-			List<Commodity> importcommoditylist, String remark, double sum, String state) {
+			List<Commodity> importcommoditylist, String remark, double sum, String state, Date date) {
 		super();
 		this.id = id;
 		this.provider = provider;
@@ -46,7 +50,9 @@ public class ImportFormPO implements Serializable {
 		this.remark = remark;
 		this.sum = sum;
 		this.state = state;
+		this.date = date;
 	}
+
 
 	public String getId() {
 		return id;
@@ -113,6 +119,16 @@ public class ImportFormPO implements Serializable {
 	}
 
 	
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "ImportFormPO [id=" + id + ", provider=" + provider + ", houseware=" + houseware + ", operator="

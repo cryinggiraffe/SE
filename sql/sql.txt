@@ -21,7 +21,7 @@ CREATE TABLE Client
   name            VARCHAR(20) NULL,
   phone           VARCHAR(20) NULL,
   address         VARCHAR(20) NULL,
-  postname        VARCHAR(20) NULL,
+  postnum        VARCHAR(20) NULL,
   email           VARCHAR(20) NULL,
   receive_limit   DOUBLE      NULL,
   receive         DOUBLE      NULL,
