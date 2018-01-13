@@ -3,16 +3,20 @@ import PO.AccountPO;
 import DataService.DataServiceImpl.AccountDataServiceImpl;
 import blService.AccountBLService;
 
+import java.util.List;
+
 public class AccountBL implements AccountBLService{
     private AccountDataServiceImpl ads=new AccountDataServiceImpl();
 
     @Override
-    public boolean newAccount(AccountPO po) {
+    public boolean newAccount(String name, double balance) {
+        AccountPO po=new AccountPO(name,balance);
         return ads.insert(po);
     }
 
     @Override
-    public boolean updateAccount(AccountPO po) {
+    public boolean updateAccount(String name, double balance) {
+        AccountPO po=new AccountPO(name,balance);
         return ads.update(po);
     }
 
@@ -24,7 +28,11 @@ public class AccountBL implements AccountBLService{
         AccountBL abl=new AccountBL();
         AccountPO apo=new AccountPO();
         apo.setName("addinistrative");
-        abl.newAccount(apo);
-        System.out.println(abl.findAccount(apo.getName()));
+
+    }
+    public List<AccountPO> findAllAccount(){return ads.findAll();}
+    public boolean delete(String name){
+        AccountPO apo=new AccountPO(name,0);
+        return ads.delete(apo);
     }
 }

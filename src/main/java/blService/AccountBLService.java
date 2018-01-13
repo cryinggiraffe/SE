@@ -3,7 +3,7 @@ package blService;
 import PO.AccountPO;
 
 public interface AccountBLService {
-    boolean newAccount(AccountPO po);
-    boolean updateAccount(AccountPO po);
+    boolean newAccount(String name, double balance);
+    boolean updateAccount(String name, double balance);
     AccountPO findAccount(String name);
 }
