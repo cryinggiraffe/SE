@@ -1,5 +1,6 @@
 package DataService.DataServiceImpl;
 
+import java.sql.Date;
 import java.util.List;
 
 import DataService.ReceiptDataService;
@@ -43,6 +44,31 @@ public class ReceiptDataServiceImpl implements ReceiptDataService{
 		// TODO Auto-generated method stub
 		String sql = "select * from Receipt where state = ? ";
 		return dao.getALL(ReceiptPO.class, sql, "no");
+	}
+
+
+	@Override
+	public List<ReceiptPO> findForTime(Date begin, Date end) {
+		// TODO Auto-generated method stub
+		String sql = "select * from Receipt where date >= ? and date <= ?";
+		return dao.getALL(ReceiptPO.class, sql, begin, end);
+		
+	}
+
+
+	@Override
+	public List<ReceiptPO> findForType() {
+		// TODO Auto-generated method stub
+		String sql = "select * from Receipt";
+		return dao.getALL(ReceiptPO.class, sql);
+	}
+
+
+	@Override
+	public List<ReceiptPO> findForClient(String client) {
+		// TODO Auto-generated method stub
+		String sql = "select * from Receipt where client = ?";
+		return dao.getALL(ReceiptPO.class, sql, client);
 	}
 
 }

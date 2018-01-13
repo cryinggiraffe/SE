@@ -1,5 +1,6 @@
 package DataService.DataServiceImpl;
 
+import java.sql.Date;
 import java.util.List;
 
 import DataService.CashDataService;
@@ -41,6 +42,20 @@ public class CashDataServiceImpl implements CashDataService{
 		// TODO Auto-generated method stub
 		String sql = "select listid, operator, account, name, amount, remark, sum , date from Cash where listid = ?";
 		return dao.getForList(CashPO.class, sql, listid);
+	}
+
+	@Override
+	public List<CashPO> findForTime(Date begin, Date end) {
+		// TODO Auto-generated method stub
+		String sql = "select listid, operator, account, name, amount, remark, sum , date from Cash where date >= ? and date <= ?";
+		return dao.getALL(CashPO.class, sql, begin, end);
+	}
+
+	@Override
+	public List<CashPO> findForType() {
+		// TODO Auto-generated method stub
+		String sql = "select listid, operator, account, name, amount, remark, sum , date from Cash";
+		return dao.getALL(CashPO.class, sql);
 	}
 
 }
