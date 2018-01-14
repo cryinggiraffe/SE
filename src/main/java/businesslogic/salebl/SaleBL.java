@@ -40,8 +40,6 @@ public class SaleBL implements SaleFormService {
         }else {
             System.out.println("销售单类型错误 请使用 XSD XSTHD");
         }
-   
-
 
     }
 
@@ -82,6 +80,13 @@ public class SaleBL implements SaleFormService {
         List<SaleFormPO> SaleFormPOS=ids.findForClient(client);
         SaleFormPOS.addAll(irds.findForClient(client));
         return SaleFormPOS;
+    }
+
+    public List<SaleFormPO> findAllForm(){
+        return ids.findForState_Commities();
+    }
+    public List<SaleFormPO> findAllReturnForm(){
+        return irds.findForState_Commities();
     }
 
     public static void main(String[] agrs){

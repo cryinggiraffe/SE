@@ -6,7 +6,7 @@ public class GoodPO implements Serializable {
     
 	private static final long serialVersionUID = 1L;
 	
-	private int id;
+	private String goodid;
 	private int pid;
     private String name;
     private String type;
@@ -18,27 +18,15 @@ public class GoodPO implements Serializable {
 
     public GoodPO() {
 		super();
+		goodid="0";
 		// TODO Auto-generated constructor stub
 	}
     
-    
-	public GoodPO(int id, String name, String type, int num, int pur_price, int ret_price, int rece_price,
-			int rece_ret_price) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.type = type;
-		this.num = num;
-		this.pur_price = pur_price;
-		this.ret_price = ret_price;
-		this.rece_price = rece_price;
-		this.rece_ret_price = rece_ret_price;
-	}
 
-	public GoodPO(int id, int pid, String name, String type, int num, int pur_price, int ret_price, int rece_price,
-				  int rece_ret_price) {
+	public GoodPO(String goodid, int pid, String name, String type, int num, int pur_price, int ret_price,
+			int rece_price, int rece_ret_price) {
 		super();
-		this.id = id;
+		this.goodid = goodid;
 		this.pid = pid;
 		this.name = name;
 		this.type = type;
@@ -48,26 +36,28 @@ public class GoodPO implements Serializable {
 		this.rece_price = rece_price;
 		this.rece_ret_price = rece_ret_price;
 	}
-
-
 	
+	
+
+	public String getGoodid() {
+		return goodid;
+	}
+
+
+	public void setGoodid(String googid) {
+		this.goodid = googid;
+	}
+
 
 	public int getPid() {
 		return pid;
 	}
 
+
 	public void setPid(int pid) {
 		this.pid = pid;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;
@@ -146,10 +136,13 @@ public class GoodPO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "GoodPO [id=" + id + ", name=" + name + ", type=" + type + ", num=" + num + ", pur_price=" + pur_price
-				+ ", ret_price=" + ret_price + ", rece_price=" + rece_price + ", rece_ret_price=" + rece_ret_price
-				+ "]";
+		return "GoodPO [googid=" + goodid + ", pid=" + pid + ", name=" + name + ", type=" + type + ", num=" + num
+				+ ", pur_price=" + pur_price + ", ret_price=" + ret_price + ", rece_price=" + rece_price
+				+ ", rece_ret_price=" + rece_ret_price + "]";
 	}
+
+
+	
     
     
 }

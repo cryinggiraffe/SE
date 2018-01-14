@@ -35,4 +35,5 @@ public class AccountBL implements AccountBLService{
         AccountPO apo=new AccountPO(name,0);
         return ads.delete(apo);
     }
+
 }

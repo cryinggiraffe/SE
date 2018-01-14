@@ -10,20 +10,21 @@ public class TreeNode {
     private int pid;
     public int getId(){return this.id;};
     public TreeNode setNode(Object o){
-        if(o.getClass()==CategoryPO.class){
+
+        if(o.getClass()==CategoryPO.class&&cpo.getId()!=null){
             this.gpo=null;
             this.cpo=(CategoryPO) o;
-            id=cpo.getId();
+            id=Integer.parseInt(cpo.getId());
             pid=cpo.getPid();
             return this;
-        }else {
+        }else if(cpo.getId()!=null){
 
             this.gpo=(GoodPO) o;
             this.cpo=null;
-            id=gpo.getId();
+            id=Integer.parseInt(gpo.getGoodid());
             pid=gpo.getPid();
             return this;
-        }
+        }else {return null;}
 
     }
     public TreeNode(){
@@ -36,7 +37,7 @@ public class TreeNode {
         cpo=po;
         gpo=null;
         pid=cpo.getPid();
-        id=cpo.getId();
+        id=Integer.parseInt(cpo.getId());
 
     }
     public TreeNode(GoodPO po){
@@ -44,7 +45,7 @@ public class TreeNode {
         gpo=po;
         cpo=null;
         pid=gpo.getPid();
-        id=gpo.getId();
+        id=Integer.parseInt(gpo.getGoodid());
     }
     public Object getValue(){
         if(cpo!=null)return cpo;
@@ -90,31 +91,31 @@ public class TreeNode {
 
     }
     public static void main(String[] agrs){
-        TreeNode t=new TreeNode();
-        t.setNode(new CategoryPO());
+        //TreeNode t=new TreeNode();
+        //t.setNode(new CategoryPO());
         System.out.println();
         ArrayList<CategoryPO> po=new ArrayList<>();
-        po.add(new CategoryPO(1,0,""));
-        po.add(new CategoryPO(2,0,""));
-        po.add(new CategoryPO(3,0,""));
-        po.add(new CategoryPO(5,1,""));
-        po.add(new CategoryPO(6,2,""));
-        po.add(new CategoryPO(7,3,""));
+        po.add(new CategoryPO("1",0,""));
+        po.add(new CategoryPO("2",0,""));
+        po.add(new CategoryPO("3",0,""));
+        po.add(new CategoryPO("5",1,""));
+        po.add(new CategoryPO("6",2,""));
+        po.add(new CategoryPO("7",3,""));
         ArrayList<GoodPO> po2=new ArrayList<>();
-        po2.add(new GoodPO(8,1,"","",0,0,0,0,0));
-        po2.add(new GoodPO(9,2,"","",0,0,0,0,0));
-        po2.add(new GoodPO(10,3,"","",0,0,0,0,0));
-        po2.add(new GoodPO(11,4,"","",0,0,0,0,0));
-        po2.add(new GoodPO(12,5,"","",0,0,0,0,0));
-        po2.add(new GoodPO(13,5,"","",0,0,0,0,0));
-        po2.add(new GoodPO(14,1,"","",0,0,0,0,0));
-        po2.add(new GoodPO(15,2,"","",0,0,0,0,0));
+        po2.add(new GoodPO("8",1,"","",0,0,0,0,0));
+        po2.add(new GoodPO("9",2,"","",0,0,0,0,0));
+        po2.add(new GoodPO("10",3,"","",0,0,0,0,0));
+        po2.add(new GoodPO("11",4,"","",0,0,0,0,0));
+        po2.add(new GoodPO("12",5,"","",0,0,0,0,0));
+        po2.add(new GoodPO("13",5,"","",0,0,0,0,0));
+        po2.add(new GoodPO("14",1,"","",0,0,0,0,0));
+        po2.add(new GoodPO("15",2,"","",0,0,0,0,0));
 
                 //int id, int pid, String name, String type, int num, int pur_price, int ret_price, int rece_price,
         //int rece_ret_price
 
 
-        TreeNode n=new TreeNode(new CategoryPO(0,0,""));
+        TreeNode n=new TreeNode(new CategoryPO("0",0,""));
         n.childs=n.collectChildren(TreeNode.buildNodes(po2,po));
         n.print(n);
         System.out.println(n.childs==null);

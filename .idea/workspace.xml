@@ -2,24 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60bc4a32-42bf-4901-8308-1bfc657bcfb1" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/presentation/approveui/MyApproveRender.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ClientDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ClientDataServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ImportDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ImportDataServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/PaymentDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/PaymentDataServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ReceiptDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ReceiptDataServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PO/ImportFormPO.java" afterPath="$PROJECT_DIR$/src/main/java/PO/ImportFormPO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PO/PaymentPO.java" afterPath="$PROJECT_DIR$/src/main/java/PO/PaymentPO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PO/ReceiptPO.java" afterPath="$PROJECT_DIR$/src/main/java/PO/ReceiptPO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PO/RecordPO.java" afterPath="$PROJECT_DIR$/src/main/java/PO/RecordPO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PO/SaleFormPO.java" afterPath="$PROJECT_DIR$/src/main/java/PO/SaleFormPO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blService/ImportFormService.java" afterPath="$PROJECT_DIR$/src/main/java/blService/ImportFormService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blService/SaleFormService.java" afterPath="$PROJECT_DIR$/src/main/java/blService/SaleFormService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/sql/sql7.0.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/AlarmDataService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/AlarmDataServiceImpl.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/InventoryDataServiceImpl.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/LossDataServiceImpl.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/OverflowDataServiceImpl.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/InventoryDataService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/LossDataService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/OverflowDataService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/PO/AlarmPO.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/PO/InventoryPO.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/blService/TranslationSituationBLService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/businesslogic/goodbl/GoodBL.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/businesslogic/translationSituationbl/TranslationSituationBL.java" />
+      <change beforePath="$PROJECT_DIR$/sql/sql.txt" afterPath="$PROJECT_DIR$/sql/sql.txt" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/BusinessProcessDataService.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/BusinessProcessDataService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/CategoryDataService.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/CategoryDataService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/BusinessProcessDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/BusinessProcessDataServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/CategoryDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/CategoryDataServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/GiftDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/GiftDataServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/GoodDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/GoodDataServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/GiftDataService.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/GiftDataService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PO/CategoryPO.java" afterPath="$PROJECT_DIR$/src/main/java/PO/CategoryPO.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PO/GoodPO.java" afterPath="$PROJECT_DIR$/src/main/java/PO/GoodPO.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PO/LossPO.java" afterPath="$PROJECT_DIR$/src/main/java/PO/LossPO.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PO/OverflowPO.java" afterPath="$PROJECT_DIR$/src/main/java/PO/OverflowPO.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PO/TreeNode.java" afterPath="$PROJECT_DIR$/src/main/java/PO/TreeNode.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/businesslogic/accountbl/AccountBL.java" afterPath="$PROJECT_DIR$/src/main/java/businesslogic/accountbl/AccountBL.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/businesslogic/importbl/ImportBL.java" afterPath="$PROJECT_DIR$/src/main/java/businesslogic/importbl/ImportBL.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/businesslogic/salebl/SaleBL.java" afterPath="$PROJECT_DIR$/src/main/java/businesslogic/salebl/SaleBL.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/presentation/approveui/ApproveUI.java" afterPath="$PROJECT_DIR$/src/main/java/presentation/approveui/ApproveUI.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/presentation/promotionui/ManagerUI.java" afterPath="$PROJECT_DIR$/src/main/java/presentation/promotionui/ManagerUI.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/presentation/userui/UpdateUserUI.java" afterPath="$PROJECT_DIR$/src/main/java/presentation/userui/UpdateUserUI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PaymentDataServiceImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PaymentDataServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/PaymentDataServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="299">
-              <caret line="46" column="42" lean-forward="true" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+              <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -58,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ClientDataServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="591">
-              <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+              <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -78,7 +90,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/presentation/approveui/ApproveUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
-              <caret line="172" column="52" lean-forward="true" selection-start-line="172" selection-start-column="52" selection-end-line="172" selection-end-column="52" />
+              <caret line="172" column="52" lean-forward="false" selection-start-line="172" selection-start-column="52" selection-end-line="172" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,21 +112,8 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ReceiptDataServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReceiptPO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/PO/ReceiptPO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="68" column="33" lean-forward="true" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
-              <folding>
-                <element signature="e#1264#1265#0" expanded="true" />
-                <element signature="e#1295#1296#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -122,18 +121,28 @@
       <file leaf-file-name="ImportBL.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/importbl/ImportBL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-460">
-              <caret line="48" column="37" lean-forward="true" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+            <state relative-caret-position="-620">
+              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImportFormPO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/PO/ImportFormPO.java">
+      <file leaf-file-name="SaleBL.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/salebl/SaleBL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1179">
-              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+            <state relative-caret-position="260">
+              <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SaleFormService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/blService/SaleFormService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -242,9 +251,7 @@
         <option value="$PROJECT_DIR$/src/main/java/presentation/billui/PaymentUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ImportReturnDataServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/blService/ImportFormService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/businesslogic/importbl/ImportBL.java" />
         <option value="$PROJECT_DIR$/src/main/java/blService/SaleFormService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/businesslogic/salebl/SaleBL.java" />
         <option value="$PROJECT_DIR$/src/main/java/presentation/approveui/MyApproveRender.java" />
         <option value="$PROJECT_DIR$/src/main/java/presentation/promotionui/ManagerUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/presentation/userui/UpdateUserUI.java" />
@@ -258,6 +265,8 @@
         <option value="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ClientDataServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/presentation/approveui/ApproveUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/PaymentDataServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/businesslogic/importbl/ImportBL.java" />
+        <option value="$PROJECT_DIR$/src/main/java/businesslogic/salebl/SaleBL.java" />
       </list>
     </option>
   </component>
@@ -342,6 +351,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="businesslogic" type="462c0819:PsiDirectoryNode" />
               <item name="importbl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sehomework666" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEhomework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="businesslogic" type="462c0819:PsiDirectoryNode" />
+              <item name="salebl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sehomework666" type="b2602c69:ProjectViewProjectNode" />
@@ -676,12 +694,12 @@
       <workItem from="1515815835802" duration="1309000" />
       <workItem from="1515828999766" duration="2791000" />
       <workItem from="1515831870795" duration="25294000" />
-      <workItem from="1515899004555" duration="20672000" />
+      <workItem from="1515899004555" duration="20881000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62147000" />
+    <option name="totallyTimeSpent" value="62356000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -901,14 +919,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/blService/SaleFormService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/presentation/accountui/MyButtonRender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -965,16 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/salebl/SaleBL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="76" column="47" lean-forward="true" selection-start-line="76" selection-start-column="47" selection-end-line="76" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/presentation/userui/AdministratorUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -1012,7 +1012,7 @@
         <state relative-caret-position="620">
           <caret line="31" column="49" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="49" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1030,8 +1030,8 @@
         <state relative-caret-position="320">
           <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
           <folding>
-            <element signature="e#736#737#0" expanded="true" />
-            <element signature="e#776#777#0" expanded="true" />
+            <element signature="e#736#737#0" expanded="false" />
+            <element signature="e#776#777#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1049,8 +1049,8 @@
         <state relative-caret-position="120">
           <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
           <folding>
-            <element signature="e#464#465#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
+            <element signature="e#464#465#0" expanded="false" />
+            <element signature="e#495#496#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1066,10 +1066,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/PO/ReceiptPO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
-          <caret line="68" column="33" lean-forward="true" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
+          <caret line="68" column="33" lean-forward="false" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
           <folding>
-            <element signature="e#1264#1265#0" expanded="true" />
-            <element signature="e#1295#1296#0" expanded="true" />
+            <element signature="e#1264#1265#0" expanded="false" />
+            <element signature="e#1295#1296#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1125,7 +1125,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ReceiptDataServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1141,7 +1141,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ClientDataServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="591">
-          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1157,14 +1157,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/importbl/ImportBL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-460">
-          <caret line="48" column="37" lean-forward="true" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/clientbl/ClientBL.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -1176,7 +1168,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/presentation/approveui/ApproveUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
-          <caret line="172" column="52" lean-forward="true" selection-start-line="172" selection-start-column="52" selection-end-line="172" selection-end-column="52" />
+          <caret line="172" column="52" lean-forward="false" selection-start-line="172" selection-start-column="52" selection-end-line="172" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1186,7 +1178,31 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/PaymentDataServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
-          <caret line="46" column="42" lean-forward="true" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+          <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/importbl/ImportBL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-620">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/blService/SaleFormService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/salebl/SaleBL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
           <folding />
         </state>
       </provider>

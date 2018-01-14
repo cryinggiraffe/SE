@@ -5,7 +5,10 @@ import java.util.List;
 
 import DataService.BusinessProcessDataService;
 import PO.CashPO;
+import PO.GiftPO;
 import PO.ImportFormPO;
+import PO.LossPO;
+import PO.OverflowPO;
 import PO.PaymentPO;
 import PO.ReceiptPO;
 import PO.SaleFormPO;
@@ -276,6 +279,46 @@ public class BusinessProcessDataServiceImpl implements BusinessProcessDataServic
 	public List<CashPO> findCashForType() {
 		// TODO Auto-generated method stub
 		return cashDataServiceImpl.findForType();
+	}
+
+	
+	GiftDataServiceImpl giftDataServiceImpl = new GiftDataServiceImpl();
+	@Override
+	public List<GiftPO> findGiftForTime(Date begin, Date end) {
+		// TODO Auto-generated method stub
+		return giftDataServiceImpl.findForTime(begin, end);
+	}
+
+	@Override
+	public List<GiftPO> findGiftForType() {
+		// TODO Auto-generated method stub
+		return giftDataServiceImpl.findForType();
+	}
+
+	LossDataServiceImpl lossDataServiceImpl = new LossDataServiceImpl();
+	@Override
+	public List<LossPO> findLossForTime(Date begin, Date end) {
+		// TODO Auto-generated method stub
+		return lossDataServiceImpl.findForTime(begin, end);
+	}
+
+	@Override
+	public List<LossPO> findLossForType() {
+		// TODO Auto-generated method stub
+		return lossDataServiceImpl.findForType();
+	}
+
+	OverflowDataServiceImpl overflowDataServiceImpl = new OverflowDataServiceImpl();
+	@Override
+	public List<OverflowPO> findOverflowForTime(Date begin, Date end) {
+		// TODO Auto-generated method stub
+		return overflowDataServiceImpl.findForTime(begin, end);
+	}
+
+	@Override
+	public List<OverflowPO> findOverflowForType() {
+		// TODO Auto-generated method stub
+		return overflowDataServiceImpl.findForType();
 	}
 
 
