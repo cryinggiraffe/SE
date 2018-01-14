@@ -25,9 +25,10 @@ public class ImportReturnDataServiceImpl implements ImportReturnDataService{
 	@Override
 	public boolean update(ImportFormPO importReturnFormPO) {
 		// TODO Auto-generated method stub
-		String sql = "update ImportReturnForm set provider = ？, houseware = ？, operator = ？, remark = ？, sum = ？, state = ？, date = ？where id = ?";
+		String sql = "update ImportReturnForm set provider = ?, houseware = ?, operator = ?, remark = ?, sum = ?, state = ?, date = ? where id = ?";
 		return dao.update(sql, importReturnFormPO.getOperator(), importReturnFormPO.getHouseware(), importReturnFormPO.getOperator(),
-		          			   importReturnFormPO.getRemark(), importReturnFormPO.getSum(),importReturnFormPO.getState(), importReturnFormPO.getDate());
+		          			   importReturnFormPO.getRemark(), importReturnFormPO.getSum(),importReturnFormPO.getState(), importReturnFormPO.getDate(),
+		          			   importReturnFormPO.getId());
 	}
 
 	@Override

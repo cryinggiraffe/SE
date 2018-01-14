@@ -1,15 +1,58 @@
-CREATE TABLE Income
+CREATE TABLE Account
 (
-  id                 INT AUTO_INCREMENT
+  name    VARCHAR(30) NOT NULL
     PRIMARY KEY,
-  saleincome         DOUBLE NULL,
-  overflowincome     DOUBLE NULL,
-  costincome         DOUBLE NULL,
-  importreturnincome DOUBLE NULL,
-  vouchersincome     DOUBLE NULL,
-  sumincome          DOUBLE NULL,
-  discount           DOUBLE NULL,
-  date               DATE   NULL
+  balance DOUBLE      NULL
+);
+
+CREATE TABLE Alarm
+(
+  id       INT AUTO_INCREMENT
+    PRIMARY KEY,
+  goodid   VARCHAR(30) NULL,
+  goodname VARCHAR(30) NULL,
+  num      INT         NULL,
+  date     DATE        NULL
+)
+
+CREATE TABLE Cash
+(
+  id       INT AUTO_INCREMENT
+    PRIMARY KEY,
+  listid   VARCHAR(30) NULL,
+  operator VARCHAR(30) NULL,
+  account  VARCHAR(30) NULL,
+  name     VARCHAR(30) NULL,
+  amount   DOUBLE      NULL,
+  remark   VARCHAR(30) NULL,
+  sum      DOUBLE      NULL,
+  date     DATE        NULL
+)
+
+CREATE TABLE Category
+(
+  id   VARCHAR(30) NOT NULL
+    PRIMARY KEY,
+  pid  INT         NULL,
+  name VARCHAR(30) NULL
+)
+
+
+CREATE TABLE Client
+(
+  id              VARCHAR(20) NOT NULL
+    PRIMARY KEY,
+  type            VARCHAR(20) NULL,
+  rank            INT         NULL,
+  name            VARCHAR(20) NULL,
+  phone           VARCHAR(20) NULL,
+  address         VARCHAR(20) NULL,
+  postnum         VARCHAR(20) NULL,
+  email           VARCHAR(20) NULL,
+  receive_limit   DOUBLE      NULL,
+  receive         DOUBLE      NULL,
+  send            DOUBLE      NULL,
+  defaultsalesman VARCHAR(20) NULL
 )
 
 CREATE TABLE Expenditure
@@ -21,6 +64,19 @@ CREATE TABLE Expenditure
   giftexpenditure          DOUBLE NULL,
   sumexpenditure           DOUBLE NULL,
   date                     DATE   NULL
+)
+
+CREATE TABLE Gift
+(
+  id         INT AUTO_INCREMENT
+    PRIMARY KEY,
+  giftlistid VARCHAR(30) NULL,
+  giftid     VARCHAR(30) NULL,
+  name       VARCHAR(30) NULL,
+  price      DOUBLE      NULL,
+  num        INT         NULL,
+  state      VARCHAR(30) NULL,
+  date       DATE        NULL
 )
 
 CREATE TABLE Good
@@ -37,45 +93,138 @@ CREATE TABLE Good
   rece_ret_price INT         NULL
 )
 
-
-CREATE TABLE Category
+CREATE TABLE ImportCommodity
 (
-  id   VARCHAR(30) NOT NULL
+  id            INT AUTO_INCREMENT
     PRIMARY KEY,
-  pid  INT         NULL,
-  name VARCHAR(30) NULL
+  goodid        VARCHAR(30) NULL,
+  name          VARCHAR(30) NULL,
+  version       VARCHAR(30) NULL,
+  quantity      INT         NULL,
+  price         DOUBLE      NULL,
+  subtotalprice DOUBLE      NULL,
+  remark        VARCHAR(30) NULL,
+  importformid  VARCHAR(30) NULL
+);
+
+CREATE TABLE ImportForm
+(
+  id        VARCHAR(30) NOT NULL
+    PRIMARY KEY,
+  client    VARCHAR(30) NULL,
+  houseware VARCHAR(30) NULL,
+  operator  VARCHAR(30) NULL,
+  remark    VARCHAR(30) NULL,
+  sum       DOUBLE      NULL,
+  state     VARCHAR(30) NULL,
+  date      DATE        NULL
 )
 
-CREATE TABLE Overflow
+CREATE TABLE ImportReturnCommodity
 (
-  id       INT AUTO_INCREMENT
+  id            INT AUTO_INCREMENT
     PRIMARY KEY,
-  goodid   VARCHAR(30) NULL,
-  goodname VARCHAR(30) NULL,
-  num      INT         NULL,
-  date     DATE        NULL
+  goodid        VARCHAR(30) NULL,
+  name          VARCHAR(30) NULL,
+  version       VARCHAR(30) NULL,
+  quantity      INT         NULL,
+  price         DOUBLE      NULL,
+  subtotalprice DOUBLE      NULL,
+  remark        VARCHAR(30) NULL,
+  importformid  VARCHAR(30) NULL
+);
+
+CREATE TABLE ImportReturnForm
+(
+  id        VARCHAR(30) NOT NULL
+    PRIMARY KEY,
+  client    VARCHAR(30) NULL,
+  houseware VARCHAR(30) NULL,
+  operator  VARCHAR(30) NULL,
+  remark    VARCHAR(30) NULL,
+  sum       DOUBLE      NULL,
+  state     VARCHAR(30) NULL,
+  date      DATE        NULL
 )
 
-CREATE TABLE Loss
-(
-  id       INT AUTO_INCREMENT
-    PRIMARY KEY,
-  goodid   VARCHAR(30) NULL,
-  goodname VARCHAR(30) NULL,
-  num      INT         NULL,
-  date     DATE        NULL
-)
 
-CREATE TABLE Alarm
+CREATE TABLE SaleCommodity
 (
-  id       INT AUTO_INCREMENT
+  id            INT AUTO_INCREMENT
     PRIMARY KEY,
-  goodid   VARCHAR(30) NULL,
-  goodname VARCHAR(30) NULL,
-  num      INT         NULL,
-  date     DATE        NULL
-)
+  goodid        VARCHAR(30) NULL,
+  name          VARCHAR(30) NULL,
+  version       VARCHAR(30) NULL,
+  quantity      INT         NULL,
+  price         DOUBLE      NULL,
+  subtotalprice DOUBLE      NULL,
+  remark        VARCHAR(30) NULL,
+  saleformid  VARCHAR(30) NULL
+);
 
+CREATE TABLE SaleForm
+(
+  id              VARCHAR(30) NOT NULL
+    PRIMARY KEY,
+  client          VARCHAR(30) NULL,
+  operator        VARCHAR(30) NULL,
+  salesman        VARCHAR(30) NULL,
+  houseware       VARCHAR(30) NULL,
+  tpbfDiscounting DOUBLE      NULL,
+  tpafDiscounting DOUBLE      NULL,
+  discount        DOUBLE      NULL,
+  voucher         DOUBLE      NULL,
+  remark          VARCHAR(30) NULL,
+  state           VARCHAR(30) NULL,
+  date            DATE        NULL
+);
+
+
+CREATE TABLE SaleReturnCommodity
+(
+  id            INT AUTO_INCREMENT
+    PRIMARY KEY,
+  goodid        VARCHAR(30) NULL,
+  name          VARCHAR(30) NULL,
+  version       VARCHAR(30) NULL,
+  quantity      INT         NULL,
+  price         DOUBLE      NULL,
+  subtotalprice DOUBLE      NULL,
+  remark        VARCHAR(30) NULL,
+  saleformid  VARCHAR(30) NULL
+);
+
+
+CREATE TABLE SaleReturnForm
+(
+  id              VARCHAR(30) NOT NULL
+    PRIMARY KEY,
+  client          VARCHAR(30) NULL,
+  operator        VARCHAR(30) NULL,
+  salesman        VARCHAR(30) NULL,
+  houseware       VARCHAR(30) NULL,
+  tpbfDiscounting DOUBLE      NULL,
+  tpafDiscounting DOUBLE      NULL,
+  discount        DOUBLE      NULL,
+  voucher         DOUBLE      NULL,
+  remark          VARCHAR(30) NULL,
+  state           VARCHAR(30) NULL,
+  date            DATE        NULL
+);
+
+CREATE TABLE Income
+(
+  id                 INT AUTO_INCREMENT
+    PRIMARY KEY,
+  saleincome         DOUBLE NULL,
+  overflowincome     DOUBLE NULL,
+  costincome         DOUBLE NULL,
+  importreturnincome DOUBLE NULL,
+  vouchersincome     DOUBLE NULL,
+  sumincome          DOUBLE NULL,
+  discount           DOUBLE NULL,
+  date               DATE   NULL
+)
 
 CREATE TABLE Inventory
 (
@@ -88,4 +237,98 @@ CREATE TABLE Inventory
   batch     VARCHAR(30) NULL,
   batch_num VARCHAR(30) NULL,
   date      DATE        NULL
+)
+
+CREATE TABLE Loss
+(
+  id       INT AUTO_INCREMENT
+    PRIMARY KEY,
+  goodid   VARCHAR(30) NULL,
+  goodname VARCHAR(30) NULL,
+  num      INT         NULL,
+  date     DATE        NULL
+)
+
+CREATE TABLE Message
+(
+  id      INT AUTO_INCREMENT
+    PRIMARY KEY,
+  message VARCHAR(20) NULL
+)
+
+CREATE TABLE Overflow
+(
+  id       INT AUTO_INCREMENT
+    PRIMARY KEY,
+  goodid   VARCHAR(30) NULL,
+  goodname VARCHAR(30) NULL,
+  num      INT         NULL,
+  date     DATE        NULL
+)
+
+CREATE TABLE Payment
+(
+  id       VARCHAR(30) NOT NULL
+    PRIMARY KEY,
+  client   VARCHAR(20) NULL,
+  operator VARCHAR(20) NULL,
+  account  VARCHAR(20) NULL,
+  amount   DOUBLE      NULL,
+  remark   VARCHAR(30) NULL,
+  sum      DOUBLE      NULL,
+  state    VARCHAR(20) NULL,
+  date     DATE        NULL
+)
+
+CREATE TABLE Receipt
+(
+  id       VARCHAR(30) NOT NULL
+    PRIMARY KEY,
+  client   VARCHAR(20) NULL,
+  operator VARCHAR(20) NULL,
+  account  VARCHAR(20) NULL,
+  amount   DOUBLE      NULL,
+  remark   VARCHAR(30) NULL,
+  sum      DOUBLE      NULL,
+  state    VARCHAR(20) NULL,
+  date     DATE        NULL
+);
+
+CREATE TABLE UserClassPromotion
+(
+  id          INT         NOT NULL
+    PRIMARY KEY,
+  userclass   INT         NULL,
+  giftname    VARCHAR(20) NULL,
+  num         INT         NULL,
+  discount    DOUBLE      NULL,
+  cash_coupon DOUBLE      NULL
+);
+
+CREATE TABLE CommodityPromotion
+(
+  id            INT         NOT NULL
+    PRIMARY KEY,
+  specialname1  VARCHAR(20) NULL,
+  specialname2  VARCHAR(20) NULL,
+  discountprice DOUBLE      NULL
+);
+
+
+CREATE TABLE PricePromotion
+(
+  id          INT 
+    PRIMARY KEY,
+  giftname    VARCHAR(20) NULL,
+  num         INT         NULL,
+  cash_coupon DOUBLE      NULL
+);
+
+
+CREATE TABLE User
+(
+  username  VARCHAR(25) NOT NULL,
+  password  VARCHAR(25) NULL,
+  userclass INT         NULL,
+  type      VARCHAR(20) NULL
 )
