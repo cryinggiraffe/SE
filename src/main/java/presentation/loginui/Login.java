@@ -110,7 +110,7 @@ public class Login extends JFrame{
                         stockManagerUi.init();
                         jf_1.dispose();//销毁当前界面
                     } else if (type.equals("admin")){
-                        AdministratorUI administratorUI = new AdministratorUI();
+                        AdministratorUI administratorUI = new AdministratorUI(user);
                         jf_1.dispose();//销毁当前界面
                     }
                 } else {

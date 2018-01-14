@@ -1,5 +1,6 @@
 package DataService.DataServiceImpl;
 
+import java.sql.Date;
 import java.util.List;
 
 import DataService.ReceiptDataService;
@@ -12,10 +13,10 @@ public class ReceiptDataServiceImpl implements ReceiptDataService{
 	@Override
 	public boolean insert(ReceiptPO receiptPO) {
 		// TODO Auto-generated method stub
-		String sql = "insert into Receipt values(?,?,?,?,?,?,?)";
-		return dao.update(sql, receiptPO.getId(), receiptPO.getUsername(), 
+		String sql = "insert into Receipt values(?,?,?,?,?,?,?,?,?)";
+		return dao.update(sql, receiptPO.getId(), receiptPO.getClient(), receiptPO.getUsername(), 
 				               receiptPO.getAccount(), receiptPO.getAmount(), receiptPO.getRemark(),
-				               receiptPO.getSum(), receiptPO.getState());
+				               receiptPO.getSum(), receiptPO.getState(),receiptPO.getDate());
 	}
 
 
@@ -23,8 +24,11 @@ public class ReceiptDataServiceImpl implements ReceiptDataService{
 	@Override
 	public boolean update(ReceiptPO receiptPO) {
 		// TODO Auto-generated method stub
-		String sql = "update Receipt set state = ? where id = ?";
-		return dao.update(sql, "yes", receiptPO.getId());
+//		String sql = "update Receipt set state = ? where id = ?";
+		String sql = "update Receipt set client = ?, username = ? , account = ? amount = ? remark = ? , sum = ? state = ? , date = ? where id = ?";
+		return dao.update(sql, receiptPO.getClient(),receiptPO.getUsername(), 
+	               receiptPO.getAccount(), receiptPO.getAmount(), receiptPO.getRemark(),
+	               receiptPO.getSum(), receiptPO.getState(),receiptPO.getDate(), receiptPO.getId());
 	}
 
 
@@ -43,6 +47,31 @@ public class ReceiptDataServiceImpl implements ReceiptDataService{
 		// TODO Auto-generated method stub
 		String sql = "select * from Receipt where state = ? ";
 		return dao.getALL(ReceiptPO.class, sql, "no");
+	}
+
+
+	@Override
+	public List<ReceiptPO> findForTime(Date begin, Date end) {
+		// TODO Auto-generated method stub
+		String sql = "select * from Receipt where date >= ? and date <= ?";
+		return dao.getALL(ReceiptPO.class, sql, begin, end);
+		
+	}
+
+
+	@Override
+	public List<ReceiptPO> findForType() {
+		// TODO Auto-generated method stub
+		String sql = "select * from Receipt";
+		return dao.getALL(ReceiptPO.class, sql);
+	}
+
+
+	@Override
+	public List<ReceiptPO> findForClient(String client) {
+		// TODO Auto-generated method stub
+		String sql = "select * from Receipt where client = ?";
+		return dao.getALL(ReceiptPO.class, sql, client);
 	}
 
 }

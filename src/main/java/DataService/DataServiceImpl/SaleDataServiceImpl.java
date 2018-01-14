@@ -1,5 +1,6 @@
 package DataService.DataServiceImpl;
 
+import java.sql.Date;
 import java.util.List;
 
 import DataService.SaleDataService;
@@ -25,8 +26,13 @@ public class SaleDataServiceImpl implements SaleDataService{
 	@Override
 	public boolean update(SaleFormPO saleFormPO) {
 		// TODO Auto-generated method stub
-		String sql = "update SaleForm set state = ? where id = ?";
-		return dao.update(sql, "yes", saleFormPO.getId());
+		String sql = "update SaleForm set client = ?, operator = ?, salesman = ?, houseware = ?, "
+		   + " tpbfDiscounting = ? ,tpafDiscounting = ?, discount = ?, voucher = ?,  remark = ?, "
+		   + " state = ?, date = ? from SaleReturnForm where id = ?";
+		return dao.update(sql, saleFormPO.getClient(), saleFormPO.getOperator(), 
+	               saleFormPO.getSalesman(), saleFormPO.getHouseware(), saleFormPO.getTpbfDiscounting(),
+	               saleFormPO.getTpafDiscounting(), saleFormPO.getDiscount(), saleFormPO.getVoucher(),
+	               saleFormPO.getRemark(), saleFormPO.getState(), saleFormPO.getDate(), saleFormPO.getId());
 	}
 
 	@Override
@@ -56,6 +62,46 @@ public class SaleDataServiceImpl implements SaleDataService{
 			saleFormPO.setCommodityList(saleCommodityDataServiceImpl.getForSaleformId(saleFormPO.getId()));
 		}
 		return saleFormPOs;
+	}
+
+	@Override
+	public List<SaleFormPO> findForTime(Date begin, Date end) {
+		// TODO Auto-generated method stub
+		String sql = "select id, client, operator, salesman, houseware,tpbfDiscounting,tpafDiscounting, discount, voucher, remark, state, date "
+					+ " from SaleForm where date >= ? and date <= ?";
+		return dao.getALL(SaleFormPO.class, sql, begin, end);
+	}
+
+	@Override
+	public List<SaleFormPO> findForType() {
+		// TODO Auto-generated method stub
+		String sql = "select id, client, operator, salesman, houseware,tpbfDiscounting,tpafDiscounting, discount, voucher, remark, state, date "
+				+ " from SaleForm";
+		return dao.getALL(SaleFormPO.class, sql);
+	}
+
+	@Override
+	public List<SaleFormPO> findForClient(String client) {
+		// TODO Auto-generated method stub
+		String sql = "select id, client, operator, salesman, houseware,tpbfDiscounting,tpafDiscounting, discount, voucher, remark, state, date "
+				+ " from SaleForm where client = ?";
+		return dao.getALL(SaleFormPO.class, sql, client);
+	}
+
+	@Override
+	public List<SaleFormPO> findForSalesman(String salesman) {
+		// TODO Auto-generated method stub
+		String sql = "select id, client, operator, salesman, houseware,tpbfDiscounting,tpafDiscounting, discount, voucher, remark, state, date "
+				+ " from SaleForm where salesman = ?";
+		return dao.getALL(SaleFormPO.class, sql, salesman);
+	}
+
+	@Override
+	public List<SaleFormPO> findForHouseWare(String houseware) {
+		// TODO Auto-generated method stub
+		String sql = "select id, client, operator, salesman, houseware,tpbfDiscounting,tpafDiscounting, discount, voucher, remark, state, date "
+		+ " from SaleForm where houseware = ?";
+		return dao.getALL(SaleFormPO.class, sql, houseware);
 	}
 
 }

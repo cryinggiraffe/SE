@@ -1,6 +1,7 @@
 package presentation.billui;
 
 import businesslogic.ReceiptBL.ReceiptBL;
+import businesslogic.accountbl.AccountBL;
 import businesslogic.clientbl.ClientBL;
 
 import javax.swing.*;
@@ -11,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.Date;
 
 public class ReceiptUI extends JFrame {
     private static JLabel jl_id;
@@ -36,7 +38,8 @@ public class ReceiptUI extends JFrame {
     public ReceiptUI (String name) {
         //设置界面
         Font font =new Font("微软雅黑", Font.PLAIN, 20);//设置按钮字体
-        String receiptId = "SKD-20180111-00001";
+        ReceiptBL receiptBL = new ReceiptBL();
+        String receiptId = receiptBL.newId();
         jl_id = new JLabel("单据编号：" + receiptId);
         jl_id.setBounds(150,100,500,50);
         jl_id.setFont(font);
@@ -139,6 +142,7 @@ public class ReceiptUI extends JFrame {
                     String amount = jt_amount.getText();
                     String remark = jt_remark.getText();
                     ClientBL clientBL = new ClientBL();
+                    AccountBL accountBL = new AccountBL();
                     double amountNum = 0;
                     if (client.equals("")) {
                         System.out.println("error no client");
@@ -159,9 +163,12 @@ public class ReceiptUI extends JFrame {
                     }else if (clientBL.findClient(client) == null) {
                         JOptionPane.showMessageDialog(jf_1, "无此客户信息，请重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
 
+                    }else if (accountBL.findAccount(account) == null){
+                        JOptionPane.showMessageDialog(jf_1, "无此银行账户信息，请重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
                     }else {
                         ReceiptBL receiptBL = new ReceiptBL();
-                        //receiptBL.newReceipt(receiptId,name,account,amount,remark,amount);
+                        Date date = new Date(System.currentTimeMillis());
+                        receiptBL.newReceipt(receiptId,client,name,account,amountNum,remark,amountNum,date);
                         System.out.println("new receipt");
                         jf_1.dispose();
                     }

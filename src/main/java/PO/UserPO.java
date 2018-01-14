@@ -53,8 +53,7 @@ public class UserPO {
 	
 	@Override
 	public String toString() {
-		return "UserPO [username=" + username + ", password=" + password + ", userclass=" + userclass + ", type=" + type
-				+ "]";
+		return username + "," + password + "," + userclass + "," + type;
 	}
 	
 	

@@ -1,5 +1,6 @@
 package DataService.DataServiceImpl;
 
+import java.sql.Date;
 import java.util.List;
 
 import DataService.PaymentDataService;
@@ -35,8 +36,32 @@ public class PaymentDataServiceImpl implements PaymentDataService{
 	@Override
 	public boolean update(PaymentPO paymentPO) {
 		// TODO Auto-generated method stub
-		String sql = "update Payment set state = ? where id = ?";
-		return dao.update(sql, "yes", paymentPO.getId());
+		String sql = "update Payment set client = ?, username = ? , account = ? amount = ? remark = ? , sum = ? state = ? , date = ? where id = ?";
+		return dao.update(sql, paymentPO.getUsername(),
+		          paymentPO.getAccount(), paymentPO.getAmount(), paymentPO.getRemark(), 
+		          paymentPO.getSum(), paymentPO.getState(), paymentPO.getId());
+	}
+
+	@Override
+	public List<PaymentPO> findForTime(Date begin, Date end) {
+		// TODO Auto-generated method stub
+		String sql = "select * from Payment where date >= ? and date <= ?";
+		return dao.getALL(PaymentPO.class, sql, begin, end);
+		
+	}
+
+	@Override
+	public List<PaymentPO> findForType() {
+		// TODO Auto-generated method stub
+		String sql = "select * from Payment";
+		return dao.getALL(PaymentPO.class, sql);
+	}
+
+	@Override
+	public List<PaymentPO> findForClient(String client) {
+		// TODO Auto-generated method stub
+		String sql = "select * from Payment where client = ?";
+		return dao.getALL(PaymentPO.class, sql, client);
 	}
 
 }

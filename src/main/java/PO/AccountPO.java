@@ -34,7 +34,7 @@ public class AccountPO {
 
 	@Override
 	public String toString() {
-		return "AccountPO [name=" + name + ", balance=" + balance + "]";
+		return  name + "," +balance;
 	}
 	
 	

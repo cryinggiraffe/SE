@@ -9,6 +9,10 @@ public interface ReceiptBLService {
                     double sum, Date date);
     boolean update(ReceiptPO po);
     ReceiptPO findById(String id);
+    String newId();
     List<ReceiptPO> findByState();
+    List<ReceiptPO> findByTime(Date begin, Date end);
+    List<ReceiptPO> findByType();
+    List<ReceiptPO> findByClient(String client);
 
 }

@@ -3,6 +3,9 @@ package DataService.DataServiceImpl;
 import DataService.AdministratorDataService;
 import JDBC.DAO;
 import PO.UserPO;
+import User.User;
+
+import java.util.List;
 
 public class AdministratorDataServiceImpl implements AdministratorDataService{
 
@@ -26,7 +29,7 @@ public class AdministratorDataServiceImpl implements AdministratorDataService{
 	public boolean update(UserPO userPO) {
 		// TODO Auto-generated method stub
 		String sql = "update User set username = ?, password = ?, userclass = ?, type = ? where username = ?";
-		return dao.update(sql, userPO.getUsername(), userPO.getPassword(), userPO.getUserclass(), userPO.getType());
+		return dao.update(sql, userPO.getUsername(), userPO.getPassword(), userPO.getUserclass(), userPO.getType(),userPO.getUsername());
 	}
 	
 	@Override
@@ -34,6 +37,13 @@ public class AdministratorDataServiceImpl implements AdministratorDataService{
 		// TODO Auto-generated method stub
 		String sql = "select username, password, userclass, type from User where username = ?";
 		return dao.get(UserPO.class, sql, username);
+	}
+
+	@Override
+	public List<UserPO> findAll() {
+		// TODO Auto-generated method stub
+		String sql = "select * from User";
+		return dao.getALL(UserPO.class, sql);
 	}
 
 }
