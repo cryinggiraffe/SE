@@ -7,9 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 
-public class Import {
+public class Export {
     public void init() {
-        JFrame iframe = new JFrame("制定进货单");
+        JFrame iframe = new JFrame("制定退货单");
         JPanel ipanel = new JPanel();
         iframe.add(ipanel);
         ipanel.setLayout(new FlowLayout());
@@ -49,7 +49,7 @@ public class Import {
         Vector vRow = new Vector();
         for (int i = 0; i < 7; i++)
             vRow.add(i);
-        JButton addRow = new JButton("添加入库商品");
+        JButton addRow = new JButton("减去库存商品");
         ipanel.add(addRow);
         addRow.addActionListener(new ActionListener() {
             @Override
@@ -107,6 +107,6 @@ public class Import {
     }
 
     public static void main(String[] args) {
-        new Import().init();
+        new Export().init();
     }
 }

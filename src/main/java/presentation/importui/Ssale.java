@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 
-public class Import {
+public class Ssale {
     public void init() {
         JFrame iframe = new JFrame("制定进货单");
         JPanel ipanel = new JPanel();
