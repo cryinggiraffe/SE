@@ -1,5 +1,7 @@
 package presentation.promotionui;
 
+import presentation.approveui.ApproveUI;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -109,7 +111,7 @@ public class ManagerUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
-                System.out.println("back to finance");
+                System.out.println("back to manager");
                 jp_current.setVisible(false);
                 bt_back.setVisible(false);
                 contentPane.setVisible(true);
@@ -136,8 +138,10 @@ public class ManagerUI extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 System.out.println("into approve manage");
-                //mainLayout ml=new mainLayout(jf_1);//为跳转的界面
-                jf_1.setVisible(false);//隐藏当前界面
+                jp_current = new ApproveUI();
+                bt_back.setVisible(true);
+                jf_1.add(jp_current);
+                contentPane.setVisible(false);//隐藏当前界面
             }
         };
         bt_approve.addActionListener(btApprove_ls);

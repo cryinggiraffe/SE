@@ -1,10 +1,10 @@
 package PO;
 
 public class RecordPO {
-    private String id;
-    private String client;
-    private String operator;
-    private String state;
+    public String id;
+    public String client;
+    public String operator;
+    public String state;
 
     public RecordPO () {
 

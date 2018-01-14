@@ -4,14 +4,11 @@ import java.sql.Date;
 
 public class PaymentPO extends RecordPO {
 	
-	private String id;
-	private String client;
-	private String username;
+
 	private String account;
 	private double amount;
 	private String remark;
 	private double sum;
-	private String state;
 	private Date date;
 	
 	public PaymentPO() {
@@ -25,7 +22,7 @@ public class PaymentPO extends RecordPO {
 		super();
 		this.id = id;
 		this.client = client;
-		this.username = username;
+		this.operator = username;
 		this.account = account;
 		this.amount = amount;
 		this.remark = remark;
@@ -40,7 +37,7 @@ public class PaymentPO extends RecordPO {
 		super();
 		this.id = id;
 		this.client = client;
-		this.username = username;
+		this.operator = username;
 		this.account = account;
 		this.amount = amount;
 		this.remark = remark;
@@ -59,11 +56,12 @@ public class PaymentPO extends RecordPO {
 	}
 
 	public String getOperator() {
-		return username;
+		return operator;
 	}
 
 	public void setOperator(String username) {
-		this.username = username;
+		this.operator = username;
+
 	}
 
 	public String getAccount() {
@@ -115,6 +113,9 @@ public class PaymentPO extends RecordPO {
 		this.client = client;
 	}
 
+	public void setUsername(String username){
+		this.operator = username;
+	}
 
 	public Date getDate() {
 		return date;
@@ -127,9 +128,8 @@ public class PaymentPO extends RecordPO {
 
 	@Override
 	public String toString() {
-		return "PaymentPO [id=" + id + ", client=" + client + ", username=" + username + ", account=" + account
-				+ ", amount=" + amount + ", remark=" + remark + ", sum=" + sum + ", state=" + state + ", date=" + date
-				+ "]";
+		return id + "," + client + "," + operator + "," + account
+				+ "," + amount + "," + remark + "," + sum + "," + state + "," + date;
 	}
 
 	

@@ -7,15 +7,11 @@ import java.util.List;
 public class ImportFormPO extends RecordPO implements Serializable {
     
 	private static final long serialVersionUID = 1L;
-	
-	private String id;
-    private String provider;//供应商id
+
     private String houseware;
-    private String operator;//操作员
     private List<Commodity> Importcommoditylist;
     private String remark;
     private double sum;
-    private String state;
     private Date date;
 	
     public ImportFormPO() {
@@ -29,7 +25,7 @@ public class ImportFormPO extends RecordPO implements Serializable {
 			 String remark, double sum, String state, Date date) {
 		super();
 		this.id = id;
-		this.provider = provider;
+		this.client = provider;
 		this.houseware = houseware;
 		this.operator = operator;
 		this.remark = remark;
@@ -43,7 +39,7 @@ public class ImportFormPO extends RecordPO implements Serializable {
 			List<Commodity> importcommoditylist, String remark, double sum, String state, Date date) {
 		super();
 		this.id = id;
-		this.provider = provider;
+		this.client = provider;
 		this.houseware = houseware;
 		this.operator = operator;
 		Importcommoditylist = importcommoditylist;
@@ -63,11 +59,11 @@ public class ImportFormPO extends RecordPO implements Serializable {
 	}
 
 	public String getClient() {
-		return provider;
+		return client;
 	}
 
 	public void setClient(String provider) {
-		this.provider = provider;
+		this.client = provider;
 	}
 
 	public String getHouseware() {
@@ -85,6 +81,7 @@ public class ImportFormPO extends RecordPO implements Serializable {
 	public void setOperator(String operator) {
 		this.operator = operator;
 	}
+
 
 	public List<Commodity> getImportcommoditylist() {
 		return Importcommoditylist;
@@ -131,9 +128,9 @@ public class ImportFormPO extends RecordPO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ImportFormPO [id=" + id + ", provider=" + provider + ", houseware=" + houseware + ", operator="
-				+ operator + ", Importcommoditylist=" + Importcommoditylist + ", remark=" + remark + ", sum=" + sum
-				+ ", state=" + state + "]";
+		return  id + "," + client + "," + houseware + ","
+				+ operator + "," + Importcommoditylist + "," + remark + "," + sum
+				+ "," + state;
 	}
 	
     
