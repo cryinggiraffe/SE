@@ -14,21 +14,21 @@ public class GoodDataServiceImpl implements GoodDataService{
 	public boolean insert(GoodPO goodPO) {
 		// TODO Auto-generated method stub
 		String sql = " INSERT INTO Good VALUES(?,?,?,?,?,?,?,?,?)";
-		return dao.update(sql, goodPO.getGoogid(), goodPO.getPid(), goodPO.getName(), goodPO.getType(), goodPO.getNum(),goodPO.getPur_price(),goodPO.getRet_price(),goodPO.getRece_price(),goodPO.getRece_ret_price());
+		return dao.update(sql, goodPO.getGoodid(), goodPO.getPid(), goodPO.getName(), goodPO.getType(), goodPO.getNum(),goodPO.getPur_price(),goodPO.getRet_price(),goodPO.getRece_price(),goodPO.getRece_ret_price());
 	}
 
 	@Override
 	public boolean delete(GoodPO goodPO) {
 		// TODO Auto-generated method stub
 		String sql = "delete from Good where goodid = ?";
-		return dao.update(sql, goodPO.getGoogid());
+		return dao.update(sql, goodPO.getGoodid());
 	}
 	
 	@Override
 	public boolean update(GoodPO goodPO) {
 		// TODO Auto-generated method stub
 		String sql = "update Good set pid = ?, name = ? num = ?, pur_price = ? ret_price = ? rece_price = ? rece_ret_price = ? where goodid = ?";
-		return dao.update(sql, goodPO.getPid(), goodPO.getName(), goodPO.getType(), goodPO.getNum(),goodPO.getPur_price(),goodPO.getRet_price(),goodPO.getRece_price(),goodPO.getRece_ret_price(), goodPO.getGoogid());
+		return dao.update(sql, goodPO.getPid(), goodPO.getName(), goodPO.getType(), goodPO.getNum(),goodPO.getPur_price(),goodPO.getRet_price(),goodPO.getRece_price(),goodPO.getRece_ret_price(), goodPO.getGoodid());
 	}
 
 	@Override

@@ -6,7 +6,7 @@ public class GoodPO implements Serializable {
     
 	private static final long serialVersionUID = 1L;
 	
-	private String googid;
+	private String goodid;
 	private int pid;
     private String name;
     private String type;
@@ -22,10 +22,10 @@ public class GoodPO implements Serializable {
 	}
     
 
-	public GoodPO(String googid, int pid, String name, String type, int num, int pur_price, int ret_price,
+	public GoodPO(String goodid, int pid, String name, String type, int num, int pur_price, int ret_price,
 			int rece_price, int rece_ret_price) {
 		super();
-		this.googid = googid;
+		this.goodid = goodid;
 		this.pid = pid;
 		this.name = name;
 		this.type = type;
@@ -38,13 +38,13 @@ public class GoodPO implements Serializable {
 	
 	
 
-	public String getGoogid() {
-		return googid;
+	public String getGoodid() {
+		return goodid;
 	}
 
 
-	public void setGoogid(String googid) {
-		this.googid = googid;
+	public void setGoodid(String googid) {
+		this.goodid = googid;
 	}
 
 
@@ -135,7 +135,7 @@ public class GoodPO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "GoodPO [googid=" + googid + ", pid=" + pid + ", name=" + name + ", type=" + type + ", num=" + num
+		return "GoodPO [googid=" + goodid + ", pid=" + pid + ", name=" + name + ", type=" + type + ", num=" + num
 				+ ", pur_price=" + pur_price + ", ret_price=" + ret_price + ", rece_price=" + rece_price
 				+ ", rece_ret_price=" + rece_ret_price + "]";
 	}
