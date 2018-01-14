@@ -59,6 +59,22 @@ public class ImportBL implements ImportFormService{
     }
 
     @Override
+    public boolean update(ImportFormPO po) {
+        String id = po.getId();
+        String[] tmp = id.split("-");
+        String formtype = tmp[0];
+        if(formtype.equals("JHD")){
+           ids.update(po);
+           return true;
+        }else if(formtype.equals("JHTHD")){
+           irds.update(po);
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    @Override
     public List<ImportFormPO> findByState() {
         List<ImportFormPO> importFormPOS=ids.findForState();
         importFormPOS.addAll(irds.findForState());
