@@ -3,15 +3,11 @@ package PO;
 import java.sql.Date;
 
 public class ReceiptPO extends RecordPO {
-	
-	private String id;
-	private String client;
-	private String username;
+
 	private String account;
 	private double amount;
 	private String remark;
 	private double sum;
-	private String state;
 	private Date date;
 	
 	public ReceiptPO() {
@@ -26,7 +22,7 @@ public class ReceiptPO extends RecordPO {
 		super();
 		this.id = id;
 		this.client = client;
-		this.username = username;
+		this.operator = username;
 		this.account = account;
 		this.amount = amount;
 		this.remark = remark;
@@ -41,7 +37,7 @@ public class ReceiptPO extends RecordPO {
 			double sum, String state, Date date) {
 		super();
 		this.id = id;
-		this.username = username;
+		this.operator = username;
 		this.client = client;
 		this.account = account;
 		this.amount = amount;
@@ -62,11 +58,15 @@ public class ReceiptPO extends RecordPO {
 	}
 
 	public String getOperator() {
-		return username;
+		return operator;
 	}
 
 	public void setOperator(String username) {
-		this.username = username;
+		this.operator = username;
+	}
+
+	public void setUsername(String username){
+		this.operator = username;
 	}
 
 	public String getAccount() {
@@ -138,9 +138,8 @@ public class ReceiptPO extends RecordPO {
 
 	@Override
 	public String toString() {
-		return "ReceiptPO [id=" + id + ", username=" + username + ", client=" + client + ", account=" + account
-				+ ", amount=" + amount + ", remark=" + remark + ", sum=" + sum + ", state=" + state + ", date=" + date
-				+ "]";
+		return id + "," + operator + "," + client + "," + account
+				+ "," + amount + "," + remark + "," + sum + "," + state + "," + date;
 	}
 
 		

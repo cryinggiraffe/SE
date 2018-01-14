@@ -5,9 +5,7 @@ import java.util.List;
 
 public class SaleFormPO extends RecordPO {
 	
-	private String id;
-    private String client;//id
-    private String operator;
+
     private String salesman;//业务员
     private String houseware;
     private List<Commodity> commodityList;
@@ -16,7 +14,6 @@ public class SaleFormPO extends RecordPO {
     private double discount;
     private double voucher;//代金券
     private String remark;
-    private String state;
     private Date date;
 	
     public SaleFormPO() {
@@ -176,10 +173,10 @@ public class SaleFormPO extends RecordPO {
 
 	@Override
 	public String toString() {
-		return "SaleFormPO [id=" + id + ", client=" + client + ", operator=" + operator + ", salesman=" + salesman
-				+ ", houseware=" + houseware + ", commodityList=" + commodityList + ", tpbfDiscounting="
-				+ tpbfDiscounting + ", tpafDiscounting=" + tpafDiscounting + ", discount=" + discount + ", voucher="
-				+ voucher + ", remark=" + remark + ", state=" + state + "]";
+		return id + "," + client + "," + operator + "," + salesman
+				+ "," + houseware + "," + commodityList + ","
+				+ tpbfDiscounting + "," + tpafDiscounting + "," + discount + ","
+				+ voucher + "," + remark + "," + state ;
 	}
     
     

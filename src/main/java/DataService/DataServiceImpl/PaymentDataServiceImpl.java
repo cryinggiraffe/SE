@@ -16,7 +16,7 @@ public class PaymentDataServiceImpl implements PaymentDataService{
 		String sql = "insert into Payment values(?,?,?,?,?,?,?,?,?)";
 		return dao.update(sql, paymentPO.getId(), paymentPO.getClient(),paymentPO.getOperator(),
 				          paymentPO.getAccount(), paymentPO.getAmount(), paymentPO.getRemark(), 
-				          paymentPO.getSum(), paymentPO.getState());
+				          paymentPO.getSum(), paymentPO.getState(), paymentPO.getDate());
 	}
 
 	@Override
@@ -36,10 +36,10 @@ public class PaymentDataServiceImpl implements PaymentDataService{
 	@Override
 	public boolean update(PaymentPO paymentPO) {
 		// TODO Auto-generated method stub
-		String sql = "update Payment set client = ?, username = ? , account = ? amount = ? remark = ? , sum = ? state = ? , date = ? where id = ?";
-		return dao.update(sql, paymentPO.getOperator(),
+		String sql = "update Payment set client = ?, operator = ? , account = ?, amount = ? ,remark = ? , sum = ? , state = ? , date = ? where id = ?";
+		return dao.update(sql, paymentPO.getClient(),paymentPO.getOperator(),
 		          paymentPO.getAccount(), paymentPO.getAmount(), paymentPO.getRemark(), 
-		          paymentPO.getSum(), paymentPO.getState(), paymentPO.getId());
+		          paymentPO.getSum(), paymentPO.getState(), paymentPO.getDate(),paymentPO.getId());
 	}
 
 	@Override

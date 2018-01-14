@@ -1,12 +1,11 @@
 package businesslogic.salebl;
 import DataService.DataServiceImpl.*;
 import PO.Commodity;
-import PO.ImportFormPO;
 import PO.SaleFormPO;
-import blService.ImportFormService;
 import blService.SaleFormService;
 
 
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +43,45 @@ public class SaleBL implements SaleFormService {
    
 
 
+    }
+
+    @Override
+    public SaleFormPO findById(String id) {
+        String[] tmp = id.split("-");
+        String formtype = tmp[0];
+        if(formtype.equals("XSD")){
+            return ids.find(id);
+        }else if(formtype.equals("XSTHD")){
+            return irds.find(id);
+        }else {
+            return null;
+        }
+    }
+
+    @Override
+    public List<SaleFormPO> findByState() {
+        List<SaleFormPO> SaleFormPOS=ids.findForState();
+        SaleFormPOS.addAll(irds.findForState());
+        return SaleFormPOS;
+    }
+
+    @Override
+    public List<SaleFormPO> findByTime(Date begin, Date end){
+        List<SaleFormPO> SaleFormPOS=ids.findForTime(begin,end);
+        SaleFormPOS.addAll(irds.findForTime(begin,end));
+        return SaleFormPOS;
+    }
+    @Override
+    public List<SaleFormPO> findByType(){
+        List<SaleFormPO> SaleFormPOS=ids.findForType();
+        SaleFormPOS.addAll(irds.findForType());
+        return SaleFormPOS;
+    }
+    @Override
+    public List<SaleFormPO> findByClient(String client){
+        List<SaleFormPO> SaleFormPOS=ids.findForClient(client);
+        SaleFormPOS.addAll(irds.findForClient(client));
+        return SaleFormPOS;
     }
 
     public static void main(String[] agrs){

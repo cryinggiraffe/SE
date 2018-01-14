@@ -10,6 +10,7 @@ import PO.ImportFormPO;
 import blService.ImportFormService;
 
 
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Random;
@@ -43,6 +44,49 @@ public class ImportBL implements ImportFormService{
 
 
     }
+    @Override
+    public ImportFormPO findById(String id) {
+        String[] tmp = id.split("-");
+        String formtype = tmp[0];
+        if(formtype.equals("JHD")){
+            return ids.find(id);
+        }else if(formtype.equals("JHTHD")){
+            return irds.find(id);
+        }else {
+            return null;
+        }
+    }
+
+    @Override
+    public List<ImportFormPO> findByState() {
+        List<ImportFormPO> importFormPOS=ids.findForState();
+        importFormPOS.addAll(irds.findForState());
+        return importFormPOS;
+    }
+
+    @Override
+    public List<ImportFormPO> findByTime(Date begin, Date end){
+        List<ImportFormPO> importFormPOS=ids.findForTime(begin,end);
+        importFormPOS.addAll(irds.findForTime(begin,end));
+        return importFormPOS;
+    }
+    @Override
+    public List<ImportFormPO> findByType(){
+        List<ImportFormPO> importFormPOS=ids.findForType();
+        importFormPOS.addAll(irds.findForType());
+        return importFormPOS;
+    }
+    @Override
+    public List<ImportFormPO> findByClient(String client){
+        List<ImportFormPO> importFormPOS=ids.findForClient(client);
+        importFormPOS.addAll(irds.findForClient(client));
+        return importFormPOS;
+    }
+    
+    
+    
+    
+    
 
     public static void main(String[] agrs){
         java.sql.Date d=new java.sql.Date((new java.util.Date()).getTime());

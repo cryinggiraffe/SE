@@ -25,7 +25,7 @@ public class ImportDataServiceImpl implements ImportDataService{
 	@Override
 	public boolean update(ImportFormPO importFormPO) {
 		// TODO Auto-generated method stub
-		String sql = "update ImportForm set provider = ？, houseware = ？, operator = ？, remark = ？, sum = ？, state = ？, date = ？where id = ?";
+		String sql = "update ImportForm set client = ？, houseware = ？, operator = ？, remark = ？, sum = ？, state = ？, date = ？where id = ?";
 		return dao.update(sql, importFormPO.getClient(), importFormPO.getHouseware(), importFormPO.getOperator(),
 		          			   importFormPO.getRemark(), importFormPO.getSum(),importFormPO.getState(), importFormPO.getDate());
 	}
@@ -35,7 +35,7 @@ public class ImportDataServiceImpl implements ImportDataService{
 		// TODO Auto-generated method stub
 		List<Commodity> commodities = importCommodityDataServiceImpl.getForImportformId(importformid);
 		
-		String sql = "select id, provider, houseware, operator, remark, sum, state, date from ImportForm where id = ?";
+		String sql = "select id, client, houseware, operator, remark, sum, state, date from ImportForm where id = ?";
 		ImportFormPO importFormPO = dao.get(ImportFormPO.class, sql, importformid);
 		importFormPO.setImportcommoditylist(commodities);
 		return importFormPO;
@@ -44,7 +44,7 @@ public class ImportDataServiceImpl implements ImportDataService{
 	@Override
 	public List<ImportFormPO> findForState() {
 		// TODO Auto-generated method stub
-		String sql = "select id, provider, houseware, operator, remark, sum, state,date from ImportForm where state = ?";
+		String sql = "select id, client, houseware, operator, remark, sum, state,date from ImportForm where state = ?";
 		
 		return dao.getALL(ImportFormPO.class, sql, "no");
 	}
@@ -64,35 +64,35 @@ public class ImportDataServiceImpl implements ImportDataService{
 	@Override
 	public List<ImportFormPO> findForTime(Date begin, Date end) {
 		// TODO Auto-generated method stub
-		String sql = "select id, provider, houseware, operator, remark, sum, state,date from ImportForm where date >= ? and date <= ?";
+		String sql = "select id, client, houseware, operator, remark, sum, state,date from ImportForm where date >= ? and date <= ?";
 		return dao.getALL(ImportFormPO.class, sql, begin, end);
 	}
 
 	@Override
 	public List<ImportFormPO> findForType() {
 		// TODO Auto-generated method stub
-		String sql = "select id, provider, houseware, operator, remark, sum, state,date from ImportForm";
+		String sql = "select id, client, houseware, operator, remark, sum, state,date from ImportForm";
 		return dao.getALL(ImportFormPO.class, sql);
 	}
 
 	@Override
 	public List<ImportFormPO> findForClient(String client) {
 		// TODO Auto-generated method stub
-		String sql = "select id, provider, houseware, operator, remark, sum, state,date from ImportForm where provider = ?";
+		String sql = "select id, client, houseware, operator, remark, sum, state,date from ImportForm where client = ?";
 		return dao.getALL(ImportFormPO.class, sql, client);
 	}
 
 //	@Override
 //	public List<ImportFormPO> findForSalesman(String salesman) {
 //		// TODO Auto-generated method stub
-//		String sql = "select id, provider, houseware, operator, remark, sum, state,date from ImportForm "
+//		String sql = "select id, client, houseware, operator, remark, sum, state,date from ImportForm "
 //		return null;
 //	}
 
 	@Override
 	public List<ImportFormPO> findForHouseWare(String houseware) {
 		// TODO Auto-generated method stub
-		String sql = "select id, provider, houseware, operator, remark, sum, state, date from ImportForm where houseware = ?";
+		String sql = "select id, client, houseware, operator, remark, sum, state, date from ImportForm where houseware = ?";
 		return dao.getALL(ImportFormPO.class, sql, houseware);
 	}
 	
