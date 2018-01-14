@@ -18,6 +18,7 @@ public class GoodPO implements Serializable {
 
     public GoodPO() {
 		super();
+		goodid="0";
 		// TODO Auto-generated constructor stub
 	}
     

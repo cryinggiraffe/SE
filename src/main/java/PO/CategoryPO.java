@@ -12,6 +12,7 @@ public class CategoryPO implements Serializable {
 	
     public CategoryPO() {
 		super();
+		id="0";
 		// TODO Auto-generated constructor stub
 	}
 
