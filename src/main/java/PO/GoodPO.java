@@ -21,8 +21,20 @@ public class GoodPO implements Serializable {
 		goodid="0";
 		// TODO Auto-generated constructor stub
 	}
-    
 
+	public GoodPO(int goodid, int pid, String name, String type, int num, int pur_price, int ret_price,
+				  int rece_price, int rece_ret_price) {
+		super();
+		this.goodid =String.valueOf(goodid);
+		this.pid = pid;
+		this.name = name;
+		this.type = type;
+		this.num = num;
+		this.pur_price = pur_price;
+		this.ret_price = ret_price;
+		this.rece_price = rece_price;
+		this.rece_ret_price = rece_ret_price;
+	}
 	public GoodPO(String goodid, int pid, String name, String type, int num, int pur_price, int ret_price,
 			int rece_price, int rece_ret_price) {
 		super();
