@@ -19,17 +19,7 @@ public class GoodBL {
     public void deleteGood(GoodPO po){
         gds.delete(po);
     }
-    public List<GoodPO> findGoodById(int id){
-        String sid=String.valueOf(id);
-        List<GoodPO> pos=gds.list();
-        List<GoodPO> res=new ArrayList<>();
-        for(int i=0;i!=pos.size();i++){
-            if(pos.get(i).getGoodid().equals(sid)){
-                res.add(pos.get(i));
-            }
-        }
-        return res;
-    }
+
     public List<GoodPO> findGoodByName(String name){
         List<GoodPO> pos=gds.list();
         List<GoodPO> res=new ArrayList<>();
@@ -68,6 +58,6 @@ public class GoodBL {
         return res;
     }
     public void overflow(String id,int num){
-
+        //this.findGoodById()
     }
 }
