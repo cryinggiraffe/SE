@@ -124,7 +124,7 @@ public class ApproveUI extends JPanel {
                     if (type.equals("JHD")){
                         importFormPO = importBL.findById(id);
                         importFormPO.setState("yes");
-
+                        importBL.update(importFormPO);
                         ClientBL clientBL = new ClientBL();
                         ClientPO client = clientBL.findClient(importFormPO.getClient());
                         double receive = client.getReceive() + importFormPO.getSum();
@@ -134,6 +134,7 @@ public class ApproveUI extends JPanel {
                     }else if(type.equals("JHTHD")){
                         importFormPO = importBL.findById(id);
                         importFormPO.setState("yes");
+                        importBL.update(importFormPO);
                         ClientBL clientBL = new ClientBL();
                         ClientPO client = clientBL.findClient(importFormPO.getClient());
                         double receive = client.getReceive() - importFormPO.getSum();
@@ -143,6 +144,7 @@ public class ApproveUI extends JPanel {
                     }else if(type.equals("XSD")){
                         saleFormPO = saleBL.findById(id);
                         saleFormPO.setState("yes");
+                        saleBL.update(saleFormPO);
                         ClientBL clientBL = new ClientBL();
                         ClientPO client = clientBL.findClient(saleFormPO.getClient());
                         double send = client.getSend() + saleFormPO.getTpafDiscounting();
@@ -152,6 +154,7 @@ public class ApproveUI extends JPanel {
                     }else if(type.equals("XSTHD")){
                         saleFormPO = saleBL.findById(id);
                         saleFormPO.setState("yes");
+                        saleBL.update(saleFormPO);
                         ClientBL clientBL = new ClientBL();
                         ClientPO client = clientBL.findClient(saleFormPO.getClient());
                         double send = client.getSend() - saleFormPO.getTpafDiscounting();

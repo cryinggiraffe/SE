@@ -57,6 +57,22 @@ public class SaleBL implements SaleFormService {
     }
 
     @Override
+    public boolean update(SaleFormPO po) {
+        String id = po.getId();
+        String[] tmp = id.split("-");
+        String formtype = tmp[0];
+        if(formtype.equals("JHD")){
+            ids.update(po);
+            return true;
+        }else if(formtype.equals("JHTHD")){
+            irds.update(po);
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    @Override
     public List<SaleFormPO> findByState() {
         List<SaleFormPO> SaleFormPOS=ids.findForState();
         SaleFormPOS.addAll(irds.findForState());

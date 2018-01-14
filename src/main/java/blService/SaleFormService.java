@@ -12,7 +12,7 @@ public interface SaleFormService {
                  double voucher, String remark, java.util.Date date,List<Commodity> list);
 
     SaleFormPO findById(String id);
-
+    boolean update(SaleFormPO po);
     List<SaleFormPO> findByState();
     List<SaleFormPO> findByTime(java.sql.Date begin, java.sql.Date end);
     List<SaleFormPO> findByType();
