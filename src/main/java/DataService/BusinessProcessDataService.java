@@ -4,7 +4,10 @@ import java.sql.Date;
 import java.util.List;
 
 import PO.CashPO;
+import PO.GiftPO;
 import PO.ImportFormPO;
+import PO.LossPO;
+import PO.OverflowPO;
 import PO.PaymentPO;
 import PO.ReceiptPO;
 import PO.SaleFormPO;
@@ -52,5 +55,14 @@ public interface BusinessProcessDataService {
 	
 	public List<CashPO> findCashForTime(Date begin, Date end);
 	public List<CashPO> findCashForType();
+	
+	public List<GiftPO> findGiftForTime(Date begin, Date end);
+	public List<GiftPO> findGiftForType();
+	
+	public List<LossPO> findLossForTime(Date begin, Date end);
+	public List<LossPO> findLossForType();
+	
+	public List<OverflowPO> findOverflowForTime(Date begin, Date end);
+	public List<OverflowPO> findOverflowForType();
 	
 }

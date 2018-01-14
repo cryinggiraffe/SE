@@ -1,0 +1,77 @@
+CREATE TABLE Income
+(
+  id                 INT AUTO_INCREMENT
+    PRIMARY KEY,
+  saleincome         DOUBLE NULL,
+  overflowincome     DOUBLE NULL,
+  costincome         DOUBLE NULL,
+  importreturnincome DOUBLE NULL,
+  vouchersincome     DOUBLE NULL,
+  sumincome          DOUBLE NULL,
+  discount           DOUBLE NULL,
+  date               DATE   NULL
+)
+
+CREATE TABLE Expenditure
+(
+  id                       INT AUTO_INCREMENT
+    PRIMARY KEY,
+  salecost                 DOUBLE NULL,
+  commoditylostexpenditure DOUBLE NULL,
+  giftexpenditure          DOUBLE NULL,
+  sumexpenditure           DOUBLE NULL,
+  date                     DATE   NULL
+)
+
+CREATE TABLE Good
+(
+  goodid         VARCHAR(30) NOT NULL
+    PRIMARY KEY,
+  pid            INT         NULL,
+  name           VARCHAR(30) NULL,
+  type           VARCHAR(30) NULL,
+  num            INT         NULL,
+  pur_price      INT         NULL,
+  ret_price      INT         NULL,
+  rece_price     INT         NULL,
+  rece_ret_price INT         NULL
+)
+
+
+CREATE TABLE Category
+(
+  id   VARCHAR(30) NOT NULL
+    PRIMARY KEY,
+  pid  INT         NULL,
+  name VARCHAR(30) NULL
+)
+
+CREATE TABLE Overflow
+(
+  id       INT AUTO_INCREMENT
+    PRIMARY KEY,
+  goodid   VARCHAR(30) NULL,
+  goodname VARCHAR(30) NULL,
+  num      INT         NULL,
+  date     DATE        NULL
+)
+
+CREATE TABLE Loss
+(
+  id       INT AUTO_INCREMENT
+    PRIMARY KEY,
+  goodid   VARCHAR(30) NULL,
+  goodname VARCHAR(30) NULL,
+  num      INT         NULL,
+  date     DATE        NULL
+)
+
+CREATE TABLE Alarm
+(
+  id       INT AUTO_INCREMENT
+    PRIMARY KEY,
+  goodid   VARCHAR(30) NULL,
+  goodname VARCHAR(30) NULL,
+  num      INT         NULL,
+  date     DATE        NULL
+)
