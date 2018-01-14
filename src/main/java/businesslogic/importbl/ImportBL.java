@@ -22,7 +22,7 @@ public class ImportBL implements ImportFormService{
     private ImportDataServiceImpl ids=new ImportDataServiceImpl();
     private ImportReturnDataServiceImpl irds=new ImportReturnDataServiceImpl();
     @Override
-    public void newForm(String formtype, String provider, String houseware, String operator, List<Commodity> importcommoditylist, String remark, double sum, String state, java.util.Date date,List<Commodity> list) {
+    public String newForm(String formtype, String provider, String houseware, String operator, List<Commodity> importcommoditylist, String remark, double sum, String state, java.util.Date date,List<Commodity> list) {
         String id=formtype+"-";
         SimpleDateFormat sd=new SimpleDateFormat("yyyyMMdd");
         Random r=new Random();
@@ -41,7 +41,7 @@ public class ImportBL implements ImportFormService{
         }else {
             System.out.println("进货单类型错误 请使用 JHD JHTHD");
         }
-
+        return id;
 
     }
 

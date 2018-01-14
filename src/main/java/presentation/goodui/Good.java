@@ -29,7 +29,7 @@ public class Good {
 
     public void init() {
 
-        DefaultMutableTreeNode root = new DefaultMutableTreeNode(new CategoryPO("001",null, "所有商品"));
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode(new CategoryPO("001",0, "所有商品"));
 
         jf = new JFrame("商品管理");
         tree = new JTree(root);

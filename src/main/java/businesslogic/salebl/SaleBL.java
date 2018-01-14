@@ -18,7 +18,7 @@ public class SaleBL implements SaleFormService {
     private SaleDataServiceImpl ids=new SaleDataServiceImpl();
     private SaleReturnDataServiceImpl irds=new SaleReturnDataServiceImpl();
     @Override
-    public void newForm(String formtype, String client, String operator, String salesman, String houseware,
+    public String newForm(String formtype, String client, String operator, String salesman, String houseware,
                         double tpbfDiscounting, double tpafDiscounting, double discount,
                         double voucher, String remark, java.util.Date date,List<Commodity> list) {
         String id=formtype+"-";
@@ -40,7 +40,7 @@ public class SaleBL implements SaleFormService {
         }else {
             System.out.println("销售单类型错误 请使用 XSD XSTHD");
         }
-
+        return id;
     }
 
     @Override
