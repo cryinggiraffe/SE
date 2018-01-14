@@ -1,5 +1,8 @@
 package presentation.importui;
 
+import PO.GoodPO;
+import businesslogic.goodbl.GoodBL;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -46,14 +49,32 @@ public class Import {
         JTable table = new JTable();
         DefaultTableModel model = (DefaultTableModel) new Mytable().init_table(table);
 
-        Vector vRow = new Vector();
-        for (int i = 0; i < 7; i++)
-            vRow.add(i);
+//        Vector vRow = new Vector();
+//        for (int i = 0; i < 7; i++)
+//            vRow.add(i);
+        JTextField tgoodId = new JTextField("请输入商品id:");
+        tgoodId.setColumns(10);
+        ipanel.add(tgoodId);
         JButton addRow = new JButton("添加入库商品");
         ipanel.add(addRow);
         addRow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String goodid = tgoodId.getText();
+                GoodPO good = new GoodBL().findGoodById(goodid);
+//                商品编号，名称（从商品选择界面进行选择），型号，数量（手动输入），单价（默认为商品信息中的进价），金额，备注（手动输入）。
+                String name = good.getName();
+                String type = good.getType();
+                int price = good.getPur_price();
+                Vector vRow = new Vector();
+                vRow.add(goodid);
+                vRow.add(name);
+                vRow.add(type);
+                vRow.add(0);
+                vRow.add(price);
+                vRow.add(0);
+                vRow.add(null);
+
                 model.addRow(vRow);
             }
         });
@@ -94,8 +115,6 @@ public class Import {
                 List importCommoditylist = null;
                 String remark = tremark.getText();
                 double sum = Integer.valueOf(tsum.getText());
-
-
 
 
             }

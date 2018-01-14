@@ -7,13 +7,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 
-public class Ssale {
+public class SaleForm {
     public void init() {
-        JFrame iframe = new JFrame("制定进货单");
+        JFrame iframe = new JFrame("制定销售单");
         JPanel ipanel = new JPanel();
         iframe.add(ipanel);
         ipanel.setLayout(new FlowLayout());
         ipanel.setBackground(Color.pink);
+
+
+//        private String salesman;//业务员
+//        private String houseware;
+//        private List<Commodity> commodityList;
+//        private double tpbfDiscounting;
+//        private double tpafDiscounting;
+//        private double discount;
+//        private double voucher;//代金券
+//        private String remark;
+//        private Date date;
 
 
         String id = "1"; //这里要改一下？？？？
@@ -107,6 +118,6 @@ public class Ssale {
     }
 
     public static void main(String[] args) {
-        new Import().init();
+        new SaleForm().init();
     }
 }
