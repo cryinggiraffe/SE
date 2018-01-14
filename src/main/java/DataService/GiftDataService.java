@@ -17,4 +17,6 @@ public interface GiftDataService {
 	public List<GiftPO> findForTime(Date begin, Date end);
 	//查找全部
 	public List<GiftPO> findForType();
+	//更新状态
+	boolean updateliststate(GiftPO giftPO);
 }
