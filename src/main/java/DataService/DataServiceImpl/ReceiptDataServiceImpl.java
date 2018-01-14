@@ -14,7 +14,7 @@ public class ReceiptDataServiceImpl implements ReceiptDataService{
 	public boolean insert(ReceiptPO receiptPO) {
 		// TODO Auto-generated method stub
 		String sql = "insert into Receipt values(?,?,?,?,?,?,?,?,?)";
-		return dao.update(sql, receiptPO.getId(), receiptPO.getClient(),receiptPO.getUsername(),
+		return dao.update(sql, receiptPO.getId(), receiptPO.getClient(), receiptPO.getUsername(), 
 				               receiptPO.getAccount(), receiptPO.getAmount(), receiptPO.getRemark(),
 				               receiptPO.getSum(), receiptPO.getState(),receiptPO.getDate());
 	}
@@ -24,8 +24,11 @@ public class ReceiptDataServiceImpl implements ReceiptDataService{
 	@Override
 	public boolean update(ReceiptPO receiptPO) {
 		// TODO Auto-generated method stub
-		String sql = "update Receipt set state = ? where id = ?";
-		return dao.update(sql, "yes", receiptPO.getId());
+//		String sql = "update Receipt set state = ? where id = ?";
+		String sql = "update Receipt set client = ?, username = ? , account = ? amount = ? remark = ? , sum = ? state = ? , date = ? where id = ?";
+		return dao.update(sql, receiptPO.getClient(),receiptPO.getUsername(), 
+	               receiptPO.getAccount(), receiptPO.getAmount(), receiptPO.getRemark(),
+	               receiptPO.getSum(), receiptPO.getState(),receiptPO.getDate(), receiptPO.getId());
 	}
 
 

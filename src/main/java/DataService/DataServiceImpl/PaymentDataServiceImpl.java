@@ -13,10 +13,10 @@ public class PaymentDataServiceImpl implements PaymentDataService{
 	@Override
 	public boolean insert(PaymentPO paymentPO) {
 		// TODO Auto-generated method stub
-		String sql = "insert into Payment values(?,?,?,?,?,?,?,?,?)";
-		return dao.update(sql, paymentPO.getId(), paymentPO.getClient(),paymentPO.getUsername(),
+		String sql = "insert into Payment values(?,?,?,?,?,?,?)";
+		return dao.update(sql, paymentPO.getId(), paymentPO.getUsername(),
 				          paymentPO.getAccount(), paymentPO.getAmount(), paymentPO.getRemark(), 
-				          paymentPO.getSum(), paymentPO.getState(),paymentPO.getDate());
+				          paymentPO.getSum(), paymentPO.getState());
 	}
 
 	@Override
@@ -36,8 +36,10 @@ public class PaymentDataServiceImpl implements PaymentDataService{
 	@Override
 	public boolean update(PaymentPO paymentPO) {
 		// TODO Auto-generated method stub
-		String sql = "update Payment set state = ? where id = ?";
-		return dao.update(sql, "yes", paymentPO.getId());
+		String sql = "update Payment set client = ?, username = ? , account = ? amount = ? remark = ? , sum = ? state = ? , date = ? where id = ?";
+		return dao.update(sql, paymentPO.getUsername(),
+		          paymentPO.getAccount(), paymentPO.getAmount(), paymentPO.getRemark(), 
+		          paymentPO.getSum(), paymentPO.getState(), paymentPO.getId());
 	}
 
 	@Override
