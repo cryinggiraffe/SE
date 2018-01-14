@@ -2,36 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60bc4a32-42bf-4901-8308-1bfc657bcfb1" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/sql/sql7.0.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/AlarmDataService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/AlarmDataServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/InventoryDataServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/LossDataServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/OverflowDataServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/InventoryDataService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/LossDataService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/DataService/OverflowDataService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/PO/AlarmPO.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/PO/InventoryPO.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/blService/TranslationSituationBLService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/businesslogic/goodbl/GoodBL.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/businesslogic/translationSituationbl/TranslationSituationBL.java" />
-      <change beforePath="$PROJECT_DIR$/sql/sql.txt" afterPath="$PROJECT_DIR$/sql/sql.txt" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/BusinessProcessDataService.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/BusinessProcessDataService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/CategoryDataService.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/CategoryDataService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/BusinessProcessDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/BusinessProcessDataServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/CategoryDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/CategoryDataServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/GiftDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/GiftDataServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/GoodDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/GoodDataServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataService/GiftDataService.java" afterPath="$PROJECT_DIR$/src/main/java/DataService/GiftDataService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PO/CategoryPO.java" afterPath="$PROJECT_DIR$/src/main/java/PO/CategoryPO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PO/GoodPO.java" afterPath="$PROJECT_DIR$/src/main/java/PO/GoodPO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PO/LossPO.java" afterPath="$PROJECT_DIR$/src/main/java/PO/LossPO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PO/OverflowPO.java" afterPath="$PROJECT_DIR$/src/main/java/PO/OverflowPO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PO/TreeNode.java" afterPath="$PROJECT_DIR$/src/main/java/PO/TreeNode.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/businesslogic/accountbl/AccountBL.java" afterPath="$PROJECT_DIR$/src/main/java/businesslogic/accountbl/AccountBL.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/businesslogic/importbl/ImportBL.java" afterPath="$PROJECT_DIR$/src/main/java/businesslogic/importbl/ImportBL.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/businesslogic/salebl/SaleBL.java" afterPath="$PROJECT_DIR$/src/main/java/businesslogic/salebl/SaleBL.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,6 +27,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ManagerUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/presentation/promotionui/ManagerUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="143" column="54" lean-forward="false" selection-start-line="143" selection-start-column="54" selection-end-line="143" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="PaymentDataServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/PaymentDataServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -66,30 +47,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientDataServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ClientDataServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="591">
-              <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/JDBC/DAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ApproveUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/presentation/approveui/ApproveUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
+            <state relative-caret-position="699">
               <caret line="172" column="52" lean-forward="false" selection-start-line="172" selection-start-column="52" selection-end-line="172" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -108,31 +69,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReceiptDataServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/ReceiptDataServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImportBL.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ImportBL.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/importbl/ImportBL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-620">
+            <state relative-caret-position="460">
               <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SaleBL.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SaleBL.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/salebl/SaleBL.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
               <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Good.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/presentation/goodui/Good.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryPO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/PO/CategoryPO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -402,6 +373,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="presentation" type="462c0819:PsiDirectoryNode" />
               <item name="approveui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sehomework666" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEhomework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="presentation" type="462c0819:PsiDirectoryNode" />
+              <item name="goodui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sehomework666" type="b2602c69:ProjectViewProjectNode" />
@@ -694,12 +674,12 @@
       <workItem from="1515815835802" duration="1309000" />
       <workItem from="1515828999766" duration="2791000" />
       <workItem from="1515831870795" duration="25294000" />
-      <workItem from="1515899004555" duration="20881000" />
+      <workItem from="1515899004555" duration="21743000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62356000" />
+    <option name="totallyTimeSpent" value="63218000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -707,14 +687,14 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10772579" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41022852" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4243743" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4243743" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -783,26 +763,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/accountui/FinancialUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/PO/Commodityincome.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PO/CategoryPO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -983,14 +947,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/promotionui/ManagerUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1490">
-          <caret line="143" column="54" lean-forward="false" selection-start-line="143" selection-start-column="54" selection-end-line="143" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/presentation/userui/UpdateUserUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1165,28 +1121,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/approveui/ApproveUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="172" column="52" lean-forward="false" selection-start-line="172" selection-start-column="52" selection-end-line="172" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DataService/DataServiceImpl/PaymentDataServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/importbl/ImportBL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-620">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1203,6 +1141,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PO/CategoryPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/goodui/Good.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/promotionui/ManagerUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="143" column="54" lean-forward="false" selection-start-line="143" selection-start-column="54" selection-end-line="143" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/presentation/approveui/ApproveUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="699">
+          <caret line="172" column="52" lean-forward="false" selection-start-line="172" selection-start-column="52" selection-end-line="172" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/businesslogic/importbl/ImportBL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
