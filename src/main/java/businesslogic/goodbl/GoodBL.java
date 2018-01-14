@@ -40,6 +40,16 @@ public class GoodBL {
         }
         return res;
     }
+    public GoodPO findGoodById(String id){
+        List<GoodPO> pos=gds.list();
+        GoodPO res=null;
+        for(int i=0;i!=pos.size();i++){
+            if(pos.get(i).getGoodid().equals(id)){
+                res=pos.get(i);
+            }
+        }
+        return res;
+    }
     public List<String> listNames(){
         List<GoodPO> pos=gds.list();
         List<String> res=new ArrayList<>();
@@ -48,5 +58,16 @@ public class GoodBL {
         }
         return res;
     }
+    public List<String> recommend(){
+        List<GoodPO> pos=gds.list();
+        List<String> res=new ArrayList<>();
+        for(int i=0;i!=pos.size();i++){
+            if(pos.get(i).getPur_price()>=20&&pos.get(i).getPur_price()<=100)
+            res.add(pos.get(i).getGoodid());
+        }
+        return res;
+    }
+    public void overflow(String id,int num){
 
+    }
 }
