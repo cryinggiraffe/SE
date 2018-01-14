@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
-public class ImportFormPO implements Serializable {
+public class ImportFormPO extends RecordPO implements Serializable {
     
 	private static final long serialVersionUID = 1L;
 	
@@ -62,11 +62,11 @@ public class ImportFormPO implements Serializable {
 		this.id = id;
 	}
 
-	public String getProvider() {
+	public String getClient() {
 		return provider;
 	}
 
-	public void setProvider(String provider) {
+	public void setClient(String provider) {
 		this.provider = provider;
 	}
 

@@ -3,7 +3,7 @@ package PO;
 import java.sql.Date;
 import java.util.List;
 
-public class SaleFormPO {
+public class SaleFormPO extends RecordPO {
 	
 	private String id;
     private String client;//id

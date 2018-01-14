@@ -16,7 +16,7 @@ public class ImportReturnDataServiceImpl implements ImportReturnDataService{
 	public boolean insert(ImportFormPO importReturnFormPO) {
 		// TODO Auto-generated method stub
 		String sql = "insert into ImportReturnForm values(?,?,?,?,?,?,?,?)";
-		return dao.update(sql, importReturnFormPO.getId(), importReturnFormPO.getProvider(), importReturnFormPO.getHouseware(), 
+		return dao.update(sql, importReturnFormPO.getId(), importReturnFormPO.getOperator(), importReturnFormPO.getHouseware(),
 				          importReturnFormPO.getOperator(), importReturnFormPO.getRemark(), importReturnFormPO.getSum(),
 				          importReturnFormPO.getState(),importReturnFormPO.getDate());
 		

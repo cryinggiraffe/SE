@@ -14,7 +14,7 @@ public class ReceiptDataServiceImpl implements ReceiptDataService{
 	public boolean insert(ReceiptPO receiptPO) {
 		// TODO Auto-generated method stub
 		String sql = "insert into Receipt values(?,?,?,?,?,?,?,?,?)";
-		return dao.update(sql, receiptPO.getId(), receiptPO.getClient(),receiptPO.getUsername(),
+		return dao.update(sql, receiptPO.getId(), receiptPO.getClient(),receiptPO.getOperator(),
 				               receiptPO.getAccount(), receiptPO.getAmount(), receiptPO.getRemark(),
 				               receiptPO.getSum(), receiptPO.getState(),receiptPO.getDate());
 	}

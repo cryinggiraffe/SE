@@ -14,7 +14,7 @@ public class PaymentDataServiceImpl implements PaymentDataService{
 	public boolean insert(PaymentPO paymentPO) {
 		// TODO Auto-generated method stub
 		String sql = "insert into Payment values(?,?,?,?,?,?,?,?,?)";
-		return dao.update(sql, paymentPO.getId(), paymentPO.getClient(),paymentPO.getUsername(),
+		return dao.update(sql, paymentPO.getId(), paymentPO.getClient(),paymentPO.getOperator(),
 				          paymentPO.getAccount(), paymentPO.getAmount(), paymentPO.getRemark(), 
 				          paymentPO.getSum(), paymentPO.getState(),paymentPO.getDate());
 	}

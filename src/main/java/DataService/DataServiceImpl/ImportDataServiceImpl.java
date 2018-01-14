@@ -17,7 +17,7 @@ public class ImportDataServiceImpl implements ImportDataService{
 	public boolean insert(ImportFormPO importFormPO) {
 		// TODO Auto-generated method stub
 		String sql = "insert into ImportForm values(?,?,?,?,?,?,?,?)";
-		return dao.update(sql, importFormPO.getId(), importFormPO.getProvider(), importFormPO.getHouseware(), 
+		return dao.update(sql, importFormPO.getId(), importFormPO.getClient(), importFormPO.getHouseware(),
 				          importFormPO.getOperator(), importFormPO.getRemark(), importFormPO.getSum(),
 				          importFormPO.getState(),importFormPO.getDate());
 	}

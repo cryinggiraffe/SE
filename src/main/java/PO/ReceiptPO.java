@@ -2,7 +2,7 @@ package PO;
 
 import java.sql.Date;
 
-public class ReceiptPO {
+public class ReceiptPO extends RecordPO {
 	
 	private String id;
 	private String client;
@@ -61,11 +61,11 @@ public class ReceiptPO {
 		this.id = id;
 	}
 
-	public String getUsername() {
+	public String getOperator() {
 		return username;
 	}
 
-	public void setUsername(String username) {
+	public void setOperator(String username) {
 		this.username = username;
 	}
 
