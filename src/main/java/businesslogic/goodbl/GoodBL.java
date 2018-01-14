@@ -40,5 +40,13 @@ public class GoodBL {
         }
         return res;
     }
+    public List<String> listNames(){
+        List<GoodPO> pos=gds.list();
+        List<String> res=new ArrayList<>();
+        for(int i=0;i!=pos.size();i++){
+            res.add(pos.get(i).getName());
+        }
+        return res;
+    }
 
 }
