@@ -1,5 +1,6 @@
 package DataService.DataServiceImpl;
 
+import java.sql.Date;
 import java.util.List;
 
 import DataService.GiftDataService;
@@ -42,5 +43,21 @@ public class GiftDataServiceImpl implements GiftDataService{
 		String sql = "select giftlistid, giftid, name, price, num, state, date from Gift where giftlistid = ?";
 		return dao.getALL(GiftPO.class, sql, giftlistid);
 	}
+
+	@Override
+	public List<GiftPO> findForType() {
+		// TODO Auto-generated method stub
+		String sql = "select giftlistid, giftid, name, price, num, state, date from Gift";
+		return dao.getALL(GiftPO.class, sql);
+	}
+
+	@Override
+	public List<GiftPO> findForTime(Date begin, Date end) {
+		// TODO Auto-generated method stub
+		String sql = "select giftlistid, giftid, name, price, num, state, date from Gift where date >= ? and date <= ?";
+		return dao.getALL(GiftPO.class, sql, begin, end);
+	}
+	
+	
 
 }

@@ -1,16 +1,3 @@
-CREATE TABLE Good
-(
-  id             INT AUTO_INCREMENT
-    PRIMARY KEY,
-  name           VARCHAR(20) NULL,
-  type           VARCHAR(20) NULL,
-  num            INT         NULL,
-  pur_price      INT         NULL,
-  ret_price      INT         NULL,
-  rece_price     INT         NULL,
-  rece_ret_price INT         NULL
-);
-
 
 CREATE TABLE Client
 (

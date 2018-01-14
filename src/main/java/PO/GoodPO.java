@@ -6,7 +6,7 @@ public class GoodPO implements Serializable {
     
 	private static final long serialVersionUID = 1L;
 	
-	private int id;
+	private String googid;
 	private int pid;
     private String name;
     private String type;
@@ -21,24 +21,11 @@ public class GoodPO implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
     
-    
-	public GoodPO(int id, String name, String type, int num, int pur_price, int ret_price, int rece_price,
-			int rece_ret_price) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.type = type;
-		this.num = num;
-		this.pur_price = pur_price;
-		this.ret_price = ret_price;
-		this.rece_price = rece_price;
-		this.rece_ret_price = rece_ret_price;
-	}
 
-	public GoodPO(int id, int pid, String name, String type, int num, int pur_price, int ret_price, int rece_price,
-				  int rece_ret_price) {
+	public GoodPO(String googid, int pid, String name, String type, int num, int pur_price, int ret_price,
+			int rece_price, int rece_ret_price) {
 		super();
-		this.id = id;
+		this.googid = googid;
 		this.pid = pid;
 		this.name = name;
 		this.type = type;
@@ -48,26 +35,28 @@ public class GoodPO implements Serializable {
 		this.rece_price = rece_price;
 		this.rece_ret_price = rece_ret_price;
 	}
-
-
 	
+	
+
+	public String getGoogid() {
+		return googid;
+	}
+
+
+	public void setGoogid(String googid) {
+		this.googid = googid;
+	}
+
 
 	public int getPid() {
 		return pid;
 	}
 
+
 	public void setPid(int pid) {
 		this.pid = pid;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;
@@ -146,10 +135,13 @@ public class GoodPO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "GoodPO [id=" + id + ", name=" + name + ", type=" + type + ", num=" + num + ", pur_price=" + pur_price
-				+ ", ret_price=" + ret_price + ", rece_price=" + rece_price + ", rece_ret_price=" + rece_ret_price
-				+ "]";
+		return "GoodPO [googid=" + googid + ", pid=" + pid + ", name=" + name + ", type=" + type + ", num=" + num
+				+ ", pur_price=" + pur_price + ", ret_price=" + ret_price + ", rece_price=" + rece_price
+				+ ", rece_ret_price=" + rece_ret_price + "]";
 	}
+
+
+	
     
     
 }
