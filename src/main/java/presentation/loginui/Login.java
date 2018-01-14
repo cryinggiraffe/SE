@@ -56,7 +56,7 @@ public class Login extends JFrame{
         bt2.setFont(font);
 
         //加入文本框
-        jtext1=new JTextField("root");
+        jtext1=new JTextField("01001");
         jtext1.setBounds(580, 250, 250, 50);
         jtext1.setFont(font);
 

@@ -130,7 +130,7 @@ public class ImportFormPO extends RecordPO implements Serializable {
 	public String toString() {
 		return  id + "," + client + "," + houseware + ","
 				+ operator + "," + Importcommoditylist + "," + remark + "," + sum
-				+ "," + state;
+				+ "," + state + "," + date;
 	}
 	
     

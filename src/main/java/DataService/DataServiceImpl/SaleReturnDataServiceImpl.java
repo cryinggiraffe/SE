@@ -27,7 +27,7 @@ public class SaleReturnDataServiceImpl implements SaleReturnDataService{
 		// TODO Auto-generated method stub
 		String sql = "update SaleReturnForm set client = ?, operator = ?, salesman = ?, houseware = ?, "
 				   + " tpbfDiscounting = ? ,tpafDiscounting = ?, discount = ?, voucher = ?,  remark = ?, "
-				   + " state = ?, date = ? from SaleReturnForm where id = ?";
+				   + " state = ?, date = ?  where id = ?";
 		return dao.update(sql, saleFormPO.getClient(), saleFormPO.getOperator(), 
 	               saleFormPO.getSalesman(), saleFormPO.getHouseware(), saleFormPO.getTpbfDiscounting(),
 	               saleFormPO.getTpafDiscounting(), saleFormPO.getDiscount(), saleFormPO.getVoucher(),

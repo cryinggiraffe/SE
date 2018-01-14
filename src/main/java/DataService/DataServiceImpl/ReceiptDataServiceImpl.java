@@ -25,7 +25,7 @@ public class ReceiptDataServiceImpl implements ReceiptDataService{
 	public boolean update(ReceiptPO receiptPO) {
 		// TODO Auto-generated method stub
 //		String sql = "update Receipt set state = ? where id = ?";
-		String sql = "update Receipt set client = ?, operator = ? , account = ? amount = ? remark = ? , sum = ? state = ? , date = ? where id = ?";
+		String sql = "update Receipt set client = ?, operator = ? , account = ? , amount = ?, remark = ? , sum = ?, state = ? , date = ? where id = ?";
 		return dao.update(sql, receiptPO.getClient(),receiptPO.getOperator(),
 	               receiptPO.getAccount(), receiptPO.getAmount(), receiptPO.getRemark(),
 	               receiptPO.getSum(), receiptPO.getState(),receiptPO.getDate(), receiptPO.getId());

@@ -25,9 +25,9 @@ public class ImportDataServiceImpl implements ImportDataService{
 	@Override
 	public boolean update(ImportFormPO importFormPO) {
 		// TODO Auto-generated method stub
-		String sql = "update ImportForm set client = ？, houseware = ？, operator = ？, remark = ？, sum = ？, state = ？, date = ？where id = ?";
+		String sql = "update ImportForm set client = ?, houseware = ?, operator = ?, remark = ?, sum = ?, state = ?, date = ? where id = ?";
 		return dao.update(sql, importFormPO.getClient(), importFormPO.getHouseware(), importFormPO.getOperator(),
-		          			   importFormPO.getRemark(), importFormPO.getSum(),importFormPO.getState(), importFormPO.getDate());
+		          			   importFormPO.getRemark(), importFormPO.getSum(),importFormPO.getState(), importFormPO.getDate(), importFormPO.getId());
 	}
 
 	@Override

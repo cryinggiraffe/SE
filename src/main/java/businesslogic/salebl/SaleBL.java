@@ -61,10 +61,10 @@ public class SaleBL implements SaleFormService {
         String id = po.getId();
         String[] tmp = id.split("-");
         String formtype = tmp[0];
-        if(formtype.equals("JHD")){
+        if(formtype.equals("XSD")){
             ids.update(po);
             return true;
-        }else if(formtype.equals("JHTHD")){
+        }else if(formtype.equals("XSTHD")){
             irds.update(po);
             return true;
         }else {
