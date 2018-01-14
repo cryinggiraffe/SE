@@ -24,6 +24,18 @@ public class CategoryPO implements Serializable {
 		this.pid = pid;
 		this.name = name;
 	}
+	public CategoryPO(int id, int pid, String name) {
+		super();
+		this.id =String.valueOf(id) ;
+		this.pid = pid;
+		this.name = name;
+	}
+	public CategoryPO(int id, String name) {
+		super();
+		this.id =String.valueOf(id) ;
+		this.pid =0;
+		this.name = name;
+	}
 
 	
 
