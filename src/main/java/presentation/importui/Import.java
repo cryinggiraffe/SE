@@ -15,11 +15,6 @@ public class Import {
         ipanel.setLayout(new FlowLayout());
         ipanel.setBackground(Color.pink);
 
-//        private String id;
-//        private String provider;//供应商id
-//        private String houseware;
-//        private String operator;//操作员
-//        private List<Commodity> Importcommoditylist;
 
         String id = "1"; //这里要改一下？？？？
         JLabel lid = new JLabel("单据编号");
