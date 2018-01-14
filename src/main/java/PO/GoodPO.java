@@ -7,7 +7,7 @@ public class GoodPO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private String goodid;
-	private int pid;
+	private String pid;
     private String name;
     private String type;
     private int num;
@@ -23,7 +23,7 @@ public class GoodPO implements Serializable {
 	}
     
 
-	public GoodPO(String goodid, int pid, String name, String type, int num, int pur_price, int ret_price,
+	public GoodPO(String goodid, String pid, String name, String type, int num, int pur_price, int ret_price,
 			int rece_price, int rece_ret_price) {
 		super();
 		this.goodid = goodid;
@@ -49,12 +49,12 @@ public class GoodPO implements Serializable {
 	}
 
 
-	public int getPid() {
+	public String getPid() {
 		return pid;
 	}
 
 
-	public void setPid(int pid) {
+	public void setPid(String pid) {
 		this.pid = pid;
 	}
 

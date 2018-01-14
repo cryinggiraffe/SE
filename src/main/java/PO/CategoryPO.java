@@ -7,7 +7,7 @@ public class CategoryPO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private String id;  //商品编号
-	private int pid;
+	private String pid;
     private String name;
 	
     public CategoryPO() {
@@ -18,7 +18,7 @@ public class CategoryPO implements Serializable {
 
 	
 
-	public CategoryPO(String id, int pid, String name) {
+	public CategoryPO(String id, String pid, String name) {
 		super();
 		this.id = id;
 		this.pid = pid;
@@ -39,13 +39,13 @@ public class CategoryPO implements Serializable {
 
 
 
-	public int getPid() {
+	public String getPid() {
 		return pid;
 	}
 
 
 
-	public void setPid(int pid) {
+	public void setPid(String pid) {
 		this.pid = pid;
 	}
 
