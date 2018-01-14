@@ -41,11 +41,16 @@ public class SaleBL implements SaleFormService {
         }else {
             System.out.println("销售单类型错误 请使用 XSD XSTHD");
         }
-   
+
 
 
     }
-
+    public List<SaleFormPO> findAllForm(){
+        return ids.findForState_Commities();
+    }
+    public List<SaleFormPO> findAllReturnForm(){
+        return irds.findForState_Commities();
+    }
     public static void main(String[] agrs){
         java.sql.Date d=new java.sql.Date((new java.util.Date()).getTime());
         SimpleDateFormat sd=new SimpleDateFormat("yyyyMMdd");

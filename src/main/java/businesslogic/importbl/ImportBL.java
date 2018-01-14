@@ -43,6 +43,12 @@ public class ImportBL implements ImportFormService{
 
 
     }
+    public List<ImportFormPO> findAllForm(){
+        return ids.findForState_Commities();
+    }
+    public List<ImportFormPO> findAllReturnForm(){
+        return irds.findForState_Commities();
+    }
 
     public static void main(String[] agrs){
         java.sql.Date d=new java.sql.Date((new java.util.Date()).getTime());
