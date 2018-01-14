@@ -22,19 +22,19 @@ public class ImportBL implements ImportFormService{
     private ImportDataServiceImpl ids=new ImportDataServiceImpl();
     private ImportReturnDataServiceImpl irds=new ImportReturnDataServiceImpl();
     @Override
-    public String newForm(String formtype, String provider, String houseware, String operator, List<Commodity> importcommoditylist, String remark, double sum, String state, java.util.Date date,List<Commodity> list) {
+    public String newForm(String formtype, String provider, String houseware, String operator,String remark, double sum, String state, java.util.Date date,List<Commodity> list) {
         String id=formtype+"-";
         SimpleDateFormat sd=new SimpleDateFormat("yyyyMMdd");
         Random r=new Random();
         id=id+sd.format(date)+"-"+r.nextInt(100000);
         java.sql.Date d=new java.sql.Date(date.getTime());
         if(formtype.equals("JHD")){
-            ids.insert(new ImportFormPO(id,provider,houseware,operator,importcommoditylist,remark,sum,state,d));
+            ids.insert(new ImportFormPO(id,provider,houseware,operator,list,remark,sum,state,d));
             for(int i=0;i!=list.size();i++){
                 icds.insert(list.get(i),id);
             }
         }else if(formtype.equals("JHTHD")){
-            irds.insert(new ImportFormPO(id,provider,houseware,operator,importcommoditylist,remark,sum,state,d));
+            irds.insert(new ImportFormPO(id,provider,houseware,operator,list,remark,sum,state,d));
             for(int i=0;i!=list.size();i++){
                 ircds.insert(list.get(i),id);
             }
@@ -100,7 +100,7 @@ public class ImportBL implements ImportFormService{
         java.sql.Date d=new java.sql.Date((new java.util.Date()).getTime());
         SimpleDateFormat sd=new SimpleDateFormat("yyyyMMdd");
         System.out.println( sd.format(new java.util.Date()));
-       ;
+
 
     }
 }
