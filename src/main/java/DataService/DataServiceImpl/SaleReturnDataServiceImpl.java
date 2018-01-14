@@ -25,8 +25,13 @@ public class SaleReturnDataServiceImpl implements SaleReturnDataService{
 	@Override
 	public boolean update(SaleFormPO saleFormPO) {
 		// TODO Auto-generated method stub
-		String sql = "update SaleReturnForm set state = ? where id = ?";
-		return dao.update(sql, "yes", saleFormPO.getId());
+		String sql = "update SaleReturnForm set client = ?, operator = ?, salesman = ?, houseware = ?, "
+				   + " tpbfDiscounting = ? ,tpafDiscounting = ?, discount = ?, voucher = ?,  remark = ?, "
+				   + " state = ?, date = ? from SaleReturnForm where id = ?";
+		return dao.update(sql, saleFormPO.getClient(), saleFormPO.getOperator(), 
+	               saleFormPO.getSalesman(), saleFormPO.getHouseware(), saleFormPO.getTpbfDiscounting(),
+	               saleFormPO.getTpafDiscounting(), saleFormPO.getDiscount(), saleFormPO.getVoucher(),
+	               saleFormPO.getRemark(), saleFormPO.getState(), saleFormPO.getDate(), saleFormPO.getId());
 		
 	}
 
