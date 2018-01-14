@@ -1,5 +1,7 @@
 package DataService.DataServiceImpl;
 
+import java.util.List;
+
 import DataService.ClientDataService;
 import JDBC.DAO;
 import PO.ClientPO;
@@ -42,6 +44,13 @@ public class ClientDataServiceImpl implements ClientDataService{
 		String sql = "select * from Client where id = ?";
 		
 		return dao.get(ClientPO.class, sql, id);
+	}
+
+	@Override
+	public List<ClientPO> findAll() {
+		// TODO Auto-generated method stub
+		String sql = "select * from Client";
+		return dao.getALL(ClientPO.class, sql);
 	}
 
 }
