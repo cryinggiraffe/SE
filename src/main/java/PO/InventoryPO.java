@@ -27,6 +27,8 @@ public class InventoryPO {
 		this.date = date;
 	}
 
+
+
 	public InventoryPO(String goodid, String goodname, String type, int price, String batch, String batch_num,
 			Date date) {
 		super();
@@ -38,7 +40,7 @@ public class InventoryPO {
 		this.batch_num = batch_num;
 		this.date = date;
 	}
-
+	
 	public InventoryPO(int id, String goodid, String goodname, String type, int price, String batch, String batch_num,
 			Date date) {
 		super();

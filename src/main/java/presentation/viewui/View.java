@@ -4,16 +4,24 @@ import PO.InventoryPO;
 import businesslogic.goodbl.GoodBL;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.tree.TreeModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 
 public class View {
     public void init() {
         JFrame vframe = new JFrame("查看库存");
-        vframe.setBounds(550,250,800,600);
+        vframe.setBounds(550, 250, 800, 600);
         JTextField vtf = new JTextField("请输入查询时间段,格式为2010/01/01-2011/01/01");
         vtf.setBounds(100, 100, 280, 20);
         vtf.setColumns(20);
@@ -51,43 +59,39 @@ public class View {
         check.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                List<InventoryPO> inventoryDList = new GoodBL().dayCheck();
+                if (inventoryDList.size() == 0) {
+                    JOptionPane.showMessageDialog(null, "没有找到！", "错误信息", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
                 JFrame cframe = new JFrame("库存盘点");
                 cframe.setVisible(true);
-                cframe.setBounds(550,250,550,600);
+                cframe.setBounds(550, 250, 550, 600);
                 JPanel cpanel = new JPanel();
                 cpanel.setLayout(new FlowLayout());
                 cpanel.setBackground(Color.orange);
                 cframe.add(cpanel);
                 JTable ctable = new JTable();
-                new ViewTable().init_table(ctable);
+                DefaultTableModel model = (DefaultTableModel) new ViewTable().init_table(ctable);
 
                 JScrollPane scroll = new JScrollPane(ctable);
                 scroll.setSize(300, 200);
                 scroll.setLocation(650, 300);
                 cpanel.add(scroll);
 
-
-//                public List<InventoryPO> dayCheck(){
-                List<InventoryPO> inventoryDList = new GoodBL().dayCheck();
-                int id;  //行号
-                String goodid;
-                String goodname;
-                String type;
-                int price;
-                String batch; //批次
-                String batch_num;  //批号
-                Date date;  //出厂日期
                 InventoryPO temp;
                 for (int i = 0; i < inventoryDList.size(); i++) {
                     temp = inventoryDList.get(i);
-                    id = temp.getId();
-                    goodid = temp.getGoodid();
-                    goodname = temp.getGoodname();
-                    type = temp.getType();
-                    price = temp.getPrice();
-                    batch = temp.getBatch();
-                    batch_num = temp.getBatch_num();
-                    date = temp.getDate();
+                    Vector vRow = new Vector();
+                    vRow.add(temp.getId());
+                    vRow.add(temp.getGoodid());
+                    vRow.add(temp.getGoodname());
+                    vRow.add(temp.getType());
+                    vRow.add(temp.getPrice());
+                    vRow.add(temp.getBatch());
+                    vRow.add(temp.getBatch_num());
+                    vRow.add(temp.getDate());
+                    model.addRow(vRow);
 
                 }
 
@@ -97,11 +101,11 @@ public class View {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         new GoodBL().makeExcel(null);
+//                        JOptionPane.showMessageDialog(null,"导出成功！","导出信息",JOptionPane.WARNING_MESSAGE);
                     }
                 });
             }
         });
-
 
 
     }
