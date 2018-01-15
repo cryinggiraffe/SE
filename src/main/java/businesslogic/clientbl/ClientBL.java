@@ -5,7 +5,9 @@ import blService.ClientBLService;
 import DataService.DataServiceImpl.ClientDataServiceImpl;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 public class ClientBL implements ClientBLService{
@@ -35,6 +37,17 @@ public class ClientBL implements ClientBLService{
 
         return cds.find(id);
     }
+
+    public List<String> listIds(){
+        List<ClientPO> pos=cds.findAll();
+        List<String> res=new ArrayList<>();
+        for(int i=0;i!=pos.size();i++){
+            res.add(pos.get(i).getId());
+        }
+        return res;
+    }
+
+
     public static void main(String[] agrs){
         ClientBL cbl=new ClientBL();
         ClientPO po=new ClientPO();
