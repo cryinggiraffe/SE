@@ -191,12 +191,14 @@ public class Good {
             }
         });
         panel.add(editButton);
+        panel.setBackground(Color.orange);
 
         jf.add(new JScrollPane(tree));
         jf.add(panel, BorderLayout.SOUTH);
         jf.pack();
 //        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setVisible(true);
+        jf.setBounds(550,250,800,600);
 
     }
 

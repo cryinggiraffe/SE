@@ -13,13 +13,18 @@ public class StockManagerUi {
     public void init(){
         JFrame f = new JFrame("库存管理");
         JPanel p = new JPanel();
-        Container container = f.getContentPane();
-        container.setLayout(new FlowLayout());
+        p.setLayout(null);
+        p.setBackground(Color.orange);
         f.add(p);
         JButton commidy = new JButton("商品管理");
         JButton view = new JButton("查看库存");
         JButton gift = new JButton("赠品推荐");
         JButton supervise = new JButton("库存监管");
+
+        commidy.setBounds(120, 200, 100, 30);
+        view.setBounds(280, 200, 100, 30);
+        gift.setBounds(420, 200, 100, 30);
+        supervise.setBounds(580, 200, 100, 30);
 
         commidy.addActionListener(new ActionListener() {
             @Override
@@ -60,7 +65,7 @@ public class StockManagerUi {
         p.add(gift);
         p.add(supervise);
 
-        f.setSize(400,600);
+        f.setBounds(550,250,800,600);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
 
