@@ -3,6 +3,8 @@ package presentation.superviseui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class Supervise {
@@ -28,9 +30,27 @@ public class Supervise {
         panel.add(button2);
         panel.add(button3);
 
-        frame.setBounds(550,250,800,600);
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new OverflowUi().init();
+            }
+        });
+
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new LossUi().init();
+            }
+        });
+
+        frame.setBounds(550, 250, 800, 600);
 //        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
+    }
+
+    public static void main(String[] args) {
+        new Supervise().init();
     }
 }

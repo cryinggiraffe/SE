@@ -128,7 +128,6 @@ public class Find {
                     vRow.add(good.getRece_ret_price());
                     model.addRow(vRow);
 
-
                 }
 
             }
