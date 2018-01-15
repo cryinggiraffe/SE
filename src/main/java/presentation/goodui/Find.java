@@ -4,10 +4,12 @@ import PO.GoodPO;
 import businesslogic.goodbl.GoodBL;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.Vector;
 
 public class Find {
     public void init() {
@@ -84,9 +86,49 @@ public class Find {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<GoodPO> goodList = new GoodBL().findGoodByName(byName.getText());
-                if (goodList.size()==0) {
+                if (goodList.size() == 0) {
                     JOptionPane.showMessageDialog(null, "没有找到！", "错误信息", JOptionPane.WARNING_MESSAGE);
                     return;
+                }
+
+                Vector vData = new Vector();
+                Vector vName = new Vector();
+                vName.add("编号");
+                vName.add("名称");
+                vName.add("型号");
+                vName.add("库存数量");
+                vName.add("进价");
+                vName.add("零售价");
+                vName.add("最近售价");
+                vName.add("最近零售价");
+                JFrame frame1 = new JFrame("商品信息");
+                frame1.setBounds(550, 250, 800, 600);
+                frame1.setVisible(true);
+                JPanel panel1 = new JPanel();
+                panel1.setBackground(Color.BLUE);
+                frame1.add(panel1);
+                DefaultTableModel model = new DefaultTableModel(vData, vName);
+                JTable jtable = new JTable();
+                jtable.setModel(model);
+                JScrollPane scroll = new JScrollPane(jtable);
+                scroll.setSize(300, 200);
+                scroll.setLocation(650, 300);
+                panel1.add(scroll);
+
+                for (int i = 0; i < goodList.size(); i++) {
+                    GoodPO good = goodList.get(i);
+                    Vector vRow = new Vector();
+                    vRow.add(good.getGoodid());
+                    vRow.add(good.getName());
+                    vRow.add(good.getType());
+                    vRow.add(good.getNum());
+                    vRow.add(good.getPur_price());
+                    vRow.add(good.getRet_price());
+                    vRow.add(good.getRece_price());
+                    vRow.add(good.getRece_ret_price());
+                    model.addRow(vRow);
+
+
                 }
 
             }
