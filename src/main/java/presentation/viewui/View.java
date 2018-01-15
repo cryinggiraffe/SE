@@ -22,13 +22,17 @@ public class View {
     public void init() {
         JFrame vframe = new JFrame("查看库存");
         vframe.setBounds(550, 250, 800, 600);
-        JTextField vtf = new JTextField("请输入查询时间段,格式为2010/01/01-2011/01/01");
-        vtf.setBounds(100, 100, 280, 20);
+        JLabel label1 = new JLabel("按时间段查询");
+        label1.setBounds(100, 100, 100, 30);
+        JLabel label2 = new JLabel("库存盘点");
+        label2.setBounds(100, 200, 100, 30);
+        JTextField vtf = new JTextField("格式为2010-01-01|2011-01-01");
+        vtf.setBounds(220, 100, 200, 30);
         vtf.setColumns(20);
         JButton find = new JButton("查询");
-        find.setBounds(400, 100, 70, 20);
+        find.setBounds(400, 100, 70, 30);
         JButton check = new JButton("今日库存盘点");
-        check.setBounds(100, 200, 120, 30);
+        check.setBounds(220, 200, 120, 30);
         JPanel vpanel = new JPanel();
         vframe.add(vpanel);
         vpanel.setLayout(null);
@@ -37,6 +41,8 @@ public class View {
         vpanel.add(vtf);
         vpanel.add(find);
         vpanel.add(check);
+        vpanel.add(label1);
+        vpanel.add(label2);
 
         vtf.setEditable(true);
 //        vframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,18 +52,27 @@ public class View {
         find.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String period = find.getText();
-                Date begin = null;
-                Date end = null;
-                List<InventoryPO> inventoryList = new GoodBL().viewPeriod(begin, end);
-                if(inventoryList.size()==0){
-                    JOptionPane.showMessageDialog(null,"没有找到！","错误消息",JOptionPane.WARNING_MESSAGE);
+                String period = vtf.getText();
+                String[] dates = period.split("\\|");
+//                for (String str : dates)
+//                    System.out.println(str);
+                DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    Date begin = df.parse(dates[0]);
+                    Date end = df.parse(dates[1]);
+                    //                public List<InventoryPO> viewPeriod(Date begin,Date end){
+                    List<InventoryPO> inventoryList = new GoodBL().viewPeriod(begin, end);
+                    if (inventoryList.size() == 0) {
+                        JOptionPane.showMessageDialog(null, "没有找到！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+                    //找到了以后
+                    new ViewPeriodUi().init(inventoryList);
+
+                } catch (ParseException e1) {
+                    JOptionPane.showMessageDialog(null, "请按指定格式输入！", "错误消息", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
-
-//                public List<InventoryPO> viewPeriod(Date begin,Date end){
-
-
             }
         });
 
