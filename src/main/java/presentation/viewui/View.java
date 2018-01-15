@@ -52,7 +52,7 @@ public class View {
             public void actionPerformed(ActionEvent e) {
                 JFrame cframe = new JFrame("库存盘点");
                 cframe.setVisible(true);
-                cframe.setSize(600,400);
+                cframe.setSize(550,600);
                 JPanel cpanel = new JPanel();
                 cpanel.setLayout(new FlowLayout());
                 cpanel.setBackground(Color.orange);
@@ -89,8 +89,20 @@ public class View {
                     date = temp.getDate();
 
                 }
+
+                JButton makeExcelButton = new JButton("导出Excel");
+                cpanel.add(makeExcelButton);
+                makeExcelButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        new GoodBL().makeExcel(null);
+                    }
+                });
             }
         });
+
+
+
     }
 
     public static void main(String[] args) {

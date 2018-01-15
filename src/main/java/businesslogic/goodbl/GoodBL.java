@@ -83,6 +83,7 @@ public class GoodBL {
         lds.insert(new LossPO(po.getGoodid(),po.getName(),num,new java.sql.Date(new java.util.Date().getTime())));
     }
     public List<InventoryPO> viewPeriod(Date begin,Date end){
+
         Date i=(Date)begin.clone();
         List<InventoryPO> res=new ArrayList<>();
         while(i.compareTo(end)<0){
