@@ -4,12 +4,10 @@ import PO.GoodPO;
 import businesslogic.goodbl.GoodBL;
 
 import javax.swing.*;
-import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import java.util.Vector;
 
 public class Find {
     public void init() {
@@ -85,7 +83,12 @@ public class Find {
         findButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                List<GoodPO> good = new GoodBL().findGoodByName(byName.getText());
+                List<GoodPO> goodList = new GoodBL().findGoodByName(byName.getText());
+                if (goodList.size()==0) {
+                    JOptionPane.showMessageDialog(null, "没有找到！", "错误信息", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+
             }
         });
 
