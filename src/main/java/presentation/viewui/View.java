@@ -50,12 +50,17 @@ public class View {
                 Date begin = null;
                 Date end = null;
                 List<InventoryPO> inventoryList = new GoodBL().viewPeriod(begin, end);
+                if(inventoryList.size()==0){
+                    JOptionPane.showMessageDialog(null,"没有找到！","错误消息",JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
 
 //                public List<InventoryPO> viewPeriod(Date begin,Date end){
 
 
             }
         });
+
         check.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
