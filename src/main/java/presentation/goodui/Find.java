@@ -66,14 +66,18 @@ public class Find {
                 int ret_price = good.getRet_price();
                 int rece_price = good.getRece_price();
                 int rece_ret_price = good.getRece_ret_price();
-                JFrame show = new JFrame("商品信息");
-                show.setBounds(550, 250, 800, 100);
-                JPanel spanel = new JPanel();
-                show.add(spanel);
+
                 Object[][] goodInfo = {{goodid, name, type, num, pur_price, ret_price, rece_price, rece_ret_price},};
-                JTable show_table = new JTable(goodInfo, names);
-                spanel.add(show_table);
-                show.setVisible(true);
+
+                JFrame f = new JFrame();
+                f.setBounds(550, 350, 800, 100);
+                JTable table = new JTable(goodInfo, names);
+                table.setPreferredScrollableViewportSize(new Dimension(550, 30));
+                JScrollPane scrollPane = new JScrollPane(table);
+                f.getContentPane().add(scrollPane, BorderLayout.CENTER);
+                f.setTitle("商品信息");
+                f.pack();
+                f.show();
 
             }
         });
