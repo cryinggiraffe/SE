@@ -1,13 +1,16 @@
 package presentation.saleSituationui;
 
 import PO.SaleSituationPo;
+import businesslogic.clientbl.ClientBL;
 import businesslogic.goodbl.GoodBL;
+import businesslogic.saleSituationbl.SaleSituationBL;
 
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class SaleSituationUI extends JPanel {
@@ -44,11 +47,11 @@ public class SaleSituationUI extends JPanel {
         jl_1.setBounds(50,90,180,30);
         jl_1.setFont(font);
 
-        jt_begintime = new JTextField();
+        jt_begintime = new JTextField("");
         jt_begintime.setBounds(180,90,180,30);
         jt_begintime.setFont(font);
 
-        jt_endtime = new JTextField();
+        jt_endtime = new JTextField("");
         jt_endtime.setBounds(365,90,180,30);
         jt_endtime.setFont(font);
 
@@ -59,6 +62,7 @@ public class SaleSituationUI extends JPanel {
         jc_name = new JComboBox();
         jc_name.setBounds(640,90,210,30);
         jc_name.setFont(font);
+        jc_name.addItem("");
 
         jl_client = new JLabel("客户ID：");
         jl_client.setBounds(50,130,60,30);
@@ -67,6 +71,7 @@ public class SaleSituationUI extends JPanel {
         jc_client = new JComboBox();
         jc_client.setBounds(110,130,210,30);
         jc_client.setFont(font);
+        jc_client.addItem("");
 
         jl_salesman= new JLabel("业务员ID：");
         jl_salesman.setBounds(560,130,80,30);
@@ -75,9 +80,10 @@ public class SaleSituationUI extends JPanel {
         jc_salesman = new JComboBox();
         jc_salesman.setBounds(640,130,210,30);
         jc_salesman.setFont(font);
-        jc_salesman.addItem("1");
-        jc_salesman.addItem("2");
-        jc_salesman.addItem("3");
+        jc_salesman.addItem("");
+        jc_salesman.addItem("02002");
+        jc_salesman.addItem("02003");
+        jc_salesman.addItem("02004");
 
         jl_houseware = new JLabel("仓库ID：");
         jl_houseware.setBounds(50,170,60,30);
@@ -86,6 +92,7 @@ public class SaleSituationUI extends JPanel {
         jc_houseware = new JComboBox();
         jc_houseware.setBounds(110,170,210,30);
         jc_houseware.setFont(font);
+        jc_houseware.addItem("");
         jc_houseware.addItem("1");
         jc_houseware.addItem("2");
         jc_houseware.addItem("3");
@@ -97,6 +104,11 @@ public class SaleSituationUI extends JPanel {
             jc_name.addItem(nameList.get(i));
         }
 
+        ClientBL clientBL = new ClientBL();
+        List<String> idList = clientBL.listIds();
+        for (int i=0;i<idList.size();i++){
+            jc_client.addItem(idList.get(i));
+        }
 
 
         DefaultListModel<SaleSituationPo> model = new DefaultListModel<>();
@@ -128,23 +140,50 @@ public class SaleSituationUI extends JPanel {
         this.add(bt_search);
         this.add(jsp_accountlist);
 
-        //搜索账户按钮事件
+        SaleSituationBL saleSituationBL = new SaleSituationBL();
+        //搜索按钮事件
         ActionListener btSearch_ls=new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 System.out.println("search sale");
-//                String searchName = jt_search.getText();
-//                AccountBL accountBL = new AccountBL();
-//                AccountPO accountPO = accountBL.findAccount(searchName);
-//                if (accountPO != null) {
-//                    DefaultListModel<AccountPO> model = new DefaultListModel<>();
-//                    model.addElement(accountPO);
-//                    jl_accountlist.setModel(model);
-//                    jt_search.setText("");
-//                }else {
-//                    JOptionPane.showMessageDialog(null, "查无此账户", "错误信息",JOptionPane.ERROR_MESSAGE);
-//                }
+                String begin = jt_begintime.getText().toString();
+                String end = jt_endtime.getText().toString();
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+                java.util.Date beginTime = null;
+                java.util.Date endTime = null;
+                String name = jc_name.getSelectedItem().toString();
+                String client = jc_client.getSelectedItem().toString();
+                String salesman = jc_salesman.getSelectedItem().toString();
+                String houseware = jc_houseware.getSelectedItem().toString();
+                System.out.println(name);
+                if (!begin.equals("") && !end.equals("")){
+                    try{
+                         beginTime = format.parse(begin);
+                         endTime = format.parse(end);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    
+                    java.sql.Date beginDate = new java.sql.Date(beginTime.getTime());
+                    java.sql.Date endDate = new java.sql.Date(endTime.getTime());
+                    List<SaleSituationPo> saleSituationPoList = saleSituationBL.findForTime(beginDate,endDate);
+                    refresh(saleSituationPoList);
+                }else if (!name.equals("")){
+                    List<SaleSituationPo> saleSituationPoList = saleSituationBL.findForName(name);
+                    refresh(saleSituationPoList);
+                }else if (!client.equals("")){
+                    List<SaleSituationPo> saleSituationPoList = saleSituationBL.findForClient(client);
+                    refresh(saleSituationPoList);
+                }else if (!salesman.equals("")){
+                    List<SaleSituationPo> saleSituationPoList = saleSituationBL.findForSalesman(salesman);
+                    refresh(saleSituationPoList);
+                }else if (!houseware.equals("")){
+                    List<SaleSituationPo> saleSituationPoList = saleSituationBL.findForHouseWare(houseware);
+                    refresh(saleSituationPoList);
+                }else {
+                    JOptionPane.showMessageDialog(null, "未输入查询条件", "错误信息",JOptionPane.ERROR_MESSAGE);
+                }
 
             }
         };
@@ -152,6 +191,21 @@ public class SaleSituationUI extends JPanel {
 
     }
 
+    public void refresh(List<SaleSituationPo> saleSituationPoList) {
+        DefaultListModel<SaleSituationPo> model = new DefaultListModel<>();
+        if (saleSituationPoList.size() == 0){
+            JOptionPane.showMessageDialog(null, "无查询结果", "提示信息", JOptionPane.INFORMATION_MESSAGE);
+        }
+        for(int i = 0; i < saleSituationPoList.size(); i++)
+        {
+            SaleSituationPo user = saleSituationPoList.get(i);
+            model.addElement(user);
+
+        }
+        jt_begintime.setText("");
+        jt_endtime.setText("");
+        jl_accountlist.setModel(model);
+    }
 
 
 }
