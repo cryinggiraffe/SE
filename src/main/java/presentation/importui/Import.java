@@ -16,7 +16,7 @@ public class Import {
         JPanel ipanel = new JPanel();
         iframe.add(ipanel);
         ipanel.setLayout(new FlowLayout());
-        ipanel.setBackground(Color.pink);
+        ipanel.setBackground(Color.orange);
 
 
         String id = "1"; //这里要改一下？？？？
@@ -120,9 +120,9 @@ public class Import {
             }
         });
 
-        iframe.setSize(690, 600);
+        iframe.setBounds(550,250,800,600);
         iframe.setVisible(true);
-        iframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        iframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public static void main(String[] args) {
