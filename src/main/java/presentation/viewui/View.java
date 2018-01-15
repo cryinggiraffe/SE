@@ -13,6 +13,7 @@ import java.util.List;
 public class View {
     public void init() {
         JFrame vframe = new JFrame("查看库存");
+        vframe.setBounds(550,250,800,600);
         JTextField vtf = new JTextField("请输入查询时间段,格式为2010/01/01-2011/01/01");
         vtf.setBounds(100, 100, 280, 20);
         vtf.setColumns(20);
@@ -52,7 +53,7 @@ public class View {
             public void actionPerformed(ActionEvent e) {
                 JFrame cframe = new JFrame("库存盘点");
                 cframe.setVisible(true);
-                cframe.setSize(550,600);
+                cframe.setBounds(550,250,550,600);
                 JPanel cpanel = new JPanel();
                 cpanel.setLayout(new FlowLayout());
                 cpanel.setBackground(Color.orange);

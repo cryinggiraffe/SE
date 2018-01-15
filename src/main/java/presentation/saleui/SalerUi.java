@@ -1,6 +1,5 @@
 package presentation.saleui;
 
-import presentation.importui.Cargo;
 import presentation.clientui.Client;
 
 import javax.swing.*;
@@ -30,12 +29,6 @@ public class SalerUi {
             }
         });
 
-        cargo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new Cargo().init();
-            }
-        });
 
         client.setBounds(100,100,10,10);
         cargo.setBounds(100,200,10,10);
