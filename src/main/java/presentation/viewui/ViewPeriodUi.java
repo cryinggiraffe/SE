@@ -11,7 +11,7 @@ import java.util.Vector;
 
 public class ViewPeriodUi {
     public void init(List<InventoryPO> inventoryList){
-        JFrame cframe = new JFrame("库存盘点");
+        JFrame cframe = new JFrame("根据时间段查看库存");
         cframe.setVisible(true);
         cframe.setBounds(550, 250, 550, 600);
         JPanel cpanel = new JPanel();
