@@ -4,6 +4,8 @@ public class UserPO {
 	
 	private String username;
 	private String password;
+	private int userclass;
+	private String type;
 	
 	public UserPO() {
 		super();
@@ -14,6 +16,16 @@ public class UserPO {
 		this.username = username;
 		this.password = password;
 	}
+	
+	
+	public UserPO(String username, String password, int userclass, String type) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.userclass = userclass;
+		this.type = type;
+	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -26,10 +38,25 @@ public class UserPO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public int getUserclass() {
+		return userclass;
+	}
+	public void setUserclass(int userclass) {
+		this.userclass = userclass;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	
 	@Override
 	public String toString() {
-		return "UserPo [username=" + username + ", password=" + password + "]";
+		return username + "," + password + "," + userclass + "," + type;
 	}
+	
+	
 	
 	
 }

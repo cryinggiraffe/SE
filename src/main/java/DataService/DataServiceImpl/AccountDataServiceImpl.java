@@ -2,9 +2,12 @@ package DataService.DataServiceImpl;
 
 import JDBC.DAO;
 import PO.AccountPO;
+
+import java.util.List;
+
 import DataService.AccountDataService;
 
-public class AccountDataServiceImpl implements DataService.AccountDataService{
+public class AccountDataServiceImpl implements AccountDataService{
 
 	DAO<AccountPO> dao = new DAO<>();
 	@Override
@@ -32,8 +35,15 @@ public class AccountDataServiceImpl implements DataService.AccountDataService{
 	@Override
 	public AccountPO find(String name) {
 		// TODO Auto-generated method stub
-		String sql = "select balance from Account where name = ?";
+		String sql = "select name, balance from Account where name = ?";
 		return dao.get(AccountPO.class, sql, name);
+	}
+
+	@Override
+	public List<AccountPO> findAll() {
+		// TODO Auto-generated method stub
+		String sql = "select * from Account";
+		return dao.getALL(AccountPO.class, sql);
 	}
 
 }

@@ -1,11 +1,12 @@
 package DataService.DataServiceImpl;
 
+import java.util.List;
+
+import DataService.ClientDataService;
 import JDBC.DAO;
 import PO.ClientPO;
-import PO.GoodPO;
-import DataService.ClientDataSerice;
 
-public class ClientDataSericeImpl implements ClientDataSerice{
+public class ClientDataServiceImpl implements ClientDataService{
 
 	DAO<ClientPO> dao = new DAO<>();
 	@Override
@@ -29,11 +30,12 @@ public class ClientDataSericeImpl implements ClientDataSerice{
 	public boolean update(ClientPO clientPO) {
 		// TODO Auto-generated method stub
 		String sql = "update Client set type = ?, rank = ?, name = ?, phone = ?, address = ?, postnum = ?, "
-				+ "email = ?, defaultsalesman"
+				+ "email = ?, receive_limit = ? , receive = ? ,send = ? , defaultsalesman = ? "
 				+ " where id = ?";
-		return dao.update(sql, clientPO.getId(), clientPO.getType(), clientPO.getRank(), 
-				               clientPO.getName(), clientPO.getPhone(), clientPO.getAddress(), 
-				               clientPO.getPostnum(), clientPO.getEmail(), clientPO.getDefaultsalesman());
+		return dao.update(sql, clientPO.getType(), clientPO.getRank(), clientPO.getName(), 
+					           clientPO.getPhone(), clientPO.getAddress(), clientPO.getPostnum(), clientPO.getEmail(), 
+					           clientPO.getReceive_limit(),clientPO.getReceive(),clientPO.getSend(), clientPO.getDefaultsalesman(),
+	               			   clientPO.getId());
 	}
 
 	@Override
@@ -42,6 +44,13 @@ public class ClientDataSericeImpl implements ClientDataSerice{
 		String sql = "select * from Client where id = ?";
 		
 		return dao.get(ClientPO.class, sql, id);
+	}
+
+	@Override
+	public List<ClientPO> findAll() {
+		// TODO Auto-generated method stub
+		String sql = "select * from Client";
+		return dao.getALL(ClientPO.class, sql);
 	}
 
 }

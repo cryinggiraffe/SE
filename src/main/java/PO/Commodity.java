@@ -11,17 +11,18 @@ public class Commodity implements Serializable {
     private String name;
     private String version;//型号
     private int quantity;
-    private Double pirce;//单价
-    private Double subtotalprice;
+    private double pirce;//单价
+    private double subtotalprice;
     private String remark;
+    
 	
     public Commodity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Commodity(String goodid, String name, String version, int quantity, Double pirce, Double subtotalprice,
-			String remark) {
+	public Commodity(String goodid, String name, String version, int quantity, double pirce,
+			double subtotalprice, String remark) {
 		super();
 		this.goodid = goodid;
 		this.name = name;
@@ -64,19 +65,19 @@ public class Commodity implements Serializable {
 		this.quantity = quantity;
 	}
 
-	public Double getPirce() {
+	public double getPirce() {
 		return pirce;
 	}
 
-	public void setPirce(Double pirce) {
+	public void setPirce(double pirce) {
 		this.pirce = pirce;
 	}
 
-	public Double getSubtotalprice() {
+	public double getSubtotalprice() {
 		return subtotalprice;
 	}
 
-	public void setSubtotalprice(Double subtotalprice) {
+	public void setSubtotalprice(double subtotalprice) {
 		this.subtotalprice = subtotalprice;
 	}
 
@@ -88,12 +89,13 @@ public class Commodity implements Serializable {
 		this.remark = remark;
 	}
 
+	
 	@Override
 	public String toString() {
-		return "Commodity [goodid=" + goodid + ", name=" + name + ", version=" + version + ", quantity=" + quantity
-				+ ", pirce=" + pirce + ", subtotalprice=" + subtotalprice + ", remark=" + remark + "]";
+		return "ImportCommodityPO [goodid=" + goodid + ", name=" + name + ", version=" + version + ", quantity="
+				+ quantity + ", pirce=" + pirce + ", subtotalprice=" + subtotalprice + ", remark=" + remark + "]";
 	}
-    
+	
     
     
 }
