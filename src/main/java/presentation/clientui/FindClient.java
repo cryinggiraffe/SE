@@ -121,7 +121,7 @@ public class FindClient {
             }
         });
         fframe.setVisible(true);
-        fframe.setBounds(100, 100, 400, 600);
+        fframe.setBounds(550,250,800,600);
 
     }
 

@@ -67,7 +67,7 @@ public class AdministratorUI extends JFrame {
         jf_1.add(contentPane);
         jf_1.setVisible(true);
         //jf_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jf_1.setLocation(500,200);
+        jf_1.setLocation(200,10);
         jf_1.getContentPane().setBackground(background);
 
         //用户管理点击事件

@@ -90,7 +90,7 @@ public class CashUI extends JFrame {
         //向frame添加组件
         jf_1 = new JFrame("创建现金费用单");
         jf_1.setSize(Width,Height);
-        jf_1.setLocation(500,200);
+        jf_1.setLocation(200,10);
         jf_1.setLayout(null);
         jf_1.getContentPane().setBackground(background);
 

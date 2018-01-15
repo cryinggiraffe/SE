@@ -6,17 +6,17 @@ import java.awt.*;
 public class Gift {
     public void init(){
         JFrame gframe = new JFrame("赠送库存");
-        Container container = gframe.getContentPane();
         JButton button = new JButton("赠品推荐");
         JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setBackground(Color.pink);
 
-        container.setLayout(new FlowLayout());
-
+        gframe.add(panel);
         panel.add(button);
-        container.add(panel);
+        button.setBounds(340,200,100,50);
 
 //        gframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        gframe.setSize(400,600);
+        gframe.setBounds(550,250,800,600);
         gframe.setVisible(true);
 
 

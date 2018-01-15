@@ -94,7 +94,7 @@ public class ManagerUI extends JFrame {
         jf_1.add(contentPane);
         jf_1.setVisible(true);
         //jf_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jf_1.setLocation(500,200);
+        jf_1.setLocation(200,10);
         jf_1.getContentPane().setBackground(background);
 
         //退出事件的处理

@@ -34,7 +34,7 @@ public class DeleteClient {
             }
         });
         dframe.setVisible(true);
-        dframe.setBounds(100, 100, 400, 600);
+        dframe.setBounds(550,250,800,600);
 
     }
 }

@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 public class AddClient {
     public void addClient_init() {
         JFrame aframe = new JFrame("添加客户信息");
-        aframe.setBounds(100, 100, 570, 200);
+        aframe.setBounds(600, 300, 570, 200);
         JPanel apanel = new JPanel();
         apanel.setBackground(Color.pink);
         aframe.setContentPane(apanel);
