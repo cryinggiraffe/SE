@@ -26,6 +26,7 @@ public class Good {
     JButton addGoodButton = new JButton("添加商品");
     JButton deleteButton = new JButton("删除节点");
     JButton editButton = new JButton("编辑当前节点");
+    JButton findGood = new JButton("查找商品");
 
     public void init() {
 
@@ -191,6 +192,13 @@ public class Good {
             }
         });
         panel.add(editButton);
+        findGood.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Find().init();
+            }
+        });
+        panel.add(findGood);
         panel.setBackground(Color.orange);
 
         jf.add(new JScrollPane(tree));
