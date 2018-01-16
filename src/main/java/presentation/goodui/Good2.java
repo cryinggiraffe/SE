@@ -2,9 +2,9 @@ package presentation.goodui;
 
 import PO.CategoryPO;
 import PO.GoodPO;
+import businesslogic.categorybl.CategoryBL;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeNode;
@@ -12,9 +12,9 @@ import javax.swing.tree.TreePath;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Enumeration;
-import java.util.Locale;
+import java.util.List;
 
-public class Good {
+public class Good2 {
     JFrame jf;
 
     JTree tree;
@@ -106,20 +106,28 @@ public class Good {
 
                 CategoryPO temp = (CategoryPO) selectedNode.getUserObject();
                 int pid = Integer.valueOf(temp.getId());
+                System.out.println(pid);
                 new AddCategoryUi().init(pid);
 
-                //创建一个新的目录节点
-                DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(new CategoryPO());
-                //直接通过model来添加新节点，则无需通过调用JTree的updateUI方法
-                //model.insertNodeInto(newNode, selectedNode, selectedNode.getChildCount());
-                //直接通过节点添加新节点，则需要调用tree的updateUI方法
-                selectedNode.add(newNode);
-                //--------下面代码实现显示新节点（自动展开父节点）-------
-                DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
-                TreeNode[] nodes = model.getPathToRoot(newNode);
-                TreePath path = new TreePath(nodes);
-                tree.scrollPathToVisible(path);
-                tree.updateUI();
+                List<CategoryPO> categoryList = new CategoryBL().findByPid(temp.getPid());
+                for (int k = 0; k < categoryList.size(); k++) {
+                    CategoryPO cpo = categoryList.get(k);
+                    if (!contain_category(selectedNode, cpo)) {
+                        //创建一个新的目录节点
+                        DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(cpo);
+                        //直接通过model来添加新节点，则无需通过调用JTree的updateUI方法
+                        //model.insertNodeInto(newNode, selectedNode, selectedNode.getChildCount());
+                        //直接通过节点添加新节点，则需要调用tree的updateUI方法
+                        selectedNode.add(newNode);
+                        //--------下面代码实现显示新节点（自动展开父节点）-------
+                        DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
+                        TreeNode[] nodes = model.getPathToRoot(newNode);
+                        TreePath path = new TreePath(nodes);
+                        tree.scrollPathToVisible(path);
+                        tree.updateUI();
+                    }
+                }
+
             }
         });
         panel.add(addCategoryButton);
@@ -221,6 +229,16 @@ public class Good {
         jf.setVisible(true);
         jf.setBounds(550, 250, 800, 600);
 
+        //test//
+        JButton a = new JButton("a");
+        panel.add(a);
+        a.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
     }
 
     //treenode n的子节点中是否包含商品
@@ -245,6 +263,23 @@ public class Good {
             DefaultMutableTreeNode node = (DefaultMutableTreeNode) enumeration.nextElement();
             if (node.getUserObject() instanceof CategoryPO)
                 return true;
+        }
+        return false;
+    }
+
+    //treenode n的子节点中是否包含指定目录
+    public boolean contain_category(TreeNode n, CategoryPO category) {
+        if (n.isLeaf())
+            return false;
+        Enumeration enumeration = n.children();
+        while (enumeration.hasMoreElements()) {
+            DefaultMutableTreeNode node = (DefaultMutableTreeNode) enumeration.nextElement();
+            if (node.getUserObject() instanceof CategoryPO) {
+                CategoryPO newCategory = (CategoryPO) node.getUserObject();
+                String id = newCategory.getId();
+                if (id == category.getId())
+                    return true;
+            }
         }
         return false;
     }

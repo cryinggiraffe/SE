@@ -15,10 +15,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class GoodBL {
     private OverflowDataServiceImpl ofds=new OverflowDataServiceImpl();
@@ -132,11 +129,23 @@ public class GoodBL {
             e.printStackTrace();
         }
 
+    }
+    public List<GoodPO> findAll(){
+        return gds.list();
+    }
+    public String generateId(){
+        Random r=new Random();
 
-
+        return String.valueOf(r.nextInt(999999999));
     }
     public static void main(String[] agrs){
-        GoodBL b=new GoodBL();
-        b.makeExcel("dd");
+        GoodPO po=new GoodPO();
+        po.setGoodid("12345");
+        po.setName("牛奶");
+        GoodDataServiceImpl gds=new GoodDataServiceImpl();
+        //gds.insert(po);
+        GoodBL gbl=new GoodBL();
+        //System.out.println(gbl.findGoodById("1234"));
+        System.out.println(gbl.findGoodByName("牛奶"));
     }
 }

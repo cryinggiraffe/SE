@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TreeNode {
-    private GoodPO gpo=null;
-    private CategoryPO cpo=null;
+    public GoodPO gpo=null;
+    public CategoryPO cpo=null;
     private int id;
     private int pid;
     public int getId(){return this.id;};
@@ -68,6 +68,7 @@ public class TreeNode {
         }
         return res;
     }
+
     public static List<TreeNode> buildNodes(List<GoodPO> po, List<CategoryPO> po2){
         List<TreeNode> res=new ArrayList<TreeNode>();
         for(int i=0 ;i!=po2.size();i++){
@@ -116,6 +117,7 @@ public class TreeNode {
 
 
         TreeNode n=new TreeNode(new CategoryPO("0",0,""));
+
         n.childs=n.collectChildren(TreeNode.buildNodes(po2,po));
         n.print(n);
         System.out.println(n.childs==null);
