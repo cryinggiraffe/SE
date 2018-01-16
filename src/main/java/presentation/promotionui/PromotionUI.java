@@ -50,6 +50,7 @@ public class PromotionUI extends JPanel {
         for(int i = 0; i < promotionPOList.size(); i++)
         {
             PromotionPO promotionPO = promotionPOList.get(i);
+            System.out.println(promotionPO.toString());
             model.addElement(promotionPO);
 
         }
@@ -103,13 +104,14 @@ public class PromotionUI extends JPanel {
         DefaultListModel<PromotionPO> model = new DefaultListModel<>();
         PromotionBL promotionBL = new PromotionBL();
         java.util.List<PromotionPO> promotionPOList = promotionBL.findAll();
+        System.out.println("刷新后" + promotionPOList.size());
         for(int i = 0; i < promotionPOList.size(); i++)
         {
             PromotionPO promotionPO = promotionPOList.get(i);
             model.addElement(promotionPO);
 
         }
-        jl_promotionlist = new JList(model);
+        jl_promotionlist.setModel(model);
     }
 
 }

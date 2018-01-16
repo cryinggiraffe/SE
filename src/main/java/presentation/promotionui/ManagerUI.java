@@ -1,6 +1,7 @@
 package presentation.promotionui;
 
 import presentation.approveui.ApproveUI;
+import presentation.businessProcessui.BusiProcessUI;
 import presentation.saleSituationui.SaleSituationUI;
 
 import javax.swing.*;
@@ -155,8 +156,10 @@ public class ManagerUI extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 System.out.println("into business process manage");
-                //mainLayout ml=new mainLayout(jf_1);//为跳转的界面
-                jf_1.setVisible(false);//隐藏当前界面
+                jp_current = new BusiProcessUI("manager");
+                bt_back.setVisible(true);
+                jf_1.add(jp_current);
+                contentPane.setVisible(false);//隐藏当前界面
             }
         };
         bt_busiProcess.addActionListener(btBusiProcess_ls);

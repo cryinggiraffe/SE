@@ -24,7 +24,7 @@ public class PromotionBL implements PromotionBLService {
             upd.insert(po);
         }else if (specialgoodname1 != null) {
             cpd.insert(po);
-        }else if (cash_coupon != 0.0) {
+        }else if (userClass == 0 && cash_coupon != 0.0) {
             ppd.insert(po);
         }
 
@@ -42,7 +42,7 @@ public class PromotionBL implements PromotionBLService {
             upd.delete(po);
         }else if (specialgoodname1 != null) {
             cpd.delete(po);
-        }else if (cash_coupon != 0.0) {
+        }else if (userClass == 0 && cash_coupon != 0.0) {
             ppd.delete(po);
         }
     }
@@ -63,7 +63,7 @@ public class PromotionBL implements PromotionBLService {
             return "userclass";
         }else if (specialgoodname1 != null) {
             return "commodity";
-        }else if (cash_coupon != 0.0) {
+        }else if (userClass == 0 && cash_coupon != 0.0) {
             return "price";
         }else {
             return "no";

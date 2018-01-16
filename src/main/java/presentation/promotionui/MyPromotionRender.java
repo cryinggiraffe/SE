@@ -19,7 +19,7 @@ public class MyPromotionRender  extends JPanel implements ListCellRenderer<Promo
 
     public MyPromotionRender() {
         setLayout(new BorderLayout(5, 5));
-        Font font1 =new Font("微软雅黑", Font.PLAIN, 10);//设置按钮字体1
+        Font font1 =new Font("微软雅黑", Font.PLAIN, 15);//设置按钮字体1
         lbId.setFont(font1);
         lbUserClass.setFont(font1);
         lbGiftName.setFont(font1);
@@ -42,8 +42,9 @@ public class MyPromotionRender  extends JPanel implements ListCellRenderer<Promo
         double cash_coupon = po.getCash_coupon();
         if (userClass != 0){
             panelText.removeAll();
+            panelText.setLayout(new GridLayout(0,6));
             lbId.setText("ID：" + po.getId());
-            lbUserClass.setText("用户级别：" + po.getClass());
+            lbUserClass.setText("用户级别：" + po.getUserclass());
             lbGiftName.setText("赠品名：" + po.getGiftname());
             lbDiscount.setText("折扣价：" + po.getDiscount());
             lbNum.setText("数量：" + po.getNum());
@@ -56,6 +57,7 @@ public class MyPromotionRender  extends JPanel implements ListCellRenderer<Promo
             panelText.add(lbCash);
         }else if (specialgoodname1 != null) {
             panelText.removeAll();
+            panelText.setLayout(new GridLayout(0,4));
             lbId.setText("ID：" + po.getId());
             lbSGood1.setText("特价商品1：" + po.getSpecialgoodname1());
             lbSGood2.setText("特价商品2：" + po.getSpecialgoodname2());
@@ -65,8 +67,9 @@ public class MyPromotionRender  extends JPanel implements ListCellRenderer<Promo
             panelText.add(lbSGood2);
             panelText.add(lbDisprice);
 
-        }else if (cash_coupon != 0.0) {
+        }else if (userClass == 0 && cash_coupon != 0.0) {
             panelText.removeAll();
+            panelText.setLayout(new GridLayout(0,4));
             lbId.setText("ID：" + po.getId());
             lbGiftName.setText("赠品名：" + po.getGiftname());
             lbNum.setText("数量：" + po.getNum());
