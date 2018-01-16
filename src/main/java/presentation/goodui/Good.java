@@ -103,6 +103,11 @@ public class Good {
                     JOptionPane.showMessageDialog(null, "该目录下包含商品，添加目录失败！", "错误消息", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
+
+                CategoryPO temp = (CategoryPO) selectedNode.getUserObject();
+                int pid = Integer.valueOf(temp.getId());
+                new AddCategoryUi().init(pid);
+
                 //创建一个新的目录节点
                 DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(new CategoryPO());
                 //直接通过model来添加新节点，则无需通过调用JTree的updateUI方法
