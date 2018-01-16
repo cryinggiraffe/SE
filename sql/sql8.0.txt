@@ -296,10 +296,10 @@ CREATE TABLE Receipt
 
 CREATE TABLE UserClassPromotion
 (
-  id          INT         NOT NULL
+  id          VARCHAR(30) NOT NULL
     PRIMARY KEY,
   userclass   INT         NULL,
-  giftname    VARCHAR(20) NULL,
+  giftname    VARCHAR(30) NULL,
   num         INT         NULL,
   discount    DOUBLE      NULL,
   cash_coupon DOUBLE      NULL
@@ -307,19 +307,19 @@ CREATE TABLE UserClassPromotion
 
 CREATE TABLE CommodityPromotion
 (
-  id            INT         NOT NULL
+  id            VARCHAR(30) NOT NULL
     PRIMARY KEY,
-  specialname1  VARCHAR(20) NULL,
-  specialname2  VARCHAR(20) NULL,
+  specialname1  VARCHAR(30) NULL,
+  specialname2  VARCHAR(30) NULL,
   discountprice DOUBLE      NULL
 );
 
 
 CREATE TABLE PricePromotion
 (
-  id          INT 
+  id          VARCHAR(30) NOT NULL
     PRIMARY KEY,
-  giftname    VARCHAR(20) NULL,
+  giftname    VARCHAR(30) NULL,
   num         INT         NULL,
   cash_coupon DOUBLE      NULL
 );

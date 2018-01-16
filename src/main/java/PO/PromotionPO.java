@@ -2,7 +2,7 @@ package PO;
 
 public class PromotionPO {
 	
-	private int id;
+	private String id;
 	private int userclass;
 	private String giftname;
 	private int num;
@@ -18,7 +18,7 @@ public class PromotionPO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PromotionPO(int id, int userclass, String giftname, int num, double discount, double cash_coupon) {
+	public PromotionPO(String id, int userclass, String giftname, int num, double discount, double cash_coupon) {
 		super();
 		this.id = id;
 		this.userclass = userclass;
@@ -28,7 +28,7 @@ public class PromotionPO {
 		this.cash_coupon = cash_coupon;
 	}
 	
-	public PromotionPO(int id, String specialgoodname1, String specialgoodname2, double discountprice){
+	public PromotionPO(String id, String specialgoodname1, String specialgoodname2, double discountprice){
 		super();
 		this.id = id;
 		this.specialgoodname1 = specialgoodname1;
@@ -36,7 +36,7 @@ public class PromotionPO {
 		this.discountprice = discountprice;
 	}
 	
-	public PromotionPO(int id, String giftname, int num, double cash_coupon) {
+	public PromotionPO(String id, String giftname, int num, double cash_coupon) {
 		super();
 		this.id = id;
 		this.giftname = giftname;
@@ -105,11 +105,11 @@ public class PromotionPO {
 		return discountprice;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -119,10 +119,12 @@ public class PromotionPO {
 
 	@Override
 	public String toString() {
-		return "PromotionPO [userclass=" + userclass + ", giftname=" + giftname + ", num=" + num + ", discount="
-				+ discount + ", cash_coupon=" + cash_coupon + ", specialgoodname1=" + specialgoodname1
+		return "PromotionPO [id=" + id + ", userclass=" + userclass + ", giftname=" + giftname + ", num=" + num
+				+ ", discount=" + discount + ", cash_coupon=" + cash_coupon + ", specialgoodname1=" + specialgoodname1
 				+ ", specialgoodname2=" + specialgoodname2 + ", discountprice=" + discountprice + "]";
 	}
+
+	
 	
 	
 }
