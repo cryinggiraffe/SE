@@ -52,6 +52,7 @@ public class Find {
         findButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println(byId.getText());
                 GoodPO good = new GoodBL().findGoodById(byId.getText());
                 if (good == null) {
                     JOptionPane.showMessageDialog(null, "没有找到！", "错误信息", JOptionPane.WARNING_MESSAGE);

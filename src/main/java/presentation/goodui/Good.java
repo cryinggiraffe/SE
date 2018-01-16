@@ -4,6 +4,7 @@ import PO.CategoryPO;
 import PO.GoodPO;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeNode;
@@ -11,6 +12,7 @@ import javax.swing.tree.TreePath;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Enumeration;
+import java.util.Locale;
 
 public class Good {
     JFrame jf;
@@ -30,7 +32,7 @@ public class Good {
 
     public void init() {
 
-        DefaultMutableTreeNode root = new DefaultMutableTreeNode(new CategoryPO("001",0, "所有商品"));
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode(new CategoryPO("001", 0, "所有商品"));
 
         jf = new JFrame("商品管理");
         tree = new JTree(root);
@@ -62,8 +64,8 @@ public class Good {
                     }
                     //既不是向子节点移动，而且鼠标按下、松开的不是同一个节点
                     else if (movePath != tp) {
-                        DefaultMutableTreeNode moveFrom = (DefaultMutableTreeNode)movePath.getLastPathComponent();
-                        DefaultMutableTreeNode moveTo = (DefaultMutableTreeNode)tp.getLastPathComponent();
+                        DefaultMutableTreeNode moveFrom = (DefaultMutableTreeNode) movePath.getLastPathComponent();
+                        DefaultMutableTreeNode moveTo = (DefaultMutableTreeNode) tp.getLastPathComponent();
                         System.out.println(moveFrom.getUserObject().getClass());
                         System.out.println(moveTo.getUserObject().getClass());
 
@@ -137,8 +139,14 @@ public class Good {
                     JOptionPane.showMessageDialog(null, "该目录下包含目录，添加商品失败！", "错误消息", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
+                CategoryPO temp = (CategoryPO) selectedNode.getUserObject();
+                int pid = Integer.valueOf(temp.getId());
+                new AddGoodUi().addGoodUi_init(pid);
+
                 //创建一个新的商品节点
-                DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(new GoodPO());
+                GoodPO newGood = new GoodPO();
+                DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(newGood);
+
                 //直接通过model来添加新节点，则无需通过调用JTree的updateUI方法
                 //model.insertNodeInto(newNode, selectedNode, selectedNode.getChildCount());
                 //直接通过节点添加新节点，则需要调用tree的updateUI方法
@@ -206,7 +214,7 @@ public class Good {
         jf.pack();
 //        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setVisible(true);
-        jf.setBounds(550,250,800,600);
+        jf.setBounds(550, 250, 800, 600);
 
     }
 
