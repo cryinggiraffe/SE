@@ -1,14 +1,12 @@
 package presentation.goodui;
 
-import PO.GoodPO;
-import businesslogic.goodbl.GoodBL;
-
+import PO.CategoryPO;
+import businesslogic.categorybl.CategoryBL;
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Vector;
+
 
 public class AddCategoryUi {
     public void init(int parentId) {
@@ -37,17 +35,16 @@ public class AddCategoryUi {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                CategoryBL categoryBL = new CategoryBL();
                 String addName = tname.getText().toString();
-                
+                String id = categoryBL.generateId();
+                CategoryPO cpo = new CategoryPO(addName, parentId, id);
+                categoryBL.addCategory(cpo);
+
                 f.setVisible(false);
 
             }
 
         });
-//        	public GoodPO(String goodid, int pid, String name, String type, int num, int pur_price, int ret_price,
-//        int rece_price, int rece_ret_price) {
-
-//        System.out.println("123123123fr4r" + addNew.getGoodid() + " " + addNew.getName());
-
     }
 }

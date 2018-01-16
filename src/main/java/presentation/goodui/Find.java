@@ -21,8 +21,8 @@ public class Find {
         panel.setLayout(null);
 
         String s = "您可以通过以下两种方式进行查找";
-        String s1 = "通过商品编号查找：";
-        String s2 = "通过商品名称查找：";
+        String s1 = "通过商品名称查找：";
+        String s2 = "通过商品编号查找：";
 
         JLabel label = new JLabel(s);
         JLabel label1 = new JLabel(s1);
@@ -31,7 +31,7 @@ public class Find {
         JTextField byName = new JTextField();
         JTextField byId = new JTextField();
         JButton findButton1 = new JButton("查询");
-        JButton findButton2 = new JButton("查询");
+        JButton findbyName = new JButton("查询");
 
         panel.add(label);
         panel.add(label1);
@@ -39,21 +39,20 @@ public class Find {
         panel.add(label2);
         panel.add(byName);
         panel.add(findButton1);
-        panel.add(findButton2);
+        panel.add(findbyName);
 
         label.setBounds(100, 100, 200, 30);
         label1.setBounds(100, 150, 140, 30);
         label2.setBounds(100, 200, 140, 30);
         byName.setBounds(280, 150, 200, 30);
         byId.setBounds(280, 200, 200, 30);
-        findButton1.setBounds(490, 150, 70, 30);
-        findButton2.setBounds(490, 200, 70, 30);
+        findbyName.setBounds(490, 150, 70, 30);
+        findButton1.setBounds(490, 200, 70, 30);
 
         findButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(byId.getText());
-                GoodPO good = new GoodBL().findGoodById(byId.getText());
+                GoodPO good = new GoodBL().findGoodById(byId.getText().toString());
                 if (good == null) {
                     JOptionPane.showMessageDialog(null, "没有找到！", "错误信息", JOptionPane.WARNING_MESSAGE);
                     return;
@@ -83,10 +82,11 @@ public class Find {
             }
         });
 
-        findButton2.addActionListener(new ActionListener() {
+        findbyName.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                List<GoodPO> goodList = new GoodBL().findGoodByName(byName.getText());
+
+                List<GoodPO> goodList = new GoodBL().findGoodByName(byName.getText().toString());
                 if (goodList.size() == 0) {
                     JOptionPane.showMessageDialog(null, "没有找到！", "错误信息", JOptionPane.WARNING_MESSAGE);
                     return;
@@ -112,7 +112,7 @@ public class Find {
                 JTable jtable = new JTable();
                 jtable.setModel(model);
                 JScrollPane scroll = new JScrollPane(jtable);
-                scroll.setSize(300, 200);
+                scroll.setSize(500, 200);
                 scroll.setLocation(650, 300);
                 panel1.add(scroll);
 
