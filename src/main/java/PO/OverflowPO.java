@@ -2,13 +2,7 @@ package PO;
 
 import java.sql.Date;
 
-public class OverflowPO {
-    
-	private String goodid;
-    private String goodname;
-    private int num;
-    private Date date;
-    
+public class OverflowPO extends StockPO{
     
     public OverflowPO() {
 		super();

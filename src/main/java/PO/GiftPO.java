@@ -2,15 +2,14 @@ package PO;
 
 import java.sql.Date;
 
-public class GiftPO {
+public class GiftPO extends StockPO{
 	
 	private String giftlistid;
-	private String giftid;
-	private String name;
+	
 	private double price;
-	private int num;
+	
 	private String state;
-	private Date date;
+	
 	
 	public GiftPO() {
 		super();
@@ -22,8 +21,8 @@ public class GiftPO {
 	public GiftPO(String giftlistid, String giftid, String name, double price, int num, Date date) {
 		super();
 		this.giftlistid = giftlistid;
-		this.giftid = giftid;
-		this.name = name;
+		this.goodid = giftid;
+		this.goodname = name;
 		this.price = price;
 		this.num = num;
 		this.state = "no";
@@ -35,8 +34,8 @@ public class GiftPO {
 	public GiftPO(String giftlistid, String giftid, String name, double price, int num, String state, Date date) {
 		super();
 		this.giftlistid = giftlistid;
-		this.giftid = giftid;
-		this.name = name;
+		this.goodid = giftid;
+		this.goodname = name;
 		this.price = price;
 		this.num = num;
 		this.state = state;
@@ -57,30 +56,6 @@ public class GiftPO {
 
 
 
-	public String getGiftid() {
-		return giftid;
-	}
-
-
-
-	public void setGiftid(String giftid) {
-		this.giftid = giftid;
-	}
-
-
-
-	public String getName() {
-		return name;
-	}
-
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-
 	public double getPrice() {
 		return price;
 	}
@@ -89,18 +64,6 @@ public class GiftPO {
 
 	public void setPrice(double price) {
 		this.price = price;
-	}
-
-
-
-	public int getNum() {
-		return num;
-	}
-
-
-
-	public void setNum(int num) {
-		this.num = num;
 	}
 
 
@@ -115,25 +78,46 @@ public class GiftPO {
 		this.state = state;
 	}
 
+	public String getGoodid() {
+		return goodid;
+	}
 
+	public void setGoodid(String goodid) {
+		this.goodid = goodid;
+	}
+
+	public String getGoodname() {
+		return goodname;
+	}
+
+	public void setGoodname(String goodname) {
+		this.goodname = goodname;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
 
 	public Date getDate() {
 		return date;
 	}
-
-
 
 	public void setDate(Date date) {
 		this.date = date;
 	}
 
 
-
 	@Override
 	public String toString() {
-		return "GiftPO [giftlistid=" + giftlistid + ", giftid=" + giftid + ", name=" + name + ", price=" + price
-				+ ", num=" + num + ", state=" + state + ", date=" + date + "]";
+		return "GiftPO [giftlistid=" + giftlistid + ", price=" + price + ", state=" + state + "]";
 	}
+
+
+
 	
 	
 	
