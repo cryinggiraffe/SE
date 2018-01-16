@@ -25,7 +25,7 @@ public class Mytable {
         DefaultTableModel model = new DefaultTableModel(vData, vName) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                if (column == 3 || column == 6)
+                if (column == 3 || column == 4 || column == 6)
                     return true;
                 else
                     return false;

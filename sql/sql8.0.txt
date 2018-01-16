@@ -309,8 +309,8 @@ CREATE TABLE CommodityPromotion
 (
   id            VARCHAR(30) NOT NULL
     PRIMARY KEY,
-  specialname1  VARCHAR(30) NULL,
-  specialname2  VARCHAR(30) NULL,
+  specialgoodname1  VARCHAR(30) NULL,
+  specialgoodname2  VARCHAR(30) NULL,
   discountprice DOUBLE      NULL
 );
 
