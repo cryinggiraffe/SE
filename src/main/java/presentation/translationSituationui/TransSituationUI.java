@@ -40,26 +40,60 @@ public class TransSituationUI extends JPanel {
         jl_income.setBounds(50,30,600,50);
         jl_income.setFont(font1);
 
-        jsp_list = new JScrollPane(jl_list);
-        jsp_list.setBounds(50,85,800,230);
-        jsp_list.setBackground(background_table);
-
         jl_expenditure = new JLabel("支出：");
         jl_expenditure.setBounds(50,320,600,50);
         jl_expenditure.setFont(font1);
 
+        jl_sum = new JLabel();
+        jl_sum.setBounds(50,610,600,50);
+        jl_sum.setFont(font1);
+
+        //显示所有收入列表
+        DefaultListModel<IncomePO> model = new DefaultListModel<>();
+        TranslationSituationBL transSituationBL = new TranslationSituationBL();
+        //transSituationBL.newIncome();
+        java.util.List<IncomePO> incomePOList = transSituationBL.findAllIncome();
+        System.out.println(incomePOList.size());
+        for(int i = 0; i < incomePOList.size(); i++)
+        {
+            IncomePO incomePO = incomePOList.get(i);
+            System.out.println(incomePO.toString());
+            model.addElement(incomePO);
+
+        }
+        jl_list = new JList(model);
+        jl_list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jl_list.setCellRenderer(new IncomRender());
+        jl_list.setFont(font);
+        jsp_list = new JScrollPane(jl_list);
+        jsp_list.setBounds(50,85,800,230);
+        jsp_list.setBackground(background_table);
+
+        //显示所有支出列表
+        DefaultListModel<ExpenditurePO> model1 = new DefaultListModel<>();
+        //transSituationBL.newExpenditure();
+        java.util.List<ExpenditurePO> expenditurePOList = transSituationBL.findAllExpenditure();
+        System.out.println(expenditurePOList.size());
+        for(int i = 0; i < expenditurePOList.size(); i++)
+        {
+            ExpenditurePO expenditurePO = expenditurePOList.get(i);
+            System.out.println(expenditurePO.toString());
+            model1.addElement(expenditurePO);
+
+        }
+        jl_list1 = new JList(model1);
+        jl_list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jl_list1.setCellRenderer(new ExpenditureRender());
+        jl_list1.setFont(font);
         jsp_list1 = new JScrollPane(jl_list1);
         jsp_list1.setBounds(50,375,800,230);
         jsp_list1.setBackground(background_table);
-
-        jl_sum = new JLabel("利润：");
-        jl_sum.setBounds(50,610,600,50);
-        jl_sum.setFont(font1);
+        double profit = incomePOList.get(0).getSumincome() - expenditurePOList.get(0).getSumexpenditure();
+        jl_sum.setText("利润：" + profit + "元");
 
         this.setBounds(0,30,Width,Height-30);
         this.setLayout(null);
         this.setBackground(background);
-
 
         this.add(jsp_list);
         this.add(jsp_list1);
@@ -67,6 +101,7 @@ public class TransSituationUI extends JPanel {
         this.add(jl_income);
         this.add(jl_expenditure);
         this.setVisible(true);
+
         //双击取消选中状态
         MouseListener mouseListener = new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
@@ -86,39 +121,6 @@ public class TransSituationUI extends JPanel {
             }
         };
         jl_list1.addMouseListener(mouseListener1);
-
-        //显示所有收入列表
-        DefaultListModel<IncomePO> model = new DefaultListModel<>();
-        TranslationSituationBL transSituationBL = new TranslationSituationBL();
-        java.util.List<IncomePO> incomePOList = transSituationBL.findAllIncome();
-        for(int i = 0; i < incomePOList.size(); i++)
-        {
-            IncomePO incomePO = incomePOList.get(i);
-            model.addElement(incomePO);
-
-        }
-        jl_list = new JList(model);
-        jl_list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jl_list.setCellRenderer(new IncomRender());
-        jl_list.setFont(font);
-
-        //显示所有支出列表
-        DefaultListModel<ExpenditurePO> model1 = new DefaultListModel<>();
-        java.util.List<ExpenditurePO> expenditurePOList = transSituationBL.findAllExpenditure();
-        for(int i = 0; i < expenditurePOList.size(); i++)
-        {
-            ExpenditurePO expenditurePO = expenditurePOList.get(i);
-            model1.addElement(expenditurePO);
-
-        }
-        jl_list1 = new JList(model1);
-        jl_list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jl_list1.setCellRenderer(new ExpenditureRender());
-        jl_list1.setFont(font);
-
-
-
-
     }
 
 }

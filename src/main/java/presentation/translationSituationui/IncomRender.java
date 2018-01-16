@@ -50,13 +50,13 @@ public class IncomRender extends JPanel implements ListCellRenderer<IncomePO> {
     public Component getListCellRendererComponent(JList<? extends IncomePO> list,
                                                   IncomePO importPO, int index, boolean isSelected, boolean cellHasFocus) {
 
-        lbSale.setText("销售收入：" + importPO.getSaleincome());
-        lbOver.setText("报溢收入：" + importPO.getOverflowincome());
-        lbCost.setText("成本调价收入：" + importPO.getImportreturnincome());
+        lbSale.setText("销售收入：" + importPO.getSaleincome() + "元");
+        lbOver.setText("报溢收入：" + importPO.getOverflowincome() + "元");
+        lbCost.setText("成本调价收入：" + importPO.getImportreturnincome() + "元");
         lbImport.setText("进货退货差价："+ importPO.getDate());
-        lbVouchers.setText("代金券与实际收款差额收入：" + importPO.getVouchersincome());
-        lbSum.setText("折后总收入：" + importPO.getSumincome());
-        lbDiscount.setText("折让：" + importPO.getDiscount());
+        lbVouchers.setText("代金券与实际收款差额收入：" + importPO.getVouchersincome() + "元");
+        lbSum.setText("折后总收入：" + importPO.getSumincome() + "元");
+        lbDiscount.setText("折让：" + importPO.getDiscount() + "元");
         lbDate.setText("日期：" + importPO.getDate());
 
 

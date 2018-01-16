@@ -170,7 +170,6 @@ public class PaymentUI extends JFrame {
                     }else {
                         PaymentBL paymentBL = new PaymentBL();
                         Date date = new Date(System.currentTimeMillis());
-
                         AccountPO accountpo = accountBL.findAccount(account);
                         double balance = accountpo.getBalance();
                         balance = balance - amountNum;

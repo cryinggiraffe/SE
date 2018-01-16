@@ -42,10 +42,10 @@ public class ExpenditureRender extends JPanel implements ListCellRenderer<Expend
     public Component getListCellRendererComponent(JList<? extends ExpenditurePO> list,
                                                   ExpenditurePO expenditurePO, int index, boolean isSelected, boolean cellHasFocus) {
 
-        lbSale.setText("销售成本：" + expenditurePO.getSalecost());
-        lbCommodity.setText("商品报损：" + expenditurePO.getCommoditylostexpenditure());
-        lbGift.setText("商品增出：" + expenditurePO.getGiftexpenditure());
-        lbSum.setText("总支出：" + expenditurePO.getSumexpenditure());
+        lbSale.setText("销售成本：" + expenditurePO.getSalecost() + "元");
+        lbCommodity.setText("商品报损：" + expenditurePO.getCommoditylostexpenditure() + "元");
+        lbGift.setText("商品增出：" + expenditurePO.getGiftexpenditure() + "元");
+        lbSum.setText("总支出：" + expenditurePO.getSumexpenditure() + "元");
         lbDate.setText("日期：" + expenditurePO.getDate());
 
 
