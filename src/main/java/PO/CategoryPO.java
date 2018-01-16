@@ -75,7 +75,7 @@ public class CategoryPO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "CategoryPO [id=" + id + ", pid=" + pid + ", name=" + name + "]";
+		return name;
 	}
 
 	

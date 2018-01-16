@@ -38,7 +38,7 @@ public class AddCategoryUi {
                 CategoryBL categoryBL = new CategoryBL();
                 String addName = tname.getText().toString();
                 String id = categoryBL.generateId();
-                CategoryPO cpo = new CategoryPO(addName, parentId, id);
+                CategoryPO cpo = new CategoryPO(id, parentId, addName);
                 categoryBL.addCategory(cpo);
 
                 f.setVisible(false);
