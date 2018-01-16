@@ -2,6 +2,7 @@ package businesslogic.categorybl;
 import DataService.DataServiceImpl.CategoryDataServiceImpl;
 import PO.CategoryPO;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -24,5 +25,16 @@ public class CategoryBL {
     }
     public List<CategoryPO> findAll(){
         return cds.listAll();
+    }
+    public List<CategoryPO> findByPid(int pid){
+        List<CategoryPO> pos=findAll();
+        List<CategoryPO> res=new ArrayList<>();
+        for(int i=0;i!=pos.size();i++){
+            if(pos.get(i).getPid()==pid){
+                res.add(pos.get(i));
+            }
+
+        }
+        return res;
     }
 }
