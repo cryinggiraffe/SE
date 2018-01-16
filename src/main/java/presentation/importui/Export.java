@@ -79,8 +79,8 @@ public class Export {
 //                GoodPO good = new GoodPO("123", 12, "12", "12", 1, 1, 1, 1, 1);
 //                //
                 java.util.List<GoodPO> selected_goodList = goodBL.findGoodByName(choose_name);
-                if(selected_goodList.size()==0){
-                    JOptionPane.showMessageDialog(null,"没有该商品的历史记录！","错误消息",JOptionPane.WARNING_MESSAGE);
+                if (selected_goodList.size() == 0) {
+                    JOptionPane.showMessageDialog(null, "没有该商品的历史记录！", "错误消息", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
 
@@ -149,11 +149,18 @@ public class Export {
                     try {
                         cquantity = Integer.valueOf(table.getValueAt(i, 3).toString());
                     } catch (NumberFormatException excep) {
-                        String s = "第" + (i+1) + "行数量格式不正确！";
+                        String s = "第" + (i + 1) + "行数量格式不正确！";
                         JOptionPane.showMessageDialog(null, s, "错误消息", JOptionPane.WARNING_MESSAGE);
                         return;
                     } catch (NullPointerException exception_null) {
-                        String s = "第" + (i+1) + "行数量不能为空！";
+                        String s = "第" + (i + 1) + "行数量不能为空！";
+                        JOptionPane.showMessageDialog(null, s, "错误消息", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+                    //超过库存数量出错
+                    int num_limit = goodBL.findGoodById(cgoodid).getNum();
+                    if (cquantity > num_limit) {
+                        String s = "第" + (i + 1) + "行数量已超出库存数量！";
                         JOptionPane.showMessageDialog(null, s, "错误消息", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
