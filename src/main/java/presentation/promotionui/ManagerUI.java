@@ -93,7 +93,7 @@ public class ManagerUI extends JFrame {
         //向frame添加panel
         jf_1.add(contentPane);
         jf_1.setVisible(true);
-        //jf_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf_1.setLocation(200,10);
         jf_1.getContentPane().setBackground(background);
 
@@ -127,8 +127,10 @@ public class ManagerUI extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 System.out.println("into promotion manage");
-                //mainLayout ml=new mainLayout(jf_1);//为跳转的界面
-                jf_1.setVisible(false);//隐藏当前界面
+                jp_current = new PromotionUI();
+                bt_back.setVisible(true);
+                jf_1.add(jp_current);
+                contentPane.setVisible(false);//隐藏当前界面
             }
         };
         bt_promotion.addActionListener(btPromotion_ls);
