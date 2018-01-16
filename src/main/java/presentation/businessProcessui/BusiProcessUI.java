@@ -1,14 +1,15 @@
 package presentation.businessProcessui;
 
-import PO.CashPO;
-import PO.RecordPO;
+import PO.*;
 import businesslogic.ReceiptBL.ReceiptBL;
+import businesslogic.businessProcessbl.BusinessProcessbl;
 import businesslogic.cashbl.CashBL;
 import businesslogic.clientbl.ClientBL;
 import businesslogic.goodbl.GoodBL;
 import businesslogic.importbl.ImportBL;
 import businesslogic.paymentbl.PaymentBL;
 import businesslogic.salebl.SaleBL;
+import presentation.importui.Import;
 import presentation.saleSituationui.MySaleRender;
 
 import javax.swing.*;
@@ -39,7 +40,7 @@ public class BusiProcessUI extends JPanel {
 
 
     private static JList jl_accountlist;
-    private static JScrollPane jsp_accountlist;
+    private static JScrollPane jsp_list;
 
     private static int Width = 900;
     private static int Height = 700;
@@ -130,57 +131,15 @@ public class BusiProcessUI extends JPanel {
         DefaultListModel<RecordPO> model3 = new DefaultListModel<>();
         DefaultListModel<CashPO> model4 = new DefaultListModel<>();
         //DefaultListModel<RecordPO> model2 = new DefaultListModel<>();  //此处为库存类单据
-        ImportBL importBL = new ImportBL();
-        SaleBL saleBL = new SaleBL();
-        PaymentBL paymentBL = new PaymentBL();
-        ReceiptBL receiptBL = new ReceiptBL();
-        CashBL cashBL = new CashBL();
 
-        List<? extends RecordPO> importPOList = importBL.findByType();
-        List<? extends RecordPO> salePOList = saleBL.findByType();
-        List<? extends RecordPO> paymentPOList = paymentBL.findByType();
-        List<? extends RecordPO> receiptPOList = receiptBL.findByType();
-        List<CashPO> cashPOList = cashBL.findByType();
-
-        for(int i = 0; i < importPOList.size(); i++)
-        {
-            RecordPO importForm = importPOList.get(i);
-            System.out.println(importForm.toString());
-            model1.addElement(importForm);
-        }
-        for(int i = 0; i < salePOList.size(); i++)
-        {
-            RecordPO saleForm = salePOList.get(i);
-            System.out.println(saleForm.toString());
-            model2.addElement(saleForm);
-        }
-        for(int i = 0; i < paymentPOList.size(); i++)
-        {
-            RecordPO payment = paymentPOList.get(i);
-            System.out.println(payment.toString());
-            model3.addElement(payment);
-        }
-        for(int i = 0; i < receiptPOList.size(); i++)
-        {
-            RecordPO receipt = receiptPOList.get(i);
-            System.out.println(receipt.toString());
-            model3.addElement(receipt);
-        }
-        for(int i = 0; i < cashPOList.size(); i++)
-        {
-            CashPO cash = cashPOList.get(i);
-            System.out.println(cash.toString());
-            model4.addElement(cash);
-        }
-
-        jl_accountlist = new JList(model1);
+        jl_accountlist = new JList();
         jl_accountlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jl_accountlist.setCellRenderer(new MySaleRender());
         jl_accountlist.setFont(font);
 
-        jsp_accountlist = new JScrollPane(jl_accountlist);
-        jsp_accountlist.setBounds(50,210,800,430);
-        jsp_accountlist.setBackground(background_table);
+        jsp_list = new JScrollPane(jl_accountlist);
+        jsp_list.setBounds(50,210,800,430);
+        jsp_list.setBackground(background_table);
 
         //根据用户判断是否显示红冲按钮
         if(user.equals("manager")){
@@ -211,7 +170,7 @@ public class BusiProcessUI extends JPanel {
         this.add(bt_search);
         this.add(bt_red);
         this.add(bt_redCopy);
-        this.add(jsp_accountlist);
+        this.add(jsp_list);
 
 
 
@@ -226,18 +185,25 @@ public class BusiProcessUI extends JPanel {
                     if (type.equals("销售类")) {
                         jl_client.setVisible(true);
                         jc_client.setVisible(true);
-                        jl_1.setVisible(true);
-                        jl_1.setVisible(true);
-                        jl_1.setVisible(true);
-                        jl_1.setVisible(true);
-                        jl_1.setVisible(true);
-
+                        jl_salesman.setVisible(true);
+                        jc_salesman.setVisible(true);
+                        jl_houseware.setVisible(true);
+                        jc_houseware.setVisible(true);
                     }else if (type.equals("进货类")) {
-
+                        jl_salesman.setVisible(false);
+                        jc_salesman.setVisible(false);
                     }else if (type.equals("财务类")) {
-
+                        jl_salesman.setVisible(false);
+                        jc_salesman.setVisible(false);
+                        jl_houseware.setVisible(false);
+                        jc_houseware.setVisible(false);
                     }else if (type.equals("库存类")) {
-
+                        jl_client.setVisible(false);
+                        jc_client.setVisible(false);
+                        jl_salesman.setVisible(false);
+                        jc_salesman.setVisible(false);
+                        jl_houseware.setVisible(false);
+                        jc_houseware.setVisible(false);
                     }
                 }
             }
@@ -259,46 +225,170 @@ public class BusiProcessUI extends JPanel {
                 String salesman = jc_salesman.getSelectedItem().toString();
                 String houseware = jc_houseware.getSelectedItem().toString();
                 System.out.println(type);
+                BusinessProcessbl businessProcessbl = new BusinessProcessbl();
                 if (type.equals("销售类")) {
+                    if (!begin.equals("") && !end.equals("")){
+                        try{
+                            beginTime = format.parse(begin);
+                            endTime = format.parse(end);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
 
+                        java.sql.Date beginDate = new java.sql.Date(beginTime.getTime());
+                        java.sql.Date endDate = new java.sql.Date(endTime.getTime());
+                        List<SaleFormPO> SaleFormPOList = businessProcessbl.findSaleFormForTime(beginDate,endDate);
+                        SaleFormPOList.addAll(businessProcessbl.findSaleReturnFormForTime(beginDate,endDate));
+                        refreshSale(SaleFormPOList);
+                    }else if (!client.equals("")){
+                        List<SaleFormPO> SaleFormPOList = businessProcessbl.findSaleFormForClient(client);
+                        SaleFormPOList.addAll(businessProcessbl.findSaleReturnFormForClient(client));
+                        refreshSale(SaleFormPOList);
+                    }else if (!salesman.equals("")){
+                        List<SaleFormPO> SaleFormPOList = businessProcessbl.findSaleFormForSalesman(salesman);
+                        SaleFormPOList.addAll(businessProcessbl.findSaleReturnFormForSalesman(salesman));
+                        refreshSale(SaleFormPOList);
+                    }else if (!houseware.equals("")){
+                        List<SaleFormPO> SaleFormPOList = businessProcessbl.findSaleFormForHouseWare(houseware);
+                        SaleFormPOList.addAll(businessProcessbl.findSaleReturnFormForHouseWare(houseware));
+                        refreshSale(SaleFormPOList);
+                    }else {
+                        JOptionPane.showMessageDialog(null, "未输入查询条件", "错误信息",JOptionPane.ERROR_MESSAGE);
+                    }
                 }else if (type.equals("进货类")) {
+                    if (!begin.equals("") && !end.equals("")){
+                        try{
+                            beginTime = format.parse(begin);
+                            endTime = format.parse(end);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+
+                        java.sql.Date beginDate = new java.sql.Date(beginTime.getTime());
+                        java.sql.Date endDate = new java.sql.Date(endTime.getTime());
+                        List<ImportFormPO> ImportFormPOList = businessProcessbl.findImportFormForTime(beginDate,endDate);
+                        ImportFormPOList.addAll(businessProcessbl.findImportReturnFormForTime(beginDate,endDate));
+                        refreshImport(ImportFormPOList);
+                    }else if (!client.equals("")){
+                        List<ImportFormPO> ImportFormPOList = businessProcessbl.findImportFormForClient(client);
+                        ImportFormPOList.addAll(businessProcessbl.findImportReturnFormForClient(client));
+                        refreshImport(ImportFormPOList);
+                    }else if (!houseware.equals("")){
+                        List<ImportFormPO> ImportFormPOList = businessProcessbl.findImportFormForHouseWare(houseware);
+                        ImportFormPOList.addAll(businessProcessbl.findImportReturnFormForHouseWare(houseware));
+                        refreshImport(ImportFormPOList);
+                    }else {
+                        JOptionPane.showMessageDialog(null, "未输入查询条件", "错误信息",JOptionPane.ERROR_MESSAGE);
+                    }
 
                 }else if (type.equals("财务类")) {
+                    if (!begin.equals("") && !end.equals("")){
+                        try{
+                            beginTime = format.parse(begin);
+                            endTime = format.parse(end);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                        java.sql.Date beginDate = new java.sql.Date(beginTime.getTime());
+                        java.sql.Date endDate = new java.sql.Date(endTime.getTime());
+                        List<PaymentPO> paymentPOList = businessProcessbl.findPaymentForTime(beginDate,endDate);
+                        List<ReceiptPO> receiptPOList = businessProcessbl.findReceiptForTime(beginDate,endDate);
+                        List<CashPO> cashPOList = businessProcessbl.findCashForTime(beginDate,endDate);
+                        refreshFinance1(paymentPOList,receiptPOList,cashPOList);
+                    }else if (!client.equals("")){
+                        List<PaymentPO> paymentPOList = businessProcessbl.findPaymentForClient(client);
+                        List<ReceiptPO> receiptPOList = businessProcessbl.findReceiptForClient(client);
+                        refreshFinance2(paymentPOList,receiptPOList);
+                    }else {
+                        JOptionPane.showMessageDialog(null, "未输入查询条件", "错误信息",JOptionPane.ERROR_MESSAGE);
+                    }
 
                 }else if (type.equals("库存类")) {
-
+                    if (!begin.equals("") && !end.equals("")){
+                        try{
+                            beginTime = format.parse(begin);
+                            endTime = format.parse(end);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                        java.sql.Date beginDate = new java.sql.Date(beginTime.getTime());
+                        java.sql.Date endDate = new java.sql.Date(endTime.getTime());
+                        List<PaymentPO> paymentPOList = businessProcessbl.findPaymentForTime(beginDate,endDate);
+                        List<ReceiptPO> receiptPOList = businessProcessbl.findReceiptForTime(beginDate,endDate);
+                        List<CashPO> cashPOList = businessProcessbl.findCashForTime(beginDate,endDate);
+                        //refreshStock(paymentPOList,receiptPOList,cashPOList);
+                    } {
+                        JOptionPane.showMessageDialog(null, "未输入查询条件", "错误信息",JOptionPane.ERROR_MESSAGE);
+                    }
                 }
-//                if (!begin.equals("") && !end.equals("")){
-//                    try{
-//                        beginTime = format.parse(begin);
-//                        endTime = format.parse(end);
-//                    }catch (Exception e){
-//                        e.printStackTrace();
-//                    }
-//
-//                    java.sql.Date beginDate = new java.sql.Date(beginTime.getTime());
-//                    java.sql.Date endDate = new java.sql.Date(endTime.getTime());
-//                    List<SaleSituationPo> saleSituationPoList = saleSituationBL.findForTime(beginDate,endDate);
-//                    refresh(saleSituationPoList);
-//                }else if (!name.equals("")){
-//                    List<SaleSituationPo> saleSituationPoList = saleSituationBL.findForName(name);
-//                    refresh(saleSituationPoList);
-//                }else if (!client.equals("")){
-//                    List<SaleSituationPo> saleSituationPoList = saleSituationBL.findForClient(client);
-//                    refresh(saleSituationPoList);
-//                }else if (!salesman.equals("")){
-//                    List<SaleSituationPo> saleSituationPoList = saleSituationBL.findForSalesman(salesman);
-//                    refresh(saleSituationPoList);
-//                }else if (!houseware.equals("")){
-//                    List<SaleSituationPo> saleSituationPoList = saleSituationBL.findForHouseWare(houseware);
-//                    refresh(saleSituationPoList);
-//                }else {
-//                    JOptionPane.showMessageDialog(null, "未输入查询条件", "错误信息",JOptionPane.ERROR_MESSAGE);
-//                }
+                
 
             }
         };
         bt_search.addActionListener(btSearch_ls);
 
+    }
+
+    public void refreshSale(List<SaleFormPO> SaleFormPOList) {
+        DefaultListModel<SaleFormPO> model = new DefaultListModel<>();
+//        if (SaleFormPOList.size() == 0){
+//            JOptionPane.showMessageDialog(null, "无查询结果", "提示信息", JOptionPane.INFORMATION_MESSAGE);
+//        }
+//        for(int i = 0; i < SaleFormPOList.size(); i++)
+//        {
+//            SaleFormPO user = SaleFormPOList.get(i);
+//            model.addElement(user);
+//
+//        }
+        jt_begintime.setText("");
+        jt_endtime.setText("");
+        jl_accountlist.setModel(model);
+    }
+    public void refreshImport(List<ImportFormPO> ImportFormPOList) {
+        DefaultListModel<SaleFormPO> model = new DefaultListModel<>();
+//        if (ImportFormPOList.size() == 0){
+//            JOptionPane.showMessageDialog(null, "无查询结果", "提示信息", JOptionPane.INFORMATION_MESSAGE);
+//        }
+//        for(int i = 0; i < ImportFormPOList.size(); i++)
+//        {
+//            SaleFormPO user = ImportFormPOList.get(i);
+//            model.addElement(user);
+//
+//        }
+        jt_begintime.setText("");
+        jt_endtime.setText("");
+        jl_accountlist.setModel(model);
+    }
+
+    public void refreshFinance1(List<PaymentPO> paymentPOList, List<ReceiptPO> receiptPOList, List<CashPO> cashPOList) {
+        DefaultListModel<SaleFormPO> model = new DefaultListModel<>();
+//        if (ImportFormPOList.size() == 0){
+//            JOptionPane.showMessageDialog(null, "无查询结果", "提示信息", JOptionPane.INFORMATION_MESSAGE);
+//        }
+//        for(int i = 0; i < ImportFormPOList.size(); i++)
+//        {
+//            SaleFormPO user = ImportFormPOList.get(i);
+//            model.addElement(user);
+//
+//        }
+        jt_begintime.setText("");
+        jt_endtime.setText("");
+        jl_accountlist.setModel(model);
+    }
+
+    public void refreshFinance2(List<PaymentPO> paymentPOList, List<ReceiptPO> receiptPOList) {
+        DefaultListModel<SaleFormPO> model = new DefaultListModel<>();
+//        if (ImportFormPOList.size() == 0){
+//            JOptionPane.showMessageDialog(null, "无查询结果", "提示信息", JOptionPane.INFORMATION_MESSAGE);
+//        }
+//        for(int i = 0; i < ImportFormPOList.size(); i++)
+//        {
+//            SaleFormPO user = ImportFormPOList.get(i);
+//            model.addElement(user);
+//
+//        }
+        jt_begintime.setText("");
+        jt_endtime.setText("");
+        jl_accountlist.setModel(model);
     }
 }
