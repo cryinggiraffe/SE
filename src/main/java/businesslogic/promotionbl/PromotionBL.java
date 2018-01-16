@@ -32,7 +32,7 @@ public class PromotionBL implements PromotionBLService {
     }
 
     @Override
-    public void endPromotyion(int id) {
+    public void endPromotyion(String id) {
         PromotionPO po=new PromotionPO(id,"",0,0);
         //以下实现不了
         int userClass = po.getUserclass();
@@ -84,7 +84,7 @@ public class PromotionBL implements PromotionBLService {
 
     public static void main(String[] agrs){
         PromotionBL pbl=new PromotionBL();
-        PromotionPO po=new PromotionPO(233,"",0,0);
-        pbl.makePromotion(po);
+        //PromotionPO po=new PromotionPO(233,"",0,0);
+        //pbl.makePromotion(po);
     }
 }
