@@ -58,9 +58,9 @@ public class Import {
         JComboBox goodNam = new JComboBox();
         ipanel.add(goodNam);
         GoodBL goodBL = new GoodBL();
-//        java.util.List<String> names = goodBL.listNames();
-        java.util.List<String> names = new ArrayList<>();
-        names.add("牙膏");
+        java.util.List<String> names = goodBL.listNames();
+//        java.util.List<String> names = new ArrayList<>();
+//        names.add("牙膏");
         for (String str : names) {
             goodNam.addItem(str);
         }
@@ -76,17 +76,17 @@ public class Import {
                     return;
                 }
                 String choose_name = goodNam.getSelectedItem().toString();
-                //
-
-                GoodPO good = new GoodPO("123", 12, "12", "12", 1, 1, 1, 1, 1);
-                //
-//                java.util.List<GoodPO> selected_goodList = goodBL.findGoodByName(choose_name);
-//                if(selected_goodList.size()==0){
-//                    JOptionPane.showMessageDialog(null,"没有该商品的历史记录！","错误消息",JOptionPane.WARNING_MESSAGE);
-//                    return;
-//                }
+//                //
 //
-//                GoodPO good = selected_goodList.get(0);
+//                GoodPO good = new GoodPO("123", 12, "12", "12", 1, 1, 1, 1, 1);
+//                //
+                java.util.List<GoodPO> selected_goodList = goodBL.findGoodByName(choose_name);
+                if(selected_goodList.size()==0){
+                    JOptionPane.showMessageDialog(null,"没有该商品的历史记录！","错误消息",JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+
+                GoodPO good = selected_goodList.get(0);
 //                商品编号，名称（从商品选择界面进行选择），型号，数量（手动输入），单价（默认为商品信息中的进价），金额，备注（手动输入）。
                 Vector vRow = new Vector();
                 vRow.add(good.getGoodid());
