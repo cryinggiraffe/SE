@@ -92,9 +92,9 @@ public class Import {
                 vRow.add(good.getGoodid());
                 vRow.add(good.getName());
                 vRow.add(good.getType());
-                vRow.add(0);
+                vRow.add(null);
                 vRow.add(good.getPur_price());
-                vRow.add(0);
+                vRow.add(null);
                 vRow.add(null);
 
                 model.addRow(vRow);
@@ -113,6 +113,7 @@ public class Import {
         JLabel lsum = new JLabel("总额合计");
         JTextField tsum = new JTextField();
         tsum.setColumns(5);
+        tsum.setEditable(false);
 
         ipanel.add(lremark);
         ipanel.add(tremark);
@@ -131,18 +132,48 @@ public class Import {
                 List importCommoditylist = null;
                 String remark = tremark.getText();
                 double sum = 0.0;
-                try {
-                    sum = Integer.valueOf(tsum.getText());
-                } catch (NumberFormatException exception) {
-                    JOptionPane.showMessageDialog(null, "总额输入格式不正确！", "错误消息", JOptionPane.WARNING_MESSAGE);
-                    return;
-                }
-//                List<Commodity> commidyList = new ArrayList<>();
-                int row = table.getRowCount();
-                System.out.println("行数" + row);
 
+                java.util.List<Commodity> commidyList = new ArrayList<>();
+                int row = table.getRowCount();
+//                System.out.println("行数" + row);
+                String cgoodid;
+                String cname;
+                String cversion;//型号
+                int cquantity;
+                double cpirce;//单价
+                double csubtotalprice;
+                String cremark;
+                for (int i = 0; i < row; i++) {
+                    cgoodid = table.getValueAt(i, 0).toString();
+                    cname = table.getValueAt(i, 1).toString();
+                    cversion = table.getValueAt(i, 2).toString();
+                    cquantity = 0;
+                    try {
+                        cquantity = Integer.valueOf(table.getValueAt(i, 3).toString());
+                    } catch (NumberFormatException excep) {
+                        String s = "第" + (i+1) + "行数量格式不正确！";
+                        JOptionPane.showMessageDialog(null, s, "错误消息", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    } catch (NullPointerException exception_null) {
+                        String s = "第" + (i+1) + "行数量不能为空！";
+                        JOptionPane.showMessageDialog(null, s, "错误消息", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+                    cpirce = Double.valueOf(table.getValueAt(i, 4).toString());
+                    csubtotalprice = cquantity * cpirce;
+                    sum = sum + csubtotalprice;
+                    if (table.getValueAt(i, 6) == null)
+                        cremark = null;
+                    else
+                        cremark = table.getValueAt(i, 6).toString();
+
+                    Commodity commodity = new Commodity(cgoodid, cname, cversion, cquantity, cpirce, csubtotalprice, cremark);
+                    System.out.println(cgoodid + " " + cname + " " + cversion + " " + cquantity + " " + cpirce + " " + csubtotalprice + " " + cremark);
+                }
+                System.out.println(sum);
+                iframe.setVisible(false);
 //            public String newForm(String formtype, String provider, String houseware, String operator,String remark, double sum, String state, java.util.Date date,List<Commodity> list) {
-//                new ImportBL().newForm("JHD", provider, houseware, operator, remark, sum, null, date, commidyList);
+                new ImportBL().newForm("JHD", provider, houseware, operator, remark, sum, null, date, commidyList);
             }
         });
         ipanel.add(submit);
