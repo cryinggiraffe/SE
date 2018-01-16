@@ -71,8 +71,8 @@ CREATE TABLE Gift
   id         INT AUTO_INCREMENT
     PRIMARY KEY,
   giftlistid VARCHAR(30) NULL,
-  giftid     VARCHAR(30) NULL,
-  name       VARCHAR(30) NULL,
+  goodid     VARCHAR(30) NULL,
+  goodname   VARCHAR(30) NULL,
   price      DOUBLE      NULL,
   num        INT         NULL,
   state      VARCHAR(30) NULL,

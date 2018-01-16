@@ -40,7 +40,7 @@ public class AlarmDataServiceImpl implements AlarmDataService{
 	}
 
 	@Override
-	public List<AlarmPO> findFortype() {
+	public List<AlarmPO> findForType() {
 		// TODO Auto-generated method stub
 		String sql = "select goodid, goodname, num, date from  Alarm";
 		return dao.getALL(AlarmPO.class, sql);

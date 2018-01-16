@@ -12,6 +12,6 @@ public interface AlarmDataService {
 	public List<AlarmPO> findForId(String goodid);
 	
 	public List<AlarmPO> findForTime(Date begin, Date end);
-	public List<AlarmPO> findFortype();
+	public List<AlarmPO> findForType();
 	
 }

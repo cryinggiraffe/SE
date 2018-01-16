@@ -2,12 +2,9 @@ package PO;
 
 import java.sql.Date;
 
-public class LossPO {
+public class LossPO extends StockPO{
 
-    private String goodid;
-    private String goodname;
-    private int num;
-    private Date date;
+    
 	
     public LossPO() {
 		super();
