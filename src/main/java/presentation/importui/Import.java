@@ -151,15 +151,21 @@ public class Import {
                     try {
                         cquantity = Integer.valueOf(table.getValueAt(i, 3).toString());
                     } catch (NumberFormatException excep) {
-                        String s = "第" + (i+1) + "行数量格式不正确！";
+                        String s = "第" + (i + 1) + "行数量格式不正确！";
                         JOptionPane.showMessageDialog(null, s, "错误消息", JOptionPane.WARNING_MESSAGE);
                         return;
                     } catch (NullPointerException exception_null) {
-                        String s = "第" + (i+1) + "行数量不能为空！";
+                        String s = "第" + (i + 1) + "行数量不能为空！";
                         JOptionPane.showMessageDialog(null, s, "错误消息", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
-                    cpirce = Double.valueOf(table.getValueAt(i, 4).toString());
+                    try {
+                        cpirce = Double.valueOf(table.getValueAt(i, 4).toString());
+                    } catch (NumberFormatException ee) {
+                        String s = "第" + (i + 1) + "行单价格式不正确！";
+                        JOptionPane.showMessageDialog(null, s, "错误消息", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
                     csubtotalprice = cquantity * cpirce;
                     sum = sum + csubtotalprice;
                     if (table.getValueAt(i, 6) == null)
