@@ -10,15 +10,14 @@ import businesslogic.salebl.SaleBL;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.List;
 
 public class ApproveUI extends JPanel {
     private static JButton bt_refresh;
     private static JButton bt_approve;
 
-    private static JList jl_accountlist;
+    private static JList jl_approvelist;
     private static JScrollPane jsp_accountlist;
 
     private static int Width = 900;
@@ -73,12 +72,12 @@ public class ApproveUI extends JPanel {
         }
 
 
-        jl_accountlist = new JList(model);
-        jl_accountlist.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        jl_accountlist.setCellRenderer(new MyApproveRender());
-        jl_accountlist.setFont(font1);
+        jl_approvelist = new JList(model);
+        jl_approvelist.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        jl_approvelist.setCellRenderer(new MyApproveRender());
+        jl_approvelist.setFont(font1);
 
-        jsp_accountlist = new JScrollPane(jl_accountlist);
+        jsp_accountlist = new JScrollPane(jl_approvelist);
         jsp_accountlist.setBounds(50,140,800,500);
         jsp_accountlist.setBackground(background_table);
 
@@ -92,6 +91,18 @@ public class ApproveUI extends JPanel {
         this.add(jsp_accountlist);
 
         this.setVisible(true);
+
+        //双击取消选中状态
+        MouseListener mouseListener = new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int index = jl_approvelist.locationToIndex(e.getPoint());
+                    //System.out.println("Double clicked on Item " + index);
+                    jl_approvelist.clearSelection();
+                }
+            }
+        };
+        jl_approvelist.addMouseListener(mouseListener);
 
         //刷新按钮事件
         ActionListener btRefresh_ls=new ActionListener() {
@@ -114,7 +125,7 @@ public class ApproveUI extends JPanel {
                 SaleFormPO saleFormPO = new SaleFormPO();
                 ReceiptPO receiptPO = new ReceiptPO();
                 PaymentPO paymentPO = new PaymentPO();
-                List<Object> valuesList = jl_accountlist.getSelectedValuesList();
+                List<Object> valuesList = jl_approvelist.getSelectedValuesList();
                 for (int i=0;i<valuesList.size();i++){
                     String str = valuesList.get(i).toString();
                     String[] tmp = str.split(",");
@@ -219,7 +230,7 @@ public class ApproveUI extends JPanel {
             RecordPO receipt = receiptPOList.get(i);
             model.addElement(receipt);
         }
-        jl_accountlist.setModel(model);
+        jl_approvelist.setModel(model);
     }
 
 

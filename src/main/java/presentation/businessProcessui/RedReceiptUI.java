@@ -1,10 +1,8 @@
-package presentation.billui;
+package presentation.businessProcessui;
 
-import PO.AccountPO;
+import businesslogic.ReceiptBL.ReceiptBL;
 import businesslogic.accountbl.AccountBL;
-import businesslogic.paymentbl.PaymentBL;
 import businesslogic.clientbl.ClientBL;
-
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -16,7 +14,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.Date;
 
-public class PaymentUI extends JFrame {
+public class RedReceiptUI extends JFrame {
     private static JLabel jl_id;
     private static JLabel jl_username;
     private static JLabel jl_client;
@@ -37,12 +35,12 @@ public class PaymentUI extends JFrame {
     private static int Height = 700;
     private static Color background = new Color(135, 206, 250);
 
-    public PaymentUI (String name) {
+    public RedReceiptUI (String name,String client, String accout, String amount) {
         //设置界面
         Font font =new Font("微软雅黑", Font.PLAIN, 20);//设置按钮字体
-        PaymentBL paymentBL = new PaymentBL();
-        String paymentId = paymentBL.newId();
-        jl_id = new JLabel("单据编号：" + paymentId);
+        ReceiptBL receiptBL = new ReceiptBL();
+        String receiptId = receiptBL.newId();
+        jl_id = new JLabel("单据编号：" + receiptId);
         jl_id.setBounds(150,100,500,50);
         jl_id.setFont(font);
 
@@ -53,28 +51,28 @@ public class PaymentUI extends JFrame {
         jl_client = new JLabel("客户：");
         jl_client.setBounds(150,190,120,50);
         jl_client.setFont(font);
-        jt_client = new JTextField("");
+        jt_client = new JTextField(client);
         jt_client.setBounds(280,190,550,50);
         jt_client.setFont(font);
 
         jl_account = new JLabel("银行账户：");
         jl_account.setBounds(150,280,120,50);
         jl_account.setFont(font);
-        jt_account = new JTextField("");
+        jt_account = new JTextField(accout);
         jt_account.setBounds(280,280,550,50);
         jt_account.setFont(font);
 
         jl_amount = new JLabel("转账金额：");
         jl_amount.setBounds(150,370,120,50);
         jl_amount.setFont(font);
-        jt_amount = new JTextField("");
+        jt_amount = new JTextField(amount);
         jt_amount.setBounds(280,370,550,50);
         jt_amount.setFont(font);
 
         jl_remark = new JLabel("备注：");
         jl_remark.setBounds(150,460,120,50);
         jl_remark.setFont(font);
-        jt_remark = new JTextField("无");
+        jt_remark = new JTextField("红冲复制单据");
         jt_remark.setBounds(280,460,550,50);
         jt_remark.setFont(font);
 
@@ -88,7 +86,7 @@ public class PaymentUI extends JFrame {
         bt_submit.setFont(font);
 
         //向frame添加组件
-        jf_1 = new JFrame("创建付款单");
+        jf_1 = new JFrame("红冲复制收款单");
         jf_1.setSize(Width,Height);
         jf_1.setLocation(200,10);
         jf_1.setLayout(null);
@@ -165,26 +163,15 @@ public class PaymentUI extends JFrame {
                     }else if (clientBL.findClient(client) == null) {
                         JOptionPane.showMessageDialog(jf_1, "无此客户信息，请重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
 
-                    }else if(accountBL.findAccount(account) == null){
+                    }else if (accountBL.findAccount(account) == null){
                         JOptionPane.showMessageDialog(jf_1, "无此银行账户信息，请重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
                     }else {
-                        PaymentBL paymentBL = new PaymentBL();
+                        ReceiptBL receiptBL = new ReceiptBL();
                         Date date = new Date(System.currentTimeMillis());
-
-                        AccountPO accountpo = accountBL.findAccount(account);
-                        double balance = accountpo.getBalance();
-                        balance = balance - amountNum;
-                        if (balance > 0) {
-                            paymentBL.newPayment(paymentId,client,name,account,amountNum,remark,amountNum,date);
-                            System.out.println("new payment");
-                            jf_1.dispose();
-                        }else {
-                            JOptionPane.showMessageDialog(jf_1, "转账金额超出账户余额，请确认后重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);
-                            jt_amount.setText("");
-                        }
-
+                        receiptBL.newReceipt(receiptId,client,name,account,amountNum,remark,amountNum,date);
+                        System.out.println("new receipt");
+                        jf_1.dispose();
                     }
-
 
                 } else if(response==1) {
                     System.out.println(" 您按下了取消按钮  ");
@@ -207,5 +194,4 @@ public class PaymentUI extends JFrame {
             }
         });
     }
-
 }

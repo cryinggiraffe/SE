@@ -53,21 +53,21 @@ public class CashUI extends JFrame {
         jl_account = new JLabel("银行账户：");
         jl_account.setBounds(150,190,120,50);
         jl_account.setFont(font);
-        jt_account = new JTextField();
+        jt_account = new JTextField("");
         jt_account.setBounds(280,190,550,50);
         jt_account.setFont(font);
 
         jl_list = new JLabel("条目名：");
         jl_list.setBounds(150,280,120,50);
         jl_list.setFont(font);
-        jt_list = new JTextField();
+        jt_list = new JTextField("");
         jt_list.setBounds(280,280,550,50);
         jt_list.setFont(font);
 
         jl_amount = new JLabel("金额：");
         jl_amount.setBounds(150,370,120,50);
         jl_amount.setFont(font);
-        jt_amount = new JTextField();
+        jt_amount = new JTextField("");
         jt_amount.setBounds(280,370,550,50);
         jt_amount.setFont(font);
 
@@ -167,14 +167,12 @@ public class CashUI extends JFrame {
                     }else {
                         CashBL cashBL = new CashBL();
                         Date date = new Date(System.currentTimeMillis());
-
                         AccountPO accountpo = accountBL.findAccount(account);
                         double balance = accountpo.getBalance();
                         balance = balance - amountNum;
                         if (balance > 0) {
                             System.out.println("new payment");
                             cashBL.newCash(cashId,name,account,list,amountNum,remark,amountNum,date);
-                            accountBL.updateAccount(account,balance);
                             jf_1.dispose();
                         }else {
                             JOptionPane.showMessageDialog(jf_1, "消费金额超出账户余额，请确认后重新输入", "错误信息",JOptionPane.ERROR_MESSAGE);

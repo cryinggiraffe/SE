@@ -14,10 +14,8 @@ import presentation.saleSituationui.MySaleRender;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.*;
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -39,8 +37,15 @@ public class BusiProcessUI extends JPanel {
     private static JLabel jl_houseware;
 
 
-    private static JList jl_accountlist;
+    private static JList jl_list;
+    private static JList jl_list1;
+    private static JList jl_list2;
+    private static JList jl_list3;
     private static JScrollPane jsp_list;
+    private static JScrollPane jsp_list1;
+    private static JScrollPane jsp_list2;
+    private static JScrollPane jsp_list3;
+
 
     private static int Width = 900;
     private static int Height = 700;
@@ -60,6 +65,9 @@ public class BusiProcessUI extends JPanel {
         bt_redCopy = new JButton("红冲复制");
         bt_redCopy.setBounds(600,170,120,30);
         bt_redCopy.setFont(font);
+
+        bt_red.setVisible(false);
+        bt_redCopy.setVisible(false);
 
         jl_1 = new JLabel("筛选条件: 单据类型：");
         jl_1.setBounds(50,90,180,30);
@@ -125,31 +133,39 @@ public class BusiProcessUI extends JPanel {
             jc_client.addItem(idList.get(i));
         }
 
+        jl_list = new JList();
+        jl_list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jl_list.setFont(font);
+        jl_list1 = new JList();
+        jl_list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jl_list1.setFont(font);
+        jl_list2 = new JList();
+        jl_list2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jl_list2.setFont(font);
+        jl_list3 = new JList();
+        jl_list3.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jl_list3.setFont(font);
 
-        DefaultListModel<RecordPO> model1 = new DefaultListModel<>();
-        DefaultListModel<RecordPO> model2 = new DefaultListModel<>();
-        DefaultListModel<RecordPO> model3 = new DefaultListModel<>();
-        DefaultListModel<CashPO> model4 = new DefaultListModel<>();
-        //DefaultListModel<RecordPO> model2 = new DefaultListModel<>();  //此处为库存类单据
-
-        jl_accountlist = new JList();
-        jl_accountlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jl_accountlist.setCellRenderer(new MySaleRender());
-        jl_accountlist.setFont(font);
-
-        jsp_list = new JScrollPane(jl_accountlist);
+        jsp_list = new JScrollPane(jl_list);
         jsp_list.setBounds(50,210,800,430);
         jsp_list.setBackground(background_table);
 
-        //根据用户判断是否显示红冲按钮
-        if(user.equals("manager")){
+        jsp_list1 = new JScrollPane(jl_list1);
+        jsp_list1.setBounds(50,210,800,140);
+        jsp_list1.setBackground(background_table);
+        jsp_list1.setVisible(false);
 
-            bt_red.setVisible(false);
-            bt_redCopy.setVisible(false);
-        }else if (user.equals("finance")){
-            bt_red.setVisible(true);
-            bt_redCopy.setVisible(true);
-        }
+        jsp_list2 = new JScrollPane(jl_list2);
+        jsp_list2.setBounds(50,355,800,140);
+        jsp_list2.setBackground(background_table);
+        jsp_list2.setVisible(false);
+
+        jsp_list3 = new JScrollPane(jl_list3);
+        jsp_list3.setBounds(50,500,800,140);
+        jsp_list3.setBackground(background_table);
+        jsp_list3.setVisible(false);
+
+
         //向panel添加组件
         this.setBounds(0,30,Width,Height-30);
         this.setLayout(null);
@@ -168,18 +184,62 @@ public class BusiProcessUI extends JPanel {
         this.add(jl_salesman);
         this.add(jl_houseware);
         this.add(bt_search);
-        this.add(bt_red);
-        this.add(bt_redCopy);
         this.add(jsp_list);
+        this.add(jsp_list1);
+        this.add(jsp_list2);
+        this.add(jsp_list3);
 
-
-
+        //根据用户判断是否显示红冲按钮
+        if (user.equals("finance")){
+            this.add(bt_red);
+            this.add(bt_redCopy);
+        }
+        //双击取消选中状态
+        MouseListener mouseListener = new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int index = jl_list.locationToIndex(e.getPoint());
+                    //System.out.println("Double clicked on Item " + index);
+                    jl_list.clearSelection();
+                }
+            }
+        };
+        jl_list.addMouseListener(mouseListener);
+        MouseListener mouseListener1 = new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int index = jl_list1.locationToIndex(e.getPoint());
+                    //System.out.println("Double clicked on Item " + index);
+                    jl_list1.clearSelection();
+                }
+            }
+        };
+        jl_list1.addMouseListener(mouseListener1);
+        MouseListener mouseListener2 = new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int index = jl_list2.locationToIndex(e.getPoint());
+                    //System.out.println("Double clicked on Item " + index);
+                    jl_list2.clearSelection();
+                }
+            }
+        };
+        jl_list2.addMouseListener(mouseListener2);
+        MouseListener mouseListener3 = new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int index = jl_list3.locationToIndex(e.getPoint());
+                    //System.out.println("Double clicked on Item " + index);
+                    jl_list3.clearSelection();
+                }
+            }
+        };
+        jl_list3.addMouseListener(mouseListener3);
         //根据类型显示相应的搜索条件
         jc_type.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    //这里写你的任务 ，比如取到现在的值
                     String type = jc_type.getSelectedItem().toString();
                     System.out.println(type);
                     if (type.equals("销售类")) {
@@ -189,14 +249,26 @@ public class BusiProcessUI extends JPanel {
                         jc_salesman.setVisible(true);
                         jl_houseware.setVisible(true);
                         jc_houseware.setVisible(true);
+                        bt_red.setVisible(false);
+                        bt_redCopy.setVisible(false);
                     }else if (type.equals("进货类")) {
+                        jl_houseware.setVisible(true);
+                        jc_houseware.setVisible(true);
+                        jl_client.setVisible(true);
+                        jc_client.setVisible(true);
                         jl_salesman.setVisible(false);
                         jc_salesman.setVisible(false);
+                        bt_red.setVisible(false);
+                        bt_redCopy.setVisible(false);
                     }else if (type.equals("财务类")) {
+                        jl_client.setVisible(true);
+                        jc_client.setVisible(true);
                         jl_salesman.setVisible(false);
                         jc_salesman.setVisible(false);
                         jl_houseware.setVisible(false);
                         jc_houseware.setVisible(false);
+                        bt_red.setVisible(true);
+                        bt_redCopy.setVisible(true);
                     }else if (type.equals("库存类")) {
                         jl_client.setVisible(false);
                         jc_client.setVisible(false);
@@ -204,6 +276,8 @@ public class BusiProcessUI extends JPanel {
                         jc_salesman.setVisible(false);
                         jl_houseware.setVisible(false);
                         jc_houseware.setVisible(false);
+                        bt_red.setVisible(false);
+                        bt_redCopy.setVisible(false);
                     }
                 }
             }
@@ -313,11 +387,11 @@ public class BusiProcessUI extends JPanel {
                         }
                         java.sql.Date beginDate = new java.sql.Date(beginTime.getTime());
                         java.sql.Date endDate = new java.sql.Date(endTime.getTime());
-                        List<PaymentPO> paymentPOList = businessProcessbl.findPaymentForTime(beginDate,endDate);
-                        List<ReceiptPO> receiptPOList = businessProcessbl.findReceiptForTime(beginDate,endDate);
-                        List<CashPO> cashPOList = businessProcessbl.findCashForTime(beginDate,endDate);
-                        //refreshStock(paymentPOList,receiptPOList,cashPOList);
-                    } {
+                        List<? extends StockPO> stockPOList1 = businessProcessbl.findGiftForTime(beginDate,endDate);
+                        List<? extends StockPO> stockPOList2 = businessProcessbl.findLossForTime(beginDate,endDate);
+                        List<? extends StockPO> stockPOList3 = businessProcessbl.findOverflowForTime(beginDate,endDate);
+                        refreshStock(stockPOList1,stockPOList2,stockPOList3);
+                    } else {
                         JOptionPane.showMessageDialog(null, "未输入查询条件", "错误信息",JOptionPane.ERROR_MESSAGE);
                     }
                 }
@@ -327,68 +401,285 @@ public class BusiProcessUI extends JPanel {
         };
         bt_search.addActionListener(btSearch_ls);
 
+        //红冲按钮事件
+        ActionListener btRed_ls=new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                // TODO Auto-generated method stub
+                Object value1 = jl_list1.getSelectedValue();
+                Object value2 = jl_list2.getSelectedValue();
+                Object value3 = jl_list3.getSelectedValue();
+                String str = "";
+                String type = "";
+                boolean hasSelected = false;
+                if (value1 != null) {
+                    str = value1.toString();
+                    type = "payment";
+                    hasSelected = true;
+                }else if (value2 != null) {
+                    str = value2.toString();
+                    type = "receipt";
+                    hasSelected = true;
+                }else if (value3 != null) {
+                    str = value3.toString();
+                    type = "cash";
+                    hasSelected = true;
+                }
+                String[] tmp = str.split(",");
+                if (hasSelected){
+                    Object[] options = {" 确定 "," 取消 "};
+                    int response=JOptionPane.showOptionDialog(null, "确认对此单据进行红冲操作？", "提示信息",JOptionPane.YES_OPTION,
+                            JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                    if(response==0) {
+                        if (type.equals("payment")){
+                            PaymentBL paymentBL = new PaymentBL();
+                            String id = paymentBL.newId();
+                            String client = tmp[1];
+                            String operator = tmp[2];
+                            String account = tmp[3];
+                            String amount = tmp[4];
+                            String remark = "红冲单据";
+                            Date date = new Date(System.currentTimeMillis());
+                            double amountNum = -Double.parseDouble(amount);
+                            paymentBL.newPayment(id,client,operator,account,amountNum,remark,amountNum,date);
+                        }else if (type.equals("receipt")){
+                            ReceiptBL receiptBL = new ReceiptBL();
+                            String id = receiptBL.newId();
+                            String client = tmp[1];
+                            String operator = tmp[2];
+                            String account = tmp[3];
+                            String amount = tmp[4];
+                            String remark = "红冲单据";
+                            Date date = new Date(System.currentTimeMillis());
+                            double amountNum = -Double.parseDouble(amount);
+                            receiptBL.newReceipt(id,client,operator,account,amountNum,remark,amountNum,date);
+                        }else if (type.equals("cash")){
+                            CashBL cashBL = new CashBL();
+                            String id = cashBL.newId();
+                            String operator = tmp[1];
+                            String account = tmp[2];
+                            String name = tmp[3];
+                            String amount = tmp[4];
+                            String remark = "红冲单据";
+                            Date date = new Date(System.currentTimeMillis());
+                            double amountNum = -Double.parseDouble(amount);
+                            cashBL.newCash(id,operator,account,name,amountNum,remark,amountNum,date);
+                        }
+
+                    } else if(response==1) {
+                        System.out.println(" 您按下了取消按钮  ");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "请选择一张单据再进行操作！", "错误信息",JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
+        };
+        bt_red.addActionListener(btRed_ls);
+
+        //红冲按钮事件
+        ActionListener btRedCopy_ls=new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                // TODO Auto-generated method stub
+                Object value1 = jl_list1.getSelectedValue();
+                Object value2 = jl_list2.getSelectedValue();
+                Object value3 = jl_list3.getSelectedValue();
+                String str = "";
+                String type = "";
+                boolean hasSelected = false;
+                if (value1 != null) {
+                    str = value1.toString();
+                    type = "payment";
+                    hasSelected = true;
+                }else if (value2 != null) {
+                    str = value2.toString();
+                    type = "receipt";
+                    hasSelected = true;
+                }else if (value3 != null) {
+                    str = value3.toString();
+                    type = "cash";
+                    hasSelected = true;
+                }
+                String[] tmp = str.split(",");
+                if (hasSelected){
+                    Object[] options = {" 确定 "," 取消 "};
+                    int response=JOptionPane.showOptionDialog(null, "确认对此单据进行红冲复制操作？", "提示信息",JOptionPane.YES_OPTION,
+                            JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                    if(response==0) {
+                        if (type.equals("payment")){
+                            String client = tmp[1];
+                            String operator = tmp[2];
+                            String account = tmp[3];
+                            String amount = tmp[4];
+                            RedPaymentUI redPaymentUI = new RedPaymentUI(operator,client,account,amount);
+                        }else if (type.equals("receipt")){
+                            String client = tmp[1];
+                            String operator = tmp[2];
+                            String account = tmp[3];
+                            String amount = tmp[4];
+                            RedReceiptUI redReceiptUI = new RedReceiptUI(operator,client,account,amount);
+                        }else if (type.equals("cash")){
+                            String operator = tmp[1];
+                            String account = tmp[2];
+                            String name = tmp[3];
+                            String amount = tmp[4];
+                            RedCashUI redCashUI = new RedCashUI(operator,account,name,amount);
+                        }
+
+                    } else if(response==1) {
+                        System.out.println(" 您按下了取消按钮  ");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "请选择一张单据再进行操作！", "错误信息",JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
+        };
+        bt_redCopy.addActionListener(btRedCopy_ls);
+
     }
 
     public void refreshSale(List<SaleFormPO> SaleFormPOList) {
         DefaultListModel<SaleFormPO> model = new DefaultListModel<>();
-//        if (SaleFormPOList.size() == 0){
-//            JOptionPane.showMessageDialog(null, "无查询结果", "提示信息", JOptionPane.INFORMATION_MESSAGE);
-//        }
-//        for(int i = 0; i < SaleFormPOList.size(); i++)
-//        {
-//            SaleFormPO user = SaleFormPOList.get(i);
-//            model.addElement(user);
-//
-//        }
+        if (SaleFormPOList.size() == 0){
+            JOptionPane.showMessageDialog(null, "无查询结果", "提示信息", JOptionPane.INFORMATION_MESSAGE);
+        }
+        for(int i = 0; i < SaleFormPOList.size(); i++) {
+            SaleFormPO sale = SaleFormPOList.get(i);
+            model.addElement(sale);
+
+        }
         jt_begintime.setText("");
         jt_endtime.setText("");
-        jl_accountlist.setModel(model);
+        jl_list.setModel(model);
+        jl_list.setCellRenderer(new SaleRender());
+        jsp_list.setVisible(true);
+        jsp_list1.setVisible(false);
+        jsp_list2.setVisible(false);
+        jsp_list3.setVisible(false);
     }
     public void refreshImport(List<ImportFormPO> ImportFormPOList) {
-        DefaultListModel<SaleFormPO> model = new DefaultListModel<>();
-//        if (ImportFormPOList.size() == 0){
-//            JOptionPane.showMessageDialog(null, "无查询结果", "提示信息", JOptionPane.INFORMATION_MESSAGE);
-//        }
-//        for(int i = 0; i < ImportFormPOList.size(); i++)
-//        {
-//            SaleFormPO user = ImportFormPOList.get(i);
-//            model.addElement(user);
-//
-//        }
+        DefaultListModel<ImportFormPO> model = new DefaultListModel<>();
+        if (ImportFormPOList.size() == 0){
+            JOptionPane.showMessageDialog(null, "无查询结果", "提示信息", JOptionPane.INFORMATION_MESSAGE);
+        }
+        for(int i = 0; i < ImportFormPOList.size(); i++) {
+            ImportFormPO importForm = ImportFormPOList.get(i);
+            model.addElement(importForm);
+
+        }
         jt_begintime.setText("");
         jt_endtime.setText("");
-        jl_accountlist.setModel(model);
+        jl_list.setModel(model);
+        jl_list.setCellRenderer(new ImportRender());
+        jsp_list.setVisible(true);
+        jsp_list1.setVisible(false);
+        jsp_list2.setVisible(false);
+        jsp_list3.setVisible(false);
     }
 
     public void refreshFinance1(List<PaymentPO> paymentPOList, List<ReceiptPO> receiptPOList, List<CashPO> cashPOList) {
-        DefaultListModel<SaleFormPO> model = new DefaultListModel<>();
-//        if (ImportFormPOList.size() == 0){
-//            JOptionPane.showMessageDialog(null, "无查询结果", "提示信息", JOptionPane.INFORMATION_MESSAGE);
-//        }
-//        for(int i = 0; i < ImportFormPOList.size(); i++)
-//        {
-//            SaleFormPO user = ImportFormPOList.get(i);
-//            model.addElement(user);
-//
-//        }
+        DefaultListModel<PaymentPO> model1 = new DefaultListModel<>();
+        DefaultListModel<ReceiptPO> model2 = new DefaultListModel<>();
+        DefaultListModel<CashPO> model3 = new DefaultListModel<>();
+        if (paymentPOList.size() == 0 && receiptPOList.size() == 0 && cashPOList.size() == 0){
+            JOptionPane.showMessageDialog(null, "无查询结果", "提示信息", JOptionPane.INFORMATION_MESSAGE);
+        }
+        for(int i = 0; i < paymentPOList.size(); i++) {
+            PaymentPO paymentPO = paymentPOList.get(i);
+            if (paymentPO.getState().equals("yes")){
+                model1.addElement(paymentPO);
+            }
+
+        }
+        for(int i = 0; i < receiptPOList.size(); i++) {
+            ReceiptPO receiptPO = receiptPOList.get(i);
+            if (receiptPO.getState().equals("yes")) {
+                model2.addElement(receiptPO);
+            }
+        }
+        for(int i = 0; i < cashPOList.size(); i++) {
+            CashPO cashPO = cashPOList.get(i);
+            model3.addElement(cashPO);
+
+        }
         jt_begintime.setText("");
         jt_endtime.setText("");
-        jl_accountlist.setModel(model);
+        jl_list1.setModel(model1);
+        jl_list1.setCellRenderer(new PaymentRender());
+        jl_list2.setModel(model2);
+        jl_list2.setCellRenderer(new ReceiptRender());
+        jl_list3.setModel(model3);
+        jl_list3.setCellRenderer(new CashRender());
+        jsp_list.setVisible(false);
+        jsp_list1.setVisible(true);
+        jsp_list2.setVisible(true);
+        jsp_list3.setVisible(true);
     }
 
     public void refreshFinance2(List<PaymentPO> paymentPOList, List<ReceiptPO> receiptPOList) {
-        DefaultListModel<SaleFormPO> model = new DefaultListModel<>();
-//        if (ImportFormPOList.size() == 0){
-//            JOptionPane.showMessageDialog(null, "无查询结果", "提示信息", JOptionPane.INFORMATION_MESSAGE);
-//        }
-//        for(int i = 0; i < ImportFormPOList.size(); i++)
-//        {
-//            SaleFormPO user = ImportFormPOList.get(i);
-//            model.addElement(user);
-//
-//        }
+        DefaultListModel<PaymentPO> model1 = new DefaultListModel<>();
+        DefaultListModel<ReceiptPO> model2 = new DefaultListModel<>();
+        DefaultListModel<CashPO> model3 = new DefaultListModel<>();
+        if (paymentPOList.size() == 0 && receiptPOList.size() == 0){
+            JOptionPane.showMessageDialog(null, "无查询结果", "提示信息", JOptionPane.INFORMATION_MESSAGE);
+        }
+        for(int i = 0; i < paymentPOList.size(); i++) {
+            PaymentPO paymentPO = paymentPOList.get(i);
+            if (paymentPO.getState().equals("yes")){
+                model1.addElement(paymentPO);
+            }
+
+        }
+        for(int i = 0; i < receiptPOList.size(); i++) {
+            ReceiptPO receiptPO = receiptPOList.get(i);
+            if (receiptPO.getState().equals("yes")) {
+                model2.addElement(receiptPO);
+            }
+
+        }
+
         jt_begintime.setText("");
         jt_endtime.setText("");
-        jl_accountlist.setModel(model);
+        jl_list1.setModel(model1);
+        jl_list1.setCellRenderer(new PaymentRender());
+        jl_list2.setModel(model2);
+        jl_list2.setCellRenderer(new ReceiptRender());
+        jsp_list.setVisible(false);
+        jsp_list1.setVisible(true);
+        jsp_list2.setVisible(true);
+        jsp_list3.setVisible(false);
+    }
+
+    public void refreshStock(List<? extends StockPO> stockPOList1, List<? extends StockPO> stockPOList2, List<? extends StockPO> stockPOList3) {
+        DefaultListModel<StockPO> model = new DefaultListModel<>();
+        if (stockPOList1.size() == 0 && stockPOList2.size() == 0 && stockPOList3.size() == 0){
+            JOptionPane.showMessageDialog(null, "无查询结果", "提示信息", JOptionPane.INFORMATION_MESSAGE);
+        }
+        for(int i = 0; i < stockPOList1.size(); i++) {
+            StockPO stock = stockPOList1.get(i);
+            model.addElement(stock);
+
+        }
+        for(int i = 0; i < stockPOList2.size(); i++) {
+            StockPO stock = stockPOList2.get(i);
+            model.addElement(stock);
+
+        }
+        for(int i = 0; i < stockPOList3.size(); i++) {
+            StockPO stock = stockPOList3.get(i);
+            model.addElement(stock);
+
+        }
+
+        jt_begintime.setText("");
+        jt_endtime.setText("");
+        jl_list.setModel(model);
+        jl_list.setCellRenderer(new StockRender());
+        jsp_list.setVisible(true);
+        jsp_list1.setVisible(false);
+        jsp_list2.setVisible(false);
+        jsp_list3.setVisible(false);
     }
 }

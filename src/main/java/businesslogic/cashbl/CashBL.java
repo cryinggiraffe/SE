@@ -1,8 +1,10 @@
 package businesslogic.cashbl;
 
 import DataService.DataServiceImpl.CashDataServiceImpl;
+import PO.AccountPO;
 import PO.CashPO;
 import blService.CashBLService;
+import businesslogic.accountbl.AccountBL;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -16,6 +18,11 @@ public class CashBL implements CashBLService {
     public void newCash(String listid, String operator, String account, String name, double amount, String remark, double sum,
                         Date date) {
         CashPO po=new CashPO(listid,operator,account,name,amount,remark,sum,date);
+        AccountBL accountBL = new AccountBL();
+        AccountPO accountpo = accountBL.findAccount(account);
+        double balance = accountpo.getBalance();
+        balance = balance - amount;
+        accountBL.updateAccount(account,balance);
         rds.insert(po);
     }
 

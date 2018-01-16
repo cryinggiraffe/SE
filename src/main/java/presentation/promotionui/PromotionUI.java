@@ -5,8 +5,7 @@ import businesslogic.promotionbl.PromotionBL;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class PromotionUI extends JPanel {
     private static JButton bt_refresh;
@@ -74,6 +73,18 @@ public class PromotionUI extends JPanel {
         this.add(jl_type);
         this.add(jc_type);
         this.setVisible(true);
+
+        //双击取消选中状态
+        MouseListener mouseListener = new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int index = jl_promotionlist.locationToIndex(e.getPoint());
+                    //System.out.println("Double clicked on Item " + index);
+                    jl_promotionlist.clearSelection();
+                }
+            }
+        };
+        jl_promotionlist.addMouseListener(mouseListener);
 
         //刷新按钮事件
         ActionListener btRefresh_ls=new ActionListener() {
