@@ -14,11 +14,12 @@ public class FindClient {
         JPanel fpanel = new JPanel();
         fframe.add(fpanel);
         fpanel.setBackground(Color.pink);
-        fpanel.setLayout(new FlowLayout());
+        fpanel.setLayout(null);
         JTextField textField = new JTextField("请您输入客户编号");
-        textField.setColumns(20);
+        textField.setBounds(200,200,200,30);
         textField.setEditable(true);
         JButton search = new JButton("查找");
+        search.setBounds(450,200,100,30);
         fpanel.add(textField);
         fpanel.add(search);
 
@@ -35,9 +36,9 @@ public class FindClient {
                     JFrame info_f = new JFrame("客户信息");
                     JPanel info_p = new JPanel();
                     info_f.add(info_p);
-                    info_f.setBounds(100, 100, 400, 600);
+                    info_f.setBounds(600,250,400,400);
                     info_f.setVisible(true);
-                    info_p.setBackground(Color.pink);
+                    info_p.setBackground(Color.orange);
                     info_p.setLayout(new FlowLayout());
 
                     JLabel l0 = new JLabel("客户编号:");
@@ -45,7 +46,7 @@ public class FindClient {
                     JLabel l1 = new JLabel("客户分类:");
                     JTextField t1 = new JTextField(client.getType());
                     JLabel l2 = new JLabel("级别：");
-                    JTextField t2 = new JTextField(client.getRank());
+                    JTextField t2 = new JTextField(String.valueOf(client.getRank()));
                     JLabel l3 = new JLabel("姓名");
                     JTextField t3 = new JTextField(client.getName());
                     JLabel l4 = new JLabel("电话");

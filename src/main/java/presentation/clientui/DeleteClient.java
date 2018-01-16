@@ -12,11 +12,15 @@ public class DeleteClient {
         JFrame dframe = new JFrame("删除客户");
         JPanel dpanel = new JPanel();
         dframe.add(dpanel);
-        dpanel.setLayout(new FlowLayout());
+        dpanel.setBackground(Color.orange);
+        dpanel.setLayout(null);
         JTextField textField = new JTextField("请您输入客户编号");
+
+        textField.setBounds(200,100,200,30);
         textField.setColumns(20);
         textField.setEditable(true);
-        JButton find = new JButton("查找");
+        JButton find = new JButton("删除");
+        find.setBounds(420,100,70,30);
         dpanel.add(textField);
         dpanel.add(find);
 
@@ -26,15 +30,15 @@ public class DeleteClient {
                 dframe.setVisible(false);
                 String text = textField.getText();
                 ClientBL clientBL = new ClientBL();
-                boolean find_or_not = clientBL.deleteClient(text);
-                if (find_or_not == false)
-                    JOptionPane.showMessageDialog(null, "没有匹配的客户！", "错误消息", JOptionPane.WARNING_MESSAGE);
-                else
-                    JOptionPane.showMessageDialog(null, "删除成功！", "删除结果", JOptionPane.WARNING_MESSAGE);
+                clientBL.deleteClient(text);
             }
         });
         dframe.setVisible(true);
-        dframe.setBounds(550,250,800,600);
+        dframe.setBounds(550, 250, 800, 600);
 
+    }
+
+    public static void main(String[] args) {
+        new DeleteClient().deleteClient_init();
     }
 }

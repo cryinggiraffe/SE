@@ -22,7 +22,15 @@ public class Mytable {
         vName.add("金额");
         vName.add("备注");
 
-        DefaultTableModel model = new DefaultTableModel(vData, vName);
+        DefaultTableModel model = new DefaultTableModel(vData, vName) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                if (column == 3 || column == 6)
+                    return true;
+                else
+                    return false;
+            }
+        };
         jTable1.setModel(model);
         return model;
     }

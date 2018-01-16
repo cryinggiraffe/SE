@@ -1,9 +1,5 @@
 package presentation.clientui;
 
-import PO.ClientPO;
-import businesslogic.clientbl.ClientBL;
-import presentation.saleui.Sale;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

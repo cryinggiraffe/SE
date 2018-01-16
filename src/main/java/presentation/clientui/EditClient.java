@@ -14,11 +14,13 @@ public class EditClient {
         JPanel fpanel = new JPanel();
         fframe.add(fpanel);
         fpanel.setBackground(Color.pink);
-        fpanel.setLayout(new FlowLayout());
-        JTextField textField = new JTextField("请您输入客户编号");
+        fpanel.setLayout(null);
+        JTextField textField = new JTextField("请您输入要修改信息的客户编号");
+        textField.setBounds(200, 200, 200, 30);
         textField.setColumns(20);
         textField.setEditable(true);
         JButton search = new JButton("查找");
+        search.setBounds(420, 200, 100, 30);
         fpanel.add(textField);
         fpanel.add(search);
 
@@ -35,9 +37,9 @@ public class EditClient {
                     JFrame info_f = new JFrame("客户信息");
                     JPanel info_p = new JPanel();
                     info_f.add(info_p);
-                    info_f.setBounds(100, 100, 400, 600);
+                    info_f.setBounds(600, 250, 600, 600);
                     info_f.setVisible(true);
-                    info_p.setBackground(Color.pink);
+                    info_p.setBackground(Color.orange);
                     info_p.setLayout(new FlowLayout());
 
                     JLabel l0 = new JLabel("客户编号:");
@@ -45,7 +47,7 @@ public class EditClient {
                     JLabel l1 = new JLabel("客户分类:");
                     JTextField t1 = new JTextField(client.getType());
                     JLabel l2 = new JLabel("级别：");
-                    JTextField t2 = new JTextField(client.getRank());
+                    JTextField t2 = new JTextField(String.valueOf(client.getRank()));
                     JLabel l3 = new JLabel("姓名");
                     JTextField t3 = new JTextField(client.getName());
                     JLabel l4 = new JLabel("电话");
@@ -75,8 +77,11 @@ public class EditClient {
                     t6.setColumns(10);
                     t7.setColumns(10);
                     t8.setColumns(10);
+                    t8.setEditable(false);
                     t9.setColumns(10);
+                    t9.setEditable(false);
                     t10.setColumns(10);
+                    t10.setEditable(false);
                     t11.setColumns(10);
 
                     info_p.add(l0);
@@ -123,7 +128,11 @@ public class EditClient {
                                     JOptionPane.showMessageDialog(null, "级别格式错误！", "错误消息", JOptionPane.WARNING_MESSAGE);
                                     return;
                                 }
-                                String sname = t3.getText();
+                                if (rank2 < 1 || rank2 >= 6){
+                                    JOptionPane.showMessageDialog(null, "级别只能为1-5级！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                                    return;
+                                }
+                                    String sname = t3.getText();
                                 String stel = t4.getText();
                                 String saddress = t5.getText();
                                 String spostcode = t6.getText();
@@ -167,7 +176,7 @@ public class EditClient {
             }
         });
         fframe.setVisible(true);
-        fframe.setBounds(550,250,800,600);
+        fframe.setBounds(550, 250, 800, 600);
 
     }
 

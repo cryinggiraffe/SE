@@ -109,15 +109,34 @@ public class AddClient {
                     String spostcode = textField4.getText();
                     String semail = textField5.getText();
                     String sreceive = textField6.getText();
-                    Double receive_limit = Double.valueOf(sreceive);
+                    Double receive_limit = 0.0;
+                    Double receive_0 = 0.0;
+                    Double send = 0.0;
+                    try {
+                        receive_limit = Double.valueOf(sreceive);
+                    } catch (NumberFormatException exception1) {
+                        JOptionPane.showMessageDialog(null, "应收额度格式不正确！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
                     String sreceive2 = textField7.getText();
-                    Double receive_0 = Double.valueOf(sreceive2);
+                    try {
+                        receive_0 = Double.valueOf(sreceive2);
+                    } catch (NumberFormatException exception2) {
+                        JOptionPane.showMessageDialog(null, "应收格式不正确！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
                     String spay = textField8.getText();
-                    Double send = Double.valueOf(spay);
+                    try {
+                        send = Double.valueOf(spay);
+                    } catch (NumberFormatException exception3) {
+                        JOptionPane.showMessageDialog(null, "应付格式不正确！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
                     String defaultsalesman = textField9.getText();
 
                     ClientPO client = new ClientPO(clientId, type, rank2, sname, stel, saddress, spostcode, semail, receive_limit, receive_0, send, defaultsalesman);
                     new ClientBL().newClient(client);
+                    aframe.setVisible(false);
 
                 }
             }
@@ -126,6 +145,9 @@ public class AddClient {
 
         aframe.setVisible(true);
 
+    }
+    public static void main(String []args){
+        new AddClient().addClient_init();
     }
 
 

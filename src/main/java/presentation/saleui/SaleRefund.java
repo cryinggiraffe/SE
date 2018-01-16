@@ -1,7 +1,6 @@
 package presentation.saleui;
 
-
-public class Sale {
+public class SaleRefund {
     public void init(){
 
     }

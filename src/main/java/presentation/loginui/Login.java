@@ -4,7 +4,7 @@ import businesslogic.loginbl.LoginBL;
 import presentation.accountui.FinancialUI;
 import presentation.goodui.StockManagerUi;
 import presentation.promotionui.ManagerUI;
-import presentation.saleui.SalerUi;
+import presentation.saleui.SalemanUi;
 import presentation.userui.AdministratorUI;
 
 import java.awt.*;
@@ -102,7 +102,7 @@ public class Login extends JFrame{
                         FinancialUI financialUI = new FinancialUI(user);
                         jf_1.dispose();//销毁当前界面
                     } else if (type.equals("sale")) {
-                        SalerUi salerUi = new SalerUi();
+                        SalemanUi salerUi = new SalemanUi();
                         salerUi.init();
                         jf_1.dispose();//销毁当前界面
                     } else if (type.equals("stock")) {
