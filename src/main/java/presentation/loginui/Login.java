@@ -56,12 +56,12 @@ public class Login extends JFrame{
         bt2.setFont(font);
 
         //加入文本框
-        jtext1=new JTextField("00001");
+        jtext1=new JTextField("");
         jtext1.setBounds(580, 250, 250, 50);
         jtext1.setFont(font);
 
 
-        jtext2=new JPasswordField("123456");//密码输入框
+        jtext2=new JPasswordField("");//密码输入框
         jtext2.setEchoChar('*');
         jtext2.setBounds(580, 320, 250, 50);
         jtext2.setFont(font);
