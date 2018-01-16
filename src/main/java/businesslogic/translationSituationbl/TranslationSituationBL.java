@@ -10,8 +10,7 @@ import businesslogic.saleSituationbl.SaleSituationBL;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 public class TranslationSituationBL implements TranslationSituationBLService {
 
@@ -171,6 +170,20 @@ public class TranslationSituationBL implements TranslationSituationBLService {
         java.sql.Date begint=new java.sql.Date(begin.getTime());
         java.sql.Date endt=new java.sql.Date(end.getTime());
         return eds.findForTime(begint,endt);
+    }
+
+    public List<ProfitPO> getProfit() {
+        List<IncomePO> incomePOS = ids.findAll();
+        List<ExpenditurePO> expenditurePOS = eds.findAll();
+        List<ProfitPO> profits = new ArrayList<ProfitPO>();
+        double profit;
+        for (int i=0;i<incomePOS.size();i++){
+            profit = incomePOS.get(i).getSumincome() - expenditurePOS.get(i).getSumexpenditure();
+            ProfitPO po = new ProfitPO(incomePOS.get(i).getDate(),profit);
+            profits.add(po);
+        }
+        return profits;
+
     }
     public List<ExpenditurePO> findAllExpenditure(){
         return eds.findAll();

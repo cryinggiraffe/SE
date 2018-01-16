@@ -2,6 +2,7 @@ package presentation.translationSituationui;
 
 import PO.ExpenditurePO;
 import PO.IncomePO;
+import PO.ProfitPO;
 import businesslogic.translationSituationbl.TranslationSituationBL;
 
 import javax.swing.*;
@@ -9,12 +10,15 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.List;
 
 public class TransSituationUI extends JPanel {
     private static JList jl_list;
     private static JList jl_list1;
+    private static JList jl_list2;
     private static JScrollPane jsp_list;
     private static JScrollPane jsp_list1;
+    private static JScrollPane jsp_list2;
     private static JLabel jl_sum;
     private static JLabel jl_income;
     private static JLabel jl_expenditure;
@@ -36,22 +40,26 @@ public class TransSituationUI extends JPanel {
         jl_list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jl_list1.setFont(font);
 
+        jl_list2 = new JList();
+        jl_list2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jl_list2.setFont(font);
+
         jl_income = new JLabel("收入：");
         jl_income.setBounds(50,30,600,50);
         jl_income.setFont(font1);
 
         jl_expenditure = new JLabel("支出：");
-        jl_expenditure.setBounds(50,320,600,50);
+        jl_expenditure.setBounds(50,245,600,50);
         jl_expenditure.setFont(font1);
 
-        jl_sum = new JLabel();
-        jl_sum.setBounds(50,610,600,50);
+        jl_sum = new JLabel("利润");
+        jl_sum.setBounds(50,460,600,50);
         jl_sum.setFont(font1);
 
         //显示所有收入列表
         DefaultListModel<IncomePO> model = new DefaultListModel<>();
         TranslationSituationBL transSituationBL = new TranslationSituationBL();
-        //transSituationBL.newIncome();
+        transSituationBL.newIncome();
         java.util.List<IncomePO> incomePOList = transSituationBL.findAllIncome();
         System.out.println(incomePOList.size());
         for(int i = 0; i < incomePOList.size(); i++)
@@ -66,12 +74,12 @@ public class TransSituationUI extends JPanel {
         jl_list.setCellRenderer(new IncomRender());
         jl_list.setFont(font);
         jsp_list = new JScrollPane(jl_list);
-        jsp_list.setBounds(50,85,800,230);
+        jsp_list.setBounds(50,85,800,155);
         jsp_list.setBackground(background_table);
 
         //显示所有支出列表
         DefaultListModel<ExpenditurePO> model1 = new DefaultListModel<>();
-        //transSituationBL.newExpenditure();
+        transSituationBL.newExpenditure();
         java.util.List<ExpenditurePO> expenditurePOList = transSituationBL.findAllExpenditure();
         System.out.println(expenditurePOList.size());
         for(int i = 0; i < expenditurePOList.size(); i++)
@@ -86,10 +94,23 @@ public class TransSituationUI extends JPanel {
         jl_list1.setCellRenderer(new ExpenditureRender());
         jl_list1.setFont(font);
         jsp_list1 = new JScrollPane(jl_list1);
-        jsp_list1.setBounds(50,375,800,230);
+        jsp_list1.setBounds(50,300,800,155);
         jsp_list1.setBackground(background_table);
-        double profit = incomePOList.get(0).getSumincome() - expenditurePOList.get(0).getSumexpenditure();
-        jl_sum.setText("利润：" + profit + "元");
+
+        DefaultListModel<ProfitPO> model2 = new DefaultListModel<>();
+        List<ProfitPO> profits = transSituationBL.getProfit();
+        System.out.println(profits.size());
+        for (int i=0;i<profits.size();i++){
+            model2.addElement(profits.get(i));
+            System.out.println(profits.toString());
+        }
+        jl_list2 = new JList(model2);
+        jl_list2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jl_list2.setCellRenderer(new ProfitRender());
+        jl_list2.setFont(font);
+        jsp_list2 = new JScrollPane(jl_list2);
+        jsp_list2.setBounds(50,512,800,145);
+        jsp_list2.setBackground(background_table);
 
         this.setBounds(0,30,Width,Height-30);
         this.setLayout(null);
@@ -97,6 +118,7 @@ public class TransSituationUI extends JPanel {
 
         this.add(jsp_list);
         this.add(jsp_list1);
+        this.add(jsp_list2);
         this.add(jl_sum);
         this.add(jl_income);
         this.add(jl_expenditure);
