@@ -1,5 +1,5 @@
 package businesslogic.translationSituationbl;
-import DataService.DataServiceImpl.BusinessProcessDataServiceImpl;
+
 import DataService.DataServiceImpl. ExpenditureDataServiceImpl;
 import PO.ExpenditurePO;
 import blService.TranslationSituationBLService;
@@ -8,7 +8,7 @@ import java.sql.Date;
 import java.util.List;
 
 public class TranslationSituationBL implements TranslationSituationBLService {
-    private BusinessProcessDataServiceImpl bpds=new BusinessProcessDataServiceImpl();
+
     private ExpenditureDataServiceImpl eds=new ExpenditureDataServiceImpl();
     public void newExpenditure(double salecost, double commoditylostexpenditure, double giftexpenditure,
                                double sumexpenditure, java.util.Date date){
