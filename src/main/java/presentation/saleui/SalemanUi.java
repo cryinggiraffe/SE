@@ -1,6 +1,7 @@
 package presentation.saleui;
 
 import presentation.clientui.Client;
+import presentation.importui.Export;
 import presentation.importui.Import;
 
 import javax.swing.*;
@@ -17,11 +18,15 @@ public class SalemanUi {
         p.setLayout(null);
         JButton client = new JButton("客户管理");
         JButton importCommody = new JButton("制定进货单");
+        JButton exportCommody = new JButton("制定进货退货单");
         JButton sale = new JButton("制定销售单");
+        JButton sale_refund = new JButton("制定销售退货单");
 
-        client.setBounds(120, 200, 100, 30);
-        importCommody.setBounds(340, 200, 100, 30);
-        sale.setBounds(580, 200, 100, 30);
+        client.setBounds(100, 200, 90, 30);
+        importCommody.setBounds(210, 200, 100, 30);
+        exportCommody.setBounds(330, 200, 130, 30);
+        sale.setBounds(480, 200, 100, 30);
+        sale_refund.setBounds(600, 200, 130, 30);
 
         client.addActionListener(new ActionListener() {
             @Override
@@ -37,6 +42,13 @@ public class SalemanUi {
             }
         });
 
+        exportCommody.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Export().init();
+            }
+        });
+
         sale.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -44,11 +56,19 @@ public class SalemanUi {
             }
         });
 
+        sale_refund.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new SaleRefund().init();
+            }
+        });
         p.add(client);
         p.add(importCommody);
         p.add(sale);
+        p.add(sale_refund);
+        p.add(exportCommody);
 
-        f.setBounds(550,250,800,600);
+        f.setBounds(550, 250, 800, 600);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
 
