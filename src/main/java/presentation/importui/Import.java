@@ -66,7 +66,7 @@ public class Import {
         }
         JButton addRow = new JButton("添加入库商品");
         ipanel.add(addRow);
-        JLabel hint = new JLabel("(表中的数量和备注请您修改！)");
+        JLabel hint = new JLabel("(提示：表中的数量、单价和备注可以修改。！)");
         ipanel.add(hint);
         addRow.addActionListener(new ActionListener() {
             @Override

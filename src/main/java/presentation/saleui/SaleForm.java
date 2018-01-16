@@ -47,12 +47,14 @@ public class SaleForm {
 
         ipanel.add(lid);
         ipanel.add(tid);
+        ipanel.add(lclient);
+        ipanel.add(tclient);
         ipanel.add(lprovider);
         ipanel.add(tprovider);
-        ipanel.add(lhouseware);
-        ipanel.add(thouseware);
         ipanel.add(loperator);
         ipanel.add(toperator);
+        ipanel.add(lhouseware);
+        ipanel.add(thouseware);
 
 
         JTable table = new JTable();
@@ -69,7 +71,7 @@ public class SaleForm {
         }
         JButton addRow = new JButton("添加出货商品");
         ipanel.add(addRow);
-        JLabel hint = new JLabel("(表中的数量和备注请您修改！)");
+        JLabel hint = new JLabel("(提示：表中的数量、单价和备注可以修改。)");
         ipanel.add(hint);
         addRow.addActionListener(new ActionListener() {
             @Override
@@ -88,7 +90,7 @@ public class SaleForm {
                     JOptionPane.showMessageDialog(null, "没有该商品的历史记录！", "错误消息", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
-
+//
                 GoodPO good = selected_goodList.get(0);
 //                商品编号，名称（从商品选择界面进行选择），型号，数量（手动输入），单价（默认为商品信息中的进价），金额，备注（手动输入）。
                 Vector vRow = new Vector();
@@ -112,6 +114,7 @@ public class SaleForm {
         JLabel lbeforeSum = new JLabel("折让前总额");
         JTextField tbeforeSum = new JTextField();
         tbeforeSum.setColumns(12);
+        tbeforeSum.setEditable(false);
         JLabel ldiscount = new JLabel("折让");
         JTextField tdiscount = new JTextField();
         tdiscount.setColumns(10);
@@ -121,6 +124,7 @@ public class SaleForm {
         JLabel lafterSum = new JLabel("折让后总额");
         JTextField tafterSum = new JTextField();
         tafterSum.setColumns(10);
+        tafterSum.setEditable(false);
         JLabel lremark = new JLabel("备注");
         JTextArea tremark = new JTextArea();
         tremark.setColumns(20);
@@ -138,6 +142,7 @@ public class SaleForm {
         ipanel.add(tremark);
 
         JButton submit = new JButton("提交");
+
         submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -148,7 +153,6 @@ public class SaleForm {
                 String provider = tprovider.getText();
                 String houseware = thouseware.getText();
                 String operator = toperator.getText();
-                String remark = tremark.getText();
                 double sum = 0.0;
 
                 java.util.List<Commodity> commidyList = new ArrayList<>();
@@ -177,7 +181,13 @@ public class SaleForm {
                         JOptionPane.showMessageDialog(null, s, "错误消息", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
-                    cpirce = Double.valueOf(table.getValueAt(i, 4).toString());
+                    try {
+                        cpirce = Double.valueOf(table.getValueAt(i, 4).toString());
+                    } catch (NumberFormatException ee) {
+                        String s = "第" + (i + 1) + "行单价格式不正确！";
+                        JOptionPane.showMessageDialog(null, s, "错误消息", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
                     csubtotalprice = cquantity * cpirce;
                     sum = sum + csubtotalprice;
                     if (table.getValueAt(i, 6) == null)
@@ -188,28 +198,32 @@ public class SaleForm {
                     Commodity commodity = new Commodity(cgoodid, cname, cversion, cquantity, cpirce, csubtotalprice, cremark);
                     System.out.println(cgoodid + " " + cname + " " + cversion + " " + cquantity + " " + cpirce + " " + csubtotalprice + " " + cremark);
                 }
-                System.out.println(sum);
-                iframe.setVisible(false);
-//                public String newForm(String formtype, String client, String operator, String salesman, String houseware,
-//                double tpbfDiscounting, double tpafDiscounting, double discount,
-//                double voucher, String remark, java.util.Date date,List<Commodity> list)
 
-//                JTextField tbeforeSum = new JTextField();
-//                tbeforeSum.setColumns(12);
-//                JLabel ldiscount = new JLabel("折让");
-//                JTextField tdiscount = new JTextField();
-//                tdiscount.setColumns(10);
-//                JLabel lvoucher = new JLabel("使用代金券金额");
-//                JTextField tvoucher = new JTextField();
-//                tvoucher.setColumns(10);
-//                JLabel lafterSum = new JLabel("折让后总额");
-//                JTextField tafterSum = new JTextField();
-//                tafterSum.setColumns(10);
-//                JLabel lremark = new JLabel("备注");
-//                JTextArea tremark = new JTextArea();
-//                tremark.setColumns(20);
-//                tremark.setRows(5);
-//                new SaleBL().newForm("XSD",)
+                Double tpbfDiscounting = sum;
+
+                Double discount = 0.0;
+                try {
+                    discount = Double.valueOf(tdiscount.getText().toString());
+                } catch (NumberFormatException ee) {
+                    JOptionPane.showMessageDialog(null, "折让格式有误！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                Double voucher = 0.0;
+                try {
+                    voucher = Double.valueOf(tvoucher.getText().toString());
+                } catch (NumberFormatException ee) {
+                    JOptionPane.showMessageDialog(null, "代金券金额格式有误！", "错误消息", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                Double tpafDiscounting = tpbfDiscounting - voucher - discount;
+                if (tpafDiscounting < 0) {
+                    tpafDiscounting = 0.0;
+                }
+                String remark = tremark.getText();
+                System.out.println(tpafDiscounting);
+
+                new SaleBL().newForm("XSD", client, operator, provider, houseware, tpbfDiscounting, tpafDiscounting, discount, voucher, remark, date, commidyList);
+                iframe.setVisible(false);
             }
         });
         ipanel.add(submit);
