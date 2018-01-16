@@ -130,14 +130,22 @@ public class GoodBL {
         }
 
     }
-
+    public List<GoodPO> findAll(){
+        return gds.list();
+    }
     public String generateId(){
         Random r=new Random();
 
         return String.valueOf(r.nextInt(999999999));
     }
     public static void main(String[] agrs){
-        GoodBL b=new GoodBL();
-        System.out.println(b.generateId());
+        GoodPO po=new GoodPO();
+        po.setGoodid("12345");
+        po.setName("牛奶");
+        GoodDataServiceImpl gds=new GoodDataServiceImpl();
+        //gds.insert(po);
+        GoodBL gbl=new GoodBL();
+        //System.out.println(gbl.findGoodById("1234"));
+        System.out.println(gbl.findGoodByName("牛奶"));
     }
 }
