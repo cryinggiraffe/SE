@@ -1,6 +1,7 @@
-package presentation.importui;
+package presentation.saleui;
 
 import presentation.clientui.Client;
+import presentation.importui.Import;
 
 import javax.swing.*;
 import java.awt.*;
