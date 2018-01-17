@@ -115,11 +115,16 @@ public class View {
 
                 }
 
+                JTextField tmakeExcel = new JTextField("请输入文件路径");
+                tmakeExcel.setColumns(20);
+                cpanel.add(tmakeExcel);
+
                 JButton makeExcelButton = new JButton("导出Excel");
                 cpanel.add(makeExcelButton);
                 makeExcelButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
+                        String path = tmakeExcel.getText();
                         new GoodBL().makeExcel(null);
 //                        JOptionPane.showMessageDialog(null,"导出成功！","导出信息",JOptionPane.WARNING_MESSAGE);
                     }

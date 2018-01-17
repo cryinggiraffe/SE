@@ -74,6 +74,8 @@ public class SaleForm {
         ipanel.add(addRow);
         JLabel hint = new JLabel("(提示：表中的数量、单价和备注可以修改。)");
         ipanel.add(hint);
+
+
         addRow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -182,6 +184,14 @@ public class SaleForm {
                         JOptionPane.showMessageDialog(null, s, "错误消息", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
+                    //超过库存数量出错
+                    int num_limit = goodBL.findGoodById(cgoodid).getNum();
+                    if (cquantity > num_limit) {
+                        String s = "第" + (i + 1) + "行数量已超出库存数量！";
+                        JOptionPane.showMessageDialog(null, s, "错误消息", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
                     try {
                         cpirce = Double.valueOf(table.getValueAt(i, 4).toString());
                     } catch (NumberFormatException ee) {
