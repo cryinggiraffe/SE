@@ -22,6 +22,10 @@ public class GoodBL {
     private LossDataServiceImpl lds=new LossDataServiceImpl();
     private GoodDataServiceImpl gds=new GoodDataServiceImpl();
     private InventoryDataServiceImpl ids=new InventoryDataServiceImpl();
+    public void newInventoryPO(InventoryPO po){
+        ids.insert(po);
+
+    }
     public void newGood(GoodPO po){
         gds.insert(po);
 
@@ -142,10 +146,17 @@ public class GoodBL {
         GoodPO po=new GoodPO();
         po.setGoodid("12345");
         po.setName("牛奶");
-        GoodDataServiceImpl gds=new GoodDataServiceImpl();
-        //gds.insert(po);
+        InventoryDataServiceImpl ids=new InventoryDataServiceImpl();
+        InventoryPO po1=new InventoryPO("sldfjasdf", "", 1, "1", "1",new java.sql.Date(new java.util.Date().getTime()));
+        ids.insert(po1);
+        //System.out.println(new java.sql.Date(new java.util.Date().getTime()));
+        //System.out.println(new java.util.Date());
         GoodBL gbl=new GoodBL();
-        //System.out.println(gbl.findGoodById("1234"));
-        System.out.println(gbl.findGoodByName("牛奶"));
+        Calendar c=Calendar.getInstance();
+        c.setTime(new java.util.Date());c.add(Calendar.DATE,-1);
+        java.util.Date d1=c.getTime();
+        c.add(Calendar.DATE,2);
+        java.util.Date d2=c.getTime();
+        System.out.println(gbl.dayCheck());
     }
 }
