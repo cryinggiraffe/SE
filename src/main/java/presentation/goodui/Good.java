@@ -17,8 +17,8 @@ import java.util.Enumeration;
 import java.util.Locale;
 
 public class Good {
-    GoodBL gbl=new GoodBL();
-    CategoryBL cbl=new CategoryBL();
+    GoodBL gbl = new GoodBL();
+    CategoryBL cbl = new CategoryBL();
     String goodId;
     JFrame jf;
 
@@ -113,8 +113,11 @@ public class Good {
 //                root.childs=root.collectChildren(PO.TreeNode.buildNodes(gbl.findAll(),cbl.findAll()));
 
                 //创建一个新的目录节点
-
-                DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(new CategoryPO("1",0,"123"));
+                CategoryPO temp = (CategoryPO) selectedNode.getUserObject();
+                int pid = Integer.valueOf(temp.getId());
+                new AddCategoryUi().init(pid);
+                //
+                DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(new CategoryPO("1", 0, "123"));
                 //直接通过model来添加新节点，则无需通过调用JTree的updateUI方法
                 //model.insertNodeInto(newNode, selectedNode, selectedNode.getChildCount());
                 //直接通过节点添加新节点，则需要调用tree的updateUI方法
@@ -204,7 +207,7 @@ public class Good {
         panel.add(deleteButton);
 
         //刷新按钮事件
-        ActionListener btRefresh_ls=new ActionListener() {
+        ActionListener btRefresh_ls = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
@@ -266,7 +269,7 @@ public class Good {
         String id = new AddGoodUi().addGoodUi_init(pid);
 
         //创建一个新的商品节点
-        System.out.println("into refresh"+ id);
+        System.out.println("into refresh" + id);
         GoodPO newGood = new GoodBL().findGoodById(id);
         DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(newGood);
 
