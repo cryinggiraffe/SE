@@ -63,7 +63,7 @@ public class AddUserUI extends JFrame {
         jc_type = new JComboBox();
         jc_type.setBounds(280,300,470,50);
         jc_type.setFont(font);
-        jc_type.addItem("root");
+        jc_type.addItem("admin");
         jc_type.addItem("manager");
         jc_type.addItem("finance");
         jc_type.addItem("sale");

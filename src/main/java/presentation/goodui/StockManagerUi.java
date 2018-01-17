@@ -1,6 +1,7 @@
 package presentation.goodui;
 
 import presentation.giftui.Gift;
+import presentation.loginui.Login;
 import presentation.superviseui.Supervise;
 import presentation.viewui.View;
 
@@ -8,6 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class StockManagerUi {
     public void init(){
@@ -66,9 +69,16 @@ public class StockManagerUi {
         p.add(supervise);
 
         f.setBounds(550,250,800,600);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         f.setVisible(true);
 
+        f.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        f.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                f.dispose();
+                Login login = new Login();
+            }
+        });
 
     }
     public static void main(String [] args){
