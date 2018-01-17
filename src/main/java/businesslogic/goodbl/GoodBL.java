@@ -129,7 +129,7 @@ public class GoodBL {
         try{
             SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd");
             s.format(new java.util.Date());
-            OutputStream output=new FileOutputStream("e:\\库存盘点-"+s.format(new java.util.Date())+".xls");
+            OutputStream output=new FileOutputStream("d:\\库存盘点-"+s.format(new java.util.Date())+".xls");
             wb.write(output);
             output.flush();
         }catch(Exception e){

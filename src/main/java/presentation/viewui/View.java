@@ -127,6 +127,7 @@ public class View {
                         String path = tmakeExcel.getText();
                         new GoodBL().makeExcel(null);
 //                        JOptionPane.showMessageDialog(null,"导出成功！","导出信息",JOptionPane.WARNING_MESSAGE);
+                        cframe.setVisible(false);
                     }
                 });
             }
