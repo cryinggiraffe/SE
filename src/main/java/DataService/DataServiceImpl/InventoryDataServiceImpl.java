@@ -13,7 +13,7 @@ public class InventoryDataServiceImpl implements InventoryDataService{
 	@Override
 	public boolean insert(InventoryPO inventoryPO) {
 		// TODO Auto-generated method stub
-		String sql = "insert into Inventory (goodid, goodname, type, price, batch, batch_num, date) values(?,?,?,?,?,?,?,?)";  
+		String sql = "insert into Inventory (goodid, goodname, type, price, batch, batch_num, date) values(?,?,?,?,?,?,?)";
 		return dao.update(sql, inventoryPO.getGoodid(), inventoryPO.getGoodname(), inventoryPO.getType(),
 				               inventoryPO.getPrice(), inventoryPO.getBatch(), inventoryPO.getBatch_num(),
 				               inventoryPO.getDate());
