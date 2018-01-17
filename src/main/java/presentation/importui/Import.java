@@ -179,7 +179,7 @@ public class Import {
                 System.out.println(sum);
                 iframe.setVisible(false);
 //            public String newForm(String formtype, String provider, String houseware, String operator,String remark, double sum, String state, java.util.Date date,List<Commodity> list) {
-                new ImportBL().newForm("JHD", provider, houseware, operator, remark, sum, null, date, commidyList);
+                new ImportBL().newForm("JHD", provider, houseware, operator, remark, sum, "no", date, commidyList);
             }
         });
         ipanel.add(submit);
