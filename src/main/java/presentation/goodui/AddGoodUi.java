@@ -11,7 +11,8 @@ import java.awt.event.ActionListener;
 import java.util.Vector;
 
 public class AddGoodUi {
-    public void addGoodUi_init(int parentId) {
+    private static String id;
+    public String addGoodUi_init(int parentId) {
         JFrame f = new JFrame("商品信息");
         f.setVisible(true);
         f.setBounds(555, 350, 800, 170);
@@ -105,6 +106,7 @@ public class AddGoodUi {
                 GoodPO addNew = new GoodPO(new GoodBL().generateId(), parentId, addName, type, num, pur_price, ret_price, rece_price, rece_ret_price);
                 System.out.println(addNew.getGoodid());
                 new GoodBL().newGood(addNew);
+                id = addNew.getGoodid();
 
 //                addNew.setName(addName);
 //                addNew.setNum(num);
@@ -122,7 +124,7 @@ public class AddGoodUi {
 //        int rece_price, int rece_ret_price) {
 
 //        System.out.println("123123123fr4r" + addNew.getGoodid() + " " + addNew.getName());
-
+        return id;
     }
 
 }

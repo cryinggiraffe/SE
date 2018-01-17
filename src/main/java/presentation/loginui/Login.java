@@ -94,6 +94,7 @@ public class Login extends JFrame{
                     System.out.println(user);
                     System.out.println(str);
                     String type = lg.usertype(user);
+                   System.out.println(type);
 
                     if (type.equals("manager")) {
                         ManagerUI managerUI = new ManagerUI(user);
@@ -110,6 +111,7 @@ public class Login extends JFrame{
                         stockManagerUi.init();
                         jf_1.dispose();//销毁当前界面
                     } else if (type.equals("admin")){
+                        System.out.println("into admin");
                         AdministratorUI administratorUI = new AdministratorUI(user);
                         jf_1.dispose();//销毁当前界面
                     }

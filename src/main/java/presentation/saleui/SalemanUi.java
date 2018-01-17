@@ -3,11 +3,14 @@ package presentation.saleui;
 import presentation.clientui.Client;
 import presentation.importui.Export;
 import presentation.importui.Import;
+import presentation.loginui.Login;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class SalemanUi {
     public void init() {
@@ -69,8 +72,15 @@ public class SalemanUi {
         p.add(exportCommody);
 
         f.setBounds(550, 250, 800, 600);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
+
+        f.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        f.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                f.dispose();
+                Login login = new Login();
+            }
+        });
 
 
     }
