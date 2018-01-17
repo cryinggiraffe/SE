@@ -34,7 +34,6 @@ public class ClientBL implements ClientBLService{
 
 
     public ClientPO findClient(String id) {
-
         return cds.find(id);
     }
 
@@ -46,7 +45,16 @@ public class ClientBL implements ClientBLService{
         }
         return res;
     }
-
+    public List<ClientPO> findByName(String name){
+        List<ClientPO> pos=cds.findAll();
+        List<ClientPO> res=new ArrayList<>();
+        for(int i=0;i!=pos.size();i++){
+            if(pos.get(i).getName().equals(name)){
+                res.add(pos.get(i));
+            }
+        }
+        return res;
+    }
 
     public static void main(String[] agrs){
         ClientBL cbl=new ClientBL();
