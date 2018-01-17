@@ -19,6 +19,7 @@ import java.util.Locale;
 public class Good {
     GoodBL gbl=new GoodBL();
     CategoryBL cbl=new CategoryBL();
+    String goodId;
     JFrame jf;
 
     JTree tree;
@@ -33,6 +34,7 @@ public class Good {
     JButton deleteButton = new JButton("删除节点");
     JButton editButton = new JButton("编辑当前节点");
     JButton findGood = new JButton("查找商品");
+    JButton btrefresh = new JButton("刷新");
 
     public void init() {
 
@@ -149,10 +151,13 @@ public class Good {
                 }
                 CategoryPO temp = (CategoryPO) selectedNode.getUserObject();
                 int pid = Integer.valueOf(temp.getId());
-                new AddGoodUi().addGoodUi_init(pid);
 
-                //创建一个新的商品节点
-                GoodPO newGood = new GoodPO();
+                AddGoodUi addGoodUi = new AddGoodUi();
+                goodId = addGoodUi.addGoodUi_init(pid);
+                System.out.println("add" + goodId);
+
+                /*//创建一个新的商品节点
+                GoodPO newGood = new GoodBL().findGoodById(id);
                 DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(newGood);
 
                 //直接通过model来添加新节点，则无需通过调用JTree的updateUI方法
@@ -164,7 +169,7 @@ public class Good {
                 TreeNode[] nodes = model.getPathToRoot(newNode);
                 TreePath path = new TreePath(nodes);
                 tree.scrollPathToVisible(path);
-                tree.updateUI();
+                tree.updateUI();*/
             }
         });
         panel.add(addGoodButton);
@@ -198,6 +203,20 @@ public class Good {
         });
         panel.add(deleteButton);
 
+        //刷新按钮事件
+        ActionListener btRefresh_ls=new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                // TODO Auto-generated method stub
+                System.out.println("refresh account");
+                DefaultMutableTreeNode selectedNode
+                        = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+                refresh(selectedNode);
+            }
+        };
+        btrefresh.addActionListener(btRefresh_ls);
+        panel.add(btrefresh);
+
         editButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 TreePath selectedPath = tree.getSelectionPath();
@@ -225,6 +244,44 @@ public class Good {
         jf.setBounds(550, 250, 800, 600);
 
     }
+
+    public void refresh(DefaultMutableTreeNode selectedNode) {
+        //如果节点为空，直接返回
+        if (selectedNode == null) {
+            JOptionPane.showMessageDialog(null, "请选择一个节点！", "错误消息", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        //如果节点为商品，提示错误，返回
+        if (selectedNode.getUserObject() instanceof GoodPO) {
+            JOptionPane.showMessageDialog(null, "商品下不能添加商品！", "错误消息", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        //如果节点下包含目录，提示错误，返回
+        if (contain_category(selectedNode)) {
+            JOptionPane.showMessageDialog(null, "该目录下包含目录，添加商品失败！", "错误消息", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        CategoryPO temp = (CategoryPO) selectedNode.getUserObject();
+        int pid = Integer.valueOf(temp.getId());
+        String id = new AddGoodUi().addGoodUi_init(pid);
+
+        //创建一个新的商品节点
+        System.out.println("into refresh"+ id);
+        GoodPO newGood = new GoodBL().findGoodById(id);
+        DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(newGood);
+
+        //直接通过model来添加新节点，则无需通过调用JTree的updateUI方法
+        //model.insertNodeInto(newNode, selectedNode, selectedNode.getChildCount());
+        //直接通过节点添加新节点，则需要调用tree的updateUI方法
+        selectedNode.add(newNode);
+        //--------下面代码实现显示新节点（自动展开父节点）-------
+        DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
+        TreeNode[] nodes = model.getPathToRoot(newNode);
+        TreePath path = new TreePath(nodes);
+        tree.scrollPathToVisible(path);
+        tree.updateUI();
+    }
+
 
     //treenode n的子节点中是否包含商品
     public boolean contain_good(TreeNode n) {

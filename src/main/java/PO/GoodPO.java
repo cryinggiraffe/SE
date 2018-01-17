@@ -148,8 +148,7 @@ public class GoodPO implements Serializable {
 
     @Override
     public String toString() {
-        return "GoodPO [gooid=" + goodid + ", pid=" + pid + ", name=" + name + ", type=" + type + ", num=" + num + ", pur_price=" + pur_price + ", ret_price=" + ret_price + ", rece_price=" + rece_price + ", rece_ret_price=" + rece_ret_price+
-        "]";
+        return  name ;
     }
 
 
