@@ -15,6 +15,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class GoodBL {
@@ -126,7 +127,9 @@ public class GoodBL {
 
         }
         try{
-            OutputStream output=new FileOutputStream("e:\\workbook.xls");
+            SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd");
+            s.format(new java.util.Date());
+            OutputStream output=new FileOutputStream("e:\\库存盘点-"+s.format(new java.util.Date())+".xls");
             wb.write(output);
             output.flush();
         }catch(Exception e){
