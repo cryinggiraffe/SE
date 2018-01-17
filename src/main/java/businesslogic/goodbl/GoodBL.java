@@ -143,9 +143,7 @@ public class GoodBL {
         return String.valueOf(r.nextInt(999999999));
     }
     public static void main(String[] agrs){
-        GoodPO po=new GoodPO();
-        po.setGoodid("12345");
-        po.setName("牛奶");
+        
         InventoryDataServiceImpl ids=new InventoryDataServiceImpl();
         InventoryPO po1=new InventoryPO("sldfjasdf", "", 1, "1", "1",new java.sql.Date(new java.util.Date().getTime()));
         ids.insert(po1);
