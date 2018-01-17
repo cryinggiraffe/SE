@@ -117,7 +117,7 @@ public class View {
 
                 JTextField tmakeExcel = new JTextField("请输入文件路径");
                 tmakeExcel.setColumns(20);
-                cpanel.add(tmakeExcel);
+//                cpanel.add(tmakeExcel);
 
                 JButton makeExcelButton = new JButton("导出Excel");
                 cpanel.add(makeExcelButton);
