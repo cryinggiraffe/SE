@@ -29,7 +29,8 @@ public class SaleRefund {
         JTextField tid = new JTextField(id);
         tid.setEditable(false);
         JLabel lclient = new JLabel("客户");
-        JTextField tclient = new JTextField();
+        JTextField tclient = new JTextField("销售商");
+        tclient.setEditable(false);
         JLabel lprovider = new JLabel("业务员");
         JTextField tprovider = new JTextField();
         JLabel loperator = new JLabel("操作员");
