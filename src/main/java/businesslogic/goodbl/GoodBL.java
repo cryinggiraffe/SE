@@ -126,7 +126,7 @@ public class GoodBL {
 
         }
         try{
-            OutputStream output=new FileOutputStream(path);
+            OutputStream output=new FileOutputStream("e:\\workbook.xls");
             wb.write(output);
             output.flush();
         }catch(Exception e){
