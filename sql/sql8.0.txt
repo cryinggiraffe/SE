@@ -3,7 +3,7 @@ CREATE TABLE Account
   name    VARCHAR(30) NOT NULL
     PRIMARY KEY,
   balance DOUBLE      NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE Alarm
 (
@@ -13,7 +13,7 @@ CREATE TABLE Alarm
   goodname VARCHAR(30) NULL,
   num      INT         NULL,
   date     DATE        NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 CREATE TABLE Cash
 (
@@ -27,7 +27,7 @@ CREATE TABLE Cash
   remark   VARCHAR(30) NULL,
   sum      DOUBLE      NULL,
   date     DATE        NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 CREATE TABLE Category
 (
@@ -35,7 +35,7 @@ CREATE TABLE Category
     PRIMARY KEY,
   pid  INT         NULL,
   name VARCHAR(30) NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 
 CREATE TABLE Client
@@ -53,7 +53,7 @@ CREATE TABLE Client
   receive         DOUBLE      NULL,
   send            DOUBLE      NULL,
   defaultsalesman VARCHAR(20) NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 CREATE TABLE Expenditure
 (
@@ -64,7 +64,7 @@ CREATE TABLE Expenditure
   giftexpenditure          DOUBLE NULL,
   sumexpenditure           DOUBLE NULL,
   date                     DATE   NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 CREATE TABLE Gift
 (
@@ -77,7 +77,7 @@ CREATE TABLE Gift
   num        INT         NULL,
   state      VARCHAR(30) NULL,
   date       DATE        NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 CREATE TABLE Good
 (
@@ -91,7 +91,7 @@ CREATE TABLE Good
   ret_price      INT         NULL,
   rece_price     INT         NULL,
   rece_ret_price INT         NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 CREATE TABLE ImportCommodity
 (
@@ -105,7 +105,7 @@ CREATE TABLE ImportCommodity
   subtotalprice DOUBLE      NULL,
   remark        VARCHAR(30) NULL,
   importformid  VARCHAR(30) NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE ImportForm
 (
@@ -118,7 +118,7 @@ CREATE TABLE ImportForm
   sum       DOUBLE      NULL,
   state     VARCHAR(30) NULL,
   date      DATE        NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 CREATE TABLE ImportReturnCommodity
 (
@@ -132,7 +132,7 @@ CREATE TABLE ImportReturnCommodity
   subtotalprice DOUBLE      NULL,
   remark        VARCHAR(30) NULL,
   importformid  VARCHAR(30) NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE ImportReturnForm
 (
@@ -145,7 +145,7 @@ CREATE TABLE ImportReturnForm
   sum       DOUBLE      NULL,
   state     VARCHAR(30) NULL,
   date      DATE        NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 
 CREATE TABLE SaleCommodity
@@ -160,7 +160,7 @@ CREATE TABLE SaleCommodity
   subtotalprice DOUBLE      NULL,
   remark        VARCHAR(30) NULL,
   saleformid  VARCHAR(30) NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE SaleForm
 (
@@ -177,7 +177,7 @@ CREATE TABLE SaleForm
   remark          VARCHAR(30) NULL,
   state           VARCHAR(30) NULL,
   date            DATE        NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE SaleReturnCommodity
@@ -192,7 +192,7 @@ CREATE TABLE SaleReturnCommodity
   subtotalprice DOUBLE      NULL,
   remark        VARCHAR(30) NULL,
   saleformid  VARCHAR(30) NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE SaleReturnForm
@@ -210,7 +210,7 @@ CREATE TABLE SaleReturnForm
   remark          VARCHAR(30) NULL,
   state           VARCHAR(30) NULL,
   date            DATE        NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE Income
 (
@@ -224,7 +224,7 @@ CREATE TABLE Income
   sumincome          DOUBLE NULL,
   discount           DOUBLE NULL,
   date               DATE   NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 CREATE TABLE Inventory
 (
@@ -237,7 +237,7 @@ CREATE TABLE Inventory
   batch     VARCHAR(30) NULL,
   batch_num VARCHAR(30) NULL,
   date      DATE        NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 CREATE TABLE Loss
 (
@@ -247,14 +247,14 @@ CREATE TABLE Loss
   goodname VARCHAR(30) NULL,
   num      INT         NULL,
   date     DATE        NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 CREATE TABLE Message
 (
   id      INT AUTO_INCREMENT
     PRIMARY KEY,
   message VARCHAR(20) NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 CREATE TABLE Overflow
 (
@@ -264,7 +264,7 @@ CREATE TABLE Overflow
   goodname VARCHAR(30) NULL,
   num      INT         NULL,
   date     DATE        NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 CREATE TABLE Payment
 (
@@ -278,7 +278,7 @@ CREATE TABLE Payment
   sum      DOUBLE      NULL,
   state    VARCHAR(20) NULL,
   date     DATE        NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 CREATE TABLE Receipt
 (
@@ -292,7 +292,7 @@ CREATE TABLE Receipt
   sum      DOUBLE      NULL,
   state    VARCHAR(20) NULL,
   date     DATE        NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE UserClassPromotion
 (
@@ -303,7 +303,7 @@ CREATE TABLE UserClassPromotion
   num         INT         NULL,
   discount    DOUBLE      NULL,
   cash_coupon DOUBLE      NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE CommodityPromotion
 (
@@ -312,7 +312,7 @@ CREATE TABLE CommodityPromotion
   specialgoodname1  VARCHAR(30) NULL,
   specialgoodname2  VARCHAR(30) NULL,
   discountprice DOUBLE      NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE PricePromotion
@@ -322,7 +322,7 @@ CREATE TABLE PricePromotion
   giftname    VARCHAR(30) NULL,
   num         INT         NULL,
   cash_coupon DOUBLE      NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE User
@@ -331,4 +331,4 @@ CREATE TABLE User
   password  VARCHAR(25) NULL,
   userclass INT         NULL,
   type      VARCHAR(20) NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8

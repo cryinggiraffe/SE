@@ -2,6 +2,8 @@ package presentation.goodui;
 
 import PO.CategoryPO;
 import PO.GoodPO;
+import businesslogic.categorybl.CategoryBL;
+import businesslogic.goodbl.GoodBL;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -15,6 +17,8 @@ import java.util.Enumeration;
 import java.util.Locale;
 
 public class Good {
+    GoodBL gbl=new GoodBL();
+    CategoryBL cbl=new CategoryBL();
     JFrame jf;
 
     JTree tree;
@@ -103,13 +107,12 @@ public class Good {
                     JOptionPane.showMessageDialog(null, "该目录下包含商品，添加目录失败！", "错误消息", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
+                PO.TreeNode root=new PO.TreeNode(new CategoryPO("0",0,""));
+                root.childs=root.collectChildren(PO.TreeNode.buildNodes(gbl.findAll(),cbl.findAll()));
 
-                CategoryPO temp = (CategoryPO) selectedNode.getUserObject();
-                int pid = Integer.valueOf(temp.getId());
-                new AddCategoryUi().init(pid);
+                /*//创建一个新的目录节点
 
-                //创建一个新的目录节点
-                DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(new CategoryPO());
+                DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(new CategoryPO("1",0,"123"));
                 //直接通过model来添加新节点，则无需通过调用JTree的updateUI方法
                 //model.insertNodeInto(newNode, selectedNode, selectedNode.getChildCount());
                 //直接通过节点添加新节点，则需要调用tree的updateUI方法
@@ -120,6 +123,7 @@ public class Good {
                 TreePath path = new TreePath(nodes);
                 tree.scrollPathToVisible(path);
                 tree.updateUI();
+                */
             }
         });
         panel.add(addCategoryButton);
