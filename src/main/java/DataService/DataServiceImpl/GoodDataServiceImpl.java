@@ -5,6 +5,7 @@ import java.util.List;
 import DataService.GoodDataService;
 import JDBC.DAO;
 import PO.GoodPO;
+import presentation.goodui.Good;
 
 public class GoodDataServiceImpl implements GoodDataService{
 
@@ -36,6 +37,12 @@ public class GoodDataServiceImpl implements GoodDataService{
 		// TODO Auto-generated method stub
 		String sql = "select * from Good";
 		return dao.getForList(GoodPO.class, sql);
+	}
+
+	@Override
+	public GoodPO find (String id) {
+		String sql = "SELECT * FROM test.good where goodid = ?";
+		return dao.get(GoodPO.class, sql,id);
 	}
 
 }

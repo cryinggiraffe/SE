@@ -7,8 +7,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.List;
 
 public class AccountUI extends JPanel {
@@ -91,6 +90,18 @@ public class AccountUI extends JPanel {
 
 
         this.setVisible(true);
+
+        //双击取消选中状态
+        MouseListener mouseListener = new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int index = jl_accountlist.locationToIndex(e.getPoint());
+                    //System.out.println("Double clicked on Item " + index);
+                    jl_accountlist.clearSelection();
+                }
+            }
+        };
+        jl_accountlist.addMouseListener(mouseListener);
 
         //编辑账户按钮事件
         ActionListener btUpdate_ls=new ActionListener() {

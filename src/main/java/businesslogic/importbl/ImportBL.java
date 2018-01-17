@@ -105,7 +105,9 @@ public class ImportBL implements ImportFormService{
     
 
     public List<ImportFormPO> findAllForm(){
-        return ids.findForState_Commities();
+        List<ImportFormPO> importFormPOList = ids.findForState_Commities();
+        importFormPOList.addAll(irds.findForState_Commities());
+        return importFormPOList;
     }
     public List<ImportFormPO> findAllReturnForm(){
         return irds.findForState_Commities();

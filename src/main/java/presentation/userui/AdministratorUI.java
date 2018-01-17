@@ -1,6 +1,7 @@
 package presentation.userui;
 
 import presentation.accountui.FinancialUI;
+import presentation.loginui.Login;
 
 import javax.swing.*;
 import java.awt.*;
@@ -89,7 +90,8 @@ public class AdministratorUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
-                System.exit(0);//终止当前程序
+                Login login = new Login();
+                jf_1.dispose();
             }
         };
         bt_exit.addActionListener(btExit_ls);

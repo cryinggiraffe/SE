@@ -63,7 +63,7 @@ public class GiftDataServiceImpl implements GiftDataService{
 	@Override
 	public List<GiftPO> findForTime(Date begin, Date end) {
 		// TODO Auto-generated method stub
-		String sql = "select giftlistid, giftid, name, price, num, state, date from Gift where date >= ? and date <= ?";
+		String sql = "select giftlistid, goodid, goodname, price, num, state, date from Gift where date >= ? and date <= ?";
 		return dao.getALL(GiftPO.class, sql, begin, end);
 	}
 	

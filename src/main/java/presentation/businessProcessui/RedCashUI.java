@@ -1,22 +1,18 @@
-package presentation.billui;
-
+package presentation.businessProcessui;
 
 import PO.AccountPO;
 import businesslogic.accountbl.AccountBL;
 import businesslogic.cashbl.CashBL;
-
+import oracle.jrockit.jfr.JFR;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.text.Document;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.sql.Date;
 
-public class CashUI extends JFrame {
+public class RedCashUI extends JFrame {
     private static JLabel jl_id;
     private static JLabel jl_username;
     private static JLabel jl_account;
@@ -37,7 +33,7 @@ public class CashUI extends JFrame {
     private static int Height = 700;
     private static Color background = new Color(135, 206, 250);
 
-    public CashUI (String name) {
+    public RedCashUI (String name, String account,String list, String amount) {
         //设置界面
         Font font =new Font("微软雅黑", Font.PLAIN, 20);//设置按钮字体
         CashBL cashBL = new CashBL();
@@ -53,28 +49,28 @@ public class CashUI extends JFrame {
         jl_account = new JLabel("银行账户：");
         jl_account.setBounds(150,190,120,50);
         jl_account.setFont(font);
-        jt_account = new JTextField("");
+        jt_account = new JTextField(account);
         jt_account.setBounds(280,190,550,50);
         jt_account.setFont(font);
 
         jl_list = new JLabel("条目名：");
         jl_list.setBounds(150,280,120,50);
         jl_list.setFont(font);
-        jt_list = new JTextField("");
+        jt_list = new JTextField(list);
         jt_list.setBounds(280,280,550,50);
         jt_list.setFont(font);
 
         jl_amount = new JLabel("金额：");
         jl_amount.setBounds(150,370,120,50);
         jl_amount.setFont(font);
-        jt_amount = new JTextField("");
+        jt_amount = new JTextField(amount);
         jt_amount.setBounds(280,370,550,50);
         jt_amount.setFont(font);
 
         jl_remark = new JLabel("备注：");
         jl_remark.setBounds(150,460,120,50);
         jl_remark.setFont(font);
-        jt_remark = new JTextField("无");
+        jt_remark = new JTextField("红冲复制单据");
         jt_remark.setBounds(280,460,550,50);
         jt_remark.setFont(font);
 
@@ -88,7 +84,7 @@ public class CashUI extends JFrame {
         bt_submit.setFont(font);
 
         //向frame添加组件
-        jf_1 = new JFrame("创建现金费用单");
+        jf_1 = new JFrame("红冲复制现金费用单");
         jf_1.setSize(Width,Height);
         jf_1.setLocation(200,10);
         jf_1.setLayout(null);

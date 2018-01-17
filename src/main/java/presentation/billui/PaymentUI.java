@@ -53,21 +53,21 @@ public class PaymentUI extends JFrame {
         jl_client = new JLabel("客户：");
         jl_client.setBounds(150,190,120,50);
         jl_client.setFont(font);
-        jt_client = new JTextField();
+        jt_client = new JTextField("");
         jt_client.setBounds(280,190,550,50);
         jt_client.setFont(font);
 
         jl_account = new JLabel("银行账户：");
         jl_account.setBounds(150,280,120,50);
         jl_account.setFont(font);
-        jt_account = new JTextField();
+        jt_account = new JTextField("");
         jt_account.setBounds(280,280,550,50);
         jt_account.setFont(font);
 
         jl_amount = new JLabel("转账金额：");
         jl_amount.setBounds(150,370,120,50);
         jl_amount.setFont(font);
-        jt_amount = new JTextField();
+        jt_amount = new JTextField("");
         jt_amount.setBounds(280,370,550,50);
         jt_amount.setFont(font);
 
@@ -135,7 +135,7 @@ public class PaymentUI extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 Object[] options = {" 确定 "," 取消 "};
-                int response=JOptionPane.showOptionDialog(null, "确认提交？", "提示信息",JOptionPane.YES_OPTION,
+                int response=JOptionPane.showOptionDialog(jf_1, "确认提交？", "提示信息",JOptionPane.YES_OPTION,
                         JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
                 if(response==0) {
                     System.out.println(" 您按下了确定按钮  ");
@@ -170,7 +170,6 @@ public class PaymentUI extends JFrame {
                     }else {
                         PaymentBL paymentBL = new PaymentBL();
                         Date date = new Date(System.currentTimeMillis());
-
                         AccountPO accountpo = accountBL.findAccount(account);
                         double balance = accountpo.getBalance();
                         balance = balance - amountNum;

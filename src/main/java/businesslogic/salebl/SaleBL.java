@@ -99,7 +99,9 @@ public class SaleBL implements SaleFormService {
     }
 
     public List<SaleFormPO> findAllForm(){
-        return ids.findForState_Commities();
+        List<SaleFormPO> saleFormPOList = ids.findForState_Commities();
+        saleFormPOList.addAll(irds.findForState_Commities());
+        return saleFormPOList;
     }
     public List<SaleFormPO> findAllReturnForm(){
         return irds.findForState_Commities();

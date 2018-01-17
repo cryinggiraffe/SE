@@ -5,8 +5,7 @@ import businesslogic.promotionbl.PromotionBL;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class PromotionUI extends JPanel {
     private static JButton bt_refresh;
@@ -50,6 +49,7 @@ public class PromotionUI extends JPanel {
         for(int i = 0; i < promotionPOList.size(); i++)
         {
             PromotionPO promotionPO = promotionPOList.get(i);
+            System.out.println(promotionPO.toString());
             model.addElement(promotionPO);
 
         }
@@ -73,6 +73,18 @@ public class PromotionUI extends JPanel {
         this.add(jl_type);
         this.add(jc_type);
         this.setVisible(true);
+
+        //双击取消选中状态
+        MouseListener mouseListener = new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int index = jl_promotionlist.locationToIndex(e.getPoint());
+                    //System.out.println("Double clicked on Item " + index);
+                    jl_promotionlist.clearSelection();
+                }
+            }
+        };
+        jl_promotionlist.addMouseListener(mouseListener);
 
         //刷新按钮事件
         ActionListener btRefresh_ls=new ActionListener() {
@@ -103,13 +115,14 @@ public class PromotionUI extends JPanel {
         DefaultListModel<PromotionPO> model = new DefaultListModel<>();
         PromotionBL promotionBL = new PromotionBL();
         java.util.List<PromotionPO> promotionPOList = promotionBL.findAll();
+        System.out.println("刷新后" + promotionPOList.size());
         for(int i = 0; i < promotionPOList.size(); i++)
         {
             PromotionPO promotionPO = promotionPOList.get(i);
             model.addElement(promotionPO);
 
         }
-        jl_promotionlist = new JList(model);
+        jl_promotionlist.setModel(model);
     }
 
 }

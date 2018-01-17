@@ -39,7 +39,7 @@ public class BusinessProcessbl {
     public List<SaleFormPO> findSaleReturnFormForSalesman(String salesman){
         return bpds.findSaleReturnFormForSalesman(salesman);
     }
-    List<SaleFormPO> findSaleReturnFormForHouseWare(String houseware){
+    public List<SaleFormPO> findSaleReturnFormForHouseWare(String houseware){
         return bpds.findSaleReturnFormForHouseWare(houseware);
     }
     public List<ImportFormPO> findImportFormForTime(Date tbegin, Date tend){
@@ -54,7 +54,7 @@ public class BusinessProcessbl {
         return bpds.findImportFormForClient(client);
     }
     public List<ImportFormPO> findImportFormForHouseWare(String houseware){
-        return findImportFormForHouseWare(houseware);
+        return bpds.findImportFormForHouseWare(houseware);
     }
     public List<ImportFormPO> findImportReturnFormForTime(Date tbegin, Date tend){
         java.sql.Date begin=new java.sql.Date(tbegin.getTime());

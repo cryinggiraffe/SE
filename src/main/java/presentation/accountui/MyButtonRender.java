@@ -41,12 +41,10 @@ public class MyButtonRender extends JPanel implements ListCellRenderer<AccountPO
         if (isSelected) {
             lbName.setBackground(list.getSelectionBackground());
             lbBalance.setBackground(list.getSelectionBackground());
-
             setBackground(list.getSelectionBackground());
         } else { // when don't select
             lbName.setBackground(list.getBackground());
             lbBalance.setBackground(list.getBackground());
-
             setBackground(list.getBackground());
         }
 

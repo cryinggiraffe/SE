@@ -10,5 +10,6 @@ public interface GoodDataService {
 	public boolean delete(GoodPO goodPO);
 	public boolean update(GoodPO goodPO);
 	public List<GoodPO> list();
+	public GoodPO find(String id);
 	
 }

@@ -184,7 +184,7 @@ public class Export {
                 System.out.println(sum);
                 iframe.setVisible(false);
 //            public String newForm(String formtype, String provider, String houseware, String operator,String remark, double sum, String state, java.util.Date date,List<Commodity> list) {
-                new ImportBL().newForm("JHTHD", provider, houseware, operator, remark, sum, null, date, commidyList);
+                new ImportBL().newForm("JHTHD", provider, houseware, operator, remark, sum, "no", date, commidyList);
             }
         });
         ipanel.add(submit);

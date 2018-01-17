@@ -133,7 +133,7 @@ public class ReceiptUI extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 Object[] options = {" 确定 "," 取消 "};
-                int response=JOptionPane.showOptionDialog(null, "确认提交？", "提示信息",JOptionPane.YES_OPTION,
+                int response=JOptionPane.showOptionDialog(jf_1, "确认提交？", "提示信息",JOptionPane.YES_OPTION,
                         JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
                 if(response==0) {
                     System.out.println(" 您按下了确定按钮  ");

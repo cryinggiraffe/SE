@@ -186,27 +186,33 @@ public class AddPromotionUI extends JFrame {
                         JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
                 if(response==0) {
                     System.out.println(" 您按下了确定按钮  ");
-                    int id = 1;
-                    int userclass = Integer.parseInt(jcUserClass.getSelectedItem().toString());
-                    String giftname = jcGiftName.getSelectedItem().toString();
-                    int num = Integer.parseInt(jtNum.getText());
-                    double discount = Double.parseDouble(jtDiscount.getText());
-                    double cash_coupon = Double.parseDouble(jtCash.getText());
-                    String specialgoodname1 = jcSGood1.getSelectedItem().toString();
-                    String specialgoodname2 = jcSGood2.getSelectedItem().toString();
-                    double discountprice = Double.parseDouble(jtDisprice.getText());
+
                     if (type.equals("用户级别")){
                         System.out.println("make userclass promotion");
-                        //PromotionPO promotionPO = new PromotionPO(id,userclass,giftname,num,discount,cash_coupon);
-                        //promotionBL.makePromotion(promotionPO);
+                        int userclass = Integer.parseInt(jcUserClass.getSelectedItem().toString());
+                        String giftname = jcGiftName.getSelectedItem().toString();
+                        int num = Integer.parseInt(jtNum.getText());
+                        double discount = Double.parseDouble(jtDiscount.getText());
+                        double cash_coupon = Double.parseDouble(jtCash.getText());
+                        PromotionPO promotionPO = new PromotionPO(id,userclass,giftname,num,discount,cash_coupon);
+                        promotionBL.makePromotion(promotionPO);
+                        jf_1.dispose();
                     }else if (type.equals("特价包")){
                         System.out.println("make special price promotion");
-                        //PromotionPO promotionPO = new PromotionPO(id,specialgoodname1,specialgoodname2,discountprice);
-                        //promotionBL.makePromotion(promotionPO);
+                        String specialgoodname1 = jcSGood1.getSelectedItem().toString();
+                        String specialgoodname2 = jcSGood2.getSelectedItem().toString();
+                        double discountprice = Double.parseDouble(jtDisprice.getText());
+                        PromotionPO promotionPO = new PromotionPO(id,specialgoodname1,specialgoodname2,discountprice);
+                        promotionBL.makePromotion(promotionPO);
+                        jf_1.dispose();
                     }else if (type.equals("总价优惠")){
                         System.out.println("make total price promotion");
-                        //PromotionPO promotionPO = new PromotionPO(id,giftname,num,cash_coupon);
-                        //promotionBL.makePromotion(promotionPO);
+                        String giftname = jcGiftName.getSelectedItem().toString();
+                        int num = Integer.parseInt(jtNum.getText());
+                        double cash_coupon = Double.parseDouble(jtCash.getText());
+                        PromotionPO promotionPO = new PromotionPO(id,giftname,num,cash_coupon);
+                        promotionBL.makePromotion(promotionPO);
+                        jf_1.dispose();
                     }
 
                 } else if(response==1) {

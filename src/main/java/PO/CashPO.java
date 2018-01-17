@@ -97,8 +97,8 @@ public class CashPO {
 
 	@Override
 	public String toString() {
-		return "CashPO [listid=" + listid + ", operator=" + operator + ", account=" + account + ", name=" + name
-				+ ", amount=" + amount + ", remark=" + remark + ", sum=" + sum + ", date=" + date + "]";
+		return listid + "," + operator + "," + account + "," + name
+				+ "," + amount + "," + remark + "," + sum + "," + date;
 	}
 	
 	

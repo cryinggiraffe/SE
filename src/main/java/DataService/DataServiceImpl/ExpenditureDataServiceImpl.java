@@ -14,7 +14,7 @@ public class ExpenditureDataServiceImpl implements ExpenditureDataService{
 	public boolean insert(ExpenditurePO expenditurePO) {
 		// TODO Auto-generated method stub
 		String sql = "insert into Expenditure (salecost, commoditylostexpenditure, giftexpenditure, sumexpenditure, date) "
-				+ " vaules(?,?,?,?,?)";
+				+ " values(?,?,?,?,?)";
 		
 		return dao.update(sql, expenditurePO.getSalecost(), expenditurePO.getCommoditylostexpenditure(), expenditurePO.getGiftexpenditure(),
 				               expenditurePO.getSumexpenditure(), expenditurePO.getDate());

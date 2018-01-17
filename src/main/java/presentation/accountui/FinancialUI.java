@@ -1,7 +1,10 @@
 package presentation.accountui;
 
 import presentation.billui.BillUI;
+import presentation.businessProcessui.BusiProcessUI;
 import presentation.saleSituationui.SaleSituationUI;
+import presentation.translationSituationui.TransSituationUI;
+import presentation.loginui.Login;
 
 import javax.swing.*;
 import java.awt.*;
@@ -110,7 +113,9 @@ public class FinancialUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
-                System.exit(0);//终止当前程序
+                Login login = new Login();
+                jf_1.dispose();
+
             }
         };
         bt_exit.addActionListener(btExit_ls);
@@ -163,8 +168,7 @@ public class FinancialUI extends JFrame{
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 System.out.println("into initial account manage");
-                //mainLayout ml=new mainLayout(jf_1);//为跳转的界面
-                jf_1.setVisible(false);//隐藏当前界面
+                JOptionPane.showMessageDialog(jf_1, "此功能暂未开放，敬请期待！", "提示信息", JOptionPane.INFORMATION_MESSAGE);
             }
         };
         bt_initialAccount.addActionListener(btInitialAccount_ls);
@@ -175,8 +179,10 @@ public class FinancialUI extends JFrame{
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 System.out.println("into business process manage");
-                //mainLayout ml=new mainLayout(jf_1);//为跳转的界面
-                jf_1.setVisible(false);//隐藏当前界面
+                jp_current = new BusiProcessUI("finance");
+                bt_back.setVisible(true);
+                jf_1.add(jp_current);
+                contentPane.setVisible(false);//隐藏当前界面
             }
         };
         bt_busiProcess.addActionListener(btBusiProcess_ls);
@@ -187,8 +193,10 @@ public class FinancialUI extends JFrame{
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 System.out.println("into translation situation manage");
-                //mainLayout ml=new mainLayout(jf_1);//为跳转的界面
-                jf_1.setVisible(false);//隐藏当前界面
+                jp_current = new TransSituationUI();
+                bt_back.setVisible(true);
+                jf_1.add(jp_current);
+                contentPane.setVisible(false);//隐藏当前界面
             }
         };
         bt_transSituation.addActionListener(btTransSituation_ls);
