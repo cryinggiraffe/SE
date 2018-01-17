@@ -126,7 +126,7 @@ public class GoodBL {
 
         }
         try{
-            OutputStream output=new FileOutputStream("e:\\workbook.xls");
+            OutputStream output=new FileOutputStream(path);
             wb.write(output);
             output.flush();
         }catch(Exception e){
@@ -143,7 +143,7 @@ public class GoodBL {
         return String.valueOf(r.nextInt(999999999));
     }
     public static void main(String[] agrs){
-        
+
         InventoryDataServiceImpl ids=new InventoryDataServiceImpl();
         InventoryPO po1=new InventoryPO("sldfjasdf", "", 1, "1", "1",new java.sql.Date(new java.util.Date().getTime()));
         ids.insert(po1);
