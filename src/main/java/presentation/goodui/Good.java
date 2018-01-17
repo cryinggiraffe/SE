@@ -107,10 +107,10 @@ public class Good {
                     JOptionPane.showMessageDialog(null, "该目录下包含商品，添加目录失败！", "错误消息", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
-                PO.TreeNode root=new PO.TreeNode(new CategoryPO("0",0,""));
-                root.childs=root.collectChildren(PO.TreeNode.buildNodes(gbl.findAll(),cbl.findAll()));
+//                PO.TreeNode root=new PO.TreeNode(new CategoryPO("0",0,""));
+//                root.childs=root.collectChildren(PO.TreeNode.buildNodes(gbl.findAll(),cbl.findAll()));
 
-                /*//创建一个新的目录节点
+                //创建一个新的目录节点
 
                 DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(new CategoryPO("1",0,"123"));
                 //直接通过model来添加新节点，则无需通过调用JTree的updateUI方法
@@ -123,7 +123,6 @@ public class Good {
                 TreePath path = new TreePath(nodes);
                 tree.scrollPathToVisible(path);
                 tree.updateUI();
-                */
             }
         });
         panel.add(addCategoryButton);

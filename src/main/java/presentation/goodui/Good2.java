@@ -285,6 +285,6 @@ public class Good2 {
     }
 
     public static void main(String[] args) {
-        new Good().init();
+        new Good2().init();
     }
 }
