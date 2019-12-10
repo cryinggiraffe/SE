@@ -7,6 +7,48 @@
     <groupId>sehomework</groupId>
     <artifactId>sehomework666</artifactId>
     <version>1.0-SNAPSHOT</version>
+<<<<<<< HEAD
 
 
 </project>
+=======
+    
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.8.3</version>
+        </dependency>
+	
+	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+    	    <groupId>mysql</groupId>
+    	    <artifactId>mysql-connector-java</artifactId>
+    	    <version>5.1.8</version>
+	</dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.17</version>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+        <!-- maven-compiler-plugin -->
+>>>>>>> 4d55c3dc14b5bdd52a210076e04dbb2ee2d9d380
